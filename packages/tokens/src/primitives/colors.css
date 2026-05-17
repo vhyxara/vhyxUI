@@ -1,0 +1,48 @@
+:root {
+  /* Slate — neutral scale */
+  --vhyx-primitive-slate-50:   #f8fafc;
+  --vhyx-primitive-slate-100:  #f1f5f9;
+  --vhyx-primitive-slate-200:  #e2e8f0;
+  --vhyx-primitive-slate-300:  #cbd5e1;
+  --vhyx-primitive-slate-400:  #94a3b8;
+  --vhyx-primitive-slate-500:  #64748b;
+  --vhyx-primitive-slate-600:  #475569;
+  --vhyx-primitive-slate-700:  #334155;
+  --vhyx-primitive-slate-800:  #1e293b;
+  --vhyx-primitive-slate-900:  #0f172a;
+  --vhyx-primitive-slate-950:  #020617;
+
+  /* Indigo — default accent */
+  --vhyx-primitive-indigo-50:  #eef2ff;
+  --vhyx-primitive-indigo-100: #e0e7ff;
+  --vhyx-primitive-indigo-200: #c7d2fe;
+  --vhyx-primitive-indigo-300: #a5b4fc;
+  --vhyx-primitive-indigo-400: #818cf8;
+  --vhyx-primitive-indigo-500: #6366f1;
+  --vhyx-primitive-indigo-600: #4f46e5;
+  --vhyx-primitive-indigo-700: #4338ca;
+  --vhyx-primitive-indigo-800: #3730a3;
+  --vhyx-primitive-indigo-900: #312e81;
+
+  /* Green — success */
+  --vhyx-primitive-green-50:   #f0fdf4;
+  --vhyx-primitive-green-500:  #22c55e;
+  --vhyx-primitive-green-600:  #16a34a;
+  --vhyx-primitive-green-700:  #15803d;
+
+  /* Red — danger */
+  --vhyx-primitive-red-50:     #fef2f2;
+  --vhyx-primitive-red-500:    #ef4444;
+  --vhyx-primitive-red-600:    #dc2626;
+  --vhyx-primitive-red-700:    #b91c1c;
+
+  /* Amber — warning */
+  --vhyx-primitive-amber-50:   #fffbeb;
+  --vhyx-primitive-amber-500:  #f59e0b;
+  --vhyx-primitive-amber-600:  #d97706;
+
+  /* Blue — info */
+  --vhyx-primitive-blue-50:    #eff6ff;
+  --vhyx-primitive-blue-500:   #3b82f6;
+  --vhyx-primitive-blue-600:   #2563eb;
+}

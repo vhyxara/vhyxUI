@@ -1,0 +1,17 @@
+:root {
+  /* Font family stacks */
+  --vhyx-primitive-font-sans:  system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --vhyx-primitive-font-mono:  ui-monospace, 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+  --vhyx-primitive-font-serif: ui-serif, Georgia, serif;
+
+  /* Raw size scale */
+  --vhyx-primitive-text-2xs: 0.625rem;
+  --vhyx-primitive-text-xs:  0.75rem;
+  --vhyx-primitive-text-sm:  0.875rem;
+  --vhyx-primitive-text-md:  1rem;
+  --vhyx-primitive-text-lg:  1.125rem;
+  --vhyx-primitive-text-xl:  1.25rem;
+  --vhyx-primitive-text-2xl: 1.5rem;
+  --vhyx-primitive-text-3xl: 1.875rem;
+  --vhyx-primitive-text-4xl: 2.25rem;
+}
