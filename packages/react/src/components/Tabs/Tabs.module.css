@@ -1,0 +1,160 @@
+/* ─── Root ────────────────────────────────────────────────── */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.root[data-orientation="vertical"] {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* ─── List ────────────────────────────────────────────────── */
+
+.list {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.list[data-orientation="vertical"] {
+  flex-direction: column;
+}
+
+/* ─── Variant: default ────────────────────────────────────── */
+
+.list[data-variant="default"] {
+  border-bottom: var(--vhyx-border-width) solid var(--vhyx-color-border);
+}
+
+.list[data-variant="default"][data-orientation="vertical"] {
+  border-bottom: none;
+  border-right: var(--vhyx-border-width) solid var(--vhyx-color-border);
+}
+
+/* ─── Variant: enclosed ───────────────────────────────────── */
+
+.list[data-variant="enclosed"] {
+  background-color: var(--vhyx-color-bg-subtle);
+  border-radius: var(--vhyx-radius-lg);
+  padding: var(--vhyx-space-1);
+  gap: var(--vhyx-space-0-5);
+}
+
+/* ─── Trigger ─────────────────────────────────────────────── */
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--vhyx-space-2) var(--vhyx-space-4);
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-text-subtle);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  transition:
+    color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.trigger:hover:not(:disabled) {
+  color: var(--vhyx-color-text);
+}
+
+.trigger:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+  border-radius: var(--vhyx-radius-sm);
+}
+
+.trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.trigger[data-state="active"] {
+  color: var(--vhyx-color-text);
+}
+
+/* Pills variant — active tab has filled background */
+.list[data-variant="pills"] .trigger[data-state="active"] {
+  background-color: var(--vhyx-color-accent);
+  color: var(--vhyx-color-text-on-accent);
+  border-radius: var(--vhyx-radius-full);
+}
+
+/* Enclosed variant — active tab has card-like background */
+.list[data-variant="enclosed"] .trigger[data-state="active"] {
+  background-color: var(--vhyx-color-surface);
+  box-shadow: var(--vhyx-shadow-sm);
+  border-radius: var(--vhyx-radius-md);
+}
+
+/* Sizes */
+.trigger[data-size="sm"] {
+  padding: var(--vhyx-space-1-5) var(--vhyx-space-3);
+  font-size: var(--vhyx-text-xs);
+}
+
+.trigger[data-size="lg"] {
+  padding: var(--vhyx-space-2-5) var(--vhyx-space-5);
+  font-size: var(--vhyx-text-md);
+}
+
+/* ─── Sliding indicator ───────────────────────────────────── */
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: var(--vhyx-border-width-2);
+  background-color: var(--vhyx-color-accent);
+
+  /* Spring animation — duration-normal / easing-spring */
+  transition:
+    transform var(--vhyx-duration-normal) var(--vhyx-easing-spring),
+    width var(--vhyx-duration-normal) var(--vhyx-easing-spring);
+}
+
+/* Vertical orientation — indicator on the right */
+.indicator[data-orientation="vertical"] {
+  bottom: auto;
+  left: auto;
+  right: 0;
+  top: 0;
+  width: var(--vhyx-border-width-2);
+  height: auto;
+
+  transition:
+    transform var(--vhyx-duration-normal) var(--vhyx-easing-spring),
+    height var(--vhyx-duration-normal) var(--vhyx-easing-spring);
+}
+
+/* Hide indicator for variants that handle their own active state visually */
+.list[data-variant="pills"] .indicator,
+.list[data-variant="enclosed"] .indicator {
+  display: none;
+}
+
+/* ─── Panel ───────────────────────────────────────────────── */
+
+.panel {
+  flex: 1;
+  padding: var(--vhyx-space-4) 0;
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  color: var(--vhyx-color-text);
+  outline: none;
+}
+
+.root[data-orientation="vertical"] .panel {
+  padding: 0 var(--vhyx-space-4);
+}

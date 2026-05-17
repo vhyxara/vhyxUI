@@ -1,0 +1,160 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Overlay ─────────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--vhyx-z-overlay);
+  animation: vhyx-overlay-in var(--vhyx-duration-normal) var(--vhyx-easing-standard) both;
+}
+
+/* ─── Content — base ──────────────────────────────────────── */
+
+.content {
+  position: fixed;
+  z-index: var(--vhyx-z-modal);
+  background-color: var(--vhyx-color-surface-overlay);
+  box-shadow: var(--vhyx-shadow-2xl);
+  overflow-y: auto;
+  outline: none;
+  padding: var(--vhyx-space-6);
+}
+
+/* ─── Side positioning ────────────────────────────────────── */
+
+.content[data-side="right"] {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  animation: vhyx-slide-right-in var(--vhyx-duration-slow) var(--vhyx-easing-decelerate) both;
+}
+
+.content[data-side="left"] {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  animation: vhyx-slide-left-in var(--vhyx-duration-slow) var(--vhyx-easing-decelerate) both;
+}
+
+.content[data-side="top"] {
+  top: 0;
+  left: 0;
+  right: 0;
+  animation: vhyx-slide-down-in var(--vhyx-duration-slow) var(--vhyx-easing-decelerate) both;
+}
+
+.content[data-side="bottom"] {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  animation: vhyx-slide-up-in var(--vhyx-duration-slow) var(--vhyx-easing-decelerate) both;
+}
+
+/* ─── Width/height by size (left/right = width, top/bottom = height) ── */
+
+.content[data-side="right"][data-size="sm"],
+.content[data-side="left"][data-size="sm"] {
+  width: var(--vhyx-drawer-sm);
+}
+
+.content[data-side="right"][data-size="md"],
+.content[data-side="left"][data-size="md"] {
+  width: var(--vhyx-drawer-md);
+}
+
+.content[data-side="right"][data-size="lg"],
+.content[data-side="left"][data-size="lg"] {
+  width: var(--vhyx-drawer-lg);
+}
+
+.content[data-side="right"][data-size="full"],
+.content[data-side="left"][data-size="full"] {
+  width: var(--vhyx-drawer-full);
+}
+
+.content[data-side="top"][data-size="sm"],
+.content[data-side="bottom"][data-size="sm"] {
+  height: var(--vhyx-drawer-sm);
+}
+
+.content[data-side="top"][data-size="md"],
+.content[data-side="bottom"][data-size="md"] {
+  height: var(--vhyx-drawer-md);
+}
+
+.content[data-side="top"][data-size="lg"],
+.content[data-side="bottom"][data-size="lg"] {
+  height: var(--vhyx-drawer-lg);
+}
+
+.content[data-side="top"][data-size="full"],
+.content[data-side="bottom"][data-size="full"] {
+  height: var(--vhyx-drawer-full);
+}
+
+/* ─── Layout sub-components ───────────────────────────────── */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-1-5);
+  margin-bottom: var(--vhyx-space-4);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--vhyx-space-3);
+  margin-top: var(--vhyx-space-6);
+}
+
+.title {
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-lg);
+  font-weight: var(--vhyx-weight-semibold);
+  color: var(--vhyx-color-text);
+  line-height: var(--vhyx-leading-snug);
+  margin: 0;
+}
+
+.description {
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  color: var(--vhyx-color-text-subtle);
+  line-height: var(--vhyx-leading-normal);
+  margin: 0;
+}
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--vhyx-space-2) var(--vhyx-space-4);
+  background: transparent;
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  border-radius: var(--vhyx-radius-md);
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-text);
+  cursor: pointer;
+  transition:
+    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    border-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.close:hover {
+  background-color: var(--vhyx-color-bg-subtle);
+}
+
+.close:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}
