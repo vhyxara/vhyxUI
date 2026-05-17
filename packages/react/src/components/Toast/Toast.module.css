@@ -1,0 +1,182 @@
+/* ─── Toast region ────────────────────────────────────────── */
+
+.region {
+  position: fixed;
+  z-index: var(--vhyx-z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-2);
+  pointer-events: none;
+  max-width: var(--vhyx-space-32);
+  width: calc(100vw - var(--vhyx-space-8));
+}
+
+/* Position variants */
+.region[data-position="top-left"] {
+  top: var(--vhyx-space-4);
+  left: var(--vhyx-space-4);
+}
+
+.region[data-position="top-center"] {
+  top: var(--vhyx-space-4);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.region[data-position="top-right"] {
+  top: var(--vhyx-space-4);
+  right: var(--vhyx-space-4);
+}
+
+.region[data-position="bottom-left"] {
+  bottom: var(--vhyx-space-4);
+  left: var(--vhyx-space-4);
+}
+
+.region[data-position="bottom-center"] {
+  bottom: var(--vhyx-space-4);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.region[data-position="bottom-right"] {
+  bottom: var(--vhyx-space-4);
+  right: var(--vhyx-space-4);
+}
+
+/* ─── Toast item ──────────────────────────────────────────── */
+
+.toast {
+  pointer-events: all;
+  border-radius: var(--vhyx-radius-lg);
+  box-shadow: var(--vhyx-shadow-lg);
+  overflow: hidden;
+  min-width: 18rem;
+
+  /* slide-up-in on enter: duration-normal / easing-spring */
+  animation: vhyx-slide-up-in var(--vhyx-duration-normal) var(--vhyx-easing-spring) both;
+}
+
+.toast-content {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--vhyx-space-3);
+  padding: var(--vhyx-space-3) var(--vhyx-space-4);
+  background-color: var(--vhyx-color-surface-overlay);
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+}
+
+/* ─── Variants ────────────────────────────────────────────── */
+
+.toast[data-variant="success"] .toast-content {
+  border-left: var(--vhyx-space-1) solid var(--vhyx-color-success);
+}
+
+.toast[data-variant="danger"] .toast-content {
+  border-left: var(--vhyx-space-1) solid var(--vhyx-color-danger);
+}
+
+.toast[data-variant="warning"] .toast-content {
+  border-left: var(--vhyx-space-1) solid var(--vhyx-color-warning);
+}
+
+.toast[data-variant="info"] .toast-content {
+  border-left: var(--vhyx-space-1) solid var(--vhyx-color-info);
+}
+
+/* ─── Icon ────────────────────────────────────────────────── */
+
+.toast-icon {
+  font-size: var(--vhyx-text-md);
+  flex-shrink: 0;
+  line-height: var(--vhyx-leading-normal);
+}
+
+.toast[data-variant="success"] .toast-icon { color: var(--vhyx-color-success-text); }
+.toast[data-variant="danger"] .toast-icon { color: var(--vhyx-color-danger-text); }
+.toast[data-variant="warning"] .toast-icon { color: var(--vhyx-color-warning-text); }
+.toast[data-variant="info"] .toast-icon { color: var(--vhyx-color-info-text); }
+.toast[data-variant="default"] .toast-icon { color: var(--vhyx-color-text-subtle); }
+
+/* ─── Body ────────────────────────────────────────────────── */
+
+.toast-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-0-5);
+}
+
+.toast-message {
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-text);
+  line-height: var(--vhyx-leading-snug);
+}
+
+.toast-description {
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-xs);
+  color: var(--vhyx-color-text-subtle);
+  line-height: var(--vhyx-leading-snug);
+}
+
+/* ─── Action button ───────────────────────────────────────── */
+
+.toast-action {
+  flex-shrink: 0;
+  padding: var(--vhyx-space-1) var(--vhyx-space-2-5);
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  border-radius: var(--vhyx-radius-sm);
+  background: transparent;
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-xs);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.toast-action:hover {
+  background-color: var(--vhyx-color-bg-subtle);
+}
+
+.toast-action:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}
+
+/* ─── Dismiss button ──────────────────────────────────────── */
+
+.toast-dismiss {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--vhyx-space-5);
+  height: var(--vhyx-space-5);
+  border: none;
+  border-radius: var(--vhyx-radius-sm);
+  background: transparent;
+  cursor: pointer;
+  color: var(--vhyx-color-text-muted);
+  padding: 0;
+  transition: color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.toast-dismiss:hover {
+  color: var(--vhyx-color-text);
+}
+
+.toast-dismiss:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}
+
+.toast-dismiss svg {
+  width: var(--vhyx-space-3);
+  height: var(--vhyx-space-3);
+}
