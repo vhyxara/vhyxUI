@@ -1,0 +1,151 @@
+{
+  "name": "@vhyxui/react",
+  "version": "0.0.1",
+  "description": "VhyxUI React components — accessible, motion-first, agent-ready",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./button": {
+      "import": "./dist/button.js",
+      "require": "./dist/button.cjs",
+      "types": "./dist/button.d.ts"
+    },
+    "./input": {
+      "import": "./dist/input.js",
+      "require": "./dist/input.cjs",
+      "types": "./dist/input.d.ts"
+    },
+    "./textarea": {
+      "import": "./dist/textarea.js",
+      "require": "./dist/textarea.cjs",
+      "types": "./dist/textarea.d.ts"
+    },
+    "./select": {
+      "import": "./dist/select.js",
+      "require": "./dist/select.cjs",
+      "types": "./dist/select.d.ts"
+    },
+    "./checkbox": {
+      "import": "./dist/checkbox.js",
+      "require": "./dist/checkbox.cjs",
+      "types": "./dist/checkbox.d.ts"
+    },
+    "./radio": {
+      "import": "./dist/radio.js",
+      "require": "./dist/radio.cjs",
+      "types": "./dist/radio.d.ts"
+    },
+    "./switch": {
+      "import": "./dist/switch.js",
+      "require": "./dist/switch.cjs",
+      "types": "./dist/switch.d.ts"
+    },
+    "./form": {
+      "import": "./dist/form.js",
+      "require": "./dist/form.cjs",
+      "types": "./dist/form.d.ts"
+    },
+    "./toast": {
+      "import": "./dist/toast.js",
+      "require": "./dist/toast.cjs",
+      "types": "./dist/toast.d.ts"
+    },
+    "./alert": {
+      "import": "./dist/alert.js",
+      "require": "./dist/alert.cjs",
+      "types": "./dist/alert.d.ts"
+    },
+    "./badge": {
+      "import": "./dist/badge.js",
+      "require": "./dist/badge.cjs",
+      "types": "./dist/badge.d.ts"
+    },
+    "./progress": {
+      "import": "./dist/progress.js",
+      "require": "./dist/progress.cjs",
+      "types": "./dist/progress.d.ts"
+    },
+    "./spinner": {
+      "import": "./dist/spinner.js",
+      "require": "./dist/spinner.cjs",
+      "types": "./dist/spinner.d.ts"
+    },
+    "./dialog": {
+      "import": "./dist/dialog.js",
+      "require": "./dist/dialog.cjs",
+      "types": "./dist/dialog.d.ts"
+    },
+    "./drawer": {
+      "import": "./dist/drawer.js",
+      "require": "./dist/drawer.cjs",
+      "types": "./dist/drawer.d.ts"
+    },
+    "./tooltip": {
+      "import": "./dist/tooltip.js",
+      "require": "./dist/tooltip.cjs",
+      "types": "./dist/tooltip.d.ts"
+    },
+    "./popover": {
+      "import": "./dist/popover.js",
+      "require": "./dist/popover.cjs",
+      "types": "./dist/popover.d.ts"
+    },
+    "./card": {
+      "import": "./dist/card.js",
+      "require": "./dist/card.cjs",
+      "types": "./dist/card.d.ts"
+    },
+    "./separator": {
+      "import": "./dist/separator.js",
+      "require": "./dist/separator.cjs",
+      "types": "./dist/separator.d.ts"
+    },
+    "./tabs": {
+      "import": "./dist/tabs.js",
+      "require": "./dist/tabs.cjs",
+      "types": "./dist/tabs.d.ts"
+    },
+    "./breadcrumb": {
+      "import": "./dist/breadcrumb.js",
+      "require": "./dist/breadcrumb.cjs",
+      "types": "./dist/breadcrumb.d.ts"
+    },
+    "./pagination": {
+      "import": "./dist/pagination.js",
+      "require": "./dist/pagination.cjs",
+      "types": "./dist/pagination.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --project tsconfig.test.json --noEmit",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "@vhyxseal/react": "0.1.0",
+    "@vhyxui/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
+  }
+}
