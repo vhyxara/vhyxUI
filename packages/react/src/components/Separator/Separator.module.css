@@ -1,0 +1,41 @@
+.separator {
+  border: none;
+  background-color: var(--vhyx-color-border);
+  flex-shrink: 0;
+}
+
+.separator[data-orientation="horizontal"] {
+  width: 100%;
+  height: var(--vhyx-border-width);
+  margin: 0;
+}
+
+.separator[data-orientation="vertical"] {
+  width: var(--vhyx-border-width);
+  height: 100%;
+  align-self: stretch;
+}
+
+/* ─── Labeled separator ───────────────────────────────────── */
+
+.separator--labeled {
+  display: flex;
+  align-items: center;
+  gap: var(--vhyx-space-3);
+  width: 100%;
+}
+
+.line {
+  flex: 1;
+  height: var(--vhyx-border-width);
+  background-color: var(--vhyx-color-border);
+}
+
+.label-text {
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-xs);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}

@@ -1,0 +1,48 @@
+.spinner {
+  display: inline-block;
+  flex-shrink: 0;
+
+  /* vhyx-spin keyframe from semantic/motion.css — infinite linear 0.7s */
+  animation: vhyx-spin 0.7s linear infinite;
+}
+
+/* ─── Sizes ───────────────────────────────────────────────── */
+
+.spinner[data-size="xs"] {
+  width: var(--vhyx-space-3);
+  height: var(--vhyx-space-3);
+}
+
+.spinner[data-size="sm"] {
+  width: var(--vhyx-space-4);
+  height: var(--vhyx-space-4);
+}
+
+.spinner[data-size="md"] {
+  width: var(--vhyx-space-6);
+  height: var(--vhyx-space-6);
+}
+
+.spinner[data-size="lg"] {
+  width: var(--vhyx-space-8);
+  height: var(--vhyx-space-8);
+}
+
+.spinner[data-size="xl"] {
+  width: var(--vhyx-space-12);
+  height: var(--vhyx-space-12);
+}
+
+/* ─── Variants ────────────────────────────────────────────── */
+
+.spinner[data-variant="default"] {
+  color: var(--vhyx-color-text-subtle);
+}
+
+.spinner[data-variant="accent"] {
+  color: var(--vhyx-color-accent);
+}
+
+.spinner[data-variant="white"] {
+  color: var(--vhyx-color-text-on-accent);
+}

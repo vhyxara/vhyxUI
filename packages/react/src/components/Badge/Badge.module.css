@@ -1,0 +1,101 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+
+  font-family: var(--vhyx-font-sans);
+  font-weight: var(--vhyx-weight-medium);
+  line-height: var(--vhyx-leading-none);
+
+  border-radius: var(--vhyx-radius-full);
+  border: var(--vhyx-border-width) solid transparent;
+}
+
+/* ─── Sizes ───────────────────────────────────────────────── */
+
+.badge[data-size="sm"] {
+  font-size: var(--vhyx-text-2xs);
+  padding: var(--vhyx-space-0-5) var(--vhyx-space-1-5);
+  min-width: var(--vhyx-space-4);
+  height: var(--vhyx-space-4);
+}
+
+.badge[data-size="md"] {
+  font-size: var(--vhyx-text-xs);
+  padding: var(--vhyx-space-1) var(--vhyx-space-2);
+  min-width: var(--vhyx-space-5);
+  height: var(--vhyx-space-5);
+}
+
+.badge[data-size="lg"] {
+  font-size: var(--vhyx-text-sm);
+  padding: var(--vhyx-space-1) var(--vhyx-space-2-5);
+  min-width: var(--vhyx-space-6);
+  height: var(--vhyx-space-6);
+}
+
+/* ─── Dot mode ────────────────────────────────────────────── */
+
+.badge[data-dot="true"] {
+  padding: 0;
+  min-width: unset;
+}
+
+.badge[data-dot="true"][data-size="sm"] {
+  width: var(--vhyx-space-2);
+  height: var(--vhyx-space-2);
+}
+
+.badge[data-dot="true"][data-size="md"] {
+  width: var(--vhyx-space-2-5);
+  height: var(--vhyx-space-2-5);
+}
+
+.badge[data-dot="true"][data-size="lg"] {
+  width: var(--vhyx-space-3);
+  height: var(--vhyx-space-3);
+}
+
+/* ─── Variant: default ────────────────────────────────────── */
+
+.badge[data-variant="default"] {
+  background-color: var(--vhyx-color-bg-muted);
+  color: var(--vhyx-color-text);
+}
+
+/* ─── Variant: success ────────────────────────────────────── */
+
+.badge[data-variant="success"] {
+  background-color: var(--vhyx-color-success-subtle);
+  color: var(--vhyx-color-success-text);
+}
+
+/* ─── Variant: warning ────────────────────────────────────── */
+
+.badge[data-variant="warning"] {
+  background-color: var(--vhyx-color-warning-subtle);
+  color: var(--vhyx-color-warning-text);
+}
+
+/* ─── Variant: danger ─────────────────────────────────────── */
+
+.badge[data-variant="danger"] {
+  background-color: var(--vhyx-color-danger-subtle);
+  color: var(--vhyx-color-danger-text);
+}
+
+/* ─── Variant: info ───────────────────────────────────────── */
+
+.badge[data-variant="info"] {
+  background-color: var(--vhyx-color-info-subtle);
+  color: var(--vhyx-color-info-text);
+}
+
+/* ─── Variant: outline ────────────────────────────────────── */
+
+.badge[data-variant="outline"] {
+  background-color: transparent;
+  color: var(--vhyx-color-text);
+  border-color: var(--vhyx-color-border-strong);
+}
