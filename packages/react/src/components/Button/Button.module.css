@@ -1,0 +1,211 @@
+.button {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--vhyx-space-2);
+  height: var(--vhyx-size-md);
+  padding: 0 var(--vhyx-space-4);
+
+  /* Typography */
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  font-weight: var(--vhyx-weight-medium);
+  line-height: var(--vhyx-leading-none);
+  white-space: nowrap;
+  text-decoration: none;
+
+  /* Shape */
+  border-radius: var(--vhyx-radius-md);
+  border: var(--vhyx-border-width) solid transparent;
+
+  /* Interaction */
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+
+  /* Transitions */
+  transition:
+    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    border-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    box-shadow var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    opacity var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+/* ─── Active press animation ──────────────────────────────── */
+.button:active:not(:disabled) {
+  transform: scale(0.97);
+  transition: transform var(--vhyx-duration-instant) var(--vhyx-easing-standard);
+}
+
+/* ─── Focus ───────────────────────────────────────────────── */
+.button:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}
+
+/* ─── Disabled ────────────────────────────────────────────── */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ─── Loading ─────────────────────────────────────────────── */
+.button[data-loading="true"] .content {
+  opacity: 0.6;
+}
+
+/* ─── Sizes ───────────────────────────────────────────────── */
+.button[data-size="xs"] {
+  height: var(--vhyx-size-xs);
+  padding: 0 var(--vhyx-space-2);
+  font-size: var(--vhyx-text-xs);
+  border-radius: var(--vhyx-radius-sm);
+  gap: var(--vhyx-space-1);
+}
+
+.button[data-size="sm"] {
+  height: var(--vhyx-size-sm);
+  padding: 0 var(--vhyx-space-3);
+  font-size: var(--vhyx-text-xs);
+}
+
+.button[data-size="md"] {
+  height: var(--vhyx-size-md);
+  padding: 0 var(--vhyx-space-4);
+  font-size: var(--vhyx-text-sm);
+}
+
+.button[data-size="lg"] {
+  height: var(--vhyx-size-lg);
+  padding: 0 var(--vhyx-space-6);
+  font-size: var(--vhyx-text-md);
+}
+
+/* ─── Icon only ───────────────────────────────────────────── */
+.button[data-icon-only="true"] {
+  padding: 0;
+  width: var(--vhyx-size-md);
+}
+
+.button[data-icon-only="true"][data-size="xs"] {
+  width: var(--vhyx-size-xs);
+}
+
+.button[data-icon-only="true"][data-size="sm"] {
+  width: var(--vhyx-size-sm);
+}
+
+.button[data-icon-only="true"][data-size="lg"] {
+  width: var(--vhyx-size-lg);
+}
+
+/* ─── Variant: primary ────────────────────────────────────── */
+.button[data-variant="primary"] {
+  background-color: var(--vhyx-color-accent);
+  color: var(--vhyx-color-text-on-accent);
+  border-color: var(--vhyx-color-accent);
+}
+
+.button[data-variant="primary"]:hover:not(:disabled) {
+  background-color: var(--vhyx-color-accent-hover);
+  border-color: var(--vhyx-color-accent-hover);
+}
+
+.button[data-variant="primary"]:active:not(:disabled) {
+  background-color: var(--vhyx-color-accent-active);
+  border-color: var(--vhyx-color-accent-active);
+}
+
+/* ─── Variant: secondary ──────────────────────────────────── */
+.button[data-variant="secondary"] {
+  background-color: var(--vhyx-color-bg-subtle);
+  color: var(--vhyx-color-text);
+  border-color: var(--vhyx-color-border);
+}
+
+.button[data-variant="secondary"]:hover:not(:disabled) {
+  background-color: var(--vhyx-color-bg-muted);
+  border-color: var(--vhyx-color-border-strong);
+}
+
+/* ─── Variant: outline ────────────────────────────────────── */
+.button[data-variant="outline"] {
+  background-color: transparent;
+  color: var(--vhyx-color-accent);
+  border-color: var(--vhyx-color-accent);
+}
+
+.button[data-variant="outline"]:hover:not(:disabled) {
+  background-color: var(--vhyx-color-accent-subtle);
+}
+
+/* ─── Variant: ghost ──────────────────────────────────────── */
+.button[data-variant="ghost"] {
+  background-color: transparent;
+  color: var(--vhyx-color-text);
+  border-color: transparent;
+}
+
+.button[data-variant="ghost"]:hover:not(:disabled) {
+  background-color: var(--vhyx-color-bg-subtle);
+  border-color: var(--vhyx-color-border);
+}
+
+/* ─── Variant: destructive ────────────────────────────────── */
+.button[data-variant="destructive"] {
+  background-color: var(--vhyx-color-danger);
+  color: var(--vhyx-color-text-on-accent);
+  border-color: var(--vhyx-color-danger);
+}
+
+.button[data-variant="destructive"]:hover:not(:disabled) {
+  background-color: var(--vhyx-color-danger-hover);
+  border-color: var(--vhyx-color-danger-hover);
+}
+
+.button[data-variant="destructive"]:focus-visible {
+  box-shadow: var(--vhyx-shadow-focus-danger);
+}
+
+/* ─── Variant: link ───────────────────────────────────────── */
+.button[data-variant="link"] {
+  background-color: transparent;
+  color: var(--vhyx-color-accent);
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: var(--vhyx-space-0-5);
+  height: auto;
+  padding: 0;
+}
+
+.button[data-variant="link"]:hover:not(:disabled) {
+  color: var(--vhyx-color-accent-hover);
+}
+
+/* ─── Spinner ─────────────────────────────────────────────── */
+.spinner {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  animation: vhyx-spin var(--vhyx-duration-glacial) linear infinite;
+}
+
+/* ─── Icon ────────────────────────────────────────────────── */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+}
+
+/* ─── Content ─────────────────────────────────────────────── */
+.content {
+  display: inline-flex;
+  align-items: center;
+}
