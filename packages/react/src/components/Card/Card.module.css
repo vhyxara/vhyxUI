@@ -1,0 +1,111 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--vhyx-radius-lg);
+  overflow: hidden;
+  font-family: var(--vhyx-font-sans);
+  color: var(--vhyx-color-text);
+}
+
+/* ─── Variants ────────────────────────────────────────────── */
+
+.card[data-variant="default"] {
+  background-color: var(--vhyx-color-surface);
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+}
+
+.card[data-variant="outline"] {
+  background-color: transparent;
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+}
+
+.card[data-variant="ghost"] {
+  background-color: transparent;
+  border: none;
+}
+
+.card[data-variant="elevated"] {
+  background-color: var(--vhyx-color-surface-raised);
+  border: none;
+  box-shadow: var(--vhyx-shadow-md);
+}
+
+/* ─── Padding ─────────────────────────────────────────────── */
+
+.card[data-padding="none"] .header,
+.card[data-padding="none"] .body,
+.card[data-padding="none"] .footer {
+  padding: 0;
+}
+
+.card[data-padding="sm"] .header,
+.card[data-padding="sm"] .body,
+.card[data-padding="sm"] .footer {
+  padding: var(--vhyx-space-3);
+}
+
+.card[data-padding="md"] .header,
+.card[data-padding="md"] .body,
+.card[data-padding="md"] .footer {
+  padding: var(--vhyx-space-4);
+}
+
+.card[data-padding="lg"] .header,
+.card[data-padding="lg"] .body,
+.card[data-padding="lg"] .footer {
+  padding: var(--vhyx-space-6);
+}
+
+/* ─── Interactive ─────────────────────────────────────────── */
+
+.card[data-interactive="true"] {
+  cursor: pointer;
+  transition:
+    box-shadow var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    transform var(--vhyx-duration-instant) var(--vhyx-easing-standard);
+}
+
+.card[data-interactive="true"]:hover {
+  box-shadow: var(--vhyx-shadow-md);
+}
+
+.card[data-interactive="true"]:active {
+  transform: scale(0.99);
+}
+
+.card[data-interactive="true"]:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}
+
+/* ─── Sub-components ──────────────────────────────────────── */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-1-5);
+}
+
+.body {
+  flex: 1;
+  font-size: var(--vhyx-text-sm);
+  color: var(--vhyx-color-text-subtle);
+  line-height: var(--vhyx-leading-normal);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: var(--vhyx-space-2);
+}
+
+.image {
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

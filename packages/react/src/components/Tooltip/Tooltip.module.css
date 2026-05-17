@@ -1,0 +1,15 @@
+.tooltip {
+  padding: var(--vhyx-space-1-5) var(--vhyx-space-2-5);
+  background-color: var(--vhyx-color-bg-inverse);
+  color: var(--vhyx-color-text-inverse);
+  border-radius: var(--vhyx-radius-sm);
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-xs);
+  font-weight: var(--vhyx-weight-medium);
+  line-height: var(--vhyx-leading-snug);
+  max-width: var(--vhyx-space-32);
+  pointer-events: none;
+
+  /* fade-in: duration-fast / easing-decelerate */
+  animation: vhyx-fade-in var(--vhyx-duration-fast) var(--vhyx-easing-decelerate) both;
+}
