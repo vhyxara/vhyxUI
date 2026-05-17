@@ -1,0 +1,12 @@
+{
+  "name": "@vhyxui/tokens",
+  "version": "0.0.1",
+  "description": "CSS design tokens for VhyxUI — zero JavaScript, zero build step",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.css",
+    "./index.css": "./src/index.css",
+    "./reset.css": "./src/reset.css",
+    "./dark.css": "./src/themes/dark.css"
+  }
+}
