@@ -1,0 +1,14 @@
+:root {
+  --vhyx-radius-none:  0;
+  --vhyx-radius-xs:    2px;
+  --vhyx-radius-sm:    4px;
+  --vhyx-radius-md:    6px;
+  --vhyx-radius-lg:    8px;
+  --vhyx-radius-xl:    12px;
+  --vhyx-radius-2xl:   16px;
+  --vhyx-radius-3xl:   24px;
+  --vhyx-radius-full:  9999px;
+
+  --vhyx-border-width:   1px;
+  --vhyx-border-width-2: 2px;
+}

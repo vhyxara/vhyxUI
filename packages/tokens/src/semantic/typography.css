@@ -1,0 +1,42 @@
+:root {
+  /* Font families */
+  --vhyx-font-sans:   system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', sans-serif;
+  --vhyx-font-mono:   ui-monospace, 'Cascadia Code', 'Fira Code',
+                      'Consolas', monospace;
+  --vhyx-font-serif:  ui-serif, Georgia, serif;
+
+  /* Size scale */
+  --vhyx-text-2xs:   0.625rem;
+  --vhyx-text-xs:    0.75rem;
+  --vhyx-text-sm:    0.875rem;
+  --vhyx-text-md:    1rem;
+  --vhyx-text-lg:    1.125rem;
+  --vhyx-text-xl:    1.25rem;
+  --vhyx-text-2xl:   1.5rem;
+  --vhyx-text-3xl:   1.875rem;
+  --vhyx-text-4xl:   2.25rem;
+
+  /* Line height */
+  --vhyx-leading-none:     1;
+  --vhyx-leading-tight:    1.25;
+  --vhyx-leading-snug:     1.375;
+  --vhyx-leading-normal:   1.5;
+  --vhyx-leading-relaxed:  1.625;
+  --vhyx-leading-loose:    2;
+
+  /* Font weight */
+  --vhyx-weight-light:     300;
+  --vhyx-weight-normal:    400;
+  --vhyx-weight-medium:    500;
+  --vhyx-weight-semibold:  600;
+  --vhyx-weight-bold:      700;
+  --vhyx-weight-extrabold: 800;
+
+  /* Letter spacing */
+  --vhyx-tracking-tight:   -0.025em;
+  --vhyx-tracking-normal:  0em;
+  --vhyx-tracking-wide:    0.025em;
+  --vhyx-tracking-wider:   0.05em;
+  --vhyx-tracking-widest:  0.1em;
+}

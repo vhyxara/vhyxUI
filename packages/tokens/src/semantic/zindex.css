@@ -1,0 +1,14 @@
+:root {
+  --vhyx-z-hide:      -1;
+  --vhyx-z-base:       0;
+  --vhyx-z-raised:     10;
+  --vhyx-z-dropdown:   100;
+  --vhyx-z-sticky:     200;
+  --vhyx-z-banner:     250;
+  --vhyx-z-overlay:    300;
+  --vhyx-z-modal:      400;
+  --vhyx-z-popover:    450;
+  --vhyx-z-toast:      500;
+  --vhyx-z-tooltip:    550;
+  --vhyx-z-top:        999;
+}

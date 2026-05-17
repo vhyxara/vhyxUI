@@ -1,0 +1,18 @@
+:root {
+  --vhyx-shadow-none:  none;
+  --vhyx-shadow-xs:    0 1px 2px rgba(0, 0, 0, 0.05);
+  --vhyx-shadow-sm:    0 1px 3px rgba(0, 0, 0, 0.1),
+                       0 1px 2px rgba(0, 0, 0, 0.06);
+  --vhyx-shadow-md:    0 4px 6px rgba(0, 0, 0, 0.07),
+                       0 2px 4px rgba(0, 0, 0, 0.05);
+  --vhyx-shadow-lg:    0 10px 15px rgba(0, 0, 0, 0.1),
+                       0 4px 6px rgba(0, 0, 0, 0.05);
+  --vhyx-shadow-xl:    0 20px 25px rgba(0, 0, 0, 0.1),
+                       0 10px 10px rgba(0, 0, 0, 0.04);
+  --vhyx-shadow-2xl:   0 25px 50px rgba(0, 0, 0, 0.25);
+  --vhyx-shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+
+  /* Focus ring — consistent across all interactive elements */
+  --vhyx-shadow-focus:        0 0 0 3px rgba(99, 102, 241, 0.4);
+  --vhyx-shadow-focus-danger: 0 0 0 3px rgba(239, 68, 68, 0.4);
+}

@@ -1,0 +1,56 @@
+:root {
+  /* Background */
+  --vhyx-color-bg:              var(--vhyx-primitive-slate-50);
+  --vhyx-color-bg-subtle:       var(--vhyx-primitive-slate-100);
+  --vhyx-color-bg-muted:        var(--vhyx-primitive-slate-200);
+  --vhyx-color-bg-inverse:      var(--vhyx-primitive-slate-900);
+
+  /* Surface — components sit on surface, not bg */
+  --vhyx-color-surface:         #ffffff;
+  --vhyx-color-surface-raised:  #ffffff;
+  --vhyx-color-surface-overlay: #ffffff;
+
+  /* Border */
+  --vhyx-color-border:          var(--vhyx-primitive-slate-200);
+  --vhyx-color-border-strong:   var(--vhyx-primitive-slate-300);
+  --vhyx-color-border-focus:    var(--vhyx-primitive-indigo-500);
+
+  /* Text */
+  --vhyx-color-text:            var(--vhyx-primitive-slate-900);
+  --vhyx-color-text-subtle:     var(--vhyx-primitive-slate-500);
+  --vhyx-color-text-muted:      var(--vhyx-primitive-slate-400);
+  --vhyx-color-text-disabled:   var(--vhyx-primitive-slate-300);
+  --vhyx-color-text-inverse:    var(--vhyx-primitive-slate-50);
+  --vhyx-color-text-on-accent:  #ffffff;
+
+  /* Accent */
+  --vhyx-color-accent:          var(--vhyx-primitive-indigo-500);
+  --vhyx-color-accent-hover:    var(--vhyx-primitive-indigo-600);
+  --vhyx-color-accent-active:   var(--vhyx-primitive-indigo-700);
+  --vhyx-color-accent-subtle:   var(--vhyx-primitive-indigo-50);
+  --vhyx-color-accent-muted:    var(--vhyx-primitive-indigo-100);
+
+  /* Success */
+  --vhyx-color-success:         var(--vhyx-primitive-green-500);
+  --vhyx-color-success-hover:   var(--vhyx-primitive-green-600);
+  --vhyx-color-success-subtle:  var(--vhyx-primitive-green-50);
+  --vhyx-color-success-text:    var(--vhyx-primitive-green-700);
+
+  /* Danger */
+  --vhyx-color-danger:          var(--vhyx-primitive-red-500);
+  --vhyx-color-danger-hover:    var(--vhyx-primitive-red-600);
+  --vhyx-color-danger-subtle:   var(--vhyx-primitive-red-50);
+  --vhyx-color-danger-text:     var(--vhyx-primitive-red-700);
+
+  /* Warning */
+  --vhyx-color-warning:         var(--vhyx-primitive-amber-500);
+  --vhyx-color-warning-hover:   var(--vhyx-primitive-amber-600);
+  --vhyx-color-warning-subtle:  var(--vhyx-primitive-amber-50);
+  --vhyx-color-warning-text:    var(--vhyx-primitive-amber-600);
+
+  /* Info */
+  --vhyx-color-info:            var(--vhyx-primitive-blue-500);
+  --vhyx-color-info-hover:      var(--vhyx-primitive-blue-600);
+  --vhyx-color-info-subtle:     var(--vhyx-primitive-blue-50);
+  --vhyx-color-info-text:       var(--vhyx-primitive-blue-600);
+}
