@@ -1,0 +1,106 @@
+/* ─── Form container ──────────────────────────────────────── */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-5);
+  width: 100%;
+}
+
+.form[data-layout="horizontal"] {
+  flex-direction: column;
+  gap: var(--vhyx-space-4);
+}
+
+.form[data-layout="inline"] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--vhyx-space-3);
+}
+
+/* ─── Field wrapper ───────────────────────────────────────── */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-1-5);
+}
+
+.field--horizontal {
+  display: grid;
+  grid-template-columns: var(--vhyx-space-32) 1fr;
+  grid-template-rows: auto auto;
+  column-gap: var(--vhyx-space-4);
+  align-items: start;
+}
+
+/* In horizontal layout, control spans the right column;
+   hint and error appear under the control column. */
+.field--horizontal .label {
+  grid-row: 1;
+  grid-column: 1;
+  padding-top: var(--vhyx-space-2);
+}
+
+.field--horizontal .control {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.field--horizontal .hint,
+.field--horizontal .error {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+/* ─── Control slot ────────────────────────────────────────── */
+
+.control {
+  width: 100%;
+}
+
+/* ─── Label ───────────────────────────────────────────────── */
+
+.label {
+  display: block;
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-text);
+  line-height: var(--vhyx-leading-snug);
+}
+
+/* ─── Required / optional indicators ─────────────────────── */
+
+.required {
+  color: var(--vhyx-color-danger);
+  font-weight: var(--vhyx-weight-semibold);
+}
+
+.optional {
+  color: var(--vhyx-color-text-muted);
+  font-size: var(--vhyx-text-xs);
+  font-weight: var(--vhyx-weight-normal);
+}
+
+/* ─── Hint ────────────────────────────────────────────────── */
+
+.hint {
+  display: block;
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-xs);
+  color: var(--vhyx-color-text-subtle);
+  line-height: var(--vhyx-leading-snug);
+}
+
+/* ─── Error ───────────────────────────────────────────────── */
+
+.error {
+  display: block;
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-xs);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-danger-text);
+  line-height: var(--vhyx-leading-snug);
+}
