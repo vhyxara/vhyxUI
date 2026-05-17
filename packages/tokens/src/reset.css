@@ -1,0 +1,43 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-md);
+  line-height: var(--vhyx-leading-normal);
+  color: var(--vhyx-color-text);
+  background-color: var(--vhyx-color-bg);
+}
+
+img, video, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Remove list styles on ul/ol with role=list */
+ul[role="list"], ol[role="list"] {
+  list-style: none;
+}
+
+/* Focus visible — never outline none without replacement */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}

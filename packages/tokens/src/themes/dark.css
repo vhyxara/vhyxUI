@@ -1,0 +1,28 @@
+[data-theme="dark"] {
+  --vhyx-color-bg:              var(--vhyx-primitive-slate-950);
+  --vhyx-color-bg-subtle:       var(--vhyx-primitive-slate-900);
+  --vhyx-color-bg-muted:        var(--vhyx-primitive-slate-800);
+  --vhyx-color-bg-inverse:      var(--vhyx-primitive-slate-50);
+
+  --vhyx-color-surface:         var(--vhyx-primitive-slate-900);
+  --vhyx-color-surface-raised:  var(--vhyx-primitive-slate-800);
+  --vhyx-color-surface-overlay: var(--vhyx-primitive-slate-800);
+
+  --vhyx-color-border:          var(--vhyx-primitive-slate-800);
+  --vhyx-color-border-strong:   var(--vhyx-primitive-slate-700);
+  --vhyx-color-border-focus:    var(--vhyx-primitive-indigo-400);
+
+  --vhyx-color-text:            var(--vhyx-primitive-slate-50);
+  --vhyx-color-text-subtle:     var(--vhyx-primitive-slate-400);
+  --vhyx-color-text-muted:      var(--vhyx-primitive-slate-500);
+  --vhyx-color-text-disabled:   var(--vhyx-primitive-slate-600);
+  --vhyx-color-text-inverse:    var(--vhyx-primitive-slate-900);
+
+  --vhyx-color-accent-subtle:   #1e1b4b;
+  --vhyx-color-accent-muted:    #312e81;
+
+  --vhyx-color-success-subtle:  #052e16;
+  --vhyx-color-danger-subtle:   #450a0a;
+  --vhyx-color-warning-subtle:  #431407;
+  --vhyx-color-info-subtle:     #0c1a45;
+}
