@@ -1,5 +1,6 @@
 @import '@vhyxui/tokens/index.css';
 @import '@vhyxui/tokens/reset.css';
+@import '@vhyxui/react/style.css';
 @import '../styles/docs.css';
 
 /* Documentation site layout — uses only VhyxUI tokens */

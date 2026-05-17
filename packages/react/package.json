@@ -123,10 +123,13 @@
       "import": "./dist/pagination.js",
       "require": "./dist/pagination.cjs",
       "types": "./dist/pagination.d.ts"
-    }
+    },
+    "./style.css": "./style.css"
   },
+  "sideEffects": ["*.css", "dist/style.css"],
   "files": [
-    "dist"
+    "dist",
+    "style.css"
   ],
   "scripts": {
     "build": "vite build",
