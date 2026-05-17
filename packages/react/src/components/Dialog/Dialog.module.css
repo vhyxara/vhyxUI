@@ -1,0 +1,115 @@
+/* ─── Trigger ─────────────────────────────────────────────── */
+
+.trigger {
+  /* No default styles — trigger can be any button */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Overlay ─────────────────────────────────────────────── */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: var(--vhyx-z-overlay);
+
+  /* vhyx-overlay-in: duration-normal / easing-standard */
+  animation: vhyx-overlay-in var(--vhyx-duration-normal) var(--vhyx-easing-standard) both;
+}
+
+/* ─── Content ─────────────────────────────────────────────── */
+
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: var(--vhyx-z-modal);
+
+  width: calc(100% - var(--vhyx-space-8));
+  max-width: 32rem;
+  max-height: calc(100vh - var(--vhyx-space-16));
+  overflow-y: auto;
+
+  background-color: var(--vhyx-color-surface-overlay);
+  border-radius: var(--vhyx-radius-xl);
+  box-shadow: var(--vhyx-shadow-2xl);
+  padding: var(--vhyx-space-6);
+
+  /* vhyx-slide-up-in: duration-slow / easing-spring */
+  animation: vhyx-slide-up-in var(--vhyx-duration-slow) var(--vhyx-easing-spring) both;
+
+  /* Needed for focus trap — content itself can be focused as fallback */
+  outline: none;
+}
+
+/* ─── Header ──────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-1-5);
+  margin-bottom: var(--vhyx-space-4);
+}
+
+/* ─── Footer ──────────────────────────────────────────────── */
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--vhyx-space-3);
+  margin-top: var(--vhyx-space-6);
+}
+
+/* ─── Title ───────────────────────────────────────────────── */
+
+.title {
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-lg);
+  font-weight: var(--vhyx-weight-semibold);
+  color: var(--vhyx-color-text);
+  line-height: var(--vhyx-leading-snug);
+  margin: 0;
+}
+
+/* ─── Description ─────────────────────────────────────────── */
+
+.description {
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  color: var(--vhyx-color-text-subtle);
+  line-height: var(--vhyx-leading-normal);
+  margin: 0;
+}
+
+/* ─── Close button ────────────────────────────────────────── */
+
+.close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--vhyx-space-2) var(--vhyx-space-4);
+  background: transparent;
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  border-radius: var(--vhyx-radius-md);
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-text);
+  cursor: pointer;
+  transition:
+    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    border-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.close:hover {
+  background-color: var(--vhyx-color-bg-subtle);
+}
+
+.close:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}
