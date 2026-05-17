@@ -4,9 +4,9 @@
   "description": "CSS design tokens for VhyxUI — zero JavaScript, zero build step",
   "license": "MIT",
   "exports": {
-    ".": "./src/index.css",
-    "./index.css": "./src/index.css",
-    "./reset.css": "./src/reset.css",
-    "./dark.css": "./src/themes/dark.css"
+    ".":           "./index.css",
+    "./index.css": "./index.css",
+    "./reset.css": "./reset.css",
+    "./dark.css":  "./src/themes/dark.css"
   }
 }
