@@ -1,0 +1,86 @@
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--vhyx-space-5);
+  height: var(--vhyx-space-5);
+  flex-shrink: 0;
+
+  background-color: var(--vhyx-color-surface);
+  border: var(--vhyx-border-width-2) solid var(--vhyx-color-border-strong);
+  border-radius: var(--vhyx-radius-sm);
+  cursor: pointer;
+
+  transition:
+    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    border-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    box-shadow var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.checkbox:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}
+
+.checkbox:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Checked state ───────────────────────────────────────── */
+.checkbox[data-state="checked"] {
+  background-color: var(--vhyx-color-accent);
+  border-color: var(--vhyx-color-accent);
+  color: var(--vhyx-color-text-on-accent);
+}
+
+.checkbox[data-state="checked"]:hover:not(:disabled) {
+  background-color: var(--vhyx-color-accent-hover);
+  border-color: var(--vhyx-color-accent-hover);
+}
+
+/* ─── Indeterminate state ─────────────────────────────────── */
+.checkbox[data-state="indeterminate"] {
+  background-color: var(--vhyx-color-accent);
+  border-color: var(--vhyx-color-accent);
+  color: var(--vhyx-color-text-on-accent);
+}
+
+/* ─── Unchecked hover ─────────────────────────────────────── */
+.checkbox[data-state="unchecked"]:hover:not(:disabled) {
+  border-color: var(--vhyx-color-accent);
+}
+
+/* ─── Sizes ───────────────────────────────────────────────── */
+.checkbox[data-size="sm"] {
+  width: var(--vhyx-space-4);
+  height: var(--vhyx-space-4);
+}
+
+.checkbox[data-size="md"] {
+  width: var(--vhyx-space-5);
+  height: var(--vhyx-space-5);
+}
+
+.checkbox[data-size="lg"] {
+  width: var(--vhyx-space-6);
+  height: var(--vhyx-space-6);
+}
+
+/* ─── Indicator container ─────────────────────────────────── */
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Checkmark / indeterminate icon — scale-in animation ─── */
+.check-icon {
+  width: 75%;
+  height: 75%;
+
+  /* scale(0) → scale(1) on check: duration-fast / easing-spring */
+  animation: vhyx-scale-in var(--vhyx-duration-fast) var(--vhyx-easing-spring) both;
+}

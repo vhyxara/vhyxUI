@@ -1,0 +1,94 @@
+.switch {
+  /* Track */
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  width: var(--vhyx-space-10);
+  height: var(--vhyx-space-6);
+  padding: var(--vhyx-space-0-5);
+  border-radius: var(--vhyx-radius-full);
+  border: none;
+  cursor: pointer;
+
+  background-color: var(--vhyx-color-bg-muted);
+  transition: background-color var(--vhyx-duration-normal) var(--vhyx-easing-spring);
+}
+
+.switch:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.switch:focus-visible {
+  outline: none;
+  box-shadow: var(--vhyx-shadow-focus);
+}
+
+/* ─── Checked (on) state ──────────────────────────────────── */
+.switch[data-state="checked"] {
+  background-color: var(--vhyx-color-accent);
+}
+
+.switch[data-state="checked"]:hover:not(:disabled) {
+  background-color: var(--vhyx-color-accent-hover);
+}
+
+/* ─── Thumb ───────────────────────────────────────────────── */
+.thumb {
+  display: block;
+  width: var(--vhyx-space-5);
+  height: var(--vhyx-space-5);
+  border-radius: var(--vhyx-radius-full);
+  background-color: var(--vhyx-color-surface);
+  box-shadow: var(--vhyx-shadow-xs);
+  flex-shrink: 0;
+
+  /* Spring animation on translate — this is what makes Switch feel premium */
+  transition: transform var(--vhyx-duration-normal) var(--vhyx-easing-spring);
+  transform: translateX(0);
+}
+
+.switch[data-state="checked"] .thumb {
+  /* Translate thumb to the right: track-width - thumb-width - 2*padding */
+  transform: translateX(calc(var(--vhyx-space-10) - var(--vhyx-space-5) - var(--vhyx-space-1)));
+}
+
+/* ─── Sizes ───────────────────────────────────────────────── */
+.switch[data-size="sm"] {
+  width: var(--vhyx-space-8);
+  height: var(--vhyx-space-5);
+}
+
+.switch[data-size="sm"] .thumb {
+  width: var(--vhyx-space-4);
+  height: var(--vhyx-space-4);
+}
+
+.switch[data-size="sm"][data-state="checked"] .thumb {
+  transform: translateX(calc(var(--vhyx-space-8) - var(--vhyx-space-4) - var(--vhyx-space-1)));
+}
+
+.switch[data-size="md"] {
+  width: var(--vhyx-space-10);
+  height: var(--vhyx-space-6);
+}
+
+.switch[data-size="md"] .thumb {
+  width: var(--vhyx-space-5);
+  height: var(--vhyx-space-5);
+}
+
+.switch[data-size="lg"] {
+  width: var(--vhyx-space-12);
+  height: var(--vhyx-space-7);
+}
+
+.switch[data-size="lg"] .thumb {
+  width: var(--vhyx-space-6);
+  height: var(--vhyx-space-6);
+}
+
+.switch[data-size="lg"][data-state="checked"] .thumb {
+  transform: translateX(calc(var(--vhyx-space-12) - var(--vhyx-space-6) - var(--vhyx-space-1)));
+}

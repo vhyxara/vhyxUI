@@ -1,0 +1,112 @@
+/* ─── RadioGroup ──────────────────────────────────────────── */
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-2);
+}
+
+.group[data-orientation="horizontal"] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--vhyx-space-4);
+}
+
+/* ─── RadioItem ───────────────────────────────────────────── */
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vhyx-space-2);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--vhyx-space-0-5) var(--vhyx-space-0);
+  font-family: var(--vhyx-font-sans);
+  font-size: var(--vhyx-text-sm);
+  color: var(--vhyx-color-text);
+  text-align: left;
+}
+
+.item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.item:focus-visible {
+  outline: none;
+}
+
+.item:focus-visible .radio-indicator {
+  box-shadow: var(--vhyx-shadow-focus);
+}
+
+/* ─── Sizes ───────────────────────────────────────────────── */
+
+.item[data-size="sm"] {
+  font-size: var(--vhyx-text-xs);
+}
+
+.item[data-size="md"] {
+  font-size: var(--vhyx-text-sm);
+}
+
+.item[data-size="lg"] {
+  font-size: var(--vhyx-text-md);
+}
+
+/* ─── Indicator (outer circle) ────────────────────────────── */
+
+.radio-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--vhyx-space-5);
+  height: var(--vhyx-space-5);
+  border-radius: var(--vhyx-radius-full);
+  border: var(--vhyx-border-width-2) solid var(--vhyx-color-border-strong);
+  background-color: var(--vhyx-color-surface);
+
+  transition:
+    border-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.item[data-state="checked"] .radio-indicator {
+  border-color: var(--vhyx-color-accent);
+  background-color: var(--vhyx-color-accent);
+}
+
+.item:hover:not(:disabled) .radio-indicator {
+  border-color: var(--vhyx-color-accent);
+}
+
+/* Sizes for indicator */
+.item[data-size="sm"] .radio-indicator {
+  width: var(--vhyx-space-4);
+  height: var(--vhyx-space-4);
+}
+
+.item[data-size="lg"] .radio-indicator {
+  width: var(--vhyx-space-6);
+  height: var(--vhyx-space-6);
+}
+
+/* ─── Inner dot (scale-in animation on select) ────────────── */
+
+.radio-dot {
+  display: block;
+  width: 40%;
+  height: 40%;
+  border-radius: var(--vhyx-radius-full);
+  background-color: var(--vhyx-color-text-on-accent);
+  animation: vhyx-scale-in var(--vhyx-duration-fast) var(--vhyx-easing-spring) both;
+}
+
+/* ─── Label ───────────────────────────────────────────────── */
+
+.radio-label {
+  line-height: var(--vhyx-leading-snug);
+  user-select: none;
+}
