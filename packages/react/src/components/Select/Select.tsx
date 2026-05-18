@@ -390,16 +390,26 @@ export interface SelectContentProps extends React.HTMLAttributes<HTMLDivElement>
 }
 
 /**
- * Portal-rendered listbox. Always rendered (CSS display:none when closed) so
- * SelectItem labels populate the registry before the first open.
+ * Portal-rendered listbox. Deferred to client-only via `mounted` state so
+ * SSR and client initial renders both produce null — eliminating the
+ * hydration mismatch that occurred when SSR returned null but the client
+ * immediately rendered the portal with differing data-state / position values.
+ *
+ * SelectItem labels register on their own mount effects after this content
+ * mounts client-side, so the trigger label display is updated via state.
  */
-function SelectContent({ children, className, ...rest }: SelectContentProps): React.ReactPortal {
+function SelectContent({ children, className, ...rest }: SelectContentProps): React.ReactPortal | null {
   const ctx = useSelectContext('Select.Content');
+  const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState<{ top: number; left: number; width: number }>({
     top: 0,
     left: 0,
     width: 0,
   });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!ctx.open || !ctx.triggerRef.current) return;
@@ -420,6 +430,9 @@ function SelectContent({ children, className, ...rest }: SelectContentProps): Re
     },
     [ctx.contentRef],
   );
+
+  // Render nothing until client mount — matches SSR output exactly.
+  if (!mounted) return null;
 
   const contentClass = [styles['content'], className].filter(Boolean).join(' ');
 
@@ -444,8 +457,6 @@ function SelectContent({ children, className, ...rest }: SelectContentProps): Re
     </div>
   );
 
-  // Guard against SSR — document is only available in the browser.
-  if (typeof document === 'undefined') return null as unknown as React.ReactPortal;
   return ReactDOM.createPortal(content, document.body) as React.ReactPortal;
 }
 

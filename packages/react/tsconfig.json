@@ -8,7 +8,7 @@
     "composite": true
   },
   "include": ["src"],
-  "exclude": ["vite.config.ts"],
+  "exclude": ["vite.config.ts", "src/**/*.test.ts", "src/**/*.test.tsx"],
   "references": [
     { "path": "../core" }
   ]

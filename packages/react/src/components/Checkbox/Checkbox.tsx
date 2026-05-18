@@ -114,7 +114,10 @@ export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
       ? (checked as CheckedState)
       : internalChecked;
 
-    const ariaChecked = currentChecked === 'indeterminate' ? 'mixed' : currentChecked;
+    // TypeScript 5.9 infers the ternary as 'string | boolean' instead of the narrower literal
+    // union — explicit annotation preserves the specific aria-checked type for strict mode.
+    const ariaChecked: boolean | 'false' | 'mixed' | 'true' =
+      currentChecked === 'indeterminate' ? 'mixed' : (currentChecked as boolean);
 
     const handleClick = useCallback(
       (e: React.MouseEvent<HTMLButtonElement>) => {

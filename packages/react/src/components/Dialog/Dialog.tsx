@@ -474,11 +474,16 @@ DialogDescription.displayName = 'VhyxDialogDescription';
 
 export interface DialogCloseProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
+  /**
+   * When true, renders as the child element via Slot instead of <button>.
+   * Use to avoid nested interactive elements when composing with Button.
+   */
+  asChild?: boolean;
 }
 
 /** Button that closes the dialog. */
 const DialogClose = React.forwardRef<HTMLButtonElement, DialogCloseProps>(
-  ({ children, className, onClick, ...rest }, ref) => {
+  ({ children, className, onClick, asChild = false, ...rest }, ref) => {
     const ctx = useDialogContext('Dialog.Close');
 
     const handleClick = useCallback(
@@ -491,14 +496,22 @@ const DialogClose = React.forwardRef<HTMLButtonElement, DialogCloseProps>(
 
     const closeClass = [styles['close'], className].filter(Boolean).join(' ');
 
+    const closeProps = {
+      onClick: handleClick,
+      className: closeClass,
+      ...rest,
+    };
+
+    if (asChild) {
+      return (
+        <Slot ref={ref as React.Ref<HTMLElement>} {...closeProps}>
+          {children}
+        </Slot>
+      );
+    }
+
     return (
-      <button
-        ref={ref}
-        type="button"
-        onClick={handleClick}
-        className={closeClass}
-        {...rest}
-      >
+      <button ref={ref} type="button" {...closeProps}>
         {children ?? 'Close'}
       </button>
     );
