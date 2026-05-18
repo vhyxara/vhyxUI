@@ -6,7 +6,7 @@ import { useFormContext } from './Form';
 import styles from './Form.module.css';
 
 /** Props for the Field component — the label/input/hint/error assembly layer. */
-export interface FieldProps {
+export interface FieldProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
   /**
    * Field name — used to read validation errors from the parent Form context
    * when react-hook-form is wired up.
@@ -57,6 +57,8 @@ export function Field({
   optional = false,
   layout,
   children,
+  className,
+  ...htmlProps
 }: FieldProps): React.ReactElement {
   const fieldId = useId('field');
   const hintId = `${fieldId}-hint`;
@@ -97,12 +99,13 @@ export function Field({
   const wrapperClass = [
     styles['field'],
     effectiveLayout === 'horizontal' ? styles['field--horizontal'] : '',
+    className,
   ]
     .filter(Boolean)
     .join(' ');
 
   return (
-    <div className={wrapperClass} data-layout={effectiveLayout}>
+    <div className={wrapperClass} data-layout={effectiveLayout} {...htmlProps}>
       {label !== undefined && (
         <label htmlFor={fieldId} className={styles['label']}>
           {label}

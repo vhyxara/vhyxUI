@@ -84,7 +84,7 @@
   border-radius: var(--vhyx-radius-md);
   box-shadow: var(--vhyx-shadow-lg);
   padding: var(--vhyx-space-1) 0;
-  max-height: var(--vhyx-space-64, 16rem);
+  max-height: min(var(--vhyx-space-64, 16rem), 40vh);
   overflow-y: auto;
 
   /* Dropdown scale-in: duration-fast / easing-decelerate */

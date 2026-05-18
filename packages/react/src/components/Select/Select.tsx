@@ -61,7 +61,7 @@ function useSelectContext(componentName: string): SelectContextValue {
 export type SelectSize = 'sm' | 'md' | 'lg';
 
 /** Root props for the Select compound component. */
-export interface SelectProps {
+export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Controlled selected value. */
   value?: string;
   /** Default selected value for uncontrolled mode. */
@@ -76,8 +76,6 @@ export interface SelectProps {
   placeholder?: string;
   /** VhyxSeal contract override. */
   contract?: Partial<ComponentContract>;
-  /** Select sub-components as children. */
-  children: React.ReactNode;
 }
 
 /**
@@ -97,6 +95,8 @@ const SelectRoot = React.forwardRef<HTMLDivElement, SelectProps>(
       placeholder,
       contract,
       children,
+      className,
+      ...htmlProps
     },
     ref,
   ) => {
@@ -287,9 +287,11 @@ const SelectRoot = React.forwardRef<HTMLDivElement, SelectProps>(
       <SelectContext.Provider value={ctx}>
         <div
           ref={ref}
+          className={className}
           data-size={size}
           data-disabled={disabled ? true : undefined}
           data-vhyx-contract={JSON.stringify(effectiveContract)}
+          {...htmlProps}
         >
           {children}
         </div>
@@ -401,10 +403,12 @@ export interface SelectContentProps extends React.HTMLAttributes<HTMLDivElement>
 function SelectContent({ children, className, ...rest }: SelectContentProps): React.ReactPortal | null {
   const ctx = useSelectContext('Select.Content');
   const [mounted, setMounted] = useState(false);
-  const [position, setPosition] = useState<{ top: number; left: number; width: number }>({
+  const [positionStyle, setPositionStyle] = useState<React.CSSProperties>({
+    position: 'fixed',
     top: 0,
     left: 0,
-    width: 0,
+    minWidth: 0,
+    zIndex: 'var(--vhyx-z-dropdown)',
   });
 
   useEffect(() => {
@@ -414,7 +418,24 @@ function SelectContent({ children, className, ...rest }: SelectContentProps): Re
   useEffect(() => {
     if (!ctx.open || !ctx.triggerRef.current) return;
     const rect = ctx.triggerRef.current.getBoundingClientRect();
-    setPosition({ top: rect.bottom + 4, left: rect.left, width: rect.width });
+    const spaceBelow = window.innerHeight - rect.bottom;
+    const spaceAbove = rect.top;
+    const contentHeight = ctx.contentRef.current?.scrollHeight ?? 300;
+
+    // Flip above the trigger when there is more room above than below.
+    const showAbove = spaceBelow < contentHeight && spaceAbove > spaceBelow;
+
+    setPositionStyle({
+      position: 'fixed',
+      top: showAbove ? rect.top - contentHeight - 4 : rect.bottom + 4,
+      left: rect.left,
+      minWidth: rect.width,
+      zIndex: 'var(--vhyx-z-dropdown)',
+      maxHeight: showAbove
+        ? Math.min(contentHeight, spaceAbove - 8)
+        : Math.min(contentHeight, spaceBelow - 8),
+      overflowY: 'auto',
+    });
   }, [ctx.open, ctx.triggerRef]);
 
   // Move focus to the initial item when the dropdown opens.
@@ -444,13 +465,7 @@ function SelectContent({ children, className, ...rest }: SelectContentProps): Re
       aria-labelledby={ctx.triggerId}
       className={contentClass}
       data-state={ctx.open ? 'open' : 'closed'}
-      style={{
-        position: 'fixed',
-        top: position.top,
-        left: position.left,
-        minWidth: position.width,
-        zIndex: 100,
-      }}
+      style={positionStyle}
       {...rest}
     >
       {children}
