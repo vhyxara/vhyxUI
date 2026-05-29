@@ -1,61 +1,13 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { Button, Card } from '@vhyxui/react';
+import { Button, Card, CardBody } from '../components/ui';
+import { CodeBlock } from '../components/CodeBlock';
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
-function ClipboardIcon(): React.ReactElement {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="9" y="2" width="6" height="4" rx="1" />
-      <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2" />
-    </svg>
-  );
-}
-
-function CheckIcon(): React.ReactElement {
-  return (
-    <svg
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
 function EyeIcon(): React.ReactElement {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
       <circle cx="12" cy="12" r="3" />
     </svg>
@@ -64,17 +16,7 @@ function EyeIcon(): React.ReactElement {
 
 function ShieldCheckIcon(): React.ReactElement {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       <polyline points="9 12 11 14 15 10" />
     </svg>
@@ -83,17 +25,7 @@ function ShieldCheckIcon(): React.ReactElement {
 
 function ZapIcon(): React.ReactElement {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
     </svg>
   );
@@ -101,17 +33,7 @@ function ZapIcon(): React.ReactElement {
 
 function CpuIcon(): React.ReactElement {
   return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x="4" y="4" width="16" height="16" rx="2" />
       <rect x="9" y="9" width="6" height="6" />
       <line x1="9" y1="1" x2="9" y2="4" />
@@ -123,47 +45,6 @@ function CpuIcon(): React.ReactElement {
       <line x1="1" y1="9" x2="4" y2="9" />
       <line x1="1" y1="14" x2="4" y2="14" />
     </svg>
-  );
-}
-
-// ─── CopyButton ───────────────────────────────────────────────────────────────
-
-interface CopyButtonProps {
-  text: string;
-}
-
-function CopyButton({ text }: CopyButtonProps): React.ReactElement {
-  const [copied, setCopied] = useState<boolean>(false);
-
-  async function copy(): Promise<void> {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  return (
-    <button
-      className="lp-copy-btn"
-      onClick={copy}
-      aria-label={copied ? 'Copied' : 'Copy to clipboard'}
-    >
-      {copied ? <CheckIcon /> : <ClipboardIcon />}
-    </button>
-  );
-}
-
-// ─── CodeBlock ────────────────────────────────────────────────────────────────
-
-interface CodeBlockProps {
-  code: string;
-}
-
-function CodeBlock({ code }: CodeBlockProps): React.ReactElement {
-  return (
-    <div className="lp-step-code">
-      <pre><code>{code}</code></pre>
-      <CopyButton text={code} />
-    </div>
   );
 }
 
@@ -203,49 +84,30 @@ const LAYERS: LayerItem[] = [
   },
 ];
 
-interface InstallStep {
+// ─── Step sub-component (async server component per step) ─────────────────────
+
+interface StepProps {
+  num: number;
   title: string;
   code: string;
+  language: string;
 }
 
-const INSTALL_STEPS: InstallStep[] = [
-  {
-    title: 'Install the packages',
-    code: 'npm install @vhyxui/react @vhyxui/tokens',
-  },
-  {
-    title: 'Import the tokens',
-    code: "@import '@vhyxui/tokens/index.css';",
-  },
-  {
-    title: 'Wrap your app with VhyxUIProvider',
-    code: `import { VhyxUIProvider } from '@vhyxui/react'
-
-export default function Layout({ children }) {
+async function InstallStep({ num, title, code, language }: StepProps): Promise<React.ReactElement> {
   return (
-    <VhyxUIProvider>
-      {children}
-    </VhyxUIProvider>
-  )
-}`,
-  },
-  {
-    title: 'Use any component',
-    code: `import { Button } from '@vhyxui/react'
-
-function MyButton() {
-  return (
-    <Button variant="primary" size="md">
-      Click me
-    </Button>
-  )
-}`,
-  },
-];
+    <div className="lp-step">
+      <div className="lp-step-num" aria-hidden="true">{num}</div>
+      <div className="lp-step-body">
+        <p className="lp-step-title">{title}</p>
+        <CodeBlock code={code} language={language} />
+      </div>
+    </div>
+  );
+}
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function HomePage(): React.ReactElement {
+export default async function HomePage(): Promise<React.ReactElement> {
   return (
     <>
       {/* ── Section 1: Hero ───────────────────────────────────────────────── */}
@@ -274,9 +136,11 @@ export default function HomePage(): React.ReactElement {
           >
             Open Playground →
           </a>
-          <div className="lp-install-cmd">
-            <pre><code>npm install @vhyxui/react @vhyxui/tokens</code></pre>
-            <CopyButton text="npm install @vhyxui/react @vhyxui/tokens" />
+          <div className="lp-hero-install">
+            <CodeBlock
+              code="npm install @vhyxui/react @vhyxui/tokens"
+              language="bash"
+            />
           </div>
         </div>
       </section>
@@ -293,13 +157,13 @@ export default function HomePage(): React.ReactElement {
           <div className="lp-layers-grid">
             {LAYERS.map((layer) => (
               <Card key={layer.title} variant="outline" padding="lg">
-                <Card.Body>
+                <CardBody>
                   <div className="lp-card-icon" data-color={layer.color}>
                     {layer.icon}
                   </div>
                   <h3 className="lp-card-title">{layer.title}</h3>
                   <p className="lp-card-body">{layer.body}</p>
-                </Card.Body>
+                </CardBody>
               </Card>
             ))}
           </div>
@@ -312,17 +176,26 @@ export default function HomePage(): React.ReactElement {
           <p className="lp-section-label">Quick Start</p>
           <h2 className="lp-section-title">Get started in minutes</h2>
           <div className="lp-steps">
-            {INSTALL_STEPS.map((step, index) => (
-              <div key={step.title} className="lp-step">
-                <div className="lp-step-num" aria-hidden="true">
-                  {index + 1}
-                </div>
-                <div className="lp-step-body">
-                  <p className="lp-step-title">{step.title}</p>
-                  <CodeBlock code={step.code} />
-                </div>
-              </div>
-            ))}
+            <InstallStep num={1} title="Install the packages" language="bash" code="npm install @vhyxui/react @vhyxui/tokens" />
+            <InstallStep num={2} title="Import the tokens" language="css" code="@import '@vhyxui/tokens/index.css';" />
+            <InstallStep num={3} title="Wrap your app with VhyxUIProvider" language="tsx" code={`import { VhyxUIProvider } from '@vhyxui/react'
+
+export default function Layout({ children }) {
+  return (
+    <VhyxUIProvider>
+      {children}
+    </VhyxUIProvider>
+  )
+}`} />
+            <InstallStep num={4} title="Use any component" language="tsx" code={`import { Button } from '@vhyxui/react'
+
+function MyButton() {
+  return (
+    <Button variant="primary" size="md">
+      Click me
+    </Button>
+  )
+}`} />
           </div>
           <p className="lp-install-note">
             No configuration. No theme object. No token mapping.

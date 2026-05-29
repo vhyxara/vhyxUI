@@ -5,7 +5,7 @@ import { Card, Badge, Button, Separator } from '@vhyxui/react';
 import { PageHeader } from '../../../components/PageHeader';
 import { Section } from '../../../components/Section';
 import { ComponentExample } from '../../../components/ComponentExample';
-import { CodeBlock } from '../../../components/CodeBlock';
+import { CodeBlock } from '../../../components/CodeBlockSimple';
 import { PropsTable } from '../../../components/PropsTable';
 import type { PropDef } from '../../../components/PropsTable';
 

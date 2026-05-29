@@ -196,6 +196,11 @@
   color: var(--vhyx-color-text-subtle);
 }
 
+.lp-hero-install {
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
 .lp-install-cmd {
   display: flex;
   align-items: stretch;
@@ -659,6 +664,15 @@
 
 .gs-toc-link:hover {
   color: var(--vhyx-color-text);
+}
+
+.gs-toc-link--active {
+  color: var(--vhyx-color-accent);
+  font-weight: var(--vhyx-weight-medium);
+}
+
+.gs-toc-link--sub {
+  padding-left: var(--vhyx-space-3);
 }
 
 /* Getting Started — Responsive */

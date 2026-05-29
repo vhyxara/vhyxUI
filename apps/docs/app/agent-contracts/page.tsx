@@ -1,101 +1,16 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Alert } from '@vhyxui/react';
-
-// ─── Icons ─────────────────────────────────────────────────────────────────
-
-function ClipboardIcon(): React.ReactElement {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="9" y="2" width="6" height="4" rx="1" />
-      <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2" />
-    </svg>
-  );
-}
-
-function CheckIcon(): React.ReactElement {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
-// ─── CopyButton ────────────────────────────────────────────────────────────
-
-interface CopyButtonProps {
-  text: string;
-}
-
-function CopyButton({ text }: CopyButtonProps): React.ReactElement {
-  const [copied, setCopied] = useState<boolean>(false);
-
-  async function copy(): Promise<void> {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  return (
-    <button
-      className="lp-copy-btn"
-      onClick={copy}
-      aria-label={copied ? 'Copied' : 'Copy to clipboard'}
-    >
-      {copied ? <CheckIcon /> : <ClipboardIcon />}
-    </button>
-  );
-}
-
-// ─── CodeBlock ─────────────────────────────────────────────────────────────
-
-interface CodeBlockProps {
-  code: string;
-  filename?: string;
-}
-
-function CodeBlock({ code, filename }: CodeBlockProps): React.ReactElement {
-  return (
-    <div className="gs-code-block">
-      {filename !== undefined && (
-        <div className="gs-code-filename">{filename}</div>
-      )}
-      <div className="gs-code-inner">
-        <pre><code>{code}</code></pre>
-        <CopyButton text={code} />
-      </div>
-    </div>
-  );
-}
+import React from 'react';
+import { Alert } from '../../components/ui';
+import { CodeBlock } from '../../components/CodeBlock';
+import { OnThisPage, type PageHeading } from '../../components/OnThisPage';
+import { PageNav } from '../../components/PageNav';
 
 // ─── On This Page ──────────────────────────────────────────────────────────
 
-const ON_THIS_PAGE = [
-  { id: 'what-is-the-agent-layer', label: 'What Is The Agent Layer' },
-  { id: 'default-contracts',       label: 'Default Contracts'       },
-  { id: 'override-a-contract',     label: 'Override A Contract'     },
-  { id: 'the-manifest',            label: 'The Manifest'            },
+const HEADINGS: ReadonlyArray<PageHeading> = [
+  { id: 'what-is-the-agent-layer', text: 'What Is The Agent Layer', level: 2 },
+  { id: 'default-contracts',       text: 'Default Contracts',       level: 2 },
+  { id: 'override-a-contract',     text: 'Override A Contract',     level: 2 },
+  { id: 'the-manifest',            text: 'The Manifest',            level: 2 },
 ] as const;
 
 // ─── Contract field table data ─────────────────────────────────────────────
@@ -192,7 +107,7 @@ const CODE_MANIFEST = `{
 
 // ─── Page ──────────────────────────────────────────────────────────────────
 
-export default function AgentContractsPage(): React.ReactElement {
+export default async function AgentContractsPage(): Promise<React.ReactElement> {
   return (
     <div className="gs-layout">
 
@@ -232,7 +147,7 @@ export default function AgentContractsPage(): React.ReactElement {
           <p className="gs-body">
             Here is the default contract for the Button component.
           </p>
-          <CodeBlock code={CODE_DEFAULT_CONTRACT} filename="Button default contract" />
+          <CodeBlock code={CODE_DEFAULT_CONTRACT} language="json" filename="Button default contract" />
           <div className="ag-table-wrap">
             <table className="ag-table">
               <thead>
@@ -269,10 +184,10 @@ export default function AgentContractsPage(): React.ReactElement {
           </p>
 
           <h3 className="gs-subsection-title">Basic — add intent and consequence</h3>
-          <CodeBlock code={CODE_OVERRIDE_BASIC} />
+          <CodeBlock code={CODE_OVERRIDE_BASIC} language="tsx" />
 
           <h3 className="gs-subsection-title">Destructive — delete account</h3>
-          <CodeBlock code={CODE_OVERRIDE_DESTRUCTIVE} />
+          <CodeBlock code={CODE_OVERRIDE_DESTRUCTIVE} language="tsx" />
 
           <Alert variant="warning" title="High-stakes actions">
             Actions like order placement or payment should always set{' '}
@@ -282,7 +197,7 @@ export default function AgentContractsPage(): React.ReactElement {
           </Alert>
 
           <h3 className="gs-subsection-title">Form submission with requires array</h3>
-          <CodeBlock code={CODE_OVERRIDE_ORDER} />
+          <CodeBlock code={CODE_OVERRIDE_ORDER} language="tsx" />
         </section>
 
         {/* ── Section 4: The Manifest ──────────────────────────────────── */}
@@ -302,7 +217,7 @@ export default function AgentContractsPage(): React.ReactElement {
             <code>requiresConfirmation: true</code>, and knows to pause
             and ask the human before proceeding.
           </p>
-          <CodeBlock code={CODE_MANIFEST} filename="page-manifest.json" />
+          <CodeBlock code={CODE_MANIFEST} language="json" filename="page-manifest.json" />
           <p className="gs-body">
             For deeper reading on VhyxSeal contracts and the manifest
             format, see the{' '}
@@ -311,23 +226,14 @@ export default function AgentContractsPage(): React.ReactElement {
           </p>
         </section>
 
+        <PageNav
+          prev={{ title: 'Theming', href: '/theming' }}
+          next={{ title: 'Button', href: '/components/button' }}
+        />
+
       </main>
 
-      {/* ── On This Page ─────────────────────────────────────────────── */}
-      <aside className="gs-toc">
-        <p className="gs-toc-title">On This Page</p>
-        <nav aria-label="Page sections">
-          <ul className="gs-toc-list" role="list">
-            {ON_THIS_PAGE.map((item) => (
-              <li key={item.id}>
-                <a href={`#${item.id}`} className="gs-toc-link">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </aside>
+      <OnThisPage headings={HEADINGS} />
 
     </div>
   );

@@ -1,101 +1,16 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Alert, Badge, Button, Input } from '@vhyxui/react';
-
-// ─── Icons ─────────────────────────────────────────────────────────────────
-
-function ClipboardIcon(): React.ReactElement {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="9" y="2" width="6" height="4" rx="1" />
-      <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2" />
-    </svg>
-  );
-}
-
-function CheckIcon(): React.ReactElement {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
-// ─── CopyButton ────────────────────────────────────────────────────────────
-
-interface CopyButtonProps {
-  text: string;
-}
-
-function CopyButton({ text }: CopyButtonProps): React.ReactElement {
-  const [copied, setCopied] = useState<boolean>(false);
-
-  async function copy(): Promise<void> {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  return (
-    <button
-      className="lp-copy-btn"
-      onClick={copy}
-      aria-label={copied ? 'Copied' : 'Copy to clipboard'}
-    >
-      {copied ? <CheckIcon /> : <ClipboardIcon />}
-    </button>
-  );
-}
-
-// ─── CodeBlock ─────────────────────────────────────────────────────────────
-
-interface CodeBlockProps {
-  code: string;
-  filename?: string;
-}
-
-function CodeBlock({ code, filename }: CodeBlockProps): React.ReactElement {
-  return (
-    <div className="gs-code-block">
-      {filename !== undefined && (
-        <div className="gs-code-filename">{filename}</div>
-      )}
-      <div className="gs-code-inner">
-        <pre><code>{code}</code></pre>
-        <CopyButton text={code} />
-      </div>
-    </div>
-  );
-}
+import React from 'react';
+import { Alert, Badge, Button, Input } from '../../components/ui';
+import { CodeBlock } from '../../components/CodeBlock';
+import { OnThisPage, type PageHeading } from '../../components/OnThisPage';
+import { PageNav } from '../../components/PageNav';
 
 // ─── On This Page ──────────────────────────────────────────────────────────
 
-const ON_THIS_PAGE = [
-  { id: 'how-tokens-work', label: 'How Tokens Work'   },
-  { id: 'override-tokens', label: 'Override Tokens'   },
-  { id: 'dark-mode',       label: 'Dark Mode'         },
-  { id: 'complete-theme',  label: 'Complete Theme'    },
+const HEADINGS: ReadonlyArray<PageHeading> = [
+  { id: 'how-tokens-work', text: 'How Tokens Work',  level: 2 },
+  { id: 'override-tokens', text: 'Override Tokens',  level: 2 },
+  { id: 'dark-mode',       text: 'Dark Mode',        level: 2 },
+  { id: 'complete-theme',  text: 'Complete Theme',   level: 2 },
 ] as const;
 
 // ─── Code Strings ──────────────────────────────────────────────────────────
@@ -186,7 +101,7 @@ const CODE_COMPLETE_THEME = `:root {
 
 // ─── Page ──────────────────────────────────────────────────────────────────
 
-export default function ThemingPage(): React.ReactElement {
+export default async function ThemingPage(): Promise<React.ReactElement> {
   return (
     <div className="gs-layout">
 
@@ -214,7 +129,7 @@ export default function ThemingPage(): React.ReactElement {
             uses accent — buttons, focus rings, badges, active states —
             updates with no rebuild, no config change, no JavaScript.
           </p>
-          <CodeBlock code={CODE_DIAGRAM} />
+          <CodeBlock code={CODE_DIAGRAM} language="css" />
           <Alert variant="info" title="The rule">
             Override semantic tokens to theme. Never touch primitives.
           </Alert>
@@ -230,7 +145,7 @@ export default function ThemingPage(): React.ReactElement {
             tokens cover the full accent family — default, hover, active,
             and the two subtle fills used in badges and backgrounds.
           </p>
-          <CodeBlock code={CODE_BRAND_COLOR} />
+          <CodeBlock code={CODE_BRAND_COLOR} language="css" />
 
           <h3 className="gs-subsection-title">Example 2 — Sharp corners</h3>
           <p className="gs-body">
@@ -238,7 +153,7 @@ export default function ThemingPage(): React.ReactElement {
             aesthetic. Keep <code>--vhyx-radius-full</code> intact so
             pill shapes like badge dots remain circular.
           </p>
-          <CodeBlock code={CODE_SHARP_CORNERS} />
+          <CodeBlock code={CODE_SHARP_CORNERS} language="css" />
 
           <h3 className="gs-subsection-title">Example 3 — Custom font</h3>
           <p className="gs-body">
@@ -246,7 +161,7 @@ export default function ThemingPage(): React.ReactElement {
             the fonts are loaded before applying — add them via{' '}
             <code>next/font</code> or a stylesheet import.
           </p>
-          <CodeBlock code={CODE_CUSTOM_FONT} />
+          <CodeBlock code={CODE_CUSTOM_FONT} language="css" />
 
           <div className="th-demo">
             <p className="th-demo-label">Live demo — rose theme applied</p>
@@ -281,11 +196,11 @@ export default function ThemingPage(): React.ReactElement {
           </p>
 
           <h3 className="gs-subsection-title">HTML attribute approach</h3>
-          <CodeBlock code={CODE_DARK_HTML} />
+          <CodeBlock code={CODE_DARK_HTML} language="html" />
 
           <h3 className="gs-subsection-title">With next-themes (recommended)</h3>
-          <CodeBlock code={CODE_NEXT_THEMES_INSTALL} filename="terminal" />
-          <CodeBlock code={CODE_THEME_PROVIDER} filename="app/providers.tsx" />
+          <CodeBlock code={CODE_NEXT_THEMES_INSTALL} language="bash" filename="terminal" />
+          <CodeBlock code={CODE_THEME_PROVIDER} language="tsx" filename="app/providers.tsx" />
 
           <Alert variant="default" title="Already working">
             VhyxUI docs and playground use next-themes with the{' '}
@@ -301,29 +216,20 @@ export default function ThemingPage(): React.ReactElement {
             These 15 token overrides completely transform VhyxUI. Override
             them in your <code>globals.css</code> inside <code>:root</code>.
           </p>
-          <CodeBlock code={CODE_COMPLETE_THEME} />
+          <CodeBlock code={CODE_COMPLETE_THEME} language="css" />
           <Alert variant="success" title="That's it">
             No build step. No configuration file. Just CSS.
           </Alert>
         </section>
 
+        <PageNav
+          prev={{ title: 'Getting Started', href: '/getting-started' }}
+          next={{ title: 'Agent Contracts', href: '/agent-contracts' }}
+        />
+
       </main>
 
-      {/* ── On This Page ─────────────────────────────────────────────── */}
-      <aside className="gs-toc">
-        <p className="gs-toc-title">On This Page</p>
-        <nav aria-label="Page sections">
-          <ul className="gs-toc-list" role="list">
-            {ON_THIS_PAGE.map((item) => (
-              <li key={item.id}>
-                <a href={`#${item.id}`} className="gs-toc-link">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </aside>
+      <OnThisPage headings={HEADINGS} />
 
     </div>
   );

@@ -657,3 +657,167 @@
     margin-left: 0;
   }
 }
+
+/* ─── CodeBlock (Shiki server component) ─────────────────────────────────── */
+
+.cb-wrap {
+  border-radius: var(--vhyx-radius-md);
+  background-color: var(--vhyx-color-bg-inverse);
+  box-shadow: var(--vhyx-shadow-sm);
+  overflow: hidden;
+  margin-bottom: var(--vhyx-space-5);
+}
+
+.cb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--vhyx-space-2) var(--vhyx-space-3) var(--vhyx-space-2) var(--vhyx-space-4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 2.25rem;
+}
+
+.cb-filename {
+  font-family: var(--vhyx-font-mono);
+  font-size: var(--vhyx-text-xs);
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cb-copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  background: none;
+  border: none;
+  border-radius: var(--vhyx-radius-sm);
+  color: rgba(255, 255, 255, 0.45);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+              background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.cb-copy:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Shiki output — dual-theme with CSS variables */
+
+.cb-body .shiki {
+  margin: 0;
+  padding: var(--vhyx-space-4) var(--vhyx-space-5);
+  font-family: var(--vhyx-font-mono);
+  font-size: var(--vhyx-text-sm);
+  line-height: var(--vhyx-leading-relaxed);
+  overflow-x: auto;
+  background-color: var(--shiki-light-bg) !important;
+}
+
+.cb-body .shiki code {
+  display: block;
+  min-width: max-content;
+}
+
+.cb-body .shiki span {
+  color: var(--shiki-light);
+}
+
+[data-theme="dark"] .cb-body .shiki {
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+[data-theme="dark"] .cb-body .shiki span {
+  color: var(--shiki-dark);
+}
+
+/* Line numbers */
+
+.cb-wrap[data-line-numbers="true"] .shiki code {
+  counter-reset: line;
+}
+
+.cb-wrap[data-line-numbers="true"] .shiki .line::before {
+  content: counter(line);
+  counter-increment: line;
+  display: inline-block;
+  width: 2ch;
+  margin-right: var(--vhyx-space-5);
+  text-align: right;
+  color: rgba(115, 138, 148, 0.4);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* ─── PageNav ─────────────────────────────────────────────────────────────── */
+
+.pn-wrap {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--vhyx-space-4);
+  padding-top: var(--vhyx-space-8);
+  margin-top: var(--vhyx-space-12);
+  border-top: var(--vhyx-border-width) solid var(--vhyx-color-border);
+}
+
+.pn-prev,
+.pn-next {
+  flex: 1;
+}
+
+.pn-next {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--vhyx-space-3);
+  padding: var(--vhyx-space-4) var(--vhyx-space-5);
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  border-radius: var(--vhyx-radius-md);
+  text-decoration: none;
+  color: var(--vhyx-color-text-subtle);
+  transition: border-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+              color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+              background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+  max-width: 16rem;
+}
+
+.pn-link:hover {
+  border-color: var(--vhyx-color-accent);
+  color: var(--vhyx-color-text);
+  background-color: var(--vhyx-color-bg-subtle);
+}
+
+.pn-label-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vhyx-space-1);
+}
+
+.pn-label-wrap--next {
+  text-align: right;
+}
+
+.pn-label {
+  font-size: var(--vhyx-text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--vhyx-tracking-wide);
+  color: var(--vhyx-color-text-muted);
+}
+
+.pn-title {
+  font-size: var(--vhyx-text-sm);
+  font-weight: var(--vhyx-weight-medium);
+  color: var(--vhyx-color-text);
+}
+
+.pn-arrow {
+  font-size: var(--vhyx-text-xl);
+  color: var(--vhyx-color-text-muted);
+  line-height: 1;
+}

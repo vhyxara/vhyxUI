@@ -1,45 +1,64 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
+import { codeToHtml } from 'shiki';
+import { CopyButton } from './CopyButton';
 
 interface CodeBlockProps {
   code: string;
-  language?: string;
+  language: string;
+  filename?: string;
+  showLineNumbers?: boolean;
 }
 
-/** Styled code block with copy button. */
-export function CodeBlock({ code, language = 'tsx' }: CodeBlockProps): React.ReactElement {
-  const [copied, setCopied] = useState(false);
+export async function CodeBlock({
+  code,
+  language,
+  filename,
+  showLineNumbers = false,
+}: CodeBlockProps): Promise<React.ReactElement> {
+  const trimmed = code.trim();
+  const label = filename ?? `${language} code`;
 
-  function handleCopy(): void {
-    void navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => { setCopied(false); }, 2000);
+  let rawHtml: string;
+  try {
+    rawHtml = await codeToHtml(trimmed, {
+      lang: language,
+      themes: {
+        light: 'github-light',
+        dark: 'dark-plus',
+      },
+      defaultColor: false,
     });
+  } catch {
+    const escaped = trimmed
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    rawHtml = `<pre><code>${escaped}</code></pre>`;
   }
 
+  // Inject accessibility attributes onto the shiki-generated <pre>
+  const html = rawHtml.replace(
+    '<pre ',
+    `<pre role="region" aria-label="${label}" `,
+  );
+
   return (
-    <div className="docs-code-block">
-      <div className="docs-code-header">
-        <span>{language}</span>
-        <button
-          type="button"
-          onClick={handleCopy}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            color: 'var(--vhyx-color-text-muted)',
-            cursor: 'pointer',
-            fontFamily: 'var(--vhyx-font-mono)',
-            fontSize: 'var(--vhyx-text-xs)',
-            padding: 'var(--vhyx-space-1) var(--vhyx-space-2)',
-            borderRadius: 'var(--vhyx-radius-sm)',
-          }}
-        >
-          {copied ? 'Copied!' : 'Copy'}
-        </button>
+    <div
+      className="cb-wrap"
+      data-line-numbers={showLineNumbers ? 'true' : undefined}
+    >
+      <div className="cb-header">
+        {filename !== undefined
+          ? <span className="cb-filename">{filename}</span>
+          : <span />
+        }
+        <CopyButton code={trimmed} />
       </div>
-      <pre><code>{code}</code></pre>
+      <div
+        className="cb-body"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </div>
   );
 }

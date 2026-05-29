@@ -1,102 +1,17 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Badge, Alert, Button } from '@vhyxui/react';
-
-// ─── Icons ─────────────────────────────────────────────────────────────────
-
-function ClipboardIcon(): React.ReactElement {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="9" y="2" width="6" height="4" rx="1" />
-      <path d="M8 4H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2" />
-    </svg>
-  );
-}
-
-function CheckIcon(): React.ReactElement {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  );
-}
-
-// ─── CopyButton ────────────────────────────────────────────────────────────
-
-interface CopyButtonProps {
-  text: string;
-}
-
-function CopyButton({ text }: CopyButtonProps): React.ReactElement {
-  const [copied, setCopied] = useState<boolean>(false);
-
-  async function copy(): Promise<void> {
-    await navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  }
-
-  return (
-    <button
-      className="lp-copy-btn"
-      onClick={copy}
-      aria-label={copied ? 'Copied' : 'Copy to clipboard'}
-    >
-      {copied ? <CheckIcon /> : <ClipboardIcon />}
-    </button>
-  );
-}
-
-// ─── CodeBlock ─────────────────────────────────────────────────────────────
-
-interface CodeBlockProps {
-  code: string;
-  filename?: string;
-}
-
-function CodeBlock({ code, filename }: CodeBlockProps): React.ReactElement {
-  return (
-    <div className="gs-code-block">
-      {filename !== undefined && (
-        <div className="gs-code-filename">{filename}</div>
-      )}
-      <div className="gs-code-inner">
-        <pre><code>{code}</code></pre>
-        <CopyButton text={code} />
-      </div>
-    </div>
-  );
-}
+import React from 'react';
+import { Badge, Alert, Button, Input } from '../../components/ui';
+import { CodeBlock } from '../../components/CodeBlock';
+import { OnThisPage, type PageHeading } from '../../components/OnThisPage';
+import { PageNav } from '../../components/PageNav';
 
 // ─── On This Page ──────────────────────────────────────────────────────────
 
-const ON_THIS_PAGE = [
-  { id: 'requirements',   label: 'Requirements'    },
-  { id: 'installation',   label: 'Installation'    },
-  { id: 'provider-setup', label: 'Provider Setup'  },
-  { id: 'first-component',label: 'First Component' },
-  { id: 'complete-example',label: 'Complete Example'},
+const HEADINGS: ReadonlyArray<PageHeading> = [
+  { id: 'requirements',    text: 'Requirements',    level: 2 },
+  { id: 'installation',    text: 'Installation',    level: 2 },
+  { id: 'provider-setup',  text: 'Provider Setup',  level: 2 },
+  { id: 'first-component', text: 'First Component', level: 2 },
+  { id: 'complete-example',text: 'Complete Example',level: 2 },
 ] as const;
 
 // ─── Code Strings ──────────────────────────────────────────────────────────
@@ -202,7 +117,7 @@ export function LoginForm() {
 
 // ─── Page ──────────────────────────────────────────────────────────────────
 
-export default function GettingStartedPage(): React.ReactElement {
+export default async function GettingStartedPage(): Promise<React.ReactElement> {
   return (
     <div className="gs-layout">
 
@@ -215,7 +130,9 @@ export default function GettingStartedPage(): React.ReactElement {
             VhyxUI works with any React 18 project. No configuration
             required. Import tokens, wrap with provider, use components.
           </p>
-          <h2 className="gs-section-title">Requirements</h2>
+          <h2 className="gs-section-title gs-section-title--borderless">
+            Requirements
+          </h2>
           <div className="gs-requirements">
             <div className="gs-requirement-row">
               <span className="gs-requirement-name">Node.js</span>
@@ -239,7 +156,7 @@ export default function GettingStartedPage(): React.ReactElement {
             Install both packages. Tokens are required — they define every
             visual decision the components make.
           </p>
-          <CodeBlock code={CODE_INSTALL} />
+          <CodeBlock code={CODE_INSTALL} language="bash" />
           <div className="gs-packages">
             <div className="gs-package">
               <code className="gs-package-name">@vhyxui/react</code>
@@ -272,11 +189,11 @@ export default function GettingStartedPage(): React.ReactElement {
           <div className="gs-split">
             <div className="gs-split-item">
               <p className="gs-split-label">App Router</p>
-              <CodeBlock code={CODE_APP_ROUTER} filename="app/layout.tsx" />
+              <CodeBlock code={CODE_APP_ROUTER} language="tsx" filename="app/layout.tsx" />
             </div>
             <div className="gs-split-item">
               <p className="gs-split-label">Pages Router</p>
-              <CodeBlock code={CODE_PAGES_ROUTER} filename="pages/_app.tsx" />
+              <CodeBlock code={CODE_PAGES_ROUTER} language="tsx" filename="pages/_app.tsx" />
             </div>
           </div>
         </section>
@@ -288,7 +205,7 @@ export default function GettingStartedPage(): React.ReactElement {
             Import any component from <code>@vhyxui/react</code>.
             Every component is tree-shakeable — only what you import ships.
           </p>
-          <CodeBlock code={CODE_BUTTON_IMPORT} />
+          <CodeBlock code={CODE_BUTTON_IMPORT} language="tsx" />
           <div className="gs-button-preview">
             <Button variant="primary" size="md">Primary</Button>
             <Button variant="secondary" size="md">Secondary</Button>
@@ -306,26 +223,16 @@ export default function GettingStartedPage(): React.ReactElement {
             Field handles label association, error display, and
             accessibility automatically.
           </p>
-          <CodeBlock code={CODE_LOGIN_FORM} />
+          <CodeBlock code={CODE_LOGIN_FORM} language="tsx" />
         </section>
+
+        <PageNav
+          next={{ title: 'Theming', href: '/theming' }}
+        />
 
       </main>
 
-      {/* ── On This Page ─────────────────────────────────────────────── */}
-      <aside className="gs-toc">
-        <p className="gs-toc-title">On This Page</p>
-        <nav aria-label="Page sections">
-          <ul className="gs-toc-list" role="list">
-            {ON_THIS_PAGE.map((item) => (
-              <li key={item.id}>
-                <a href={`#${item.id}`} className="gs-toc-link">
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </aside>
+      <OnThisPage headings={HEADINGS} />
 
     </div>
   );
