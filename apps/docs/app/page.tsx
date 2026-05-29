@@ -70,30 +70,6 @@ const componentGroups = [
 export default function HomePage(): React.ReactElement {
   return (
     <>
-      {/* Header */}
-      <header className="docs-header">
-        <a href="/" className="docs-nav-brand">
-          VhyxUI
-        </a>
-        <nav style={{ display: 'flex', gap: 'var(--vhyx-space-3)', alignItems: 'center' }}>
-          <Badge variant="info" size="sm">v0.0.1</Badge>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => window.open('https://github.com/vhyxara/vhyxui', '_blank')}
-          >
-            GitHub
-          </Button>
-          <Button
-            variant="primary"
-            size="sm"
-            onClick={() => { window.location.href = '/docs/getting-started'; }}
-          >
-            Get started
-          </Button>
-        </nav>
-      </header>
-
       {/* Hero */}
       <section className="docs-hero">
         <Badge variant="outline" size="sm" style={{ marginBottom: 'var(--vhyx-space-6)' }}>

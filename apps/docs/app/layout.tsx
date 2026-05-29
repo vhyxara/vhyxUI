@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Providers } from './providers';
+import { DocsShell } from '../components/DocsShell';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -18,12 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }): React.ReactElement {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <Providers>
-          <main id="vhyx-main" className="docs-layout">
-            {children}
-          </main>
+          <DocsShell>{children}</DocsShell>
         </Providers>
       </body>
     </html>
