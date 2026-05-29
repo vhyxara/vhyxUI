@@ -23,6 +23,8 @@ import {
   Breadcrumb,
   Pagination,
   Select,
+  Field,
+  toast,
 } from '@vhyxui/react';
 
 interface LivePreviewProps {
@@ -392,6 +394,68 @@ function RenderPagination(props: Record<string, unknown>): React.ReactElement {
   );
 }
 
+function RenderToast(props: Record<string, unknown>): React.ReactElement {
+  const variant = String(props['variant'] ?? 'default') as 'default' | 'success' | 'danger' | 'warning' | 'info';
+  const description = String(props['description'] ?? 'Your changes have been saved.');
+
+  function fire(): void {
+    const methods: Record<string, (msg: string) => void> = {
+      success: toast.success.bind(toast),
+      danger: toast.danger.bind(toast),
+      warning: toast.warning.bind(toast),
+      info: toast.info.bind(toast),
+    };
+    const fn = methods[variant] ?? ((msg: string) => toast(msg));
+    fn(description);
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--vhyx-space-3)' }}>
+      <Button variant="outline" onClick={fire}>
+        Fire toast({variant !== 'default' ? `.${variant}` : ''})
+      </Button>
+      <p style={{ fontSize: 'var(--vhyx-text-xs)', color: 'var(--vhyx-color-text-muted)' }}>
+        Click to trigger a {variant} toast.
+      </p>
+    </div>
+  );
+}
+
+function RenderForm(props: Record<string, unknown>): React.ReactElement {
+  const [email, setEmail] = useState('');
+  return (
+    <div style={{ width: '20rem', display: 'flex', flexDirection: 'column', gap: 'var(--vhyx-space-4)' }}>
+      <Field
+        name="email"
+        label="Email address"
+        hint="We'll never share your email."
+        layout={(props['layout'] as 'vertical') ?? 'vertical'}
+      >
+        <Input
+          type="email"
+          placeholder="name@example.com"
+          value={email}
+          onChange={(e) => { setEmail(e.target.value); }}
+          size={(props['size'] as 'md') ?? 'md'}
+        />
+      </Field>
+      <Field
+        name="password"
+        label="Password"
+        required
+        layout={(props['layout'] as 'vertical') ?? 'vertical'}
+      >
+        <Input
+          type="password"
+          placeholder="Min 8 characters"
+          size={(props['size'] as 'md') ?? 'md'}
+        />
+      </Field>
+      <Button variant="primary" type="submit" style={{ width: '100%' }}>Sign in</Button>
+    </div>
+  );
+}
+
 // ─── Component registry ───────────────────────────────────────────────────────
 
 const RENDERERS: Record<string, (props: Record<string, unknown>) => React.ReactElement> = {
@@ -415,6 +479,8 @@ const RENDERERS: Record<string, (props: Record<string, unknown>) => React.ReactE
   tabs: RenderTabs,
   breadcrumb: RenderBreadcrumb,
   pagination: RenderPagination,
+  toast: RenderToast,
+  form: RenderForm,
 };
 
 // ─── LivePreview ──────────────────────────────────────────────────────────────

@@ -99,6 +99,9 @@ importers:
 
   apps/playground:
     dependencies:
+      '@vhyxui/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@vhyxui/react':
         specifier: workspace:*
         version: link:../../packages/react
@@ -108,12 +111,18 @@ importers:
       next:
         specifier: ^15.0.0
         version: 15.5.18(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      next-themes:
+        specifier: ^0.4.6
+        version: 0.4.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react:
         specifier: ^19.0.0
         version: 19.2.6
       react-dom:
         specifier: ^19.0.0
         version: 19.2.6(react@19.2.6)
+      shiki:
+        specifier: ^4.1.0
+        version: 4.1.0
     devDependencies:
       '@types/node':
         specifier: ^20.0.0

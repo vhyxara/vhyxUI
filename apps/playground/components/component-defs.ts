@@ -1,6 +1,6 @@
 // Component definitions — prop controls, default values, tokens, and contracts per component.
 
-export type ControlType = 'select' | 'switch' | 'input';
+export type ControlType = 'select' | 'switch' | 'input' | 'number';
 
 export interface PropControl {
   key: string;
@@ -21,9 +21,8 @@ export interface ComponentDef {
 }
 
 export const COMPONENT_GROUPS = [
-  { label: 'Inputs', ids: ['button', 'input', 'textarea', 'checkbox', 'radio', 'switch'] },
-  { label: 'Form', ids: ['select'] },
-  { label: 'Feedback', ids: ['badge', 'progress', 'spinner', 'alert'] },
+  { label: 'Inputs & Forms', ids: ['button', 'input', 'textarea', 'checkbox', 'radio', 'switch', 'select', 'form'] },
+  { label: 'Feedback', ids: ['badge', 'progress', 'spinner', 'alert', 'toast'] },
   { label: 'Display', ids: ['card', 'separator'] },
   { label: 'Overlay', ids: ['dialog', 'drawer', 'tooltip', 'popover'] },
   { label: 'Navigation', ids: ['tabs', 'breadcrumb', 'pagination'] },
@@ -506,6 +505,55 @@ export const COMPONENT_DEFS: Record<string, ComponentDef> = {
     contract: {
       type: 'navigation',
       intent: 'show-page-hierarchy',
+      safetyLevel: 'low',
+      contractVersion: '0.0.1',
+    },
+  },
+
+  toast: {
+    id: 'toast',
+    name: 'Toast',
+    group: 'Feedback',
+    description: 'Imperative ephemeral notification via toast() API.',
+    defaultProps: { variant: 'default', description: 'Your changes have been saved.' },
+    controls: [
+      { key: 'variant', label: 'variant', type: 'select', options: ['default', 'success', 'danger', 'warning', 'info'] },
+      { key: 'description', label: 'description', type: 'input' },
+    ],
+    tokens: [
+      { name: '--vhyx-z-toast', desc: 'Z-index (500)' },
+      { name: '--vhyx-color-surface-raised', desc: 'Background' },
+      { name: '--vhyx-shadow-lg', desc: 'Shadow' },
+      { name: '--vhyx-duration-normal', desc: 'Slide-in animation' },
+      { name: '--vhyx-easing-spring', desc: 'Entry easing' },
+    ],
+    contract: {
+      type: 'display',
+      intent: 'display-notification',
+      safetyLevel: 'low',
+      contractVersion: '0.0.1',
+    },
+  },
+
+  form: {
+    id: 'form',
+    name: 'Form',
+    group: 'Inputs & Forms',
+    description: 'Context provider for react-hook-form with Field, label, hint, and error management.',
+    defaultProps: { layout: 'vertical', size: 'md' },
+    controls: [
+      { key: 'layout', label: 'layout', type: 'select', options: ['vertical', 'horizontal', 'inline'] },
+      { key: 'size', label: 'size', type: 'select', options: ['sm', 'md', 'lg'] },
+    ],
+    tokens: [
+      { name: '--vhyx-space-4', desc: 'Field gap' },
+      { name: '--vhyx-color-danger', desc: 'Error text color' },
+      { name: '--vhyx-text-xs', desc: 'Hint/error font size' },
+      { name: '--vhyx-color-text-muted', desc: 'Hint text color' },
+    ],
+    contract: {
+      type: 'input',
+      intent: 'collect-form-data',
       safetyLevel: 'low',
       contractVersion: '0.0.1',
     },
