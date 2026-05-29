@@ -827,3 +827,189 @@
   color: var(--vhyx-color-text-muted);
   line-height: 1;
 }
+
+/* ─── Search ─────────────────────────────────────────────────────────────── */
+
+.search-trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--vhyx-space-2);
+  padding: var(--vhyx-space-1-5) var(--vhyx-space-3);
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  border-radius: var(--vhyx-radius-md);
+  background: var(--vhyx-color-bg-subtle);
+  color: var(--vhyx-color-text-muted);
+  font-size: var(--vhyx-text-sm);
+  cursor: pointer;
+  transition: border-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+              color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.search-trigger:hover {
+  border-color: var(--vhyx-color-border-strong);
+  color: var(--vhyx-color-text-subtle);
+}
+
+.search-trigger-text {
+  flex: 1;
+  text-align: left;
+  min-width: 5rem;
+}
+
+.search-kbd-hint {
+  display: flex;
+  gap: 2px;
+}
+
+.search-kbd-hint kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 var(--vhyx-space-1);
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  border-radius: var(--vhyx-radius-xs);
+  background: var(--vhyx-color-surface);
+  font-family: var(--vhyx-font-mono);
+  font-size: var(--vhyx-text-2xs);
+  color: var(--vhyx-color-text-muted);
+  line-height: 1;
+}
+
+@media (max-width: 48rem) {
+  .search-trigger-text,
+  .search-kbd-hint {
+    display: none;
+  }
+}
+
+/* Dialog override for search */
+.search-dialog-content {
+  position: fixed !important;
+  top: 4rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: min(640px, calc(100vw - 2rem)) !important;
+  max-height: calc(100vh - 8rem) !important;
+  overflow: hidden !important;
+  border-radius: var(--vhyx-radius-xl) !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input-row {
+  display: flex;
+  align-items: center;
+  gap: var(--vhyx-space-3);
+  padding: var(--vhyx-space-3) var(--vhyx-space-4);
+  border-bottom: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--vhyx-text-md);
+  color: var(--vhyx-color-text);
+  font-family: var(--vhyx-font-sans);
+}
+
+.search-input::placeholder {
+  color: var(--vhyx-color-text-muted);
+}
+
+.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-close-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: var(--vhyx-color-text-muted);
+}
+
+.search-close-btn kbd {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--vhyx-space-0-5) var(--vhyx-space-1-5);
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  border-radius: var(--vhyx-radius-xs);
+  font-size: var(--vhyx-text-xs);
+  font-family: var(--vhyx-font-mono);
+  line-height: 1.5;
+}
+
+.search-results {
+  list-style: none;
+  overflow-y: auto;
+  max-height: calc(100vh - 16rem);
+  padding: var(--vhyx-space-2) 0;
+  flex: 1;
+}
+
+.search-result-item {
+  display: block;
+  padding: var(--vhyx-space-3) var(--vhyx-space-4);
+  text-decoration: none;
+  border-radius: var(--vhyx-radius-md);
+  margin: 0 var(--vhyx-space-2);
+  transition: background var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.search-result-item[data-selected="true"],
+.search-result-item:hover {
+  background: var(--vhyx-color-bg-subtle);
+}
+
+.search-result-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--vhyx-space-1);
+}
+
+.search-result-title {
+  font-size: var(--vhyx-text-sm);
+  font-weight: var(--vhyx-weight-semibold);
+  color: var(--vhyx-color-text);
+}
+
+.search-result-excerpt {
+  font-size: var(--vhyx-text-xs);
+  color: var(--vhyx-color-text-subtle);
+  line-height: var(--vhyx-leading-relaxed);
+}
+
+.search-result-excerpt mark {
+  background: var(--vhyx-color-accent-subtle);
+  color: var(--vhyx-color-accent);
+  border-radius: 2px;
+  padding: 0 2px;
+  font-style: normal;
+}
+
+.search-empty,
+.search-idle {
+  padding: var(--vhyx-space-8) var(--vhyx-space-4);
+  text-align: center;
+  font-size: var(--vhyx-text-sm);
+  color: var(--vhyx-color-text-muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

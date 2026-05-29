@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Badge } from '@vhyxui/react';
 import { ThemeToggle } from '@/app/components/ThemeToggle';
+import { Search } from './Search';
 
 function HamburgerIcon(): React.ReactElement {
   return (
@@ -89,6 +90,7 @@ export function Header({ sidebarOpen, onSidebarToggle }: HeaderProps): React.Rea
       </nav>
 
       <div className="docs-header-actions">
+        <Search />
         <ThemeToggle />
         <a
           href="https://github.com/vhyxara/VhyxUI"
