@@ -56,6 +56,9 @@ importers:
 
   apps/docs:
     dependencies:
+      '@vhyxui/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@vhyxui/react':
         specifier: workspace:*
         version: link:../../packages/react

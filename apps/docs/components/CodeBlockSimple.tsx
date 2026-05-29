@@ -5,10 +5,11 @@ import React, { useState } from 'react';
 interface CodeBlockProps {
   code: string;
   language?: string;
+  filename?: string;
 }
 
 /** Styled code block with copy button. */
-export function CodeBlock({ code, language = 'tsx' }: CodeBlockProps): React.ReactElement {
+export function CodeBlock({ code, language = 'tsx', filename }: CodeBlockProps): React.ReactElement {
   const [copied, setCopied] = useState(false);
 
   function handleCopy(): void {
@@ -21,7 +22,7 @@ export function CodeBlock({ code, language = 'tsx' }: CodeBlockProps): React.Rea
   return (
     <div className="docs-code-block">
       <div className="docs-code-header">
-        <span>{language}</span>
+        <span>{filename ?? language}</span>
         <button
           type="button"
           onClick={handleCopy}

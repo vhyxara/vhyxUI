@@ -56,8 +56,6 @@
 .docs-page {
   flex: 1;
   min-width: 0;
-  padding: var(--vhyx-space-10) var(--vhyx-space-12);
-  max-width: 56rem;
 }
 
 /* ─── Page header ────────────────────────────────────────────────────────── */
@@ -103,6 +101,14 @@
   color: var(--vhyx-color-text-subtle);
   line-height: var(--vhyx-leading-relaxed);
   margin-bottom: var(--vhyx-space-4);
+}
+
+.docs-subsection-heading {
+  font-size: var(--vhyx-text-md);
+  font-weight: var(--vhyx-weight-semibold);
+  color: var(--vhyx-color-text);
+  margin-top: var(--vhyx-space-6);
+  margin-bottom: var(--vhyx-space-3);
 }
 
 /* ─── Component examples ─────────────────────────────────────────────────── */

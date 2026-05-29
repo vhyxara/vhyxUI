@@ -9,6 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@vhyxui/core": "workspace:*",
     "@vhyxui/react": "workspace:*",
     "@vhyxui/tokens": "workspace:*",
     "next": "^15.0.0",
