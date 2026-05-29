@@ -88,7 +88,7 @@ const NAV: NavGroup[] = [
     label: 'Reference',
     items: [
       { name: 'Tokens', href: '/docs/tokens' },
-      { name: 'Agent Contracts', href: '/docs/contracts' },
+      { name: 'Agent Contracts', href: '/agent-contracts' },
       { name: 'Changelog', href: '/docs/changelog' },
     ],
   },
