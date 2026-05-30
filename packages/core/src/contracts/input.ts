@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Input component.
+ * Default VhyxSeal contract template for the Input component.
  *
  * Expresses that an Input accepts user text. The field value is reversible —
  * the user can clear or modify the input before the parent form is submitted.
+ * Instance id is injected at render time: { ...inputContract, id: instanceId }
  */
-export const inputContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const inputContract = defineContractTemplate({
   type: 'input',
   intent: 'enter-text',
   description: 'Accepts a text value entered by the user',

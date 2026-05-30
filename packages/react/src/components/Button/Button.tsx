@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { buttonContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { Spinner } from '../Spinner';
 import { useId } from '../shared/useId';
@@ -54,7 +55,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
  *   <a href="/home">Home</a>
  * </Button>
  */
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       variant = 'primary',
@@ -145,4 +146,13 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   },
 );
 
+ButtonBase.displayName = 'VhyxButton';
+
+// Library-level contract for SealContext registration. The template has no id by design;
+// a stable library-level id is used here. Per-instance ids are set via the DOM attribute above.
+const buttonSealContract = { ...buttonContract, id: 'vhyxui-button' } as Readonly<ComponentContract>;
+
+export const Button = withAgentContract(ButtonBase, buttonSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<ButtonProps> & React.RefAttributes<HTMLButtonElement>
+>;
 Button.displayName = 'VhyxButton';

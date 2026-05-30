@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Checkbox component.
+ * Default VhyxSeal contract template for the Checkbox component.
  *
  * Expresses that a Checkbox toggles a boolean or indeterminate selection state.
  * The toggle is reversible — the user can uncheck before form submission.
+ * Instance id is injected at render time: { ...checkboxContract, id: instanceId }
  */
-export const checkboxContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const checkboxContract = defineContractTemplate({
   type: 'input',
   intent: 'toggle-selection',
   description: 'Toggles a boolean selection — checked, unchecked, or indeterminate',

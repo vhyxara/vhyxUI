@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Toast component.
+ * Default VhyxSeal contract template for the Toast component.
  *
  * Expresses that a Toast is a transient notification — display only,
  * no data mutation. Agents read toast content to confirm prior actions succeeded.
+ * Instance id is injected at render time: { ...toastContract, id: instanceId }
  */
-export const toastContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const toastContract = defineContractTemplate({
   type: 'display',
   intent: 'notify',
   description: 'Displays a transient notification message to the user',

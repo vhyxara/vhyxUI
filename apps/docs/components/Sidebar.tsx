@@ -26,10 +26,10 @@ const NAV: NavGroup[] = [
   {
     label: 'Getting Started',
     items: [
-      { name: 'Introduction', href: '/docs/introduction' },
-      { name: 'Installation', href: '/docs/installation' },
-      { name: 'Theming', href: '/docs/theming' },
-      { name: 'Dark Mode', href: '/docs/dark-mode' },
+      { name: 'Introduction', href: '/getting-started' },
+      { name: 'Installation', href: '/getting-started' },
+      { name: 'Theming', href: '/theming' },
+      { name: 'Dark Mode', href: '/theming' },
     ],
   },
   {

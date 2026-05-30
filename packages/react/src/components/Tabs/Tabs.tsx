@@ -12,6 +12,7 @@ import React, {
 import type { ComponentContract } from '@vhyxui/core';
 import { tabsContract } from '@vhyxui/core';
 import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Tabs.module.css';
@@ -422,8 +423,15 @@ TabsContent.displayName = 'VhyxTabsContent';
 // ─── Compound export ──────────────────────────────────────────────────────────
 
 /** Tabs — compound tabbed navigation component. */
-export const Tabs = Object.assign(TabsRoot, {
-  List: TabsList,
-  Trigger: TabsTrigger,
-  Content: TabsContent,
-});
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const tabsSealContract = { ...tabsContract, id: 'vhyxui-tabs' } as Readonly<ComponentContract>;
+
+export const Tabs = Object.assign(
+  withAgentContract(TabsRoot, tabsSealContract),
+  {
+    List: TabsList,
+    Trigger: TabsTrigger,
+    Content: TabsContent,
+  },
+);
+Tabs.displayName = 'VhyxTabs';

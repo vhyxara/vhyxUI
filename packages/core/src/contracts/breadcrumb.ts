@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Breadcrumb component.
+ * Default VhyxSeal contract template for the Breadcrumb component.
  *
  * Expresses that a Breadcrumb shows the current page location within a hierarchy
  * and provides navigation links to ancestor pages.
+ * Instance id is injected at render time: { ...breadcrumbContract, id: instanceId }
  */
-export const breadcrumbContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const breadcrumbContract = defineContractTemplate({
   type: 'navigation',
   intent: 'navigate-breadcrumb',
   description: 'Displays the current page location in the site hierarchy with ancestor navigation links',

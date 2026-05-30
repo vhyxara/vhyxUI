@@ -7,6 +7,7 @@
   --vhyx-color-surface:         var(--vhyx-primitive-slate-900);
   --vhyx-color-surface-raised:  var(--vhyx-primitive-slate-800);
   --vhyx-color-surface-overlay: var(--vhyx-primitive-slate-800);
+  --vhyx-color-overlay:         rgba(0, 0, 0, 0.65);
 
   --vhyx-color-border:          var(--vhyx-primitive-slate-800);
   --vhyx-color-border-strong:   var(--vhyx-primitive-slate-700);

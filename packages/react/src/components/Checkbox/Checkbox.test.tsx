@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Checkbox } from './Checkbox';
+import { checkboxContract } from '@vhyxui/core/contracts';
 
 // ─── 1. Renders without crashing ──────────────────────────────────────────────
 
@@ -256,5 +257,27 @@ describe('Checkbox — accessibility (axe)', () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Checkbox — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(checkboxContract).toBeDefined();
+    expect(typeof checkboxContract.fingerprint).toBe('string');
+    expect(checkboxContract.fingerprint.length).toBeGreaterThan(0);
+    expect(checkboxContract.intent).toBeDefined();
+    expect(checkboxContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(checkboxContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      checkboxContract.type,
+    );
   });
 });

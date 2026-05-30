@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Separator } from './Separator';
+import { separatorContract } from '@vhyxui/core/contracts';
 
 // ─── 1. Renders without crashing ──────────────────────────────────────────────
 
@@ -126,5 +127,27 @@ describe('Separator — accessibility (axe)', () => {
     const { container } = render(<Separator label="OR" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Separator — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(separatorContract).toBeDefined();
+    expect(typeof separatorContract.fingerprint).toBe('string');
+    expect(separatorContract.fingerprint.length).toBeGreaterThan(0);
+    expect(separatorContract.intent).toBeDefined();
+    expect(separatorContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(separatorContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      separatorContract.type,
+    );
   });
 });

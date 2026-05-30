@@ -3,8 +3,9 @@
 import React, { createContext, useContext, useMemo } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { breadcrumbContract } from '@vhyxui/core';
-import { Slot } from '../shared/Slot';
 import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
+import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Breadcrumb.module.css';
 
@@ -202,9 +203,16 @@ BreadcrumbEllipsis.displayName = 'VhyxBreadcrumbEllipsis';
 // ─── Compound export ──────────────────────────────────────────────────────────
 
 /** Breadcrumb — navigation compound component. */
-export const Breadcrumb = Object.assign(BreadcrumbRoot, {
-  Item: BreadcrumbItem,
-  Link: BreadcrumbLink,
-  Page: BreadcrumbPage,
-  Ellipsis: BreadcrumbEllipsis,
-});
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const breadcrumbSealContract = { ...breadcrumbContract, id: 'vhyxui-breadcrumb' } as Readonly<ComponentContract>;
+
+export const Breadcrumb = Object.assign(
+  withAgentContract(BreadcrumbRoot, breadcrumbSealContract),
+  {
+    Item: BreadcrumbItem,
+    Link: BreadcrumbLink,
+    Page: BreadcrumbPage,
+    Ellipsis: BreadcrumbEllipsis,
+  },
+);
+Breadcrumb.displayName = 'VhyxBreadcrumb';

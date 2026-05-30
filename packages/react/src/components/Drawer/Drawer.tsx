@@ -13,6 +13,7 @@ import ReactDOM from 'react-dom';
 import type { ComponentContract } from '@vhyxui/core';
 import { drawerContract } from '@vhyxui/core';
 import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Drawer.module.css';
@@ -504,14 +505,21 @@ DrawerClose.displayName = 'VhyxDrawerClose';
 // ─── Compound export ──────────────────────────────────────────────────────────
 
 /** Drawer — slide-in panel compound component. */
-export const Drawer = Object.assign(DrawerRoot, {
-  Trigger: DrawerTrigger,
-  Portal: DrawerPortal,
-  Overlay: DrawerOverlay,
-  Content: DrawerContent,
-  Header: DrawerHeader,
-  Footer: DrawerFooter,
-  Title: DrawerTitle,
-  Description: DrawerDescription,
-  Close: DrawerClose,
-});
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const drawerSealContract = { ...drawerContract, id: 'vhyxui-drawer' } as Readonly<ComponentContract>;
+
+export const Drawer = Object.assign(
+  withAgentContract(DrawerRoot, drawerSealContract),
+  {
+    Trigger: DrawerTrigger,
+    Portal: DrawerPortal,
+    Overlay: DrawerOverlay,
+    Content: DrawerContent,
+    Header: DrawerHeader,
+    Footer: DrawerFooter,
+    Title: DrawerTitle,
+    Description: DrawerDescription,
+    Close: DrawerClose,
+  },
+);
+Drawer.displayName = 'VhyxDrawer';

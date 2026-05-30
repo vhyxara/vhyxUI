@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+import type { ComponentContract } from '@vhyxui/core';
+import { badgeContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import styles from './Badge.module.css';
 
 /** Visual variant of the Badge. */
@@ -49,7 +52,7 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
  * <Badge count={120} max={99} />
  * <Badge dot variant="danger" />
  */
-export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
+const BadgeBase = React.forwardRef<HTMLSpanElement, BadgeProps>(
   (
     {
       variant = 'default',
@@ -88,4 +91,12 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   },
 );
 
+BadgeBase.displayName = 'VhyxBadge';
+
+// Library-level contract for SealContext registration.
+const badgeSealContract = { ...badgeContract, id: 'vhyxui-badge' } as Readonly<ComponentContract>;
+
+export const Badge = withAgentContract(BadgeBase, badgeSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<BadgeProps> & React.RefAttributes<HTMLSpanElement>
+>;
 Badge.displayName = 'VhyxBadge';

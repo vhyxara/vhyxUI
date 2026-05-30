@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Badge } from './Badge';
+import { badgeContract } from '@vhyxui/core/contracts';
 
 // ─── 1. Renders without crashing ──────────────────────────────────────────────
 
@@ -159,5 +160,27 @@ describe('Badge — accessibility (axe)', () => {
     const { container } = render(<Badge count={5} />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Badge — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(badgeContract).toBeDefined();
+    expect(typeof badgeContract.fingerprint).toBe('string');
+    expect(badgeContract.fingerprint.length).toBeGreaterThan(0);
+    expect(badgeContract.intent).toBeDefined();
+    expect(badgeContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(badgeContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      badgeContract.type,
+    );
   });
 });

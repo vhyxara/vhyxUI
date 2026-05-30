@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Progress component.
+ * Default VhyxSeal contract template for the Progress component.
  *
  * Expresses that a Progress bar is a visual indicator of completion — display only.
  * Agents read value and max to determine how far along an operation is.
+ * Instance id is injected at render time: { ...progressContract, id: instanceId }
  */
-export const progressContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const progressContract = defineContractTemplate({
   type: 'display',
   intent: 'display-progress',
   description: 'Displays the completion percentage of an ongoing operation',

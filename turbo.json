@@ -5,6 +5,18 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "sync": {
+      "cache": false,
+      "inputs": ["src/**/*.css"]
+    },
+    "@vhyxui/core#build": {
+      "dependsOn": ["@vhyxui/tokens#sync", "^build"],
+      "outputs": ["dist/**"]
+    },
+    "@vhyxui/react#build": {
+      "dependsOn": ["@vhyxui/tokens#sync", "^build"],
+      "outputs": ["dist/**"]
+    },
     "test": {
       "dependsOn": ["build"]
     },

@@ -1,13 +1,14 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Form component.
+ * Default VhyxSeal contract template for the Form component.
  *
  * Expresses that a Form collects and submits user data. Submission is not
  * reversible — the agent must be certain fields are correct before triggering.
  * safetyLevel medium because form submission typically writes to external systems.
+ * Instance id is injected at render time: { ...formContract, id: instanceId }
  */
-export const formContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const formContract = defineContractTemplate({
   type: 'action',
   intent: 'submit-form',
   description: 'Collects field values and submits them to the server or handler',

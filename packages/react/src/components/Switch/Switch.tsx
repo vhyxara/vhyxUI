@@ -3,6 +3,7 @@
 import React, { useCallback, useState } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { switchContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Switch.module.css';
@@ -40,7 +41,7 @@ export interface SwitchProps
  * @example
  * <Switch checked={enabled} onCheckedChange={setEnabled} />
  */
-export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
+const SwitchBase = React.forwardRef<HTMLButtonElement, SwitchProps>(
   (
     {
       checked,
@@ -131,4 +132,12 @@ export const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>(
   },
 );
 
+SwitchBase.displayName = 'VhyxSwitch';
+
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const switchSealContract = { ...switchContract, id: 'vhyxui-switch' } as Readonly<ComponentContract>;
+
+export const Switch = withAgentContract(SwitchBase, switchSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<SwitchProps> & React.RefAttributes<HTMLButtonElement>
+>;
 Switch.displayName = 'VhyxSwitch';

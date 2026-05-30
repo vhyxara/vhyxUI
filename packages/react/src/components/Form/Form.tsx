@@ -1,6 +1,9 @@
 'use client';
 
 import React, { createContext, useCallback, useContext, useMemo } from 'react';
+import type { ComponentContract } from '@vhyxui/core';
+import { formContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import type {
   FieldValues,
   FormState,
@@ -93,7 +96,7 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
  *   <Field name="email" label="Email"><Input type="email" /></Field>
  * </Form>
  */
-export const Form = React.forwardRef<HTMLFormElement, FormProps>(
+const FormBase = React.forwardRef<HTMLFormElement, FormProps>(
   (
     {
       form,
@@ -161,4 +164,12 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
   },
 );
 
+FormBase.displayName = 'VhyxForm';
+
+// Library-level contract for SealContext registration.
+const formSealContract = { ...formContract, id: 'vhyxui-form' } as Readonly<ComponentContract>;
+
+export const Form = withAgentContract(FormBase, formSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<FormProps> & React.RefAttributes<HTMLFormElement>
+>;
 Form.displayName = 'VhyxForm';

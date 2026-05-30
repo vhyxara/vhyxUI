@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Popover } from './Popover';
+import { popoverContract } from '@vhyxui/core/contracts';
 
 function BasicPopover({
   open,
@@ -204,5 +205,27 @@ describe('Popover — accessibility (axe)', () => {
     const dialog = screen.getByRole('dialog');
     const results = await axe(dialog);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Popover — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(popoverContract).toBeDefined();
+    expect(typeof popoverContract.fingerprint).toBe('string');
+    expect(popoverContract.fingerprint.length).toBeGreaterThan(0);
+    expect(popoverContract.intent).toBeDefined();
+    expect(popoverContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(popoverContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      popoverContract.type,
+    );
   });
 });

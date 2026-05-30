@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { inputContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { useId } from '../shared/useId';
 import styles from './Input.module.css';
 
@@ -88,7 +89,7 @@ function ClearIcon(): React.ReactElement {
  * @example
  * <Input placeholder="Email" type="email" size="md" />
  */
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const InputBase = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       size = 'md',
@@ -222,4 +223,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   },
 );
 
+InputBase.displayName = 'VhyxInput';
+
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const inputSealContract = { ...inputContract, id: 'vhyxui-input' } as Readonly<ComponentContract>;
+
+export const Input = withAgentContract(InputBase, inputSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<InputProps> & React.RefAttributes<HTMLInputElement>
+>;
 Input.displayName = 'VhyxInput';

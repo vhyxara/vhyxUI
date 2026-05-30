@@ -34,4 +34,12 @@
   --vhyx-drawer-md:   25rem;
   --vhyx-drawer-lg:   32rem;
   --vhyx-drawer-full: 100%;
+
+  /* Dialog panel dimensions */
+  --vhyx-dialog-sm: 20rem;
+  --vhyx-dialog-md: 32rem;
+  --vhyx-dialog-lg: 48rem;
+
+  /* Popover layout constraints */
+  --vhyx-popover-max-width: 20rem;
 }

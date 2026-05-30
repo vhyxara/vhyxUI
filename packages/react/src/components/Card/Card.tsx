@@ -3,6 +3,7 @@
 import React from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { cardContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { useId } from '../shared/useId';
 import styles from './Card.module.css';
 
@@ -145,9 +146,16 @@ CardImage.displayName = 'VhyxCardImage';
 // ─── Compound export ──────────────────────────────────────────────────────────
 
 /** Card — content container with optional layout sub-components. */
-export const Card = Object.assign(CardRoot, {
-  Header: CardHeader,
-  Body: CardBody,
-  Footer: CardFooter,
-  Image: CardImage,
-});
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const cardSealContract = { ...cardContract, id: 'vhyxui-card' } as Readonly<ComponentContract>;
+
+export const Card = Object.assign(
+  withAgentContract(CardRoot, cardSealContract),
+  {
+    Header: CardHeader,
+    Body: CardBody,
+    Footer: CardFooter,
+    Image: CardImage,
+  },
+);
+Card.displayName = 'VhyxCard';

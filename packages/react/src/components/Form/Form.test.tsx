@@ -6,6 +6,7 @@ import React from 'react';
 import { Form } from './Form';
 import { Field } from './Field';
 import { Input } from '../Input';
+import { formContract } from '@vhyxui/core/contracts';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // FIELD TESTS
@@ -428,5 +429,27 @@ describe('Form + Field — accessibility (axe)', () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Form — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(formContract).toBeDefined();
+    expect(typeof formContract.fingerprint).toBe('string');
+    expect(formContract.fingerprint.length).toBeGreaterThan(0);
+    expect(formContract.intent).toBeDefined();
+    expect(formContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(formContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      formContract.type,
+    );
   });
 });

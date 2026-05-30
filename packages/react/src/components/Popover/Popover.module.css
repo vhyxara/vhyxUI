@@ -11,7 +11,7 @@
   box-shadow: var(--vhyx-shadow-lg);
   padding: var(--vhyx-space-4);
   min-width: var(--vhyx-space-32);
-  max-width: 20rem;
+  max-width: var(--vhyx-popover-max-width);
   outline: none;
 
   /* scale-in: duration-normal / easing-spring */

@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { paginationContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { useId } from '../shared/useId';
 import styles from './Pagination.module.css';
 
@@ -87,7 +88,7 @@ function buildRange(
  *   showFirstLast
  * />
  */
-export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
+const PaginationBase = React.forwardRef<HTMLElement, PaginationProps>(
   (
     {
       page,
@@ -226,4 +227,12 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
   },
 );
 
+PaginationBase.displayName = 'VhyxPagination';
+
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const paginationSealContract = { ...paginationContract, id: 'vhyxui-pagination' } as Readonly<ComponentContract>;
+
+export const Pagination = withAgentContract(PaginationBase, paginationSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<PaginationProps> & React.RefAttributes<HTMLElement>
+>;
 Pagination.displayName = 'VhyxPagination';

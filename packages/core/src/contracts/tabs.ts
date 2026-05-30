@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Tabs component.
+ * Default VhyxSeal contract template for the Tabs component.
  *
  * Expresses that a Tabs component navigates between content panels.
  * Activating a tab changes the visible panel — no data is submitted or deleted.
+ * Instance id is injected at render time: { ...tabsContract, id: instanceId }
  */
-export const tabsContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const tabsContract = defineContractTemplate({
   type: 'navigation',
   intent: 'navigate-tabs',
   description: 'Switches between content panels by activating a tab trigger',

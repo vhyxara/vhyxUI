@@ -1,0 +1,1 @@
+export { renderWithVhyxUI } from './render';

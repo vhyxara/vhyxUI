@@ -2,6 +2,9 @@
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
+import type { ComponentContract } from '@vhyxui/core';
+import { tooltipContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { useId } from '../shared/useId';
 import styles from './Tooltip.module.css';
 
@@ -45,7 +48,7 @@ export interface TooltipProps {
  *   <Button iconOnly aria-label="Delete"><TrashIcon /></Button>
  * </Tooltip>
  */
-export function Tooltip({
+function TooltipBase({
   content,
   side = 'top',
   align = 'center',
@@ -195,4 +198,10 @@ export function Tooltip({
   );
 }
 
+TooltipBase.displayName = 'VhyxTooltip';
+
+// Library-level contract for SealContext registration.
+const tooltipSealContract = { ...tooltipContract, id: 'vhyxui-tooltip' } as Readonly<ComponentContract>;
+
+export const Tooltip = withAgentContract(TooltipBase, tooltipSealContract);
 Tooltip.displayName = 'VhyxTooltip';

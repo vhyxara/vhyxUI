@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { textareaContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { useId } from '../shared/useId';
 import styles from './Textarea.module.css';
 
@@ -44,7 +45,7 @@ export interface TextareaProps
  * @example
  * <Textarea placeholder="Enter your message" minRows={3} maxRows={8} />
  */
-export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
+const TextareaBase = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
       size = 'md',
@@ -162,4 +163,12 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   },
 );
 
+TextareaBase.displayName = 'VhyxTextarea';
+
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const textareaSealContract = { ...textareaContract, id: 'vhyxui-textarea' } as Readonly<ComponentContract>;
+
+export const Textarea = withAgentContract(TextareaBase, textareaSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<TextareaProps> & React.RefAttributes<HTMLTextAreaElement>
+>;
 Textarea.displayName = 'VhyxTextarea';

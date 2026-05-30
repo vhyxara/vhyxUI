@@ -6,6 +6,7 @@ import React from 'react';
 import { toast } from '../../toast/toast';
 import { dismissAllToasts } from '../../toast/toast-store';
 import { ToastProvider } from './Toast';
+import { toastContract } from '@vhyxui/core/contracts';
 
 // ─── Setup/Teardown ───────────────────────────────────────────────────────────
 
@@ -220,5 +221,27 @@ describe('Toast — accessibility (axe)', () => {
     act(() => { toast.success('Done!'); });
     const results = await axe(container, { rules: { region: { enabled: false } } });
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Toast — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(toastContract).toBeDefined();
+    expect(typeof toastContract.fingerprint).toBe('string');
+    expect(toastContract.fingerprint.length).toBeGreaterThan(0);
+    expect(toastContract.intent).toBeDefined();
+    expect(toastContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(toastContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      toastContract.type,
+    );
   });
 });

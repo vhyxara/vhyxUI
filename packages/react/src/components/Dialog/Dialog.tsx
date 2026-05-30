@@ -13,6 +13,7 @@ import ReactDOM from 'react-dom';
 import type { ComponentContract } from '@vhyxui/core';
 import { dialogContract } from '@vhyxui/core';
 import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Dialog.module.css';
@@ -23,6 +24,7 @@ interface DialogContextValue {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   modal: boolean;
+  size: 'sm' | 'md' | 'lg';
   titleId: string;
   descriptionId: string;
   triggerRef: React.MutableRefObject<HTMLElement | null>;
@@ -55,6 +57,8 @@ export interface DialogProps {
   onOpenChange?: (open: boolean) => void;
   /** When true, blocks interaction with the rest of the page. @default true */
   modal?: boolean;
+  /** Controls the maximum width of the dialog panel. @default 'md' */
+  size?: 'sm' | 'md' | 'lg';
   /** VhyxSeal contract override. */
   contract?: Partial<ComponentContract>;
   /** Dialog sub-components as children. */
@@ -86,6 +90,7 @@ const DialogRoot = React.forwardRef<HTMLDivElement, DialogProps>(
       defaultOpen = false,
       onOpenChange,
       modal = true,
+      size = 'md',
       contract,
       children,
     },
@@ -130,12 +135,13 @@ const DialogRoot = React.forwardRef<HTMLDivElement, DialogProps>(
         open: isOpen,
         onOpenChange: handleOpenChange,
         modal,
+        size,
         titleId,
         descriptionId,
         triggerRef,
         hasTitleRef,
       }),
-      [isOpen, handleOpenChange, modal, titleId, descriptionId],
+      [isOpen, handleOpenChange, modal, size, titleId, descriptionId],
     );
 
     return (
@@ -382,6 +388,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
         tabIndex={-1}
         className={contentClass}
         data-state="open"
+        data-size={ctx.size}
         {...rest}
       >
         {children}
@@ -528,14 +535,21 @@ DialogClose.displayName = 'VhyxDialogClose';
  * Sub-components: Dialog.Trigger, Dialog.Portal, Dialog.Overlay, Dialog.Content,
  * Dialog.Header, Dialog.Footer, Dialog.Title, Dialog.Description, Dialog.Close.
  */
-export const Dialog = Object.assign(DialogRoot, {
-  Trigger: DialogTrigger,
-  Portal: DialogPortal,
-  Overlay: DialogOverlay,
-  Content: DialogContent,
-  Header: DialogHeader,
-  Footer: DialogFooter,
-  Title: DialogTitle,
-  Description: DialogDescription,
-  Close: DialogClose,
-});
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const dialogSealContract = { ...dialogContract, id: 'vhyxui-dialog' } as Readonly<ComponentContract>;
+
+export const Dialog = Object.assign(
+  withAgentContract(DialogRoot, dialogSealContract),
+  {
+    Trigger: DialogTrigger,
+    Portal: DialogPortal,
+    Overlay: DialogOverlay,
+    Content: DialogContent,
+    Header: DialogHeader,
+    Footer: DialogFooter,
+    Title: DialogTitle,
+    Description: DialogDescription,
+    Close: DialogClose,
+  },
+);
+Dialog.displayName = 'VhyxDialog';

@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Pagination component.
+ * Default VhyxSeal contract template for the Pagination component.
  *
  * Expresses that Pagination navigates between pages of a data set.
  * Page changes update the visible content slice — no data is mutated.
+ * Instance id is injected at render time: { ...paginationContract, id: instanceId }
  */
-export const paginationContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const paginationContract = defineContractTemplate({
   type: 'navigation',
   intent: 'navigate-page',
   description: 'Navigates between pages of a paginated data set',

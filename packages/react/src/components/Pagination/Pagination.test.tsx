@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Pagination } from './Pagination';
+import { paginationContract } from '@vhyxui/core/contracts';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -239,5 +240,27 @@ describe('Pagination — accessibility (axe)', () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Pagination — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(paginationContract).toBeDefined();
+    expect(typeof paginationContract.fingerprint).toBe('string');
+    expect(paginationContract.fingerprint.length).toBeGreaterThan(0);
+    expect(paginationContract.intent).toBeDefined();
+    expect(paginationContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(paginationContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      paginationContract.type,
+    );
   });
 });

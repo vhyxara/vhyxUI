@@ -3,6 +3,7 @@
 import React, { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { radioContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { useId } from '../shared/useId';
 import styles from './Radio.module.css';
 
@@ -71,7 +72,7 @@ export interface RadioGroupProps extends React.HTMLAttributes<HTMLDivElement> {
  *   <RadioItem value="pro">Pro</RadioItem>
  * </RadioGroup>
  */
-export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
+const RadioGroupBase = React.forwardRef<HTMLDivElement, RadioGroupProps>(
   (
     {
       value,
@@ -195,4 +196,12 @@ export const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
   },
 );
 
+RadioGroupBase.displayName = 'VhyxRadioGroup';
+
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const radioSealContract = { ...radioContract, id: 'vhyxui-radio-group' } as Readonly<ComponentContract>;
+
+export const RadioGroup = withAgentContract(RadioGroupBase, radioSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<RadioGroupProps> & React.RefAttributes<HTMLDivElement>
+>;
 RadioGroup.displayName = 'VhyxRadioGroup';

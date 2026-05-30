@@ -140,8 +140,8 @@ importers:
   packages/core:
     dependencies:
       '@vhyxseal/core':
-        specifier: 0.1.0
-        version: 0.1.0
+        specifier: 1.0.0-rc.2
+        version: 1.0.0-rc.2
       react:
         specifier: '>=18'
         version: 19.2.6
@@ -159,8 +159,8 @@ importers:
   packages/react:
     dependencies:
       '@vhyxseal/react':
-        specifier: 0.1.0
-        version: 0.1.0(react@19.2.6)
+        specifier: 1.0.0-rc.2
+        version: 1.0.0-rc.2(react@19.2.6)
       '@vhyxui/core':
         specifier: workspace:*
         version: link:../core
@@ -177,6 +177,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.0.0
         version: 18.3.7(@types/react@18.3.28)
+      react-hook-form:
+        specifier: ^7.0.0
+        version: 7.76.0(react@19.2.6)
 
   packages/tokens: {}
 
@@ -1067,11 +1070,14 @@ packages:
   '@ungap/structured-clone@1.3.1':
     resolution: {integrity: sha512-mUFwbeTqrVgDQxFveS+df2yfap6iuP20NAKAsBt5jDEoOTDew+zwLAOilHCeQJOVSvmgCX4ogqIrA0mnyr08yQ==}
 
-  '@vhyxseal/core@0.1.0':
-    resolution: {integrity: sha512-4t8Ft8XmElFyWJBc/T91oKjz+ITxORm1Rx5dlA7EBIQ2/RGyBqppuEera0HZVVWSgrbCJOI1xwg1IEZziv75qA==}
+  '@vhyxseal/core@1.0.0-rc.1':
+    resolution: {integrity: sha512-CRJpzeIxG2egbtKA/iJwK6ybii7iR58604hTlhF6AXCTYF3nU9lVbK0ryzub4Uq8B7uLIm4PC/5XIuoREWo03Q==}
 
-  '@vhyxseal/react@0.1.0':
-    resolution: {integrity: sha512-heHxLrw9T2E1MDgJzxhxqDuxg/icnqmankvrW2MI3+2MbG9SCYSY2WmokEHhQJEQBMvGwOv0ZTocUL/r6wFJeQ==}
+  '@vhyxseal/core@1.0.0-rc.2':
+    resolution: {integrity: sha512-dPiGPrD1aEGHMx5W45yP2wrgHsNxLZTdoV3reZdRXRfTdMv15hPVfKNz+7em8iTfwDF4Yq9SmOXwjE6azHTJlg==}
+
+  '@vhyxseal/react@1.0.0-rc.2':
+    resolution: {integrity: sha512-m8Cxia/CpyaFq6umxcZ+i5fuaYMprumoQlJxz2wQJZMnDy5Qlw8P37D+6Ia8ben2ycT/u1IR2Y3jUxK5SVTS1A==}
     peerDependencies:
       react: '>=18.0.0'
 
@@ -3061,11 +3067,13 @@ snapshots:
 
   '@ungap/structured-clone@1.3.1': {}
 
-  '@vhyxseal/core@0.1.0': {}
+  '@vhyxseal/core@1.0.0-rc.1': {}
 
-  '@vhyxseal/react@0.1.0(react@19.2.6)':
+  '@vhyxseal/core@1.0.0-rc.2': {}
+
+  '@vhyxseal/react@1.0.0-rc.2(react@19.2.6)':
     dependencies:
-      '@vhyxseal/core': 0.1.0
+      '@vhyxseal/core': 1.0.0-rc.1
       react: 19.2.6
 
   '@vitejs/plugin-react@4.7.0(vite@5.4.21(@types/node@20.19.41))':

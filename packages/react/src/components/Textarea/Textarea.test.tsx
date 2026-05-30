@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Textarea } from './Textarea';
+import { textareaContract } from '@vhyxui/core/contracts';
 
 // ─── 1. Renders without crashing ──────────────────────────────────────────────
 
@@ -164,5 +165,27 @@ describe('Textarea — accessibility (axe)', () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Textarea — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(textareaContract).toBeDefined();
+    expect(typeof textareaContract.fingerprint).toBe('string');
+    expect(textareaContract.fingerprint.length).toBeGreaterThan(0);
+    expect(textareaContract.intent).toBeDefined();
+    expect(textareaContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(textareaContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      textareaContract.type,
+    );
   });
 });

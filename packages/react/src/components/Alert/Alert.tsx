@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { alertContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
+import { useId } from '../shared/useId';
 import styles from './Alert.module.css';
 
 /** Visual variant of the Alert. */
@@ -38,7 +40,7 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
  * <Alert variant="success" title="Saved">Your changes have been saved.</Alert>
  * <Alert variant="danger" dismissible onDismiss={handleDismiss}>An error occurred.</Alert>
  */
-export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+const AlertBase = React.forwardRef<HTMLDivElement, AlertProps>(
   (
     {
       variant = 'default',
@@ -53,6 +55,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
     },
     ref,
   ) => {
+    const internalId = useId('vhyx-alert');
     const [dismissed, setDismissed] = useState(false);
 
     if (dismissed) return null;
@@ -60,6 +63,7 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
     const effectiveContract: Readonly<Partial<ComponentContract>> = {
       ...alertContract,
       ...contract,
+      id: contract?.id ?? internalId,
     };
 
     const role = variant === 'danger' ? 'alert' : 'status';
@@ -114,6 +118,14 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   },
 );
 
+AlertBase.displayName = 'VhyxAlert';
+
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const alertSealContract = { ...alertContract, id: 'vhyxui-alert' } as Readonly<ComponentContract>;
+
+export const Alert = withAgentContract(AlertBase, alertSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<AlertProps> & React.RefAttributes<HTMLDivElement>
+>;
 Alert.displayName = 'VhyxAlert';
 
 /** Returns the default icon string for a given variant. */

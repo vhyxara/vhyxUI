@@ -1,6 +1,9 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import type { ComponentContract } from '@vhyxui/core';
+import { toastContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import type { ToastItem, ToastVariant } from '../../toast/toast-store';
 import {
   configureStore,
@@ -177,6 +180,10 @@ function variantIcon(variant: ToastVariant): string {
  * not this component directly. ToastProvider (rendered inside VhyxUIProvider)
  * manages the toast list automatically.
  */
-export const Toast = Object.assign(ToastProvider, {
-  displayName: 'VhyxToast',
-});
+// Library-level contract for SealContext registration.
+const toastSealContract = { ...toastContract, id: 'vhyxui-toast' } as Readonly<ComponentContract>;
+
+export const Toast = Object.assign(
+  withAgentContract(ToastProvider, toastSealContract),
+  { displayName: 'VhyxToast' },
+);

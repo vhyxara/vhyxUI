@@ -1,8 +1,26 @@
 import { describe, it, expect } from 'vitest';
 import {
   buttonContract,
-  dialogContract,
+  inputContract,
+  textareaContract,
+  selectContract,
+  checkboxContract,
+  radioContract,
+  switchContract,
+  formContract,
   toastContract,
+  alertContract,
+  badgeContract,
+  progressContract,
+  spinnerContract,
+  dialogContract,
+  drawerContract,
+  tooltipContract,
+  popoverContract,
+  cardContract,
+  separatorContract,
+  tabsContract,
+  breadcrumbContract,
   paginationContract,
 } from '../src/contracts';
 
@@ -44,6 +62,16 @@ describe('buttonContract', () => {
     expect(typeof buttonContract.contractVersion).toBe('string');
     expect(buttonContract.contractVersion).toBeTruthy();
   });
+
+  it('has a fingerprint set by defineContractTemplate()', () => {
+    expect(buttonContract.fingerprint).toBeDefined();
+    expect(typeof buttonContract.fingerprint).toBe('string');
+    expect(buttonContract.fingerprint).not.toBe('');
+  });
+
+  it('has no id field — id injected at render time', () => {
+    expect('id' in buttonContract).toBe(false);
+  });
 });
 
 describe('dialogContract', () => {
@@ -70,6 +98,12 @@ describe('dialogContract', () => {
   it('is frozen', () => {
     expect(Object.isFrozen(dialogContract)).toBe(true);
   });
+
+  it('has a fingerprint set by defineContractTemplate()', () => {
+    expect(dialogContract.fingerprint).toBeDefined();
+    expect(typeof dialogContract.fingerprint).toBe('string');
+    expect(dialogContract.fingerprint).not.toBe('');
+  });
 });
 
 describe('toastContract', () => {
@@ -91,6 +125,12 @@ describe('toastContract', () => {
 
   it('is frozen', () => {
     expect(Object.isFrozen(toastContract)).toBe(true);
+  });
+
+  it('has a fingerprint set by defineContractTemplate()', () => {
+    expect(toastContract.fingerprint).toBeDefined();
+    expect(typeof toastContract.fingerprint).toBe('string');
+    expect(toastContract.fingerprint).not.toBe('');
   });
 });
 
@@ -118,18 +158,42 @@ describe('paginationContract', () => {
   it('is frozen', () => {
     expect(Object.isFrozen(paginationContract)).toBe(true);
   });
+
+  it('has a fingerprint set by defineContractTemplate()', () => {
+    expect(paginationContract.fingerprint).toBeDefined();
+    expect(typeof paginationContract.fingerprint).toBe('string');
+    expect(paginationContract.fingerprint).not.toBe('');
+  });
 });
 
-describe('all exported contracts have required base fields', () => {
+describe('all 22 exported contract templates have required base fields, fingerprint, and no id', () => {
   const contracts = [
     buttonContract,
-    dialogContract,
+    inputContract,
+    textareaContract,
+    selectContract,
+    checkboxContract,
+    radioContract,
+    switchContract,
+    formContract,
     toastContract,
+    alertContract,
+    badgeContract,
+    progressContract,
+    spinnerContract,
+    dialogContract,
+    drawerContract,
+    tooltipContract,
+    popoverContract,
+    cardContract,
+    separatorContract,
+    tabsContract,
+    breadcrumbContract,
     paginationContract,
   ];
 
   for (const contract of contracts) {
-    it(`${contract.intent ?? 'unknown'} has type, intent, safetyLevel, contractVersion`, () => {
+    it(`${contract.intent} has type, intent, safetyLevel, contractVersion`, () => {
       expect(contract.type).toBeTruthy();
       expect(contract.intent).toBeTruthy();
       expect(contract.safetyLevel).toBeTruthy();
@@ -137,6 +201,16 @@ describe('all exported contracts have required base fields', () => {
       expect(typeof contract.destructive).toBe('boolean');
       expect(typeof contract.requiresConfirmation).toBe('boolean');
       expect(typeof contract.reversible).toBe('boolean');
+    });
+
+    it(`${contract.intent} has a fingerprint from defineContractTemplate()`, () => {
+      expect(contract.fingerprint).toBeDefined();
+      expect(typeof contract.fingerprint).toBe('string');
+      expect(contract.fingerprint).not.toBe('');
+    });
+
+    it(`${contract.intent} has no id field — templates are id-free`, () => {
+      expect('id' in contract).toBe(false);
     });
   }
 });

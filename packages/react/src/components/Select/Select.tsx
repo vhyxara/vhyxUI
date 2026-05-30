@@ -13,6 +13,7 @@ import ReactDOM from 'react-dom';
 import type { ComponentContract } from '@vhyxui/core';
 import { selectContract } from '@vhyxui/core';
 import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Select.module.css';
@@ -634,11 +635,18 @@ SelectSeparator.displayName = 'VhyxSelectSeparator';
 // ─── Compound export ──────────────────────────────────────────────────────────
 
 /** Select — compound dropdown with full keyboard navigation. */
-export const Select = Object.assign(SelectRoot, {
-  Trigger: SelectTrigger,
-  Content: SelectContent,
-  Item: SelectItem,
-  Group: SelectGroup,
-  Label: SelectLabel,
-  Separator: SelectSeparator,
-});
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const selectSealContract = { ...selectContract, id: 'vhyxui-select' } as Readonly<ComponentContract>;
+
+export const Select = Object.assign(
+  withAgentContract(SelectRoot, selectSealContract),
+  {
+    Trigger: SelectTrigger,
+    Content: SelectContent,
+    Item: SelectItem,
+    Group: SelectGroup,
+    Label: SelectLabel,
+    Separator: SelectSeparator,
+  },
+);
+Select.displayName = 'VhyxSelect';

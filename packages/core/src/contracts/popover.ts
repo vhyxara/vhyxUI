@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Popover component.
+ * Default VhyxSeal contract template for the Popover component.
  *
  * Expresses that a Popover opens a non-modal floating panel anchored to a trigger.
  * Unlike Dialog, a Popover does not block the rest of the page.
+ * Instance id is injected at render time: { ...popoverContract, id: instanceId }
  */
-export const popoverContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const popoverContract = defineContractTemplate({
   type: 'display',
   intent: 'open-popover',
   description: 'Opens a non-modal floating panel anchored to a trigger element',

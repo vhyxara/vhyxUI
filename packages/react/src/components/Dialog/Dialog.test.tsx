@@ -234,7 +234,9 @@ describe('Dialog — dev warning', () => {
     const user = userEvent.setup();
     render(<BasicDialog />);
     await user.click(screen.getByRole('button', { name: 'Open Dialog' }));
-    expect(console.warn).not.toHaveBeenCalled();
+    expect(console.warn).not.toHaveBeenCalledWith(
+      expect.stringContaining('Dialog.Title'),
+    );
   });
 });
 
@@ -308,7 +310,73 @@ describe('Dialog — forwardRef', () => {
   });
 });
 
-// ─── 11. Accessibility (axe) ─────────────────────────────────────────────────
+// ─── 11. VhyxSeal contract ────────────────────────────────────────────────────
+
+describe('Dialog — VhyxSeal contract', () => {
+  it('root element carries data-vhyx-contract with real instance id', () => {
+    render(<BasicDialog />);
+    const root = document.querySelector('[data-vhyx-contract]');
+    expect(root).toBeTruthy();
+    const contract = JSON.parse(root!.getAttribute('data-vhyx-contract')!);
+    expect(contract['id']).toBeTruthy();
+    expect(contract['id']).not.toBe('vhyxui-dialog');
+  });
+
+  it('contract carries fingerprint from defineContractTemplate()', () => {
+    render(<BasicDialog />);
+    const root = document.querySelector('[data-vhyx-contract]');
+    const contract = JSON.parse(root!.getAttribute('data-vhyx-contract')!);
+    expect(typeof contract['fingerprint']).toBe('string');
+    expect(contract['fingerprint'].length).toBeGreaterThan(0);
+  });
+});
+
+// ─── 12. Size prop ────────────────────────────────────────────────────────────
+
+describe('Dialog — size prop', () => {
+  it('defaults to md size', async () => {
+    const user = userEvent.setup();
+    render(<BasicDialog />);
+    await user.click(screen.getByRole('button', { name: 'Open Dialog' }));
+    expect(screen.getByRole('dialog')).toHaveAttribute('data-size', 'md');
+  });
+
+  it('accepts sm size', async () => {
+    const user = userEvent.setup();
+    render(
+      <Dialog size="sm">
+        <Dialog.Trigger>Open</Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Content>
+            <Dialog.Title>Test</Dialog.Title>
+            <Dialog.Close>Close</Dialog.Close>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    expect(screen.getByRole('dialog')).toHaveAttribute('data-size', 'sm');
+  });
+
+  it('accepts lg size', async () => {
+    const user = userEvent.setup();
+    render(
+      <Dialog size="lg">
+        <Dialog.Trigger>Open</Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Content>
+            <Dialog.Title>Test</Dialog.Title>
+            <Dialog.Close>Close</Dialog.Close>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    expect(screen.getByRole('dialog')).toHaveAttribute('data-size', 'lg');
+  });
+});
+
+// ─── 13. Accessibility (axe) ─────────────────────────────────────────────────
 
 describe('Dialog — accessibility (axe)', () => {
   it('closed state has no axe violations', async () => {

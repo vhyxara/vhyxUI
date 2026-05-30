@@ -218,3 +218,25 @@ describe('Input — accessibility (axe)', () => {
     }
   });
 });
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Input — VhyxSeal contract', () => {
+  it('input element carries data-vhyx-contract with real instance id', () => {
+    render(<Input aria-label="Email" />);
+    const input = screen.getByRole('textbox');
+    const raw = input.getAttribute('data-vhyx-contract');
+    expect(raw).toBeTruthy();
+    const contract = JSON.parse(raw!);
+    expect(contract['id']).toBeTruthy();
+    expect(contract['id']).not.toBe('vhyxui-input');
+  });
+
+  it('contract carries fingerprint from defineContractTemplate()', () => {
+    render(<Input aria-label="Email" />);
+    const input = screen.getByRole('textbox');
+    const contract = JSON.parse(input.getAttribute('data-vhyx-contract')!);
+    expect(typeof contract['fingerprint']).toBe('string');
+    expect(contract['fingerprint'].length).toBeGreaterThan(0);
+  });
+});

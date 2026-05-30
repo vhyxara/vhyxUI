@@ -124,6 +124,11 @@
       "require": "./dist/pagination.cjs",
       "types": "./dist/pagination.d.ts"
     },
+    "./test-utils": {
+      "import": "./dist/test-utils.js",
+      "require": "./dist/test-utils.cjs",
+      "types": "./dist/test-utils.d.ts"
+    },
     "./style.css": "./style.css"
   },
   "sideEffects": ["*.css", "dist/style.css"],
@@ -140,15 +145,21 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "@vhyxseal/react": "0.1.0",
+    "@vhyxseal/react": "1.0.0-rc.2",
     "@vhyxui/core": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "react-hook-form": ">=7"
+  },
+  "peerDependenciesMeta": {
+    "react-hook-form": { "optional": true }
   },
   "devDependencies": {
+    "@testing-library/react": "^14.0.0",
     "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0"
+    "@types/react-dom": "^18.0.0",
+    "react-hook-form": "^7.0.0"
   }
 }

@@ -10,6 +10,9 @@
   --vhyx-color-surface-raised:  #ffffff;
   --vhyx-color-surface-overlay: #ffffff;
 
+  /* Overlay backdrop */
+  --vhyx-color-overlay:         rgba(0, 0, 0, 0.5);
+
   /* Border */
   --vhyx-color-border:          var(--vhyx-primitive-slate-200);
   --vhyx-color-border-strong:   var(--vhyx-primitive-slate-300);

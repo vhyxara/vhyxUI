@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { SealProvider } from '@vhyxseal/react';
 import { ToastProvider } from '../components/Toast/Toast';
 import type { ToastPosition } from '../components/Toast/Toast';
 import styles from './VhyxUIProvider.module.css';
@@ -30,10 +31,18 @@ export interface VhyxUIProviderProps {
   defaultDuration?: number;
 }
 
+/** Default SealProvider config — domain and verification set by the consuming application. */
+const SEAL_CONFIG = {
+  domain: '',
+  domainVerified: false,
+  verificationToken: '',
+} as const;
+
 /**
  * VhyxUIProvider — root provider for VhyxUI.
  *
  * Place once at the top of your application tree. Provides:
+ * - SealProvider (VhyxSeal contract registry for agent API access)
  * - A visually hidden skip link as the first focusable element on every page.
  *   Becomes visible on keyboard focus, linking to `#vhyx-main`.
  * - The Toast notification region (imperative API via `toast()`).
@@ -51,8 +60,10 @@ export function VhyxUIProvider({
   maxToasts = 5,
   defaultDuration = 4000,
 }: VhyxUIProviderProps): React.ReactElement {
+  const dev = process.env['NODE_ENV'] !== 'production';
+
   return (
-    <>
+    <SealProvider config={SEAL_CONFIG} dev={dev}>
       {/* Skip link — first focusable element on every page. Visually hidden until focused. */}
       <a href="#vhyx-main" className={styles['skip-link']}>
         Skip to main content
@@ -65,7 +76,7 @@ export function VhyxUIProvider({
       >
         {children}
       </ToastProvider>
-    </>
+    </SealProvider>
   );
 }
 

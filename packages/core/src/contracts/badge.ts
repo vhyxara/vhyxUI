@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Badge component.
+ * Default VhyxSeal contract template for the Badge component.
  *
  * Expresses that a Badge is a small status indicator — display only.
  * Agents read badge content to understand counts, states, or labels.
+ * Instance id is injected at render time: { ...badgeContract, id: instanceId }
  */
-export const badgeContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const badgeContract = defineContractTemplate({
   type: 'display',
   intent: 'display-status',
   description: 'Displays a small status label, count, or categorical indicator',

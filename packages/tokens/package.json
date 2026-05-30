@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "CSS design tokens for VhyxUI — zero JavaScript, zero build step",
   "license": "MIT",
+  "scripts": {
+    "sync": "node scripts/sync-bundle.js"
+  },
   "exports": {
     ".":           "./index.css",
     "./index.css": "./index.css",

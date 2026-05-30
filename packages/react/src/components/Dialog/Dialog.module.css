@@ -12,7 +12,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--vhyx-color-overlay);
   z-index: var(--vhyx-z-overlay);
 
   /* vhyx-overlay-in: duration-normal / easing-standard */
@@ -29,7 +29,7 @@
   z-index: var(--vhyx-z-modal);
 
   width: calc(100% - var(--vhyx-space-8));
-  max-width: 32rem;
+  max-width: var(--vhyx-dialog-md);
   max-height: calc(100vh - var(--vhyx-space-16));
   overflow-y: auto;
 
@@ -44,6 +44,12 @@
   /* Needed for focus trap — content itself can be focused as fallback */
   outline: none;
 }
+
+/* ─── Size variants ───────────────────────────────────────── */
+
+.content[data-size="sm"] { max-width: var(--vhyx-dialog-sm); }
+.content[data-size="md"] { max-width: var(--vhyx-dialog-md); }
+.content[data-size="lg"] { max-width: var(--vhyx-dialog-lg); }
 
 /* ─── Header ──────────────────────────────────────────────── */
 

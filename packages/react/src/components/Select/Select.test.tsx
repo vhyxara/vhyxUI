@@ -277,3 +277,24 @@ describe('Select — accessibility (axe)', () => {
     expect(results).toHaveNoViolations();
   });
 });
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Select — VhyxSeal contract', () => {
+  it('root element carries data-vhyx-contract with real instance id', () => {
+    render(<BasicSelect />);
+    const root = document.querySelector('[data-vhyx-contract]');
+    expect(root).toBeTruthy();
+    const contract = JSON.parse(root!.getAttribute('data-vhyx-contract')!);
+    expect(contract['id']).toBeTruthy();
+    expect(contract['id']).not.toBe('vhyxui-select');
+  });
+
+  it('contract carries fingerprint from defineContractTemplate()', () => {
+    render(<BasicSelect />);
+    const root = document.querySelector('[data-vhyx-contract]');
+    const contract = JSON.parse(root!.getAttribute('data-vhyx-contract')!);
+    expect(typeof contract['fingerprint']).toBe('string');
+    expect(contract['fingerprint'].length).toBeGreaterThan(0);
+  });
+});

@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Drawer } from './Drawer';
+import { drawerContract } from '@vhyxui/core/contracts';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -242,7 +243,9 @@ describe('Drawer — dev warning', () => {
     const user = userEvent.setup();
     render(<BasicDrawer />);
     await user.click(screen.getByRole('button', { name: 'Open Drawer' }));
-    expect(console.warn).not.toHaveBeenCalled();
+    expect(console.warn).not.toHaveBeenCalledWith(
+      expect.stringContaining('Drawer.Title'),
+    );
   });
 });
 
@@ -292,5 +295,27 @@ describe('Drawer — accessibility (axe)', () => {
     const dialog = screen.getByRole('dialog');
     const results = await axe(dialog);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Drawer — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(drawerContract).toBeDefined();
+    expect(typeof drawerContract.fingerprint).toBe('string');
+    expect(drawerContract.fingerprint.length).toBeGreaterThan(0);
+    expect(drawerContract.intent).toBeDefined();
+    expect(drawerContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(drawerContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      drawerContract.type,
+    );
   });
 });

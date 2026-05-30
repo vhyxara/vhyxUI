@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Textarea component.
+ * Default VhyxSeal contract template for the Textarea component.
  *
  * Expresses that a Textarea accepts multi-line text input. Reversible because
  * the user can edit or clear the content before form submission.
+ * Instance id is injected at render time: { ...textareaContract, id: instanceId }
  */
-export const textareaContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const textareaContract = defineContractTemplate({
   type: 'input',
   intent: 'enter-text',
   description: 'Accepts multi-line text content entered by the user',

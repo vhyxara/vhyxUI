@@ -13,6 +13,7 @@ import ReactDOM from 'react-dom';
 import type { ComponentContract } from '@vhyxui/core';
 import { popoverContract } from '@vhyxui/core';
 import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Popover.module.css';
@@ -390,9 +391,16 @@ PopoverClose.displayName = 'VhyxPopoverClose';
 // ─── Compound export ──────────────────────────────────────────────────────────
 
 /** Popover — non-modal floating panel compound component. */
-export const Popover = Object.assign(PopoverRoot, {
-  Trigger: PopoverTrigger,
-  Content: PopoverContent,
-  Arrow: PopoverArrow,
-  Close: PopoverClose,
-});
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const popoverSealContract = { ...popoverContract, id: 'vhyxui-popover' } as Readonly<ComponentContract>;
+
+export const Popover = Object.assign(
+  withAgentContract(PopoverRoot, popoverSealContract),
+  {
+    Trigger: PopoverTrigger,
+    Content: PopoverContent,
+    Arrow: PopoverArrow,
+    Close: PopoverClose,
+  },
+);
+Popover.displayName = 'VhyxPopover';

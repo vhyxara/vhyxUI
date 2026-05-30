@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+import type { ComponentContract } from '@vhyxui/core';
+import { separatorContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import styles from './Separator.module.css';
 
 /** Props for the Separator component. */
@@ -30,7 +33,7 @@ export interface SeparatorProps extends React.HTMLAttributes<HTMLElement> {
  * <Separator orientation="horizontal" />
  * <Separator label="OR" decorative={false} />
  */
-export const Separator = React.forwardRef<HTMLElement, SeparatorProps>(
+const SeparatorBase = React.forwardRef<HTMLElement, SeparatorProps>(
   (
     {
       orientation = 'horizontal',
@@ -77,4 +80,12 @@ export const Separator = React.forwardRef<HTMLElement, SeparatorProps>(
   },
 );
 
+SeparatorBase.displayName = 'VhyxSeparator';
+
+// Library-level contract for SealContext registration.
+const separatorSealContract = { ...separatorContract, id: 'vhyxui-separator' } as Readonly<ComponentContract>;
+
+export const Separator = withAgentContract(SeparatorBase, separatorSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<SeparatorProps> & React.RefAttributes<HTMLElement>
+>;
 Separator.displayName = 'VhyxSeparator';

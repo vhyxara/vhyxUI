@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Card } from './Card';
+import { cardContract } from '@vhyxui/core/contracts';
 
 // ─── 1. Renders ───────────────────────────────────────────────────────────────
 
@@ -167,5 +168,27 @@ describe('Card — accessibility (axe)', () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Card — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(cardContract).toBeDefined();
+    expect(typeof cardContract.fingerprint).toBe('string');
+    expect(cardContract.fingerprint.length).toBeGreaterThan(0);
+    expect(cardContract.intent).toBeDefined();
+    expect(cardContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(cardContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      cardContract.type,
+    );
   });
 });

@@ -5,6 +5,7 @@ import { axe } from 'vitest-axe';
 import React from 'react';
 import { RadioGroup } from './RadioGroup';
 import { RadioItem } from './RadioItem';
+import { radioContract } from '@vhyxui/core/contracts';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -315,5 +316,27 @@ describe('RadioGroup — accessibility (axe)', () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('RadioGroup — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(radioContract).toBeDefined();
+    expect(typeof radioContract.fingerprint).toBe('string');
+    expect(radioContract.fingerprint.length).toBeGreaterThan(0);
+    expect(radioContract.intent).toBeDefined();
+    expect(radioContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(radioContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      radioContract.type,
+    );
   });
 });

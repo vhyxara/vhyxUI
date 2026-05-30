@@ -3,6 +3,7 @@
 import React, { useMemo } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { progressContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { useId } from '../shared/useId';
 import styles from './Progress.module.css';
 
@@ -45,7 +46,7 @@ export interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
  * @example
  * <Progress value={60} max={100} variant="success" showLabel />
  */
-export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
+const ProgressBase = React.forwardRef<HTMLDivElement, ProgressProps>(
   (
     {
       value,
@@ -115,4 +116,12 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
   },
 );
 
+ProgressBase.displayName = 'VhyxProgress';
+
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const progressSealContract = { ...progressContract, id: 'vhyxui-progress' } as Readonly<ComponentContract>;
+
+export const Progress = withAgentContract(ProgressBase, progressSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<ProgressProps> & React.RefAttributes<HTMLDivElement>
+>;
 Progress.displayName = 'VhyxProgress';

@@ -3,6 +3,7 @@
 import React, { useCallback, useState } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { checkboxContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Checkbox.module.css';
@@ -83,7 +84,7 @@ function IndeterminateMark(): React.ReactElement {
  *   onCheckedChange={setIsChecked}
  * />
  */
-export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
+const CheckboxBase = React.forwardRef<HTMLButtonElement, CheckboxProps>(
   (
     {
       checked,
@@ -182,4 +183,12 @@ export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
   },
 );
 
+CheckboxBase.displayName = 'VhyxCheckbox';
+
+// Library-level contract for SealContext registration; per-instance ids set via DOM attribute.
+const checkboxSealContract = { ...checkboxContract, id: 'vhyxui-checkbox' } as Readonly<ComponentContract>;
+
+export const Checkbox = withAgentContract(CheckboxBase, checkboxSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<CheckboxProps> & React.RefAttributes<HTMLButtonElement>
+>;
 Checkbox.displayName = 'VhyxCheckbox';

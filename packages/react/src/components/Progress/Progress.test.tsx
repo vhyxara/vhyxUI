@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Progress } from './Progress';
+import { progressContract } from '@vhyxui/core/contracts';
 
 // ─── Helper ───────────────────────────────────────────────────────────────────
 
@@ -171,5 +172,27 @@ describe('Progress — accessibility (axe)', () => {
     const { container } = render(<Progress value={100} variant="success" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Progress — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(progressContract).toBeDefined();
+    expect(typeof progressContract.fingerprint).toBe('string');
+    expect(progressContract.fingerprint.length).toBeGreaterThan(0);
+    expect(progressContract.intent).toBeDefined();
+    expect(progressContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(progressContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      progressContract.type,
+    );
   });
 });

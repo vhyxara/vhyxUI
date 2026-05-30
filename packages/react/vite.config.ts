@@ -39,12 +39,13 @@ export default defineConfig({
         separator:  resolve(__dirname, 'src/components/Separator/index.ts'),
         tabs:       resolve(__dirname, 'src/components/Tabs/index.ts'),
         breadcrumb: resolve(__dirname, 'src/components/Breadcrumb/index.ts'),
-        pagination: resolve(__dirname, 'src/components/Pagination/index.ts'),
+        pagination:   resolve(__dirname, 'src/components/Pagination/index.ts'),
+        'test-utils': resolve(__dirname, 'src/test-utils/index.ts'),
       },
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@vhyxseal/react', '@vhyxui/core'],
+      external: ['react', 'react-dom', '@vhyxseal/react', '@vhyxui/core', '@testing-library/react'],
       output: {
         globals: {
           react: 'React',

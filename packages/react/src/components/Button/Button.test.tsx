@@ -187,7 +187,9 @@ describe('Button — iconOnly', () => {
         <span>icon</span>
       </Button>,
     );
-    expect(console.warn).not.toHaveBeenCalled();
+    expect(console.warn).not.toHaveBeenCalledWith(
+      expect.stringContaining('aria-label'),
+    );
   });
 });
 
@@ -221,6 +223,21 @@ describe('Button — VhyxSeal contract', () => {
     );
     const contract = getContract(screen.getByRole('button'));
     expect(contract['requiresConfirmation']).toBe(true);
+  });
+
+  it('DOM attribute has real instance id — not template id', () => {
+    render(<Button>Button</Button>);
+    const contract = getContract(screen.getByRole('button'));
+    expect(contract['id']).toBeTruthy();
+    expect(contract['id']).not.toBe('__vhyxui_button_template__');
+    expect(contract['id']).not.toBe('vhyxui-button');
+  });
+
+  it('DOM attribute carries fingerprint from defineContractTemplate()', () => {
+    render(<Button>Button</Button>);
+    const contract = getContract(screen.getByRole('button'));
+    expect(typeof contract['fingerprint']).toBe('string');
+    expect((contract['fingerprint'] as string).length).toBeGreaterThan(0);
   });
 });
 

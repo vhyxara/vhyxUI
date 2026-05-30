@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Spinner } from './Spinner';
+import { spinnerContract } from '@vhyxui/core/contracts';
 
 // ─── 1. Renders without crashing ──────────────────────────────────────────────
 
@@ -134,5 +135,27 @@ describe('Spinner — accessibility (axe)', () => {
       expect(results).toHaveNoViolations();
       unmount();
     }
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Spinner — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(spinnerContract).toBeDefined();
+    expect(typeof spinnerContract.fingerprint).toBe('string');
+    expect(spinnerContract.fingerprint.length).toBeGreaterThan(0);
+    expect(spinnerContract.intent).toBeDefined();
+    expect(spinnerContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(spinnerContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      spinnerContract.type,
+    );
   });
 });

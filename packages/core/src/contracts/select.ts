@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the Select component.
+ * Default VhyxSeal contract template for the Select component.
  *
  * Expresses that a Select allows the user to choose one option from a list.
  * The selection is reversible — another option can be chosen before form submission.
+ * Instance id is injected at render time: { ...selectContract, id: instanceId }
  */
-export const selectContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const selectContract = defineContractTemplate({
   type: 'input',
   intent: 'select-option',
   description: 'Allows the user to choose one option from a dropdown list',

@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Breadcrumb } from './Breadcrumb';
+import { breadcrumbContract } from '@vhyxui/core/contracts';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -173,5 +174,27 @@ describe('Breadcrumb — accessibility (axe)', () => {
     );
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Breadcrumb — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(breadcrumbContract).toBeDefined();
+    expect(typeof breadcrumbContract.fingerprint).toBe('string');
+    expect(breadcrumbContract.fingerprint.length).toBeGreaterThan(0);
+    expect(breadcrumbContract.intent).toBeDefined();
+    expect(breadcrumbContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(breadcrumbContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      breadcrumbContract.type,
+    );
   });
 });

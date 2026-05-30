@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Tabs } from './Tabs';
+import { tabsContract } from '@vhyxui/core/contracts';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -332,5 +333,27 @@ describe('Tabs — accessibility (axe)', () => {
     const { container } = render(<BasicTabs defaultValue="tab1" variant="enclosed" />);
     const results = await axe(container);
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Tabs — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(tabsContract).toBeDefined();
+    expect(typeof tabsContract.fingerprint).toBe('string');
+    expect(tabsContract.fingerprint.length).toBeGreaterThan(0);
+    expect(tabsContract.intent).toBeDefined();
+    expect(tabsContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(tabsContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      tabsContract.type,
+    );
   });
 });

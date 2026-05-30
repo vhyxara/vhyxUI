@@ -1,12 +1,13 @@
-import type { ComponentContract } from '@vhyxseal/core';
+import { defineContractTemplate } from '@vhyxseal/core';
 
 /**
- * Default VhyxSeal contract for the RadioGroup component.
+ * Default VhyxSeal contract template for the RadioGroup component.
  *
  * Expresses that a RadioGroup captures a mutually exclusive selection.
  * The selection is reversible — a different option can be chosen before form submission.
+ * Instance id is injected at render time: { ...radioContract, id: instanceId }
  */
-export const radioContract: Readonly<Partial<ComponentContract>> = Object.freeze({
+export const radioContract = defineContractTemplate({
   type: 'input',
   intent: 'select-option',
   description: 'Captures a single mutually exclusive selection from a set of radio options',

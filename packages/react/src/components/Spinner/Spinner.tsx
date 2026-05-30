@@ -1,6 +1,9 @@
 'use client';
 
 import React from 'react';
+import type { ComponentContract } from '@vhyxui/core';
+import { spinnerContract } from '@vhyxui/core';
+import { withAgentContract } from '@vhyxseal/react';
 import styles from './Spinner.module.css';
 
 /** Size tokens available on the Spinner component. */
@@ -34,7 +37,7 @@ export interface SpinnerProps extends React.SVGAttributes<SVGElement> {
  * @example
  * <Spinner size="md" label="Saving changes" />
  */
-export const Spinner = React.forwardRef<SVGSVGElement, SpinnerProps>(
+const SpinnerBase = React.forwardRef<SVGSVGElement, SpinnerProps>(
   (
     {
       size = 'md',
@@ -84,4 +87,12 @@ export const Spinner = React.forwardRef<SVGSVGElement, SpinnerProps>(
   },
 );
 
+SpinnerBase.displayName = 'VhyxSpinner';
+
+// Library-level contract for SealContext registration.
+const spinnerSealContract = { ...spinnerContract, id: 'vhyxui-spinner' } as Readonly<ComponentContract>;
+
+export const Spinner = withAgentContract(SpinnerBase, spinnerSealContract) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<SpinnerProps> & React.RefAttributes<SVGSVGElement>
+>;
 Spinner.displayName = 'VhyxSpinner';

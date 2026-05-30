@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Tooltip } from './Tooltip';
+import { tooltipContract } from '@vhyxui/core/contracts';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -165,5 +166,27 @@ describe('Tooltip — accessibility (axe)', () => {
     await user.tab();
     const results = await axe(document.body, { rules: { region: { enabled: false } } });
     expect(results).toHaveNoViolations();
+  });
+});
+
+// ─── VhyxSeal contract ────────────────────────────────────────────────────────
+
+describe('Tooltip — VhyxSeal contract', () => {
+  it('has a valid contract', () => {
+    expect(tooltipContract).toBeDefined();
+    expect(typeof tooltipContract.fingerprint).toBe('string');
+    expect(tooltipContract.fingerprint.length).toBeGreaterThan(0);
+    expect(tooltipContract.intent).toBeDefined();
+    expect(tooltipContract.safetyLevel).toBeDefined();
+  });
+
+  it('contract is frozen', () => {
+    expect(Object.isFrozen(tooltipContract)).toBe(true);
+  });
+
+  it('contract has valid type', () => {
+    expect(['action', 'input', 'navigation', 'display', 'confirmation']).toContain(
+      tooltipContract.type,
+    );
   });
 });
