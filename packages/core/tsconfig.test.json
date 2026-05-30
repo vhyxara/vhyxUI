@@ -5,7 +5,9 @@
     "composite": false,
     "declaration": false,
     "declarationMap": false,
-    "noEmit": true
+    "noEmit": true,
+    "rootDir": ".",
+    "skipLibCheck": true
   },
   "include": ["src", "tests"]
 }
