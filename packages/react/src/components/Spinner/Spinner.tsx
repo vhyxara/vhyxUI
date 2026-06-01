@@ -9,6 +9,15 @@ import styles from './Spinner.module.css';
 /** Size tokens available on the Spinner component. */
 export type SpinnerSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
+/** Explicit pixel dimensions per size — prevents SVG from inheriting container width. */
+const SIZE_MAP: Record<SpinnerSize, number> = {
+  xs: 12,
+  sm: 20,
+  md: 32,
+  lg: 48,
+  xl: 64,
+};
+
 /** Color variant of the spinner stroke. */
 export type SpinnerVariant = 'default' | 'accent' | 'white';
 
@@ -55,6 +64,8 @@ const SpinnerBase = React.forwardRef<SVGSVGElement, SpinnerProps>(
         ref={ref}
         role="status"
         aria-label={label}
+        width={SIZE_MAP[size]}
+        height={SIZE_MAP[size]}
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
