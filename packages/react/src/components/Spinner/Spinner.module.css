@@ -1,6 +1,9 @@
 .spinner {
   display: inline-block;
   flex-shrink: 0;
+  overflow: visible;
+  transform-box: fill-box;
+  transform-origin: center;
 
   /* vhyx-spin keyframe from semantic/motion.css — infinite linear 0.7s */
   animation: vhyx-spin 0.7s linear infinite;

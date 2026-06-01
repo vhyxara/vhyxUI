@@ -29,14 +29,15 @@ export interface VhyxUIProviderProps {
    * @default 4000
    */
   defaultDuration?: number;
+  /**
+   * Domain for VhyxSeal manifest generation.
+   * Falls back to NEXT_PUBLIC_VHYX_DOMAIN env var, then empty string.
+   * @example "myshop.platform.com"
+   */
+  domain?: string;
 }
 
 /** Default SealProvider config — domain and verification set by the consuming application. */
-const SEAL_CONFIG = {
-  domain: '',
-  domainVerified: false,
-  verificationToken: '',
-} as const;
 
 /**
  * VhyxUIProvider — root provider for VhyxUI.
@@ -59,11 +60,13 @@ export function VhyxUIProvider({
   toastPosition = 'bottom-right',
   maxToasts = 5,
   defaultDuration = 4000,
+  domain,
 }: VhyxUIProviderProps): React.ReactElement {
+  const resolvedDomain = domain ?? (typeof process !== 'undefined' ? (process.env.NEXT_PUBLIC_VHYX_DOMAIN ?? '') : '');
   const dev = process.env['NODE_ENV'] !== 'production';
 
   return (
-    <SealProvider config={SEAL_CONFIG} dev={dev}>
+    <SealProvider config={{ domain: resolvedDomain, domainVerified: false, verificationToken: '' }} dev={dev}>
       {/* Skip link — first focusable element on every page. Visually hidden until focused. */}
       <a href="#vhyx-main" className={styles['skip-link']}>
         Skip to main content

@@ -70,6 +70,10 @@
   caret-color: var(--vhyx-color-accent);
 }
 
+.input:focus-visible {
+  box-shadow: none;
+}
+
 .input::placeholder {
   color: var(--vhyx-color-text-muted);
 }
