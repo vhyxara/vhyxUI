@@ -129,6 +129,11 @@
       "require": "./dist/textfield.cjs",
       "types": "./dist/textfield.d.ts"
     },
+    "./selectfield": {
+      "import": "./dist/selectfield.js",
+      "require": "./dist/selectfield.cjs",
+      "types": "./dist/selectfield.d.ts"
+    },
     "./textareafield": {
       "import": "./dist/textareafield.js",
       "require": "./dist/textareafield.cjs",

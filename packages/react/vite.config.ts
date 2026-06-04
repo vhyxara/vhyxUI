@@ -42,6 +42,7 @@ export default defineConfig({
         pagination:     resolve(__dirname, 'src/components/Pagination/index.ts'),
         textfield:      resolve(__dirname, 'src/components/TextField/index.ts'),
         textareafield:  resolve(__dirname, 'src/components/TextareaField/index.ts'),
+        selectfield:    resolve(__dirname, 'src/components/SelectField/index.ts'),
         'test-utils':   resolve(__dirname, 'src/test-utils/index.ts'),
       },
       formats: ['es', 'cjs'],
