@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/react",
-  "version": "0.1.2-alpha.2",
+  "version": "0.1.2-alpha",
   "description": "VhyxUI React components — accessible, motion-first, agent-ready",
   "license": "MIT",
   "private": false,
@@ -123,6 +123,16 @@
       "import": "./dist/pagination.js",
       "require": "./dist/pagination.cjs",
       "types": "./dist/pagination.d.ts"
+    },
+    "./textfield": {
+      "import": "./dist/textfield.js",
+      "require": "./dist/textfield.cjs",
+      "types": "./dist/textfield.d.ts"
+    },
+    "./textareafield": {
+      "import": "./dist/textareafield.js",
+      "require": "./dist/textareafield.cjs",
+      "types": "./dist/textareafield.d.ts"
     },
     "./test-utils": {
       "import": "./dist/test-utils.js",

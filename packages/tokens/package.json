@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/tokens",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.2-alpha",
   "description": "CSS design tokens for VhyxUI — zero JavaScript, zero build step",
   "license": "MIT",
   "scripts": {

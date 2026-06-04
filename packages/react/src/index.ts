@@ -93,6 +93,20 @@ export {
   type FieldProps,
 } from './components/Form';
 
+// ─── TextField ────────────────────────────────────────────────────────────────
+
+export {
+  TextField,
+  type TextFieldProps,
+} from './components/TextField';
+
+// ─── TextareaField ────────────────────────────────────────────────────────────
+
+export {
+  TextareaField,
+  type TextareaFieldProps,
+} from './components/TextareaField';
+
 // ─── Toast ────────────────────────────────────────────────────────────────────
 
 export {
