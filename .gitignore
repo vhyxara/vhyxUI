@@ -5,3 +5,10 @@ coverage
 *.tsbuildinfo
 .DS_Store
 .next
+
+# Build artifacts — never commit
+apps/docs/out/
+apps/docs/public/pagefind/fragment/
+apps/docs/public/pagefind/index/
+apps/docs/public/pagefind/*.pf_meta
+apps/docs/public/pagefind/pagefind-entry.json

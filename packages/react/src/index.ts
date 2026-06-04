@@ -100,6 +100,14 @@ export {
   type TextFieldProps,
 } from './components/TextField';
 
+// ─── SelectField ─────────────────────────────────────────────────────────────
+
+export {
+  SelectField,
+  type SelectFieldProps,
+  type SelectFieldOption,
+} from './components/SelectField';
+
 // ─── TextareaField ────────────────────────────────────────────────────────────
 
 export {
