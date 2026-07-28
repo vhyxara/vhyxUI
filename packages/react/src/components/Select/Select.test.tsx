@@ -278,6 +278,37 @@ describe('Select — Item hover state', () => {
 
 // ─── 6. Controlled mode ───────────────────────────────────────────────────────
 
+describe('Select — JSX-composed item labels', () => {
+  function SelectWithComposedLabels({ defaultValue }: { defaultValue?: string }) {
+    return (
+      <Select defaultValue={defaultValue} placeholder="Choose stock">
+        <Select.Trigger aria-label="Select stock" />
+        <Select.Content>
+          <Select.Item value="hindalco">
+            Hindalco Industries Limited ({'HINDALCO'})
+          </Select.Item>
+          <Select.Item value="wipro">{'Wipro'} Ltd</Select.Item>
+        </Select.Content>
+      </Select>
+    );
+  }
+
+  it('registers a full label for a JSX-composed child (string + expression, not a single literal string)', async () => {
+    const user = userEvent.setup();
+    render(<SelectWithComposedLabels />);
+    await user.click(screen.getByRole('combobox'));
+    await user.click(screen.getByText('Hindalco Industries Limited (HINDALCO)'));
+    expect(screen.getByRole('combobox').textContent).toContain(
+      'Hindalco Industries Limited (HINDALCO)',
+    );
+  });
+
+  it('shows the composed label in the trigger when preselected via defaultValue', () => {
+    render(<SelectWithComposedLabels defaultValue="wipro" />);
+    expect(screen.getByRole('combobox').textContent).toContain('Wipro Ltd');
+  });
+});
+
 describe('Select — controlled mode', () => {
   it('reflects controlled value in trigger', () => {
     render(<BasicSelect value="cherry" onValueChange={vi.fn()} />);

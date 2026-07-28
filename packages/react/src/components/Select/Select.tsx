@@ -44,6 +44,21 @@ interface SelectContextValue {
 
 const SelectContext = createContext<SelectContextValue | null>(null);
 
+/**
+ * Flattens a ReactNode tree into its plain-text content, e.g. for a
+ * JSX-composed Select.Item label like `{stock.name} ({stock.ticker})`
+ * (which React represents as multiple children, not a single string).
+ */
+function getTextContent(node: React.ReactNode): string {
+  if (node === null || node === undefined || typeof node === 'boolean') return '';
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(getTextContent).join('');
+  if (React.isValidElement(node)) {
+    return getTextContent((node.props as { children?: React.ReactNode }).children);
+  }
+  return '';
+}
+
 function useSelectContext(componentName: string): SelectContextValue {
   const ctx = useContext(SelectContext);
   if (!ctx) {
@@ -539,7 +554,7 @@ const SelectItem = React.forwardRef<HTMLDivElement, SelectItemProps>(
     const isSelected = ctx.value === value;
     const isFocused = ctx.focusedValue === value;
 
-    const labelText = typeof children === 'string' ? children : '';
+    const labelText = getTextContent(children);
 
     // Register on mount — no cleanup so label persists after dropdown closes
     useEffect(() => {
