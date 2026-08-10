@@ -230,6 +230,45 @@ describe('Popover — Content style prop merges instead of replacing positioning
   });
 });
 
+// ─── 8c. side="left" positions content fully to the left of the trigger ──────
+
+describe('Popover — side="left" content placement', () => {
+  it("content's right edge is GAP (8px) from the trigger's left edge", async () => {
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+      top: 100,
+      bottom: 120,
+      left: 200,
+      right: 260,
+      width: 60,
+      height: 20,
+      x: 200,
+      y: 100,
+      toJSON: () => ({}),
+    } as DOMRect);
+
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content side="left">
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+
+    // `left` is the anchor point (trigger.left - GAP); translateX(-100%)
+    // pulls the content's own right edge back onto that anchor point,
+    // rather than letting the content grow rightward from it.
+    expect(dialog).toHaveStyle({ left: '192px', transform: 'translateX(-100%)' });
+
+    vi.restoreAllMocks();
+  });
+});
+
+// ─── 8d. Content repositions on scroll and resize ─────────────────────────────
+
 describe('Popover — Content repositions on scroll and resize', () => {
   function rect(top: number): DOMRect {
     return {
@@ -318,6 +357,7 @@ describe('Popover — Content repositions on scroll and resize', () => {
     vi.restoreAllMocks();
   });
 });
+
 
 // ─── 9. Accessibility (axe) ──────────────────────────────────────────────────
 
