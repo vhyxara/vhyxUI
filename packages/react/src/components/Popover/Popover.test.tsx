@@ -189,6 +189,47 @@ describe('Popover — forwardRef', () => {
   });
 });
 
+// ─── 8b. Consumer style merges with, doesn't clobber, internal positioning ────
+
+describe('Popover — Content style prop merges instead of replacing positioning', () => {
+  it('applies consumer cosmetic style while keeping internal position/zIndex/transform', async () => {
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content style={{ background: 'white', borderRadius: 8 }}>
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    // Consumer's cosmetic style survived.
+    expect(dialog).toHaveStyle({ background: 'white', borderRadius: '8px' });
+    // Internal positioning keys were not clobbered by the consumer's style object.
+    expect(dialog).toHaveStyle({ position: 'fixed', zIndex: '450' });
+    expect(dialog.style.top).not.toBe('');
+    expect(dialog.style.left).not.toBe('');
+  });
+
+  it("consumer style cannot override internal position/zIndex/transform even if it tries to", async () => {
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content
+          style={{ position: 'static', zIndex: 1, transform: 'none' } as React.CSSProperties}
+        >
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toHaveStyle({ position: 'fixed', zIndex: '450', transform: 'translateX(-50%)' });
+  });
+});
+
 // ─── 9. Accessibility (axe) ──────────────────────────────────────────────────
 
 describe('Popover — accessibility (axe)', () => {

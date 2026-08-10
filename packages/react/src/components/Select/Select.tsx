@@ -305,84 +305,102 @@ SelectRoot.displayName = 'VhyxSelect';
 
 // ─── Select.Trigger ───────────────────────────────────────────────────────────
 
-export interface SelectTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type SelectTriggerBaseProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
   /** Optional icon rendered on the right. Defaults to a chevron SVG. */
   icon?: React.ReactNode;
-  /** When true, renders as the child element via Slot instead of <button>. */
-  asChild?: boolean;
-}
+};
+
+/**
+ * Select.Trigger's default render always shows the selected value + a
+ * chevron icon — it never renders custom content, so `children` is not
+ * part of the props shape unless `asChild` is used. Use `asChild` with a
+ * single child element to fully customize what the trigger renders.
+ */
+export type SelectTriggerProps =
+  | (SelectTriggerBaseProps & {
+      /** Render as the child element via Slot, merging Select.Trigger's behavior onto it. */
+      asChild: true;
+      /** The single custom trigger element `asChild` merges open/close + aria/keyboard behavior onto. */
+      children: React.ReactElement;
+    })
+  | (SelectTriggerBaseProps & {
+      asChild?: false;
+      children?: never;
+    });
 
 /** The button that opens or closes the Select dropdown. */
-const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerProps>(
-  ({ icon, className, asChild = false, ...rest }, ref) => {
-    const ctx = useSelectContext('Select.Trigger');
-    const displayLabel = ctx.getSelectedLabel();
+const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerProps>((props, ref) => {
+  const { icon, className, asChild = false, children, ...rest } = props as SelectTriggerBaseProps & {
+    asChild?: boolean;
+    children?: React.ReactElement;
+  };
+  const ctx = useSelectContext('Select.Trigger');
+  const displayLabel = ctx.getSelectedLabel();
 
-    const setRef = useCallback(
-      (node: HTMLButtonElement | null) => {
-        ctx.triggerRef.current = node;
-        if (typeof ref === 'function') ref(node);
-        else if (ref) (ref as React.MutableRefObject<HTMLButtonElement | null>).current = node;
-      },
-      [ref, ctx.triggerRef],
-    );
+  const setRef = useCallback(
+    (node: HTMLButtonElement | null) => {
+      ctx.triggerRef.current = node;
+      if (typeof ref === 'function') ref(node);
+      else if (ref) (ref as React.MutableRefObject<HTMLButtonElement | null>).current = node;
+    },
+    [ref, ctx.triggerRef],
+  );
 
-    const handleClick = useCallback(() => {
-      if (!ctx.disabled) ctx.onOpenChange(!ctx.open);
-    }, [ctx]);
+  const handleClick = useCallback(() => {
+    if (!ctx.disabled) ctx.onOpenChange(!ctx.open);
+  }, [ctx]);
 
-    const handleKeyDown = useCallback(
-      (e: React.KeyboardEvent<HTMLButtonElement>) => {
-        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-          e.preventDefault();
-          if (!ctx.open) ctx.onOpenChange(true);
-        }
-      },
-      [ctx],
-    );
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (!ctx.open) ctx.onOpenChange(true);
+      }
+    },
+    [ctx],
+  );
 
-    const triggerClass = [styles['trigger'], className].filter(Boolean).join(' ');
+  const triggerClass = [styles['trigger'], className].filter(Boolean).join(' ');
 
-    const triggerProps = {
-      id: ctx.triggerId,
-      role: 'combobox' as const,
-      'aria-haspopup': 'listbox' as const,
-      'aria-expanded': ctx.open,
-      'aria-controls': ctx.open ? ctx.contentId : undefined,
-      disabled: ctx.disabled,
-      onClick: handleClick,
-      onKeyDown: handleKeyDown,
-      className: triggerClass,
-      'data-size': ctx.size,
-      'data-state': ctx.open ? 'open' : 'closed',
-      'data-placeholder': !displayLabel ? (true as const) : undefined,
-      ...rest,
-    };
+  const triggerProps = {
+    id: ctx.triggerId,
+    role: 'combobox' as const,
+    'aria-haspopup': 'listbox' as const,
+    'aria-expanded': ctx.open,
+    'aria-controls': ctx.open ? ctx.contentId : undefined,
+    disabled: ctx.disabled,
+    onClick: handleClick,
+    onKeyDown: handleKeyDown,
+    className: triggerClass,
+    'data-size': ctx.size,
+    'data-state': ctx.open ? 'open' : 'closed',
+    'data-placeholder': !displayLabel ? (true as const) : undefined,
+    ...rest,
+  };
 
-    if (asChild) {
-      return (
-        <Slot ref={setRef as React.Ref<HTMLElement>} {...triggerProps}>
-          {rest.children}
-        </Slot>
-      );
-    }
-
+  if (asChild) {
     return (
-      <button ref={setRef} type="button" {...triggerProps}>
-        <span className={styles['trigger-value']}>
-          {displayLabel ?? ctx.placeholder ?? 'Select…'}
-        </span>
-        <span className={styles['trigger-icon']} aria-hidden="true">
-          {icon ?? (
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.5}>
-              <path d="M2.5 4.5L6 8L9.5 4.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          )}
-        </span>
-      </button>
+      <Slot ref={setRef as React.Ref<HTMLElement>} {...triggerProps}>
+        {children}
+      </Slot>
     );
-  },
-);
+  }
+
+  return (
+    <button ref={setRef} type="button" {...triggerProps}>
+      <span className={styles['trigger-value']}>
+        {displayLabel ?? ctx.placeholder ?? 'Select…'}
+      </span>
+      <span className={styles['trigger-icon']} aria-hidden="true">
+        {icon ?? (
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.5}>
+            <path d="M2.5 4.5L6 8L9.5 4.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
+      </span>
+    </button>
+  );
+});
 
 SelectTrigger.displayName = 'VhyxSelectTrigger';
 

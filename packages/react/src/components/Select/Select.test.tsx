@@ -239,6 +239,63 @@ describe('Select — forwardRef on Trigger', () => {
   });
 });
 
+// ─── 9b. Trigger children / asChild ───────────────────────────────────────────
+
+describe('Select — Trigger children only via asChild', () => {
+  it('asChild renders the custom child element instead of the default value+icon markup', () => {
+    render(
+      <Select>
+        <Select.Trigger asChild>
+          <button type="button" aria-label="Custom trigger">
+            <span>Custom trigger content</span>
+          </button>
+        </Select.Trigger>
+        <Select.Content>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    expect(screen.getByText('Custom trigger content')).toBeInTheDocument();
+  });
+
+  it('asChild still merges open/close behavior onto the custom element', async () => {
+    const user = userEvent.setup();
+    render(
+      <Select>
+        <Select.Trigger asChild>
+          <button type="button" aria-label="Custom trigger" />
+        </Select.Trigger>
+        <Select.Content>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    const trigger = screen.getByRole('combobox');
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await user.click(trigger);
+    expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  it('default (non-asChild) render never receives a children prop — passing one is a type error, not a silent no-op', () => {
+    // TypeScript rejects `<Select.Trigger>...</Select.Trigger>` without `asChild`
+    // at compile time (verified via tsc, not exercisable here without bypassing
+    // the type system) — this runtime check documents the fallback behavior for
+    // untyped/JS consumers who pass `children` anyway: it's still ignored, but
+    // no longer a case TypeScript claims is valid.
+    render(
+      <Select>
+        {// eslint-disable-next-line @typescript-eslint/no-explicit-any
+        React.createElement(Select.Trigger as any, { 'aria-label': 'Select option' }, 'ignored text')}
+        <Select.Content>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    expect(screen.queryByText('ignored text')).toBeNull();
+    expect(screen.getByRole('combobox')).toHaveTextContent('Select…');
+  });
+});
+
 // ─── 10. ARIA ─────────────────────────────────────────────────────────────────
 
 describe('Select — ARIA', () => {

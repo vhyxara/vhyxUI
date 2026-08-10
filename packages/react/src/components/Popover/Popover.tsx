@@ -247,6 +247,7 @@ function PopoverContent({
   className,
   side = 'bottom',
   align = 'center',
+  style,
   ...rest
 }: PopoverContentProps): React.ReactPortal | null {
   const ctx = usePopoverContext('Popover.Content');
@@ -299,14 +300,19 @@ function PopoverContent({
       data-state="open"
       data-side={side}
       data-align={align}
+      {...rest}
       style={{
+        // Consumer's cosmetic style first — internal positioning keys below
+        // are applied explicitly afterward so they always win, instead of
+        // letting a whole `style` object from a blind `{...rest}` spread
+        // replace this element's positioning outright.
+        ...style,
         position: 'fixed',
         top: position.top,
         left: position.left,
         zIndex: 450, // --vhyx-z-popover
         transform: 'translateX(-50%)',
       }}
-      {...rest}
     >
       {children}
     </div>
