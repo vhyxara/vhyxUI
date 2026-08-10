@@ -419,7 +419,7 @@ export interface SelectContentProps extends React.HTMLAttributes<HTMLDivElement>
  * SelectItem labels register on their own mount effects after this content
  * mounts client-side, so the trigger label display is updated via state.
  */
-function SelectContent({ children, className, ...rest }: SelectContentProps): React.ReactPortal | null {
+function SelectContent({ children, className, style, ...rest }: SelectContentProps): React.ReactPortal | null {
   const ctx = useSelectContext('Select.Content');
   const [mounted, setMounted] = useState(false);
   const [positionStyle, setPositionStyle] = useState<React.CSSProperties>({
@@ -484,8 +484,16 @@ function SelectContent({ children, className, ...rest }: SelectContentProps): Re
       aria-labelledby={ctx.triggerId}
       className={contentClass}
       data-state={ctx.open ? 'open' : 'closed'}
-      style={positionStyle}
       {...rest}
+      style={{
+        // Consumer's cosmetic style first — internal positioning/sizing keys
+        // (position/top/left/minWidth/zIndex/maxHeight/overflowY) are spread
+        // explicitly afterward so they always win, instead of letting a
+        // whole `style` object from a blind `{...rest}` spread replace this
+        // element's positioning outright.
+        ...style,
+        ...positionStyle,
+      }}
     >
       {children}
     </div>

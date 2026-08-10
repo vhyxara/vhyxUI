@@ -296,6 +296,59 @@ describe('Select — Trigger children only via asChild', () => {
   });
 });
 
+// ─── 9c. Content style prop merges instead of replacing positioning ──────────
+
+describe('Select — Content style prop merges instead of replacing positioning', () => {
+  it('applies consumer cosmetic style while keeping internal position/zIndex', async () => {
+    const user = userEvent.setup();
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content style={{ background: 'white', borderRadius: 8 }}>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    const listbox = screen.getByRole('listbox');
+    // Consumer's cosmetic style survived.
+    expect(listbox).toHaveStyle({ background: 'white', borderRadius: '8px' });
+    // Internal positioning was not clobbered by the consumer's style object.
+    expect(listbox).toHaveStyle({ position: 'fixed', zIndex: 'var(--vhyx-z-dropdown)' });
+  });
+
+  it('consumer style cannot override internal position/zIndex/minWidth even if it tries to', async () => {
+    const user = userEvent.setup();
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content
+          style={{ position: 'static', zIndex: 1, minWidth: '999px' } as React.CSSProperties}
+        >
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    const listbox = screen.getByRole('listbox');
+    expect(listbox).toHaveStyle({ position: 'fixed', zIndex: 'var(--vhyx-z-dropdown)' });
+    expect(listbox.style.minWidth).not.toBe('999px');
+  });
+
+  it('content is not clobbered while closed either (initial positionStyle state)', () => {
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content style={{ background: 'white' }}>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    const listbox = screen.getByRole('listbox', { hidden: true });
+    expect(listbox).toHaveStyle({ background: 'white', position: 'fixed' });
+  });
+});
+
 // ─── 10. ARIA ─────────────────────────────────────────────────────────────────
 
 describe('Select — ARIA', () => {
