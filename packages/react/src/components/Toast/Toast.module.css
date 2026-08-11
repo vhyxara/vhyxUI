@@ -7,7 +7,21 @@
   flex-direction: column;
   gap: var(--vhyx-space-2);
   pointer-events: none;
-  max-width: var(--vhyx-space-32);
+  /*
+   * A literal rem value, not a space token — `--vhyx-space-32` (8rem/128px,
+   * the largest token in the scale) is smaller than .toast's own
+   * `min-width: 18rem` below. With the default `align-items: stretch`, a
+   * flex child's min-width always wins over a container that tries to
+   * shrink it, so every toast rendered at its full 18rem regardless of this
+   * max-width — while the *region* itself (this element, which the fixed
+   * `right`/`bottom` offsets below are relative to) stayed clamped to
+   * 8rem. The 10rem gap between the two let every toast overflow its own
+   * region box by exactly that much, which — since the region already sits
+   * only `--vhyx-space-4` from the viewport edge — pushed real toast
+   * content off-screen past the browser's own right edge. 24rem clears
+   * .toast's 18rem min-width with real headroom for message wrapping.
+   */
+  max-width: 24rem;
   width: calc(100vw - var(--vhyx-space-8));
 }
 
