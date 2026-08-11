@@ -103,8 +103,8 @@ importers:
         specifier: 0.1.0-alpha.1
         version: 0.1.0-alpha.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@vhyxui/react':
-        specifier: 0.1.0-alpha.1
-        version: 0.1.0-alpha.1(react-dom@19.2.6(react@19.2.6))(react-hook-form@7.76.0(react@19.2.6))(react@19.2.6)
+        specifier: 0.2.1-alpha
+        version: 0.2.1-alpha(react-dom@19.2.6(react@19.2.6))(react-hook-form@7.76.0(react@19.2.6))(react@19.2.6)
       '@vhyxui/tokens':
         specifier: 0.1.0-alpha.1
         version: 0.1.0-alpha.1
@@ -1103,6 +1103,16 @@ packages:
 
   '@vhyxui/react@0.1.0-alpha.1':
     resolution: {integrity: sha512-qaT5hTgPR+8FaozYyjA8TnmC1B0kLiAUcZLc8KXRFOYOUiiVH8Q5wFJVIrfyMd/jIrt+3o35oX0plwUBm78hvQ==}
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
+      react-hook-form: '>=7'
+    peerDependenciesMeta:
+      react-hook-form:
+        optional: true
+
+  '@vhyxui/react@0.2.1-alpha':
+    resolution: {integrity: sha512-K/hCClimSM0KRW8JbD5vILoV1ArkPNjlix7frdUibISKNBCiv8dvST8M4XTEfZtSnT9qQGhdvDMGDr4A9wNHxA==}
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
@@ -3320,6 +3330,15 @@ snapshots:
       react-dom: 19.2.6(react@19.2.6)
 
   '@vhyxui/react@0.1.0-alpha.1(react-dom@19.2.6(react@19.2.6))(react-hook-form@7.76.0(react@19.2.6))(react@19.2.6)':
+    dependencies:
+      '@vhyxseal/react': 1.0.0-rc.2(react@19.2.6)
+      '@vhyxui/core': 0.1.0-alpha.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+      react: 19.2.6
+      react-dom: 19.2.6(react@19.2.6)
+    optionalDependencies:
+      react-hook-form: 7.76.0(react@19.2.6)
+
+  '@vhyxui/react@0.2.1-alpha(react-dom@19.2.6(react@19.2.6))(react-hook-form@7.76.0(react@19.2.6))(react@19.2.6)':
     dependencies:
       '@vhyxseal/react': 1.0.0-rc.2(react@19.2.6)
       '@vhyxui/core': 0.1.0-alpha.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
