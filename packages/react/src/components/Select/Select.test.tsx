@@ -127,7 +127,12 @@ describe('Select — value selection', () => {
     render(<BasicSelect />);
     await user.click(screen.getByRole('combobox'));
     await user.click(screen.getByText('Banana'));
-    expect(screen.getByRole('combobox').textContent).toContain('Banana');
+    // Trigger label is effect-driven (the selectedLabel-sync effect keyed on
+    // currentValue), which can take more than one act-flush cycle under CI's
+    // slower scheduling.
+    await waitFor(() => {
+      expect(screen.getByRole('combobox').textContent).toContain('Banana');
+    });
   });
 
   it('calls onValueChange with selected value', async () => {
@@ -476,7 +481,12 @@ describe('Select — Content repositions on scroll and resize', () => {
     );
     await user.click(screen.getByRole('combobox'));
     const listbox = screen.getByRole('listbox');
-    expect(listbox.style.top).toBe('644px'); // bottom(640) + 4
+    // Initial positioning is itself effect-driven (mount, then the position
+    // effect), which can take more than one act-flush cycle under CI's
+    // slower scheduling even though it's 100% synchronous-feeling locally.
+    await waitFor(() => {
+      expect(listbox.style.top).toBe('644px'); // bottom(640) + 4
+    });
 
     // Simulate the trigger having moved 300px up the page after a scroll.
     getBoundingClientRect.mockReturnValue(rect(320));
@@ -505,7 +515,9 @@ describe('Select — Content repositions on scroll and resize', () => {
     );
     await user.click(screen.getByRole('combobox'));
     const listbox = screen.getByRole('listbox');
-    expect(listbox.style.top).toBe('644px');
+    await waitFor(() => {
+      expect(listbox.style.top).toBe('644px');
+    });
 
     getBoundingClientRect.mockReturnValue(rect(500));
     window.dispatchEvent(new Event('resize'));

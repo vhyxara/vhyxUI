@@ -300,7 +300,12 @@ describe('Popover — Content repositions on scroll and resize', () => {
     );
     await user.click(screen.getByRole('button', { name: 'Open' }));
     const dialog = screen.getByRole('dialog');
-    expect(dialog.style.top).toBe('648px'); // bottom(640) + GAP(8)
+    // Initial positioning is itself effect-driven (mount, then the position
+    // effect), which can take more than one act-flush cycle under CI's
+    // slower scheduling even though it's 100% synchronous-feeling locally.
+    await waitFor(() => {
+      expect(dialog.style.top).toBe('648px'); // bottom(640) + GAP(8)
+    });
 
     // Simulate the trigger having moved 300px up the page after a scroll.
     getBoundingClientRect.mockReturnValue(rect(320));
@@ -329,7 +334,9 @@ describe('Popover — Content repositions on scroll and resize', () => {
     );
     await user.click(screen.getByRole('button', { name: 'Open' }));
     const dialog = screen.getByRole('dialog');
-    expect(dialog.style.top).toBe('648px');
+    await waitFor(() => {
+      expect(dialog.style.top).toBe('648px');
+    });
 
     getBoundingClientRect.mockReturnValue(rect(500));
     window.dispatchEvent(new Event('resize'));
