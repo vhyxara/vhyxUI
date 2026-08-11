@@ -349,6 +349,102 @@ describe('Select — Content style prop merges instead of replacing positioning'
   });
 });
 
+describe('Select — Content repositions on scroll and resize', () => {
+  function rect(top: number): DOMRect {
+    return {
+      top,
+      bottom: top + 20,
+      left: 200,
+      right: 260,
+      width: 60,
+      height: 20,
+      x: 200,
+      y: top,
+      toJSON: () => ({}),
+    } as DOMRect;
+  }
+
+  it('recalculates position when the window scrolls', async () => {
+    const user = userEvent.setup();
+    const getBoundingClientRect = vi
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue(rect(620));
+
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    const listbox = screen.getByRole('listbox');
+    expect(listbox.style.top).toBe('644px'); // bottom(640) + 4
+
+    // Simulate the trigger having moved 300px up the page after a scroll.
+    getBoundingClientRect.mockReturnValue(rect(320));
+    window.dispatchEvent(new Event('scroll'));
+
+    await waitFor(() => {
+      expect(listbox.style.top).toBe('344px');
+    });
+
+    getBoundingClientRect.mockRestore();
+  });
+
+  it('recalculates position when the window resizes', async () => {
+    const user = userEvent.setup();
+    const getBoundingClientRect = vi
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue(rect(620));
+
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    const listbox = screen.getByRole('listbox');
+    expect(listbox.style.top).toBe('644px');
+
+    getBoundingClientRect.mockReturnValue(rect(500));
+    window.dispatchEvent(new Event('resize'));
+
+    await waitFor(() => {
+      expect(listbox.style.top).toBe('524px');
+    });
+
+    getBoundingClientRect.mockRestore();
+  });
+
+  it('removes the scroll/resize listeners once closed', async () => {
+    const user = userEvent.setup();
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue(rect(620));
+    const removeSpy = vi.spyOn(window, 'removeEventListener');
+
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    await user.keyboard('{Escape}');
+
+    expect(removeSpy).toHaveBeenCalledWith('scroll', expect.any(Function), true);
+    expect(removeSpy).toHaveBeenCalledWith('resize', expect.any(Function));
+
+    removeSpy.mockRestore();
+    vi.restoreAllMocks();
+  });
+});
+
 // ─── 10. ARIA ─────────────────────────────────────────────────────────────────
 
 describe('Select — ARIA', () => {

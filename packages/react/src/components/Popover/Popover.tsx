@@ -255,27 +255,45 @@ function PopoverContent({
 
   useEffect(() => {
     if (!ctx.open || !ctx.triggerRef.current) return;
-    const rect = ctx.triggerRef.current.getBoundingClientRect();
-    const GAP = 8;
 
-    let top = 0;
-    let left = 0;
+    const calculatePosition = (): void => {
+      const rect = ctx.triggerRef.current!.getBoundingClientRect();
+      const GAP = 8;
 
-    if (side === 'bottom') {
-      top = rect.bottom + GAP;
-      left = rect.left + rect.width / 2;
-    } else if (side === 'top') {
-      top = rect.top - GAP;
-      left = rect.left + rect.width / 2;
-    } else if (side === 'right') {
-      top = rect.top + rect.height / 2;
-      left = rect.right + GAP;
-    } else {
-      top = rect.top + rect.height / 2;
-      left = rect.left - GAP;
-    }
+      let top = 0;
+      let left = 0;
 
-    setPosition({ top, left });
+      if (side === 'bottom') {
+        top = rect.bottom + GAP;
+        left = rect.left + rect.width / 2;
+      } else if (side === 'top') {
+        top = rect.top - GAP;
+        left = rect.left + rect.width / 2;
+      } else if (side === 'right') {
+        top = rect.top + rect.height / 2;
+        left = rect.right + GAP;
+      } else {
+        top = rect.top + rect.height / 2;
+        left = rect.left - GAP;
+      }
+
+      setPosition({ top, left });
+    };
+
+    calculatePosition();
+
+    // `position: fixed` is viewport-relative — scrolling the page (or any
+    // scrollable ancestor) or resizing the window moves the trigger without
+    // this component re-rendering on its own, so the content would otherwise
+    // stay frozen at its original screen coordinates. Scroll listens in the
+    // capture phase since scroll events don't bubble.
+    window.addEventListener('scroll', calculatePosition, true);
+    window.addEventListener('resize', calculatePosition);
+
+    return () => {
+      window.removeEventListener('scroll', calculatePosition, true);
+      window.removeEventListener('resize', calculatePosition);
+    };
   }, [ctx.open, ctx.triggerRef, side]);
 
   const setRef = useCallback(

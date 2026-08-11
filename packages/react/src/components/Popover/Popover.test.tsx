@@ -230,6 +230,95 @@ describe('Popover — Content style prop merges instead of replacing positioning
   });
 });
 
+describe('Popover — Content repositions on scroll and resize', () => {
+  function rect(top: number): DOMRect {
+    return {
+      top,
+      bottom: top + 20,
+      left: 200,
+      right: 260,
+      width: 60,
+      height: 20,
+      x: 200,
+      y: top,
+      toJSON: () => ({}),
+    } as DOMRect;
+  }
+
+  it('recalculates position when the window scrolls', async () => {
+    const user = userEvent.setup();
+    const getBoundingClientRect = vi
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue(rect(620));
+
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content>
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    expect(dialog.style.top).toBe('648px'); // bottom(640) + GAP(8)
+
+    // Simulate the trigger having moved 300px up the page after a scroll.
+    getBoundingClientRect.mockReturnValue(rect(320));
+    window.dispatchEvent(new Event('scroll'));
+
+    await waitFor(() => {
+      expect(dialog.style.top).toBe('348px');
+    });
+
+    getBoundingClientRect.mockRestore();
+  });
+
+  it('recalculates position when the window resizes', async () => {
+    const user = userEvent.setup();
+    const getBoundingClientRect = vi
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue(rect(620));
+
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content>
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    expect(dialog.style.top).toBe('648px');
+
+    getBoundingClientRect.mockReturnValue(rect(500));
+    window.dispatchEvent(new Event('resize'));
+
+    await waitFor(() => {
+      expect(dialog.style.top).toBe('528px');
+    });
+
+    getBoundingClientRect.mockRestore();
+  });
+
+  it('removes the scroll/resize listeners once closed', async () => {
+    const user = userEvent.setup();
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue(rect(620));
+    const removeSpy = vi.spyOn(window, 'removeEventListener');
+
+    render(<BasicPopover />);
+    await user.click(screen.getByRole('button', { name: 'Open Popover' }));
+    await user.keyboard('{Escape}');
+
+    expect(removeSpy).toHaveBeenCalledWith('scroll', expect.any(Function), true);
+    expect(removeSpy).toHaveBeenCalledWith('resize', expect.any(Function));
+
+    removeSpy.mockRestore();
+    vi.restoreAllMocks();
+  });
+});
+
 // ─── 9. Accessibility (axe) ──────────────────────────────────────────────────
 
 describe('Popover — accessibility (axe)', () => {

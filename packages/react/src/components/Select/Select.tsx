@@ -436,25 +436,43 @@ function SelectContent({ children, className, style, ...rest }: SelectContentPro
 
   useEffect(() => {
     if (!ctx.open || !ctx.triggerRef.current) return;
-    const rect = ctx.triggerRef.current.getBoundingClientRect();
-    const spaceBelow = window.innerHeight - rect.bottom;
-    const spaceAbove = rect.top;
-    const contentHeight = ctx.contentRef.current?.scrollHeight ?? 300;
 
-    // Flip above the trigger when there is more room above than below.
-    const showAbove = spaceBelow < contentHeight && spaceAbove > spaceBelow;
+    const calculatePosition = (): void => {
+      const rect = ctx.triggerRef.current!.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - rect.bottom;
+      const spaceAbove = rect.top;
+      const contentHeight = ctx.contentRef.current?.scrollHeight ?? 300;
 
-    setPositionStyle({
-      position: 'fixed',
-      top: showAbove ? rect.top - contentHeight - 4 : rect.bottom + 4,
-      left: rect.left,
-      minWidth: rect.width,
-      zIndex: 'var(--vhyx-z-dropdown)',
-      maxHeight: showAbove
-        ? Math.min(contentHeight, spaceAbove - 8)
-        : Math.min(contentHeight, spaceBelow - 8),
-      overflowY: 'auto',
-    });
+      // Flip above the trigger when there is more room above than below.
+      const showAbove = spaceBelow < contentHeight && spaceAbove > spaceBelow;
+
+      setPositionStyle({
+        position: 'fixed',
+        top: showAbove ? rect.top - contentHeight - 4 : rect.bottom + 4,
+        left: rect.left,
+        minWidth: rect.width,
+        zIndex: 'var(--vhyx-z-dropdown)',
+        maxHeight: showAbove
+          ? Math.min(contentHeight, spaceAbove - 8)
+          : Math.min(contentHeight, spaceBelow - 8),
+        overflowY: 'auto',
+      });
+    };
+
+    calculatePosition();
+
+    // `position: fixed` is viewport-relative — scrolling the page (or any
+    // scrollable ancestor) or resizing the window moves the trigger without
+    // this component re-rendering on its own, so the dropdown would otherwise
+    // stay frozen at its original screen coordinates. Scroll listens in the
+    // capture phase since scroll events don't bubble.
+    window.addEventListener('scroll', calculatePosition, true);
+    window.addEventListener('resize', calculatePosition);
+
+    return () => {
+      window.removeEventListener('scroll', calculatePosition, true);
+      window.removeEventListener('resize', calculatePosition);
+    };
   }, [ctx.open, ctx.triggerRef]);
 
   // Move focus to the initial item when the dropdown opens.
