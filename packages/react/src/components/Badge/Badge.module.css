@@ -57,6 +57,33 @@
   height: var(--vhyx-space-3);
 }
 
+/*
+ * A dot has no text inside it, so the per-variant "-subtle" background (a
+ * pastel tint meant to sit *behind* darker "-text" foreground text) reads as
+ * a near-invisible fleck at 8-12px instead of a solid indicator. Every
+ * variant needs its own solid, no-text override in dot mode.
+ */
+.badge[data-dot="true"][data-variant="success"] {
+  background-color: var(--vhyx-color-success);
+}
+
+.badge[data-dot="true"][data-variant="warning"] {
+  background-color: var(--vhyx-color-warning);
+}
+
+.badge[data-dot="true"][data-variant="danger"] {
+  background-color: var(--vhyx-color-danger);
+}
+
+.badge[data-dot="true"][data-variant="info"] {
+  background-color: var(--vhyx-color-info);
+}
+
+.badge[data-dot="true"][data-variant="default"],
+.badge[data-dot="true"][data-variant="outline"] {
+  background-color: var(--vhyx-color-text-subtle);
+}
+
 /* ─── Variant: default ────────────────────────────────────── */
 
 .badge[data-variant="default"] {
