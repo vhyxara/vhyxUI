@@ -241,6 +241,12 @@ export interface PopoverContentProps extends React.HTMLAttributes<HTMLDivElement
 /**
  * The floating panel. Rendered in a portal.
  * Non-modal (aria-modal="false") — focus is NOT trapped.
+ *
+ * Deferred to client-only via `mounted` state, same pattern as
+ * Select.Content: SSR and client initial renders both produce null,
+ * eliminating both a hydration mismatch and a `document is not defined`
+ * crash from `ReactDOM.createPortal(..., document.body)` if this is open
+ * on first render (`document` doesn't exist during SSR).
  */
 function PopoverContent({
   children,
@@ -251,11 +257,16 @@ function PopoverContent({
   ...rest
 }: PopoverContentProps): React.ReactPortal | null {
   const ctx = usePopoverContext('Popover.Content');
+  const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState<{ top: number; left: number; transform: string }>({
     top: 0,
     left: 0,
     transform: 'translateX(-50%)',
   });
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!ctx.open || !ctx.triggerRef.current) return;
@@ -315,7 +326,9 @@ function PopoverContent({
     [ctx.contentRef],
   );
 
-  if (!ctx.open) return null;
+  // Render nothing until client mount — matches SSR output exactly, same as
+  // Select.Content — before checking ctx.open at all.
+  if (!mounted || !ctx.open) return null;
 
   const contentClass = [styles['content'], className].filter(Boolean).join(' ');
 
