@@ -290,7 +290,14 @@ describe('Select — uncontrolled mode', () => {
 
     await user.click(screen.getByRole('combobox'));
     await user.click(screen.getByText('Cherry'));
-    expect(screen.getByRole('combobox').textContent).toContain('Cherry');
+    // Switching away from an already-registered defaultValue takes one more
+    // effect cycle (the selectedLabel-sync effect) than selecting from an
+    // initially-unselected trigger — flaky under CI's slower scheduling
+    // without waitFor, though the eventual state is always correct (100%
+    // reproducible locally, only ever seen to need more than one tick in CI).
+    await waitFor(() => {
+      expect(screen.getByRole('combobox').textContent).toContain('Cherry');
+    });
   });
 });
 
