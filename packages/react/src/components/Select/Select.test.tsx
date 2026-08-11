@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
 import React from 'react';
@@ -179,6 +179,95 @@ describe('Select — keyboard navigation', () => {
     options[0]?.focus();
     await user.keyboard('{Enter}');
     expect(onValueChange).toHaveBeenCalledWith('apple');
+  });
+});
+
+describe('Select — Item hover state', () => {
+  it('hovering an item highlights it (data-focused) and moves real focus to it', async () => {
+    const user = userEvent.setup();
+    render(<BasicSelect />);
+    await user.click(screen.getByRole('combobox'));
+
+    const options = screen.getAllByRole('option');
+    await waitFor(() => expect(options[0]).toHaveAttribute('tabindex', '0'));
+
+    await user.hover(options[2]!);
+    await waitFor(() => {
+      expect(options[2]).toHaveAttribute('data-focused', 'true');
+      expect(options[2]).toHaveFocus();
+    });
+  });
+
+  it('hovering a different item moves the highlight instead of stacking it', async () => {
+    const user = userEvent.setup();
+    render(<BasicSelect />);
+    await user.click(screen.getByRole('combobox'));
+
+    const options = screen.getAllByRole('option');
+    await waitFor(() => expect(options[0]).toHaveAttribute('tabindex', '0'));
+
+    await user.hover(options[1]!);
+    await waitFor(() => expect(options[1]).toHaveAttribute('data-focused', 'true'));
+    expect(options[0]).not.toHaveAttribute('data-focused');
+    expect(options[2]).not.toHaveAttribute('data-focused');
+  });
+
+  it('resuming keyboard navigation after a hover continues from the hovered item', async () => {
+    const user = userEvent.setup();
+    render(<BasicSelect />);
+    await user.click(screen.getByRole('combobox'));
+
+    const options = screen.getAllByRole('option');
+    await waitFor(() => expect(options[0]).toHaveAttribute('tabindex', '0'));
+
+    await user.hover(options[1]!); // Banana
+    await waitFor(() => expect(options[1]).toHaveAttribute('data-focused', 'true'));
+
+    await user.keyboard('{ArrowDown}');
+    await waitFor(() => expect(options[2]).toHaveAttribute('data-focused', 'true')); // Cherry, not Banana+1-from-open
+  });
+
+  it('hovering a disabled item does not focus or highlight it', async () => {
+    const user = userEvent.setup();
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content>
+          <Select.Item value="apple">Apple</Select.Item>
+          <Select.Item value="banana" disabled>
+            Banana
+          </Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    const options = screen.getAllByRole('option');
+    await waitFor(() => expect(options[0]).toHaveAttribute('tabindex', '0'));
+
+    // pointer-events: none on disabled items means real hover can't reach it;
+    // fire the event directly to assert the handler itself also guards.
+    fireEvent.mouseEnter(options[1]!);
+
+    expect(options[1]).not.toHaveAttribute('data-focused');
+    expect(options[1]).not.toHaveFocus();
+  });
+
+  it('still calls a consumer-supplied onMouseEnter', async () => {
+    const user = userEvent.setup();
+    const onMouseEnter = vi.fn();
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content>
+          <Select.Item value="apple" onMouseEnter={onMouseEnter}>
+            Apple
+          </Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    await user.hover(screen.getByRole('option'));
+    expect(onMouseEnter).toHaveBeenCalled();
   });
 });
 

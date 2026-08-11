@@ -534,7 +534,7 @@ export interface SelectItemProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /** A single selectable option inside Select.Content. */
 const SelectItem = React.forwardRef<HTMLDivElement, SelectItemProps>(
-  ({ value, disabled, children, className, onClick, onKeyDown, ...rest }, ref) => {
+  ({ value, disabled, children, className, onClick, onKeyDown, onMouseEnter, ...rest }, ref) => {
     const ctx = useSelectContext('Select.Item');
     const isSelected = ctx.value === value;
     const isFocused = ctx.focusedValue === value;
@@ -590,6 +590,23 @@ const SelectItem = React.forwardRef<HTMLDivElement, SelectItemProps>(
       [onKeyDown, disabled, ctx, value],
     );
 
+    // Mouse hover had no visual affordance at all — the only highlight was
+    // `data-focused`, driven exclusively by arrow-key navigation. Routing
+    // hover through the same `setFocusedValue` + real DOM focus that
+    // `navigateItems` already uses (rather than adding a separate `:hover`
+    // CSS rule) keeps mouse and keyboard as one consistent highlight instead
+    // of two that can disagree, and means resuming keyboard navigation after
+    // a hover continues from the item the mouse was actually on.
+    const handleMouseEnter = useCallback(
+      (e: React.MouseEvent<HTMLDivElement>) => {
+        onMouseEnter?.(e);
+        if (disabled) return;
+        ctx.setFocusedValue(value);
+        e.currentTarget.focus();
+      },
+      [onMouseEnter, disabled, ctx, value],
+    );
+
     const itemClass = [styles['item'], className].filter(Boolean).join(' ');
 
     return (
@@ -601,6 +618,7 @@ const SelectItem = React.forwardRef<HTMLDivElement, SelectItemProps>(
         tabIndex={isFocused ? 0 : -1}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
+        onMouseEnter={handleMouseEnter}
         className={itemClass}
         data-state={isSelected ? 'selected' : 'unselected'}
         data-disabled={disabled ? true : undefined}

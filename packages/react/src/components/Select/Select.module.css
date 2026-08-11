@@ -110,8 +110,18 @@
   cursor: pointer;
   user-select: none;
   outline: none;
+
+  transition:
+    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
 }
 
+/*
+ * Mouse hover is synced to the same focusedValue/DOM-focus state keyboard
+ * navigation already drives (see SelectItem's handleMouseEnter in
+ * Select.tsx) — a real single highlight, not a separate `:hover` rule that
+ * could disagree with keyboard focus.
+ */
 .item:focus,
 .item[data-focused="true"] {
   background-color: var(--vhyx-color-accent-subtle);
