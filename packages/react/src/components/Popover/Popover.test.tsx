@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'vitest-axe';
@@ -212,21 +212,19 @@ describe('Popover — Content style prop merges instead of replacing positioning
     expect(dialog.style.left).not.toBe('');
   });
 
-  it("consumer style cannot override internal position/zIndex/transform even if it tries to", async () => {
+  it('consumer style cannot override internal position/zIndex even if it tries to', async () => {
     const user = userEvent.setup();
     render(
       <Popover>
         <Popover.Trigger>Open</Popover.Trigger>
-        <Popover.Content
-          style={{ position: 'static', zIndex: 1, transform: 'none' } as React.CSSProperties}
-        >
+        <Popover.Content style={{ position: 'static', zIndex: 1 } as React.CSSProperties}>
           <p>Body</p>
         </Popover.Content>
       </Popover>,
     );
     await user.click(screen.getByRole('button', { name: 'Open' }));
     const dialog = screen.getByRole('dialog');
-    expect(dialog).toHaveStyle({ position: 'fixed', zIndex: '450', transform: 'translateX(-50%)' });
+    expect(dialog).toHaveStyle({ position: 'fixed', zIndex: '450' });
   });
 });
 
@@ -258,12 +256,253 @@ describe('Popover — side="left" content placement', () => {
     await user.click(screen.getByRole('button', { name: 'Open' }));
     const dialog = screen.getByRole('dialog');
 
-    // `left` is the anchor point (trigger.left - GAP); translateX(-100%)
-    // pulls the content's own right edge back onto that anchor point,
-    // rather than letting the content grow rightward from it.
-    expect(dialog).toHaveStyle({ left: '192px', transform: 'translateX(-100%)' });
+    // left = trigger.left - GAP - contentWidth, so the content's own right
+    // edge lands GAP px left of the trigger's left edge (jsdom reports 0 for
+    // offsetWidth, so contentWidth is 0 here — the real-measurement case is
+    // covered by the "clamped to the viewport" tests below).
+    expect(dialog).toHaveStyle({ left: '192px' });
 
     vi.restoreAllMocks();
+  });
+});
+
+// ─── 8c-2. align prop ──────────────────────────────────────────────────────────
+
+describe('Popover — align prop', () => {
+  function mockTriggerRect(): void {
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+      top: 100,
+      bottom: 120,
+      left: 200,
+      right: 260,
+      width: 60,
+      height: 20,
+      x: 200,
+      y: 100,
+      toJSON: () => ({}),
+    } as DOMRect);
+  }
+
+  it('align="center" (default) centers content under the trigger', async () => {
+    mockTriggerRect();
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content>
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toHaveStyle({ left: '230px' }); // trigger center (200 + 30)
+    vi.restoreAllMocks();
+  });
+
+  it('align="start" left-aligns content with the trigger', async () => {
+    mockTriggerRect();
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content align="start">
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    expect(dialog).toHaveStyle({ left: '200px' }); // trigger.left
+    vi.restoreAllMocks();
+  });
+
+  it('align="end" right-aligns content with the trigger — the exact NotificationBell-style shape', async () => {
+    mockTriggerRect();
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content align="end">
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    // jsdom reports 0 for offsetWidth, so the "real content width" case
+    // (content's own right edge landing exactly on the trigger's right edge)
+    // is covered by the viewport-clamping tests below, which stub a real
+    // offsetWidth. Here: left = rect.right - contentWidth(0) = 260.
+    expect(dialog).toHaveStyle({ left: '260px' });
+    vi.restoreAllMocks();
+  });
+});
+
+// ─── 8c-3. Content is clamped to the viewport, regardless of align ────────────
+
+describe('Popover — Content is clamped so it never renders off-screen', () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('pulls align="start" content back so it does not overflow the right edge', async () => {
+    vi.spyOn(window, 'innerWidth', 'get').mockReturnValue(400);
+    vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(300);
+    // A trigger sitting near the right edge of a 400px-wide viewport.
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+      top: 100,
+      bottom: 120,
+      left: 380,
+      right: 396,
+      width: 16,
+      height: 20,
+      x: 380,
+      y: 100,
+      toJSON: () => ({}),
+    } as DOMRect);
+
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content align="start">
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    // Naive align="start" would put left at 380, putting the 300px-wide
+    // panel's right edge at 680 — 280px past a 400px viewport. Clamped to
+    // leave an 8px margin: max(8, 400 - 300 - 8) = 92.
+    await waitFor(() => {
+      expect(dialog.style.left).toBe('92px');
+    });
+  });
+
+  it('pulls align="end" content back so it does not overflow the left edge', async () => {
+    vi.spyOn(window, 'innerWidth', 'get').mockReturnValue(400);
+    vi.spyOn(HTMLElement.prototype, 'offsetWidth', 'get').mockReturnValue(300);
+    // A trigger sitting near the left edge — right-aligning a wide panel to
+    // it pushes the panel's own left edge into negative territory.
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+      top: 100,
+      bottom: 120,
+      left: 10,
+      right: 26,
+      width: 16,
+      height: 20,
+      x: 10,
+      y: 100,
+      toJSON: () => ({}),
+    } as DOMRect);
+
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content align="end">
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    // Naive align="end" would put left at 26 - 300 = -274. Clamped to the
+    // 8px margin instead.
+    await waitFor(() => {
+      expect(dialog.style.left).toBe('8px');
+    });
+  });
+
+  it('pulls side="bottom" content back so it does not overflow the bottom edge', async () => {
+    vi.spyOn(window, 'innerHeight', 'get').mockReturnValue(300);
+    vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(250);
+    // A trigger sitting low in a short 300px-tall viewport.
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+      top: 260,
+      bottom: 280,
+      left: 100,
+      right: 160,
+      width: 60,
+      height: 20,
+      x: 100,
+      y: 260,
+      toJSON: () => ({}),
+    } as DOMRect);
+
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content>
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+    const dialog = screen.getByRole('dialog');
+    // Naive side="bottom" would put top at 280 + 8 = 288, putting the 250px-
+    // tall panel's bottom edge at 538 — far past a 300px viewport. Clamped:
+    // max(8, 300 - 250 - 8) = 42.
+    await waitFor(() => {
+      expect(dialog.style.top).toBe('42px');
+    });
+  });
+});
+
+// ─── 8c-4. Scroll/resize recomputation is batched to one-per-frame ────────────
+
+describe('Popover — scroll/resize recomputation is rAF-batched, not per-event', () => {
+  it('coalesces multiple scroll events within the same frame into a single recompute', async () => {
+    const rafCallbacks: FrameRequestCallback[] = [];
+    const rafSpy = vi
+      .spyOn(window, 'requestAnimationFrame')
+      .mockImplementation((cb: FrameRequestCallback) => {
+        rafCallbacks.push(cb);
+        return rafCallbacks.length;
+      });
+
+    const getBoundingClientRect = vi
+      .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+      .mockReturnValue({
+        top: 100,
+        bottom: 120,
+        left: 200,
+        right: 260,
+        width: 60,
+        height: 20,
+        x: 200,
+        y: 100,
+        toJSON: () => ({}),
+      } as DOMRect);
+
+    const user = userEvent.setup();
+    render(
+      <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content>
+          <p>Body</p>
+        </Popover.Content>
+      </Popover>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open' }));
+
+    // The initial calculatePosition() call on open runs synchronously
+    // (not through rAF) — only the scroll/resize *listener* is batched.
+    rafCallbacks.length = 0;
+
+    // Several scroll events fired in the same tick (as a browser genuinely
+    // does during fast/inertial scrolling) should schedule exactly one rAF
+    // callback, not one per event.
+    window.dispatchEvent(new Event('scroll'));
+    window.dispatchEvent(new Event('scroll'));
+    window.dispatchEvent(new Event('scroll'));
+    expect(rafCallbacks).toHaveLength(1);
+
+    rafSpy.mockRestore();
+    getBoundingClientRect.mockRestore();
   });
 });
 

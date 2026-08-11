@@ -276,7 +276,7 @@ describe('Select — Item hover state', () => {
   });
 });
 
-// ─── 6. Controlled mode ───────────────────────────────────────────────────────
+// ─── 5b. JSX-composed item labels ──────────────────────────────────────────────
 
 describe('Select — JSX-composed item labels', () => {
   function SelectWithComposedLabels({ defaultValue }: { defaultValue?: string }) {
@@ -308,6 +308,8 @@ describe('Select — JSX-composed item labels', () => {
     expect(screen.getByRole('combobox').textContent).toContain('Wipro Ltd');
   });
 });
+
+// ─── 6. Controlled mode ───────────────────────────────────────────────────────
 
 describe('Select — controlled mode', () => {
   it('reflects controlled value in trigger', () => {
@@ -580,6 +582,103 @@ describe('Select — Content repositions on scroll and resize', () => {
     expect(removeSpy).toHaveBeenCalledWith('resize', expect.any(Function));
 
     removeSpy.mockRestore();
+    vi.restoreAllMocks();
+  });
+});
+
+// ─── 9b. "Flip above" anchors off the clamped/visible height, not raw content ─
+
+describe('Select — Content "flip above" positioning anchors off the visible (clamped) height', () => {
+  it('does not render far off-screen when content is taller than the space available above the trigger', async () => {
+    // Shape of the real bug: a long, unfiltered option list (31 real stock
+    // options ≈ 1075px of scrollHeight) inside a viewport where the trigger
+    // sits such that flipping above is chosen (spaceAbove > spaceBelow) but
+    // the content is still taller than spaceAbove itself.
+    vi.spyOn(window, 'innerHeight', 'get').mockReturnValue(800);
+    vi.spyOn(HTMLElement.prototype, 'scrollHeight', 'get').mockReturnValue(1075);
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+      top: 500, // spaceAbove = 500
+      bottom: 550, // spaceBelow = 800 - 550 = 250 < spaceAbove, so showAbove = true
+      left: 200,
+      right: 260,
+      width: 60,
+      height: 20,
+      x: 200,
+      y: 500,
+      toJSON: () => ({}),
+    } as DOMRect);
+
+    const user = userEvent.setup();
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    const listbox = screen.getByRole('listbox');
+
+    await waitFor(() => {
+      // The panel's visible height is clamped to the available space above
+      // the trigger (spaceAbove - 8 = 492), not the raw 1075px content —
+      // `maxHeight` already did this correctly before the fix.
+      expect(listbox.style.maxHeight).toBe('492px');
+      // `top` must anchor off that same 492px, not the raw 1075px. The old,
+      // buggy formula (`rect.top - contentHeight - 4`) would compute
+      // 500 - 1075 - 4 = -579 here — genuinely off-screen above the page,
+      // not merely cramped, exactly the reported symptom. The fixed anchor
+      // (`rect.top - visibleHeight - 4` = 500 - 492 - 4 = 4) lands just
+      // under the panel's intended 8px viewport margin, so the shared
+      // edge-clamp nudges it the rest of the way to a real, on-screen 8px.
+      expect(listbox.style.top).toBe('8px');
+      expect(Number(listbox.style.top.replace('px', ''))).toBeGreaterThanOrEqual(0);
+    });
+
+    vi.restoreAllMocks();
+  });
+});
+
+// ─── 9c. Content is clamped so it never overflows the viewport horizontally ───
+
+describe('Select — Content is clamped so it does not overflow the viewport horizontally', () => {
+  it('pulls the dropdown back so it does not overflow the right edge', async () => {
+    vi.spyOn(window, 'innerWidth', 'get').mockReturnValue(300);
+    // A trigger whose own right edge already exceeds a narrowed viewport
+    // (e.g. after a dynamic reflow or a page-zoom change) — `left: rect.left`
+    // alone had no awareness of the viewport at all.
+    vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockReturnValue({
+      top: 100,
+      bottom: 120,
+      left: 280,
+      right: 380,
+      width: 100,
+      height: 20,
+      x: 280,
+      y: 100,
+      toJSON: () => ({}),
+    } as DOMRect);
+
+    const user = userEvent.setup();
+    render(
+      <Select>
+        <Select.Trigger aria-label="Select option" />
+        <Select.Content>
+          <Select.Item value="a">A</Select.Item>
+        </Select.Content>
+      </Select>,
+    );
+    await user.click(screen.getByRole('combobox'));
+    const listbox = screen.getByRole('listbox');
+
+    // Naive `left: rect.left` (280) plus the 100px-wide trigger would put
+    // the panel's right edge at 380 — 80px past a 300px viewport. Clamped:
+    // max(8, 300 - 100 - 8) = 192.
+    await waitFor(() => {
+      expect(listbox.style.left).toBe('192px');
+    });
+
     vi.restoreAllMocks();
   });
 });

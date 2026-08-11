@@ -16,6 +16,7 @@ import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
+import { clampToViewport, rafBatched } from '../shared/floatingPosition';
 import styles from './Select.module.css';
 
 // ─── Context ──────────────────────────────────────────────────────────────────
@@ -460,16 +461,25 @@ function SelectContent({ children, className, style, ...rest }: SelectContentPro
 
       // Flip above the trigger when there is more room above than below.
       const showAbove = spaceBelow < contentHeight && spaceAbove > spaceBelow;
+      // The panel's *visible* height is clamped to whatever space is
+      // actually available — `top` must anchor off that same clamped value,
+      // not the raw, uncapped `contentHeight`. Anchoring off the raw height
+      // overshoots by exactly the amount the visible height had to clamp
+      // away, placing the panel that far off-screen above the trigger
+      // whenever content is taller than the available space (a long,
+      // unfiltered option list is the common real case).
+      const visibleHeight = showAbove
+        ? Math.min(contentHeight, spaceAbove - 8)
+        : Math.min(contentHeight, spaceBelow - 8);
+      const top = showAbove ? rect.top - visibleHeight - 4 : rect.bottom + 4;
 
       setPositionStyle({
         position: 'fixed',
-        top: showAbove ? rect.top - contentHeight - 4 : rect.bottom + 4,
-        left: rect.left,
+        top: clampToViewport(top, visibleHeight, window.innerHeight),
+        left: clampToViewport(rect.left, rect.width, window.innerWidth),
         minWidth: rect.width,
         zIndex: 'var(--vhyx-z-dropdown)',
-        maxHeight: showAbove
-          ? Math.min(contentHeight, spaceAbove - 8)
-          : Math.min(contentHeight, spaceBelow - 8),
+        maxHeight: visibleHeight,
         overflowY: 'auto',
       });
     };
@@ -480,13 +490,21 @@ function SelectContent({ children, className, style, ...rest }: SelectContentPro
     // scrollable ancestor) or resizing the window moves the trigger without
     // this component re-rendering on its own, so the dropdown would otherwise
     // stay frozen at its original screen coordinates. Scroll listens in the
-    // capture phase since scroll events don't bubble.
-    window.addEventListener('scroll', calculatePosition, true);
-    window.addEventListener('resize', calculatePosition);
+    // capture phase since scroll events don't bubble. Recomputation is
+    // batched to one-per-animation-frame (`rafBatched`) rather than run
+    // synchronously on every raw scroll event — native scroll fires far more
+    // often than the display refreshes, and committing a React state update
+    // on each one desyncs the panel from the compositor's own scroll,
+    // reading as jittery, lagging content instead of one that tracks
+    // smoothly with the trigger.
+    const batched = rafBatched(calculatePosition);
+    window.addEventListener('scroll', batched.run, true);
+    window.addEventListener('resize', batched.run);
 
     return () => {
-      window.removeEventListener('scroll', calculatePosition, true);
-      window.removeEventListener('resize', calculatePosition);
+      batched.cancel();
+      window.removeEventListener('scroll', batched.run, true);
+      window.removeEventListener('resize', batched.run);
     };
   }, [ctx.open, ctx.triggerRef]);
 

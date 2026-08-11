@@ -16,6 +16,7 @@ import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
+import { clampToViewport, rafBatched } from '../shared/floatingPosition';
 import styles from './Popover.module.css';
 
 // ─── Context ──────────────────────────────────────────────────────────────────
@@ -247,6 +248,14 @@ export interface PopoverContentProps extends React.HTMLAttributes<HTMLDivElement
  * eliminating both a hydration mismatch and a `document is not defined`
  * crash from `ReactDOM.createPortal(..., document.body)` if this is open
  * on first render (`document` doesn't exist during SSR).
+ *
+ * Position is computed as plain pixel coordinates (not a CSS `transform`
+ * trick) precisely so the result can be clamped to the viewport — `align`
+ * previously had no effect at all (only `side` was read), and even a
+ * correct anchor computation would still let content overflow past a
+ * viewport edge near the trigger (e.g. a right-aligned header popover) with
+ * no boundary awareness. Both are fixed together here since they share the
+ * same measurement (the content's own rendered size).
  */
 function PopoverContent({
   children,
@@ -258,10 +267,9 @@ function PopoverContent({
 }: PopoverContentProps): React.ReactPortal | null {
   const ctx = usePopoverContext('Popover.Content');
   const [mounted, setMounted] = useState(false);
-  const [position, setPosition] = useState<{ top: number; left: number; transform: string }>({
+  const [position, setPosition] = useState<{ top: number; left: number }>({
     top: 0,
     left: 0,
-    transform: 'translateX(-50%)',
   });
 
   useEffect(() => {
@@ -269,38 +277,38 @@ function PopoverContent({
   }, []);
 
   useEffect(() => {
-    if (!ctx.open || !ctx.triggerRef.current) return;
+    if (!mounted || !ctx.open || !ctx.triggerRef.current) return;
 
     const calculatePosition = (): void => {
       const rect = ctx.triggerRef.current!.getBoundingClientRect();
+      const contentEl = ctx.contentRef.current;
+      // Fallback only matters for the `defaultOpen`/controlled-open-on-first-
+      // render case, where this can run before the content itself has ever
+      // painted — every subsequent call (including the very next open, and
+      // every scroll/resize while open) measures the real rendered box.
+      const contentWidth = contentEl?.offsetWidth ?? rect.width;
+      const contentHeight = contentEl?.offsetHeight ?? 0;
       const GAP = 8;
 
-      let top = 0;
-      let left = 0;
-      let transform = 'translateX(-50%)';
+      let top: number;
+      let left: number;
 
-      if (side === 'bottom') {
-        top = rect.bottom + GAP;
-        left = rect.left + rect.width / 2;
-      } else if (side === 'top') {
-        top = rect.top - GAP;
-        left = rect.left + rect.width / 2;
-      } else if (side === 'right') {
-        top = rect.top + rect.height / 2;
-        left = rect.right + GAP;
+      if (side === 'bottom' || side === 'top') {
+        top = side === 'bottom' ? rect.bottom + GAP : rect.top - GAP - contentHeight;
+        if (align === 'start') left = rect.left;
+        else if (align === 'end') left = rect.right - contentWidth;
+        else left = rect.left + rect.width / 2 - contentWidth / 2;
       } else {
-        top = rect.top + rect.height / 2;
-        left = rect.left - GAP;
-        // `left` is only the anchor point (GAP px left of the trigger's own
-        // left edge) — the content still grows rightward from there unless
-        // shifted back by its own width, so it ends up overlapping the
-        // trigger instead of sitting to its left. translateX(-100%) pulls the
-        // content back so its *right* edge lands at `left`, without needing
-        // to measure the content's rendered width.
-        transform = 'translateX(-100%)';
+        left = side === 'right' ? rect.right + GAP : rect.left - GAP - contentWidth;
+        if (align === 'start') top = rect.top;
+        else if (align === 'end') top = rect.bottom - contentHeight;
+        else top = rect.top + rect.height / 2 - contentHeight / 2;
       }
 
-      setPosition({ top, left, transform });
+      setPosition({
+        top: clampToViewport(top, contentHeight, window.innerHeight),
+        left: clampToViewport(left, contentWidth, window.innerWidth),
+      });
     };
 
     calculatePosition();
@@ -309,15 +317,22 @@ function PopoverContent({
     // scrollable ancestor) or resizing the window moves the trigger without
     // this component re-rendering on its own, so the content would otherwise
     // stay frozen at its original screen coordinates. Scroll listens in the
-    // capture phase since scroll events don't bubble.
-    window.addEventListener('scroll', calculatePosition, true);
-    window.addEventListener('resize', calculatePosition);
+    // capture phase since scroll events don't bubble. Recomputation is
+    // batched to one-per-animation-frame (`rafBatched`) rather than run
+    // synchronously on every raw scroll event — native scroll fires far more
+    // often than the display refreshes, and committing a React state update
+    // on each one desyncs the panel from the compositor's own scroll,
+    // reading as a jittery, lagging box instead of one that tracks smoothly.
+    const batched = rafBatched(calculatePosition);
+    window.addEventListener('scroll', batched.run, true);
+    window.addEventListener('resize', batched.run);
 
     return () => {
-      window.removeEventListener('scroll', calculatePosition, true);
-      window.removeEventListener('resize', calculatePosition);
+      batched.cancel();
+      window.removeEventListener('scroll', batched.run, true);
+      window.removeEventListener('resize', batched.run);
     };
-  }, [ctx.open, ctx.triggerRef, side]);
+  }, [mounted, ctx.open, ctx.triggerRef, side, align]);
 
   const setRef = useCallback(
     (node: HTMLDivElement | null) => {
@@ -354,7 +369,6 @@ function PopoverContent({
         top: position.top,
         left: position.left,
         zIndex: 450, // --vhyx-z-popover
-        transform: position.transform,
       }}
     >
       {children}
