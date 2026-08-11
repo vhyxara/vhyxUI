@@ -1,3 +1,19 @@
+/*
+ * Duplicated from tokens/semantic/motion.css's global `vhyx-spin` keyframe.
+ * CSS Modules only scopes `animation-name` identifiers it can resolve to a
+ * `@keyframes` rule declared in the *same* module file — the global
+ * `vhyx-spin` (declared in a plain, non-module stylesheet) doesn't count.
+ * Without a local declaration to match, the bundler renames this rule's
+ * own `animation: vhyx-spin ...` reference to a scoped identifier that has
+ * no corresponding `@keyframes` anywhere in the shipped CSS, so the
+ * animation silently never runs. Redeclaring it locally lets the same
+ * scoping pass rename both consistently.
+ */
+@keyframes vhyx-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 .spinner {
   display: inline-block;
   flex-shrink: 0;
@@ -5,7 +21,6 @@
   transform-box: fill-box;
   transform-origin: center;
 
-  /* vhyx-spin keyframe from semantic/motion.css — infinite linear 0.7s */
   animation: vhyx-spin 0.7s linear infinite;
 }
 

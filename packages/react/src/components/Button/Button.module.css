@@ -187,6 +187,12 @@
 }
 
 /* ─── Spinner ─────────────────────────────────────────────── */
+/* Local `vhyx-spin` redeclaration — see Spinner.module.css for why. */
+@keyframes vhyx-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
 .spinner {
   width: 1em;
   height: 1em;
