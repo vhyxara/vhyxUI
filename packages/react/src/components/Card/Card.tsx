@@ -29,6 +29,31 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 /**
+ * `padding` is implemented entirely via CSS targeting `.header`/`.body`/
+ * `.footer` (see Card.module.css) — the root `.card` element itself has no
+ * padding rule. That's correct when a consumer uses the sub-components, but
+ * means a `Card` given only bare children (no `Card.Header`/`Body`/`Footer`)
+ * previously rendered with zero internal padding regardless of the `padding`
+ * prop, silently. Rather than adding padding to the root element (which
+ * would double up with `.header`/`.body`/`.footer`'s own padding when those
+ * ARE used, and would break `Card.Image`'s intentional edge-to-edge bleed),
+ * bare children are implicitly wrapped in the same element `Card.Body`
+ * itself renders — reusing the existing, already-correct `.body` padding
+ * rule instead of adding a new one. When any sub-component is already
+ * present, children pass through completely unwrapped, unchanged from
+ * before this fix.
+ */
+function isCardSubComponent(child: React.ReactNode): boolean {
+  return (
+    React.isValidElement(child) &&
+    (child.type === CardHeader ||
+      child.type === CardBody ||
+      child.type === CardFooter ||
+      child.type === CardImage)
+  );
+}
+
+/**
  * Card — a content container with optional sub-layout components.
  *
  * Sub-components: Card.Header, Card.Body, Card.Footer, Card.Image.
@@ -63,6 +88,9 @@ const CardRoot = React.forwardRef<HTMLDivElement, CardProps>(
 
     const cardClass = [styles['card'], className].filter(Boolean).join(' ');
 
+    const hasSubComponents = React.Children.toArray(children).some(isCardSubComponent);
+    const content = hasSubComponents ? children : <CardBody>{children}</CardBody>;
+
     return (
       <div
         ref={ref}
@@ -73,7 +101,7 @@ const CardRoot = React.forwardRef<HTMLDivElement, CardProps>(
         data-vhyx-contract={JSON.stringify(effectiveContract)}
         {...rest}
       >
-        {children}
+        {content}
       </div>
     );
   },

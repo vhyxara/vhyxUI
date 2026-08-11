@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import { axe } from 'vitest-axe';
 import React from 'react';
 import { Card } from './Card';
@@ -120,6 +120,70 @@ describe('Card — sub-components', () => {
     expect(screen.getByText('Title')).toBeInTheDocument();
     expect(screen.getByText('Description')).toBeInTheDocument();
     expect(screen.getByText('Action')).toBeInTheDocument();
+  });
+});
+
+// ─── 5b. Bare-children padding (implicit Card.Body wrapping) ─────────────────
+
+describe('Card — bare children get padding via an implicit Card.Body wrapper', () => {
+  it('wraps bare children (no sub-components used) in the same element Card.Body renders', () => {
+    const { container: bare } = render(<Card padding="md">Plain content</Card>);
+    const { container: explicit } = render(
+      <Card padding="md">
+        <Card.Body>Plain content</Card.Body>
+      </Card>,
+    );
+
+    // `getByText` returns the element whose own text content matches — here
+    // that's the wrapping `.body`-classed div itself, not a bare text node.
+    const bareWrapper = within(bare).getByText('Plain content');
+    const explicitBody = within(explicit).getByText('Plain content');
+
+    // Not the card root itself — actually wrapped, not left bare.
+    expect(bareWrapper).not.toBe(bare.firstChild);
+    // Same class as an explicit Card.Body, i.e. genuinely reusing that padding rule.
+    expect(bareWrapper.className).toBe(explicitBody.className);
+  });
+
+  it('does not double-wrap when Card.Body is already used explicitly', () => {
+    const { container } = render(
+      <Card padding="md">
+        <Card.Body>Already wrapped</Card.Body>
+      </Card>,
+    );
+    const cardRoot = container.firstChild as HTMLElement;
+    // Exactly one child (the Card.Body itself) — no extra wrapper inserted around it.
+    expect(cardRoot.children).toHaveLength(1);
+  });
+
+  it('does not wrap children when any other sub-component (Header/Footer/Image) is present', () => {
+    const { container } = render(
+      <Card padding="md">
+        <Card.Header>Title</Card.Header>
+        <Card.Body>Description</Card.Body>
+        <Card.Footer>Action</Card.Footer>
+      </Card>,
+    );
+    const cardRoot = container.firstChild as HTMLElement;
+    // Exactly the 3 sub-components, passed through unmodified — same structure as before this fix.
+    expect(cardRoot.children).toHaveLength(3);
+  });
+
+  it('leaves a bare sibling unwrapped/unpadded when mixed with a real sub-component (known, documented scope limit — not fixed by this change)', () => {
+    const { container } = render(
+      <Card padding="md">
+        Bare trailing text
+        <Card.Footer>Action</Card.Footer>
+      </Card>,
+    );
+    const cardRoot = container.firstChild as HTMLElement;
+    // The bare string child renders as a raw text node directly under the card
+    // root — not promoted into its own wrapper element — once any real
+    // sub-component (Card.Footer here) is present elsewhere in the tree.
+    const rawTextNode = Array.from(cardRoot.childNodes).find(
+      (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim() === 'Bare trailing text',
+    );
+    expect(rawTextNode).toBeDefined();
   });
 });
 
