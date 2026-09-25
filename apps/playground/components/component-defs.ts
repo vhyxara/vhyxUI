@@ -23,12 +23,72 @@ export interface ComponentDef {
 export const COMPONENT_GROUPS = [
   { label: 'Inputs & Forms', ids: ['button', 'input', 'textarea', 'checkbox', 'radio', 'switch', 'select', 'form'] },
   { label: 'Feedback', ids: ['badge', 'progress', 'spinner', 'alert', 'toast'] },
-  { label: 'Display', ids: ['card', 'separator'] },
+  { label: 'Layout & Type', ids: ['stack', 'text'] },
+  { label: 'Display', ids: ['card', 'separator', 'avatar', 'accordion', 'table'] },
   { label: 'Overlay', ids: ['dialog', 'drawer', 'tooltip', 'popover'] },
   { label: 'Navigation', ids: ['tabs', 'breadcrumb', 'pagination'] },
 ];
 
 export const COMPONENT_DEFS: Record<string, ComponentDef> = {
+  stack: {
+    id: 'stack', name: 'Stack', group: 'Layout', description: 'Flex layout with token gaps — the most used primitive.',
+    defaultProps: { direction: 'row', gap: 3, align: 'center', justify: 'start', wrap: false },
+    controls: [
+      { key: 'direction', label: 'direction', type: 'select', options: ['row', 'column'] },
+      { key: 'gap', label: 'gap', type: 'select', options: ['0', '1', '2', '3', '4', '6', '8', '12'] },
+      { key: 'align', label: 'align', type: 'select', options: ['start', 'center', 'end', 'stretch'] },
+      { key: 'justify', label: 'justify', type: 'select', options: ['start', 'center', 'end', 'between', 'around'] },
+      { key: 'wrap', label: 'wrap', type: 'switch' },
+    ],
+    tokens: [{ name: '--vhyx-space-3', desc: 'Default gap' }],
+    contract: {},
+  },
+  text: {
+    id: 'text', name: 'Text', group: 'Typography', description: 'Body text and headings on the type scale.',
+    defaultProps: { size: 'md', tone: 'default', weight: 'normal', headingSize: 'md', children: 'The quick brown fox jumps over the lazy dog.' },
+    controls: [
+      { key: 'children', label: 'children', type: 'input' },
+      { key: 'size', label: 'size', type: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+      { key: 'tone', label: 'tone', type: 'select', options: ['default', 'subtle', 'muted', 'accent', 'success', 'warning', 'danger'] },
+      { key: 'weight', label: 'weight', type: 'select', options: ['normal', 'medium', 'semibold', 'bold'] },
+      { key: 'headingSize', label: 'Heading size', type: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] },
+    ],
+    tokens: [{ name: '--vhyx-text-md', desc: 'Body size' }, { name: '--vhyx-color-text-subtle', desc: 'Subtle tone' }],
+    contract: {},
+  },
+  avatar: {
+    id: 'avatar', name: 'Avatar', group: 'Display', description: 'Image with initials fallback, presence and groups.',
+    defaultProps: { name: 'Ada Lovelace', size: 'md', shape: 'circle', status: 'online' },
+    controls: [
+      { key: 'name', label: 'name', type: 'input' },
+      { key: 'size', label: 'size', type: 'select', options: ['xs', 'sm', 'md', 'lg', 'xl'] },
+      { key: 'shape', label: 'shape', type: 'select', options: ['circle', 'square'] },
+      { key: 'status', label: 'status', type: 'select', options: ['none', 'online', 'busy', 'away', 'offline'] },
+    ],
+    tokens: [{ name: '--vhyx-color-accent-muted', desc: 'Fallback bg' }],
+    contract: {},
+  },
+  accordion: {
+    id: 'accordion', name: 'Accordion', group: 'Display', description: 'Collapsible sections on native details/summary.',
+    defaultProps: { type: 'single', variant: 'default' },
+    controls: [
+      { key: 'type', label: 'type', type: 'select', options: ['single', 'multiple'] },
+      { key: 'variant', label: 'variant', type: 'select', options: ['default', 'ghost'] },
+    ],
+    tokens: [{ name: '--vhyx-radius-lg', desc: 'Radius' }],
+    contract: { type: 'navigation', intent: 'toggle-section', safetyLevel: 'low', contractVersion: '0.0.1' },
+  },
+  table: {
+    id: 'table', name: 'Table', group: 'Display', description: 'Accessible table with a columns + data shorthand.',
+    defaultProps: { striped: false, density: 'comfortable' },
+    controls: [
+      { key: 'striped', label: 'striped', type: 'switch' },
+      { key: 'density', label: 'density', type: 'select', options: ['comfortable', 'compact'] },
+    ],
+    tokens: [{ name: '--vhyx-color-bg-subtle', desc: 'Header & stripes' }],
+    contract: { type: 'display', intent: 'display-data', safetyLevel: 'low', contractVersion: '0.0.1' },
+  },
+
   button: {
     id: 'button',
     name: 'Button',

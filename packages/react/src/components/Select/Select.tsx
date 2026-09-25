@@ -86,11 +86,11 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Called when a new value is selected. */
   onValueChange?: (value: string) => void;
   /** When true, the trigger is disabled. */
-  disabled?: boolean;
+  disabled?: boolean | undefined;
   /** Size applied to all Select sub-components. @default 'md' */
-  size?: SelectSize;
+  size?: SelectSize | undefined;
   /** Placeholder text shown when no value is selected. */
-  placeholder?: string;
+  placeholder?: string | undefined;
   /** VhyxSeal contract override. */
   contract?: Partial<ComponentContract>;
 }

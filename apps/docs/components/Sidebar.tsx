@@ -29,7 +29,8 @@ const NAV: NavGroup[] = [
       { name: 'Introduction', href: '/getting-started' },
       { name: 'Installation', href: '/getting-started' },
       { name: 'Theming', href: '/theming' },
-      { name: 'Dark Mode', href: '/theming' },
+      { name: 'Tailwind CSS', href: '/tailwind', badge: 'New' },
+      { name: 'Architecture', href: '/architecture', badge: 'New' },
     ],
   },
   {
@@ -70,6 +71,9 @@ const NAV: NavGroup[] = [
       {
         label: 'Layout',
         items: [
+          { name: 'Layout primitives', href: '/components/layout-primitives', badge: 'New' },
+          { name: 'Typography', href: '/components/typography', badge: 'New' },
+          { name: 'Data display', href: '/components/data-display', badge: 'New' },
           { name: 'Card', href: '/components/card', badge: 'Stable' },
           { name: 'Separator', href: '/components/separator', badge: 'Stable' },
         ],
@@ -82,6 +86,13 @@ const NAV: NavGroup[] = [
           { name: 'Pagination', href: '/components/pagination', badge: 'Stable' },
         ],
       },
+    ],
+  },
+  {
+    label: 'Blocks & Layouts',
+    items: [
+      { name: 'Blocks', href: '/blocks', badge: 'New' },
+      { name: 'Layouts', href: '/layouts', badge: 'New' },
     ],
   },
   {

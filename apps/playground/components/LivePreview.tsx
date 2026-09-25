@@ -25,6 +25,14 @@ import {
   Select,
   Field,
   toast,
+  Stack,
+  Text,
+  Heading,
+  Avatar,
+  AvatarGroup,
+  Accordion,
+  Table,
+  Skeleton,
 } from '@vhyxui/react';
 
 interface LivePreviewProps {
@@ -458,6 +466,71 @@ function RenderForm(props: Record<string, unknown>): React.ReactElement {
 
 // ─── Component registry ───────────────────────────────────────────────────────
 
+function RenderStack(props: Record<string, unknown>): React.ReactElement {
+  return (
+    <Stack
+      direction={(props['direction'] as 'row') ?? 'row'}
+      gap={Number(props['gap'] ?? 3) as 3}
+      align={(props['align'] as 'center') ?? 'center'}
+      justify={(props['justify'] as 'start') ?? 'start'}
+      wrap={Boolean(props['wrap'])}
+      style={{ width: '100%', padding: 'var(--vhyx-space-3)', border: '1px dashed var(--vhyx-color-border)', borderRadius: 'var(--vhyx-radius-md)' }}
+    >
+      {['One', 'Two', 'Three'].map((t) => <Button key={t} variant="secondary" size="sm">{t}</Button>)}
+    </Stack>
+  );
+}
+
+function RenderText(props: Record<string, unknown>): React.ReactElement {
+  return (
+    <Stack gap={2}>
+      <Heading level={2} size={(props['headingSize'] as 'md') ?? 'md'}>Heading</Heading>
+      <Text size={(props['size'] as 'md') ?? 'md'} tone={(props['tone'] as 'default') ?? 'default'} weight={(props['weight'] as 'normal') ?? 'normal'}>
+        {String(props['children'] ?? 'The quick brown fox jumps over the lazy dog.')}
+      </Text>
+    </Stack>
+  );
+}
+
+function RenderAvatar(props: Record<string, unknown>): React.ReactElement {
+  return (
+    <Stack direction="row" gap={6} align="center">
+      <Avatar name={String(props['name'] ?? 'Ada Lovelace')} size={(props['size'] as 'md') ?? 'md'} shape={(props['shape'] as 'circle') ?? 'circle'} {...(props['status'] && props['status'] !== 'none' ? { status: props['status'] as 'online' } : {})} />
+      <AvatarGroup max={3}>{['Ada Lovelace', 'Grace Hopper', 'Alan Turing', 'Linus Torvalds'].map((n) => <Avatar key={n} name={n} />)}</AvatarGroup>
+      <Skeleton variant="circle" width={40} height={40} />
+    </Stack>
+  );
+}
+
+function RenderAccordion(props: Record<string, unknown>): React.ReactElement {
+  return (
+    <div style={{ width: '100%', maxWidth: 420 }}>
+      <Accordion
+        type={(props['type'] as 'single') ?? 'single'}
+        variant={(props['variant'] as 'default') ?? 'default'}
+        items={[
+          { value: 'a', title: 'What is VhyxUI?', content: 'Accessible, Tailwind-friendly, agent-ready React components.' },
+          { value: 'b', title: 'Does it need JavaScript?', content: 'Accordion works before hydration — it is native details/summary.' },
+          { value: 'c', title: 'Can agents read it?', content: 'Yes, via its VhyxSeal contract.' },
+        ]}
+      />
+    </div>
+  );
+}
+
+function RenderTable(props: Record<string, unknown>): React.ReactElement {
+  return (
+    <div style={{ width: '100%' }}>
+      <Table
+        striped={Boolean(props['striped'])}
+        density={(props['density'] as 'comfortable') ?? 'comfortable'}
+        columns={[{ key: 'name', header: 'Name' }, { key: 'role', header: 'Role' }, { key: 'seats', header: 'Seats', align: 'end' }]}
+        data={[{ id: 1, name: 'Ada', role: 'Admin', seats: 12 }, { id: 2, name: 'Grace', role: 'Editor', seats: 4 }, { id: 3, name: 'Alan', role: 'Viewer', seats: 1 }]}
+      />
+    </div>
+  );
+}
+
 const RENDERERS: Record<string, (props: Record<string, unknown>) => React.ReactElement> = {
   button: RenderButton,
   input: RenderInput,
@@ -481,7 +554,13 @@ const RENDERERS: Record<string, (props: Record<string, unknown>) => React.ReactE
   pagination: RenderPagination,
   toast: RenderToast,
   form: RenderForm,
+  stack: RenderStack,
+  text: RenderText,
+  avatar: RenderAvatar,
+  accordion: RenderAccordion,
+  table: RenderTable,
 };
+
 
 // ─── LivePreview ──────────────────────────────────────────────────────────────
 

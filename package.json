@@ -32,7 +32,9 @@
   "pnpm": {
     "overrides": {
       "@vhyxseal/core": "file:.tarballs/vhyxseal-core-1.0.0-rc.3.tgz",
-      "@vhyxseal/react": "file:.tarballs/vhyxseal-react-1.0.0-rc.3.tgz"
+      "@vhyxseal/react": "file:.tarballs/vhyxseal-react-1.0.0-rc.3.tgz",
+      "@vhyxchart/core": "file:.tarballs/vhyxchart-core-0.1.0-alpha.tgz",
+      "@vhyxchart/react": "file:.tarballs/vhyxchart-react-0.1.0-alpha.tgz"
     }
   }
 }

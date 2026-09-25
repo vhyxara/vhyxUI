@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, type RenderOptions } from '@testing-library/react';
+import { render, type RenderOptions, type RenderResult } from '@testing-library/react';
 import { VhyxUIProvider } from '../provider/VhyxUIProvider';
 
 /**
@@ -15,7 +15,7 @@ import { VhyxUIProvider } from '../provider/VhyxUIProvider';
 export function renderWithVhyxUI(
   ui: React.ReactElement,
   options?: Omit<RenderOptions, 'wrapper'>,
-) {
+): RenderResult {
   return render(ui, {
     wrapper: ({ children }) => (
       <VhyxUIProvider>{children}</VhyxUIProvider>

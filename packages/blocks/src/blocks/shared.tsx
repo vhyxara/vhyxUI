@@ -1,7 +1,13 @@
 import React from 'react';
 
 /** Anything that renders a link. Pass Next.js `Link`, React Router `Link`, or leave as `'a'`. */
-export type LinkComponent = React.ElementType<{ href: string; className?: string; children?: React.ReactNode }>;
+export type LinkComponent = React.ElementType<{
+  href: string;
+  className?: string | undefined;
+  style?: React.CSSProperties | undefined;
+  children?: React.ReactNode;
+  [attribute: string]: unknown;
+}>;
 
 /** A navigation link used by Navbar, Footer, SidebarNav, and layouts. */
 export interface NavLink {
@@ -28,7 +34,7 @@ export interface Action {
 export function renderLink(
   link: NavLink,
   As: LinkComponent,
-  props: { className?: string; style?: React.CSSProperties } = {},
+  props: { className?: string | undefined; style?: React.CSSProperties | undefined } = {},
 ): React.ReactElement {
   const external = link.external ? { target: '_blank', rel: 'noreferrer' } : {};
   return (
