@@ -89,6 +89,8 @@ export function PlaygroundHeader(): React.ReactElement {
       </div>
 
       <div className="pg-header-actions">
+        <a href="/button" className="pg-header-link">Components</a>
+        <a href="/blocks" className="pg-header-link">Blocks &amp; layouts</a>
         <a
           href="https://docs.vhyxui.com"
           className="pg-header-link"

@@ -13,21 +13,21 @@ export interface FieldProps extends Omit<React.HTMLAttributes<HTMLDivElement>, '
    */
   name: string;
   /** Label rendered above (or beside) the input. */
-  label?: React.ReactNode;
+  label?: React.ReactNode | undefined;
   /** Helper text rendered below the input. Connected via aria-describedby. */
-  hint?: React.ReactNode;
+  hint?: React.ReactNode | undefined;
   /**
    * Error message. When set, the child input receives aria-invalid and
    * data-error attributes and the error text is announced as a live region.
    * If absent, Field reads the error from the parent Form context automatically.
    */
-  error?: string;
+  error?: string | undefined;
   /** When true, renders a required indicator (*) next to the label. */
-  required?: boolean;
+  required?: boolean | undefined;
   /** When true, renders an optional indicator next to the label. */
-  optional?: boolean;
+  optional?: boolean | undefined;
   /** Field layout. Overrides the parent Form layout when set. @default 'vertical' */
-  layout?: 'vertical' | 'horizontal';
+  layout?: 'vertical' | 'horizontal' | undefined;
   /** The single interactive child element (Input, Textarea, Select, etc.). */
   children: React.ReactNode;
 }
