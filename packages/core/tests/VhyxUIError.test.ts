@@ -2,19 +2,21 @@ import { describe, it, expect } from 'vitest';
 import { VhyxUIError, VhyxUIErrorCode } from '../src/errors/VhyxUIError';
 
 describe('VhyxUIErrorCode', () => {
-  it('has all five expected error codes', () => {
+  it('has all seven expected error codes', () => {
     expect(VhyxUIErrorCode.VHYXUI_MISSING_CONTEXT).toBe('VHYXUI_MISSING_CONTEXT');
     expect(VhyxUIErrorCode.VHYXUI_MISSING_TITLE).toBe('VHYXUI_MISSING_TITLE');
     expect(VhyxUIErrorCode.VHYXUI_INVALID_PROP).toBe('VHYXUI_INVALID_PROP');
     expect(VhyxUIErrorCode.VHYXUI_PROVIDER_MISSING).toBe('VHYXUI_PROVIDER_MISSING');
     expect(VhyxUIErrorCode.VHYXUI_TOAST_LIMIT_EXCEEDED).toBe('VHYXUI_TOAST_LIMIT_EXCEEDED');
+    expect(VhyxUIErrorCode.VHYXUI_STRUCTURE_INVALID).toBe('VHYXUI_STRUCTURE_INVALID');
+    expect(VhyxUIErrorCode.VHYXUI_RUNTIME_INVARIANT_VIOLATION).toBe('VHYXUI_RUNTIME_INVARIANT_VIOLATION');
   });
 
-  it('has exactly five members', () => {
+  it('has exactly seven members', () => {
     const keys = Object.keys(VhyxUIErrorCode).filter(
       (k) => isNaN(Number(k)),
     );
-    expect(keys).toHaveLength(5);
+    expect(keys).toHaveLength(7);
   });
 });
 

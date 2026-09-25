@@ -186,6 +186,12 @@ importers:
 
   packages/tokens: {}
 
+  packages/visual-runtime:
+    dependencies:
+      '@vhyxui/core':
+        specifier: workspace:*
+        version: link:../core
+
 packages:
 
   '@adobe/css-tools@4.4.4':
