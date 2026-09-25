@@ -36,7 +36,7 @@ jobs:
       - name: Verify token bundle in sync
         run: |
           pnpm --filter @vhyxui/tokens sync
-          git diff --exit-code packages/tokens/index.css
+          git diff --exit-code packages/tokens/index.css packages/tokens/tokens.css packages/tokens/reset.css
 
       - name: Test
         run: pnpm test
