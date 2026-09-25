@@ -20,3 +20,5 @@ export { separatorContract } from './separator';
 export { tabsContract } from './tabs';
 export { breadcrumbContract } from './breadcrumb';
 export { paginationContract } from './pagination';
+export { accordionContract } from './accordion';
+export { tableContract } from './table';

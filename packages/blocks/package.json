@@ -1,0 +1,37 @@
+{
+  "name": "@vhyxui/blocks",
+  "version": "0.1.0-alpha",
+  "description": "VhyxUI blocks and prebuilt layouts — page sections, auth, pricing, dashboards, app shells — composed only from @vhyxui/react",
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "require": "./dist/index.cjs" },
+    "./blocks": { "types": "./dist/blocks.d.ts", "import": "./dist/blocks.js", "require": "./dist/blocks.cjs" },
+    "./layouts": { "types": "./dist/layouts.d.ts", "import": "./dist/layouts.js", "require": "./dist/layouts.cjs" },
+    "./style.css": "./dist/style.css"
+  },
+  "sideEffects": ["*.css"],
+  "files": ["dist"],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "test": "vitest run",
+    "typecheck": "tsc --project tsconfig.test.json --noEmit"
+  },
+  "peerDependencies": {
+    "@vhyxui/react": ">=0.4.0-alpha",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@vhyxui/core": "workspace:*",
+    "@vhyxui/react": "workspace:*",
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
+  }
+}

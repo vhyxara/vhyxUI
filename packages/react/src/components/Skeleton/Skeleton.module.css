@@ -1,0 +1,18 @@
+@keyframes vhyx-skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.skeleton {
+  display: block;
+  background-color: var(--vhyx-color-bg-muted);
+  border-radius: var(--vhyx-radius-sm);
+  animation: vhyx-skeleton-pulse 1.6s var(--vhyx-easing-standard) infinite;
+}
+
+.skeleton[data-variant="circle"] { border-radius: var(--vhyx-radius-full); }
+.skeleton[data-variant="text"] { height: 0.8em; margin-block: 0.2em; }
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}

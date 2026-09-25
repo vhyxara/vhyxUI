@@ -25,4 +25,6 @@ export {
   tabsContract,
   breadcrumbContract,
   paginationContract,
+  accordionContract,
+  tableContract,
 } from './contracts';

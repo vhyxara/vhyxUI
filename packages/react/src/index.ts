@@ -270,3 +270,46 @@ export {
   type PaginationProps,
   type PaginationSize,
 } from './components/Pagination';
+
+// ─── Utilities ────────────────────────────────────────────────────────────────
+
+export { cx, type ClassValue } from './utils/cx';
+export { spaceVar, type Space, type Breakpoint } from './utils/space';
+export { resolveSealDomain, type VhyxTheme } from './provider/VhyxUIProvider';
+
+// ─── Layout primitives ────────────────────────────────────────────────────────
+
+export {
+  Stack,
+  HStack,
+  VStack,
+  type StackProps,
+  type DirectionalStackProps,
+  type StackAlign,
+  type StackJustify,
+} from './components/Stack';
+export { Grid, type GridProps } from './components/Grid';
+export { Container, type ContainerProps, type ContainerSize } from './components/Container';
+export { Center, type CenterProps } from './components/Center';
+
+// ─── Typography ───────────────────────────────────────────────────────────────
+
+export { Text, type TextProps, type TextSize, type TextTone, type TextWeight } from './components/Text';
+export { Heading, type HeadingProps, type HeadingLevel, type HeadingSize } from './components/Heading';
+export { Kbd, type KbdProps } from './components/Kbd';
+export { VisuallyHidden, type VisuallyHiddenProps } from './components/VisuallyHidden';
+
+// ─── Data display ─────────────────────────────────────────────────────────────
+
+export {
+  Avatar,
+  AvatarGroup,
+  getInitials,
+  type AvatarProps,
+  type AvatarGroupProps,
+  type AvatarSize,
+  type AvatarStatus,
+} from './components/Avatar';
+export { Skeleton, type SkeletonProps } from './components/Skeleton';
+export { Accordion, type AccordionProps, type AccordionItemProps, type AccordionItemData } from './components/Accordion';
+export { Table, type TableProps, type TableColumn, type TableCellProps } from './components/Table';

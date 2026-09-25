@@ -1,7 +1,7 @@
 {
   "name": "@vhyxui/react",
-  "version": "0.3.1-alpha",
-  "description": "VhyxUI React components — accessible, motion-first, agent-ready",
+  "version": "0.4.0-alpha",
+  "description": "VhyxUI React components — accessible, Tailwind-friendly, agent-ready",
   "license": "MIT",
   "private": false,
   "type": "module",
@@ -10,143 +10,211 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.cjs"
     },
     "./button": {
+      "types": "./dist/button.d.ts",
       "import": "./dist/button.js",
-      "require": "./dist/button.cjs",
-      "types": "./dist/button.d.ts"
+      "require": "./dist/button.cjs"
     },
     "./input": {
+      "types": "./dist/input.d.ts",
       "import": "./dist/input.js",
-      "require": "./dist/input.cjs",
-      "types": "./dist/input.d.ts"
+      "require": "./dist/input.cjs"
     },
     "./textarea": {
+      "types": "./dist/textarea.d.ts",
       "import": "./dist/textarea.js",
-      "require": "./dist/textarea.cjs",
-      "types": "./dist/textarea.d.ts"
+      "require": "./dist/textarea.cjs"
     },
     "./select": {
+      "types": "./dist/select.d.ts",
       "import": "./dist/select.js",
-      "require": "./dist/select.cjs",
-      "types": "./dist/select.d.ts"
+      "require": "./dist/select.cjs"
     },
     "./checkbox": {
+      "types": "./dist/checkbox.d.ts",
       "import": "./dist/checkbox.js",
-      "require": "./dist/checkbox.cjs",
-      "types": "./dist/checkbox.d.ts"
+      "require": "./dist/checkbox.cjs"
     },
     "./radio": {
+      "types": "./dist/radio.d.ts",
       "import": "./dist/radio.js",
-      "require": "./dist/radio.cjs",
-      "types": "./dist/radio.d.ts"
+      "require": "./dist/radio.cjs"
     },
     "./switch": {
+      "types": "./dist/switch.d.ts",
       "import": "./dist/switch.js",
-      "require": "./dist/switch.cjs",
-      "types": "./dist/switch.d.ts"
+      "require": "./dist/switch.cjs"
     },
     "./form": {
+      "types": "./dist/form.d.ts",
       "import": "./dist/form.js",
-      "require": "./dist/form.cjs",
-      "types": "./dist/form.d.ts"
+      "require": "./dist/form.cjs"
     },
     "./toast": {
+      "types": "./dist/toast.d.ts",
       "import": "./dist/toast.js",
-      "require": "./dist/toast.cjs",
-      "types": "./dist/toast.d.ts"
+      "require": "./dist/toast.cjs"
     },
     "./alert": {
+      "types": "./dist/alert.d.ts",
       "import": "./dist/alert.js",
-      "require": "./dist/alert.cjs",
-      "types": "./dist/alert.d.ts"
+      "require": "./dist/alert.cjs"
     },
     "./badge": {
+      "types": "./dist/badge.d.ts",
       "import": "./dist/badge.js",
-      "require": "./dist/badge.cjs",
-      "types": "./dist/badge.d.ts"
+      "require": "./dist/badge.cjs"
     },
     "./progress": {
+      "types": "./dist/progress.d.ts",
       "import": "./dist/progress.js",
-      "require": "./dist/progress.cjs",
-      "types": "./dist/progress.d.ts"
+      "require": "./dist/progress.cjs"
     },
     "./spinner": {
+      "types": "./dist/spinner.d.ts",
       "import": "./dist/spinner.js",
-      "require": "./dist/spinner.cjs",
-      "types": "./dist/spinner.d.ts"
+      "require": "./dist/spinner.cjs"
     },
     "./dialog": {
+      "types": "./dist/dialog.d.ts",
       "import": "./dist/dialog.js",
-      "require": "./dist/dialog.cjs",
-      "types": "./dist/dialog.d.ts"
+      "require": "./dist/dialog.cjs"
     },
     "./drawer": {
+      "types": "./dist/drawer.d.ts",
       "import": "./dist/drawer.js",
-      "require": "./dist/drawer.cjs",
-      "types": "./dist/drawer.d.ts"
+      "require": "./dist/drawer.cjs"
     },
     "./tooltip": {
+      "types": "./dist/tooltip.d.ts",
       "import": "./dist/tooltip.js",
-      "require": "./dist/tooltip.cjs",
-      "types": "./dist/tooltip.d.ts"
+      "require": "./dist/tooltip.cjs"
     },
     "./popover": {
+      "types": "./dist/popover.d.ts",
       "import": "./dist/popover.js",
-      "require": "./dist/popover.cjs",
-      "types": "./dist/popover.d.ts"
+      "require": "./dist/popover.cjs"
     },
     "./card": {
+      "types": "./dist/card.d.ts",
       "import": "./dist/card.js",
-      "require": "./dist/card.cjs",
-      "types": "./dist/card.d.ts"
+      "require": "./dist/card.cjs"
     },
     "./separator": {
+      "types": "./dist/separator.d.ts",
       "import": "./dist/separator.js",
-      "require": "./dist/separator.cjs",
-      "types": "./dist/separator.d.ts"
+      "require": "./dist/separator.cjs"
     },
     "./tabs": {
+      "types": "./dist/tabs.d.ts",
       "import": "./dist/tabs.js",
-      "require": "./dist/tabs.cjs",
-      "types": "./dist/tabs.d.ts"
+      "require": "./dist/tabs.cjs"
     },
     "./breadcrumb": {
+      "types": "./dist/breadcrumb.d.ts",
       "import": "./dist/breadcrumb.js",
-      "require": "./dist/breadcrumb.cjs",
-      "types": "./dist/breadcrumb.d.ts"
+      "require": "./dist/breadcrumb.cjs"
     },
     "./pagination": {
+      "types": "./dist/pagination.d.ts",
       "import": "./dist/pagination.js",
-      "require": "./dist/pagination.cjs",
-      "types": "./dist/pagination.d.ts"
+      "require": "./dist/pagination.cjs"
     },
     "./textfield": {
+      "types": "./dist/textfield.d.ts",
       "import": "./dist/textfield.js",
-      "require": "./dist/textfield.cjs",
-      "types": "./dist/textfield.d.ts"
+      "require": "./dist/textfield.cjs"
     },
     "./selectfield": {
+      "types": "./dist/selectfield.d.ts",
       "import": "./dist/selectfield.js",
-      "require": "./dist/selectfield.cjs",
-      "types": "./dist/selectfield.d.ts"
+      "require": "./dist/selectfield.cjs"
     },
     "./textareafield": {
+      "types": "./dist/textareafield.d.ts",
       "import": "./dist/textareafield.js",
-      "require": "./dist/textareafield.cjs",
-      "types": "./dist/textareafield.d.ts"
+      "require": "./dist/textareafield.cjs"
     },
     "./test-utils": {
+      "types": "./dist/test-utils.d.ts",
       "import": "./dist/test-utils.js",
-      "require": "./dist/test-utils.cjs",
-      "types": "./dist/test-utils.d.ts"
+      "require": "./dist/test-utils.cjs"
+    },
+    "./stack": {
+      "types": "./dist/stack.d.ts",
+      "import": "./dist/stack.js",
+      "require": "./dist/stack.cjs"
+    },
+    "./grid": {
+      "types": "./dist/grid.d.ts",
+      "import": "./dist/grid.js",
+      "require": "./dist/grid.cjs"
+    },
+    "./container": {
+      "types": "./dist/container.d.ts",
+      "import": "./dist/container.js",
+      "require": "./dist/container.cjs"
+    },
+    "./center": {
+      "types": "./dist/center.d.ts",
+      "import": "./dist/center.js",
+      "require": "./dist/center.cjs"
+    },
+    "./text": {
+      "types": "./dist/text.d.ts",
+      "import": "./dist/text.js",
+      "require": "./dist/text.cjs"
+    },
+    "./heading": {
+      "types": "./dist/heading.d.ts",
+      "import": "./dist/heading.js",
+      "require": "./dist/heading.cjs"
+    },
+    "./avatar": {
+      "types": "./dist/avatar.d.ts",
+      "import": "./dist/avatar.js",
+      "require": "./dist/avatar.cjs"
+    },
+    "./skeleton": {
+      "types": "./dist/skeleton.d.ts",
+      "import": "./dist/skeleton.js",
+      "require": "./dist/skeleton.cjs"
+    },
+    "./kbd": {
+      "types": "./dist/kbd.d.ts",
+      "import": "./dist/kbd.js",
+      "require": "./dist/kbd.cjs"
+    },
+    "./visually-hidden": {
+      "types": "./dist/visually-hidden.d.ts",
+      "import": "./dist/visually-hidden.js",
+      "require": "./dist/visually-hidden.cjs"
+    },
+    "./accordion": {
+      "types": "./dist/accordion.d.ts",
+      "import": "./dist/accordion.js",
+      "require": "./dist/accordion.cjs"
+    },
+    "./table": {
+      "types": "./dist/table.d.ts",
+      "import": "./dist/table.js",
+      "require": "./dist/table.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.js",
+      "require": "./dist/utils.cjs"
     },
     "./style.css": "./style.css"
   },
-  "sideEffects": ["*.css", "dist/style.css"],
+  "sideEffects": [
+    "*.css",
+    "dist/style.css"
+  ],
   "files": [
     "dist",
     "style.css"
@@ -160,8 +228,8 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "@vhyxseal/react": "1.0.0-rc.2",
-    "@vhyxui/core": "0.1.0-alpha.1"
+    "@vhyxseal/react": "1.0.0-rc.3",
+    "@vhyxui/core": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18",
@@ -169,10 +237,12 @@
     "react-hook-form": ">=7"
   },
   "peerDependenciesMeta": {
-    "react-hook-form": { "optional": true }
+    "react-hook-form": {
+      "optional": true
+    }
   },
   "devDependencies": {
-    "@testing-library/react": "^14.0.0",
+    "@testing-library/react": "^16.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "react-hook-form": "^7.0.0"

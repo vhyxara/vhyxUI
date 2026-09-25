@@ -214,3 +214,21 @@ describe('all 22 exported contract templates have required base fields, fingerpr
     });
   }
 });
+
+describe('accordionContract and tableContract', () => {
+  it('accordion is a low-safety, reversible navigation contract', async () => {
+    const { accordionContract } = await import('../src/contracts');
+    expect(accordionContract.type).toBe('navigation');
+    expect(accordionContract.intent).toBe('toggle-section');
+    expect(accordionContract.safetyLevel).toBe('low');
+    expect(accordionContract.reversible).toBe(true);
+    expect(Object.isFrozen(accordionContract)).toBe(true);
+  });
+
+  it('table is a display-only contract', async () => {
+    const { tableContract } = await import('../src/contracts');
+    expect(tableContract.type).toBe('display');
+    expect(tableContract.destructive).toBe(false);
+    expect(typeof tableContract.fingerprint).toBe('string');
+  });
+});

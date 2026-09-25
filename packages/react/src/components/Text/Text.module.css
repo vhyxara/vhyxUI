@@ -1,0 +1,58 @@
+.text {
+  font-family: var(--vhyx-font-sans);
+  line-height: var(--vhyx-leading-normal);
+  color: var(--vhyx-color-text);
+  margin: 0;
+}
+
+.text[data-size="xs"] { font-size: var(--vhyx-text-xs); }
+.text[data-size="sm"] { font-size: var(--vhyx-text-sm); }
+.text[data-size="md"] { font-size: var(--vhyx-text-md); }
+.text[data-size="lg"] { font-size: var(--vhyx-text-lg); }
+.text[data-size="xl"] { font-size: var(--vhyx-text-xl); }
+
+.text[data-tone="subtle"] { color: var(--vhyx-color-text-subtle); }
+.text[data-tone="muted"] { color: var(--vhyx-color-text-muted); }
+.text[data-tone="accent"] { color: var(--vhyx-color-accent); }
+.text[data-tone="success"] { color: var(--vhyx-color-success-text); }
+.text[data-tone="warning"] { color: var(--vhyx-color-warning-text); }
+.text[data-tone="danger"] { color: var(--vhyx-color-danger-text); }
+.text[data-tone="inherit"] { color: inherit; }
+
+.text[data-weight="normal"] { font-weight: var(--vhyx-weight-normal); }
+.text[data-weight="medium"] { font-weight: var(--vhyx-weight-medium); }
+.text[data-weight="semibold"] { font-weight: var(--vhyx-weight-semibold); }
+.text[data-weight="bold"] { font-weight: var(--vhyx-weight-bold); }
+
+.text[data-align="center"] { text-align: center; }
+.text[data-align="end"] { text-align: end; }
+.text[data-mono="true"] { font-family: var(--vhyx-font-mono); }
+
+.text[data-truncate="true"] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text[data-clamp] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.heading {
+  font-family: var(--vhyx-font-sans);
+  color: var(--vhyx-color-text);
+  font-weight: var(--vhyx-weight-semibold);
+  letter-spacing: var(--vhyx-tracking-tight);
+  line-height: var(--vhyx-leading-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.heading[data-size="xs"] { font-size: var(--vhyx-text-md); }
+.heading[data-size="sm"] { font-size: var(--vhyx-text-lg); }
+.heading[data-size="md"] { font-size: var(--vhyx-text-xl); }
+.heading[data-size="lg"] { font-size: var(--vhyx-text-2xl); }
+.heading[data-size="xl"] { font-size: var(--vhyx-text-3xl); }
+.heading[data-size="2xl"] { font-size: var(--vhyx-text-4xl); font-weight: var(--vhyx-weight-bold); }

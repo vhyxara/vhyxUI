@@ -16,6 +16,7 @@ import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
+import { isDev } from '../shared/env';
 import styles from './Drawer.module.css';
 
 // ─── Context ──────────────────────────────────────────────────────────────────
@@ -228,10 +229,16 @@ export interface DrawerPortalProps {
 }
 
 /** Renders its children in document.body when the drawer is open. */
+// True inside an explicit Drawer.Portal, so Drawer.Content knows not to portal itself again.
+const DrawerPortalContext = React.createContext(false);
+
 function DrawerPortal({ children }: DrawerPortalProps): React.ReactPortal | null {
   const ctx = useDrawerContext('Drawer.Portal');
-  if (!ctx.open) return null;
-  return ReactDOM.createPortal(children, document.body) as React.ReactPortal;
+  if (!ctx.open || typeof document === 'undefined') return null;
+  return ReactDOM.createPortal(
+    <DrawerPortalContext.Provider value={true}>{children}</DrawerPortalContext.Provider>,
+    document.body,
+  ) as React.ReactPortal;
 }
 
 DrawerPortal.displayName = 'VhyxDrawerPortal';
@@ -281,6 +288,7 @@ export interface DrawerContentProps extends React.HTMLAttributes<HTMLDivElement>
 const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps>(
   ({ children, className, ...rest }, ref) => {
     const ctx = useDrawerContext('Drawer.Content');
+    const inPortal = React.useContext(DrawerPortalContext);
     const contentRef = useRef<HTMLDivElement | null>(null);
 
     const setRef = useCallback(
@@ -313,7 +321,7 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps>(
     // Dev warning for missing Drawer.Title
     useEffect(() => {
       if (!ctx.open) return;
-      if (process.env['NODE_ENV'] !== 'production' && !ctx.hasTitleRef.current) {
+      if (isDev() && !ctx.hasTitleRef.current) {
         console.warn(
           '[VhyxUI] <Drawer.Content> requires <Drawer.Title> for accessibility. ' +
             'Screen reader users need a title to understand the drawer purpose.',
@@ -358,7 +366,11 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps>(
 
     const contentClass = [styles['content'], className].filter(Boolean).join(' ');
 
-    return (
+    // Hooks above always run; only the output depends on open state.
+    // Previously Content rendered even when closed unless wrapped in Drawer.Portal.
+    if (!ctx.open) return null;
+
+    const panel = (
       <div
         ref={setRef}
         role="dialog"
@@ -374,6 +386,18 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps>(
       >
         {children}
       </div>
+    );
+
+    if (inPortal || typeof document === 'undefined') return panel;
+
+    // Standalone <Drawer.Content> (the short form): portal to <body> with an overlay,
+    // so `<Drawer><Drawer.Trigger/><Drawer.Content/></Drawer>` works with no extra wiring.
+    return ReactDOM.createPortal(
+      <DrawerPortalContext.Provider value={true}>
+        <DrawerOverlay />
+        {panel}
+      </DrawerPortalContext.Provider>,
+      document.body,
     );
   },
 );
