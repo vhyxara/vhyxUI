@@ -26,7 +26,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['react', 'react-dom', '@vhyxseal/core'],
+      external: [/^react($|\/)/, /^react-dom($|\/)/, /^@vhyxseal\//],
       output: {
         globals: {
           react: 'React',

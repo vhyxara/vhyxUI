@@ -16,6 +16,7 @@ import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
+import { isDev } from '../shared/env';
 import styles from './Dialog.module.css';
 
 // ─── Context ──────────────────────────────────────────────────────────────────
@@ -225,10 +226,16 @@ export interface DialogPortalProps {
 }
 
 /** Renders its children in document.body. */
+// True inside an explicit Dialog.Portal, so Dialog.Content knows not to portal itself again.
+const DialogPortalContext = React.createContext(false);
+
 function DialogPortal({ children }: DialogPortalProps): React.ReactPortal | null {
   const ctx = useDialogContext('Dialog.Portal');
-  if (!ctx.open) return null;
-  return ReactDOM.createPortal(children, document.body) as React.ReactPortal;
+  if (!ctx.open || typeof document === 'undefined') return null;
+  return ReactDOM.createPortal(
+    <DialogPortalContext.Provider value={true}>{children}</DialogPortalContext.Provider>,
+    document.body,
+  ) as React.ReactPortal;
 }
 
 DialogPortal.displayName = 'VhyxDialogPortal';
@@ -295,6 +302,7 @@ export interface DialogContentProps extends React.HTMLAttributes<HTMLDivElement>
 const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
   ({ children, className, ...rest }, ref) => {
     const ctx = useDialogContext('Dialog.Content');
+    const inPortal = React.useContext(DialogPortalContext);
     const contentRef = useRef<HTMLDivElement | null>(null);
 
     const setRef = useCallback(
@@ -330,7 +338,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
     // Dev warning if Dialog.Title is absent
     useEffect(() => {
       if (!ctx.open) return;
-      if (process.env['NODE_ENV'] !== 'production' && !ctx.hasTitleRef.current) {
+      if (isDev() && !ctx.hasTitleRef.current) {
         console.warn(
           '[VhyxUI] <Dialog.Content> requires <Dialog.Title> for accessibility. ' +
             'Screen reader users need a title to understand the dialog purpose.',
@@ -378,7 +386,11 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
 
     const contentClass = [styles['content'], className].filter(Boolean).join(' ');
 
-    return (
+    // Hooks above always run; only the output depends on open state.
+    // Previously Content rendered even when closed unless wrapped in Dialog.Portal.
+    if (!ctx.open) return null;
+
+    const panel = (
       <div
         ref={setRef}
         role="dialog"
@@ -393,6 +405,18 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
       >
         {children}
       </div>
+    );
+
+    if (inPortal || typeof document === 'undefined') return panel;
+
+    // Standalone <Dialog.Content> (the short form): portal to <body> with an overlay,
+    // so `<Dialog><Dialog.Trigger/><Dialog.Content/></Dialog>` works with no extra wiring.
+    return ReactDOM.createPortal(
+      <DialogPortalContext.Provider value={true}>
+        <DialogOverlay />
+        {panel}
+      </DialogPortalContext.Provider>,
+      document.body,
     );
   },
 );

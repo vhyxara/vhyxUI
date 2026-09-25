@@ -1,0 +1,18 @@
+.stack {
+  display: flex;
+  min-width: 0;
+}
+
+.stack[data-direction="row"] { flex-direction: row; }
+.stack[data-direction="column"] { flex-direction: column; }
+.stack[data-wrap="true"] { flex-wrap: wrap; }
+
+@media (max-width: 639.98px) {
+  .stack[data-collapse="sm"] { flex-direction: column; }
+}
+@media (max-width: 767.98px) {
+  .stack[data-collapse="md"] { flex-direction: column; }
+}
+@media (max-width: 1023.98px) {
+  .stack[data-collapse="lg"] { flex-direction: column; }
+}

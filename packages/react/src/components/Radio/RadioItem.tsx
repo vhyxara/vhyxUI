@@ -28,7 +28,7 @@ export const RadioItem = React.forwardRef<HTMLButtonElement, RadioItemProps>(
     const ctx = useRadioGroupContext();
 
     const isSelected = ctx.value === value;
-    const isDisabled = disabled ?? ctx.disabled;
+    const isDisabled = Boolean(disabled) || ctx.disabled;
 
     const internalRef = useRef<HTMLButtonElement>(null);
 

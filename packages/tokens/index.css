@@ -410,7 +410,9 @@
 }
 
 /* === src/themes/dark.css === */
-[data-theme="dark"] {
+[data-theme="dark"],
+.dark {
+  color-scheme: dark;
   --vhyx-color-bg:              var(--vhyx-primitive-slate-950);
   --vhyx-color-bg-subtle:       var(--vhyx-primitive-slate-900);
   --vhyx-color-bg-muted:        var(--vhyx-primitive-slate-800);
@@ -440,48 +442,83 @@
   --vhyx-color-info-subtle:     #0c1a45;
 }
 
-/* === src/reset.css === */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] {
+    color-scheme: dark;
+    --vhyx-color-bg:              var(--vhyx-primitive-slate-950);
+    --vhyx-color-bg-subtle:       var(--vhyx-primitive-slate-900);
+    --vhyx-color-bg-muted:        var(--vhyx-primitive-slate-800);
+    --vhyx-color-bg-inverse:      var(--vhyx-primitive-slate-50);
+  
+    --vhyx-color-surface:         var(--vhyx-primitive-slate-900);
+    --vhyx-color-surface-raised:  var(--vhyx-primitive-slate-800);
+    --vhyx-color-surface-overlay: var(--vhyx-primitive-slate-800);
+    --vhyx-color-overlay:         rgba(0, 0, 0, 0.65);
+  
+    --vhyx-color-border:          var(--vhyx-primitive-slate-800);
+    --vhyx-color-border-strong:   var(--vhyx-primitive-slate-700);
+    --vhyx-color-border-focus:    var(--vhyx-primitive-indigo-400);
+  
+    --vhyx-color-text:            var(--vhyx-primitive-slate-50);
+    --vhyx-color-text-subtle:     var(--vhyx-primitive-slate-400);
+    --vhyx-color-text-muted:      var(--vhyx-primitive-slate-500);
+    --vhyx-color-text-disabled:   var(--vhyx-primitive-slate-600);
+    --vhyx-color-text-inverse:    var(--vhyx-primitive-slate-900);
+  
+    --vhyx-color-accent-subtle:   #1e1b4b;
+    --vhyx-color-accent-muted:    #312e81;
+  
+    --vhyx-color-success-subtle:  #052e16;
+    --vhyx-color-danger-subtle:   #450a0a;
+    --vhyx-color-warning-subtle:  #431407;
+    --vhyx-color-info-subtle:     #0c1a45;
+  }
 }
 
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-size-adjust: 100%;
+/* === src/reset.css (layered: utilities and app CSS always win) === */
+@layer theme, base, components, utilities;
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+  }
+  
+  body {
+    font-family: var(--vhyx-font-sans);
+    font-size: var(--vhyx-text-md);
+    line-height: var(--vhyx-leading-normal);
+    color: var(--vhyx-color-text);
+    background-color: var(--vhyx-color-bg);
+  }
+  
+  img, video, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  button, input, select, textarea {
+    font: inherit;
+  }
+  
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  
+  /* Remove list styles on ul/ol with role=list */
+  ul[role="list"], ol[role="list"] {
+    list-style: none;
+  }
+  
+  /* Focus visible — never outline none without replacement */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--vhyx-shadow-focus);
+  }
 }
-
-body {
-  font-family: var(--vhyx-font-sans);
-  font-size: var(--vhyx-text-md);
-  line-height: var(--vhyx-leading-normal);
-  color: var(--vhyx-color-text);
-  background-color: var(--vhyx-color-bg);
-}
-
-img, video, svg {
-  display: block;
-  max-width: 100%;
-}
-
-button, input, select, textarea {
-  font: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-
-/* Remove list styles on ul/ol with role=list */
-ul[role="list"], ol[role="list"] {
-  list-style: none;
-}
-
-/* Focus visible — never outline none without replacement */
-:focus-visible {
-  outline: none;
-  box-shadow: var(--vhyx-shadow-focus);
-}
-

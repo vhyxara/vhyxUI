@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  min-width: 0;
+}
+
+@media (max-width: 639.98px) {
+  .grid[data-collapse="sm"] { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (max-width: 767.98px) {
+  .grid[data-collapse="md"] { grid-template-columns: minmax(0, 1fr) !important; }
+}
+@media (max-width: 1023.98px) {
+  .grid[data-collapse="lg"] { grid-template-columns: minmax(0, 1fr) !important; }
+}

@@ -7,6 +7,7 @@ import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { Spinner } from '../Spinner';
 import { useId } from '../shared/useId';
+import { isDev } from '../shared/env';
 import styles from './Button.module.css';
 
 /** All variants available on the Button component. */
@@ -78,7 +79,7 @@ const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const internalId = useId('vhyx-button');
     const buttonId = id ?? internalId;
 
-    if (process.env['NODE_ENV'] !== 'production' && iconOnly && !ariaLabel) {
+    if (isDev() && iconOnly && !ariaLabel) {
       console.warn(
         '[VhyxUI] <Button iconOnly> requires an aria-label for accessibility. ' +
           'Screen reader users will not be able to identify this button.',
@@ -93,7 +94,7 @@ const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return { ...buttonContract, id: buttonId, ...destructiveUpgrade, ...contract };
     }, [variant, buttonId, contract]);
 
-    const isDisabled = disabled ?? loading;
+    const isDisabled = Boolean(disabled) || loading;
     const buttonClass = [styles['button'], className].filter(Boolean).join(' ');
 
     const sharedProps = {
@@ -105,13 +106,16 @@ const ButtonBase = React.forwardRef<HTMLButtonElement, ButtonProps>(
       'data-size': size,
       'data-loading': loading ? (true as const) : undefined,
       'data-icon-only': iconOnly ? (true as const) : undefined,
+      'data-disabled': isDisabled ? (true as const) : undefined,
       'data-vhyx-contract': JSON.stringify(effectiveContract),
       ...rest,
     };
 
     if (asChild) {
+      // Links and custom elements have no native `disabled`; expose the state
+      // to assistive tech and CSS instead of silently dropping it.
       return (
-        <Slot ref={ref} {...sharedProps}>
+        <Slot ref={ref} aria-disabled={isDisabled ? true : undefined} {...sharedProps}>
           {children}
         </Slot>
       );

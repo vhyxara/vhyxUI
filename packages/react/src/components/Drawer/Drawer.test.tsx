@@ -319,3 +319,25 @@ describe('Drawer — VhyxSeal contract', () => {
     );
   });
 });
+
+// ─── Regression: Content without Portal ───────────────────────────────────────
+
+describe('Drawer — Content without Portal (short form)', () => {
+  it('is hidden while closed and portals with an overlay when open', () => {
+    const el = (open: boolean) => (
+      <Drawer open={open} onOpenChange={vi.fn()}>
+        <Drawer.Content>
+          <Drawer.Title>Title</Drawer.Title>
+        </Drawer.Content>
+      </Drawer>
+    );
+    const { rerender, container } = render(el(false));
+    expect(screen.queryByRole('dialog')).toBeNull();
+    rerender(el(true));
+    const dialog = screen.getByRole('dialog');
+    expect(container.contains(dialog)).toBe(false);
+    expect(document.body.querySelectorAll('[aria-hidden="true"][data-state="open"]').length).toBeGreaterThan(0);
+    rerender(el(false));
+    expect(screen.queryByRole('dialog')).toBeNull();
+  });
+});

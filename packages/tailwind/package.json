@@ -1,0 +1,36 @@
+{
+  "name": "@vhyxui/tailwind",
+  "version": "0.1.0-alpha",
+  "description": "Tailwind CSS v3 preset and v4 theme for VhyxUI — utilities that follow VhyxUI tokens and themes",
+  "license": "MIT",
+  "main": "./preset.cjs",
+  "exports": {
+    ".": "./preset.cjs",
+    "./preset": "./preset.cjs",
+    "./theme.css": "./theme.css",
+    "./colors": "./colors.js"
+  },
+  "files": [
+    "preset.cjs",
+    "colors.js",
+    "theme.css"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "build": "node build-theme.cjs",
+    "test": "vitest run"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=3.4"
+  },
+  "peerDependenciesMeta": {
+    "tailwindcss": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tailwindcss": "^4"
+  }
+}
