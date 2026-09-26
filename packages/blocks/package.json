@@ -1,21 +1,57 @@
 {
   "name": "@vhyxui/blocks",
   "version": "0.1.0-alpha",
-  "description": "VhyxUI blocks and prebuilt layouts — page sections, auth, pricing, dashboards, app shells — composed only from @vhyxui/react",
-  "license": "MIT",
   "private": false,
+  "description": "VhyxUI blocks and prebuilt layouts — page sections, auth, pricing, dashboards, app shells — composed only from @vhyxui/react",
+  "keywords": [
+    "vhyxui",
+    "vhyxara",
+    "react",
+    "blocks",
+    "layouts",
+    "dashboard"
+  ],
+  "license": "MIT",
+  "homepage": "https://vhyxui.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhyxara/vhyxUI.git",
+    "directory": "packages/blocks"
+  },
+  "bugs": {
+    "url": "https://github.com/vhyxara/vhyxUI/issues"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js", "require": "./dist/index.cjs" },
-    "./blocks": { "types": "./dist/blocks.d.ts", "import": "./dist/blocks.js", "require": "./dist/blocks.cjs" },
-    "./layouts": { "types": "./dist/layouts.d.ts", "import": "./dist/layouts.js", "require": "./dist/layouts.cjs" },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./blocks": {
+      "types": "./dist/blocks.d.ts",
+      "import": "./dist/blocks.js",
+      "require": "./dist/blocks.cjs"
+    },
+    "./layouts": {
+      "types": "./dist/layouts.d.ts",
+      "import": "./dist/layouts.js",
+      "require": "./dist/layouts.cjs"
+    },
     "./style.css": "./dist/style.css"
   },
-  "sideEffects": ["*.css"],
-  "files": ["dist"],
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",

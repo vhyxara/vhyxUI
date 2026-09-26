@@ -1,9 +1,29 @@
 {
   "name": "@vhyxui/react",
   "version": "0.4.0-alpha",
-  "description": "VhyxUI React components — accessible, Tailwind-friendly, agent-ready",
-  "license": "MIT",
   "private": false,
+  "description": "VhyxUI React components — accessible, Tailwind-friendly, agent-ready",
+  "keywords": [
+    "vhyxui",
+    "vhyxara",
+    "react",
+    "components",
+    "accessibility",
+    "a11y"
+  ],
+  "license": "MIT",
+  "homepage": "https://vhyxui.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhyxara/vhyxUI.git",
+    "directory": "packages/react"
+  },
+  "bugs": {
+    "url": "https://github.com/vhyxara/vhyxUI/issues"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -234,10 +254,14 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "react-hook-form": ">=7"
+    "react-hook-form": ">=7",
+    "@testing-library/react": ">=14"
   },
   "peerDependenciesMeta": {
     "react-hook-form": {
+      "optional": true
+    },
+    "@testing-library/react": {
       "optional": true
     }
   },

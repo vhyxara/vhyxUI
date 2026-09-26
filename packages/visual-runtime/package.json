@@ -1,9 +1,9 @@
 {
   "name": "@vhyxui/visual-runtime",
   "version": "0.1.0-alpha.1",
+  "private": true,
   "description": "VhyxUI visual runtime — evidence-scoped Structure/Runtime schema for stateful, animatable diagrams (v1 contract; Presentation layer not yet implemented)",
   "license": "MIT",
-  "private": false,
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
