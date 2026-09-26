@@ -1,9 +1,27 @@
 {
   "name": "@vhyxui/core",
   "version": "0.2.0-alpha",
-  "description": "VhyxUI core — shared types, contracts, slot, and error infrastructure",
-  "license": "MIT",
   "private": false,
+  "description": "VhyxUI core — shared types, contracts, slot, and error infrastructure",
+  "keywords": [
+    "vhyxui",
+    "vhyxara",
+    "contracts",
+    "slot"
+  ],
+  "license": "MIT",
+  "homepage": "https://vhyxui.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhyxara/vhyxUI.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/vhyxara/vhyxUI/issues"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

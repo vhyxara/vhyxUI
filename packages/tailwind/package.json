@@ -2,7 +2,26 @@
   "name": "@vhyxui/tailwind",
   "version": "0.1.0-alpha",
   "description": "Tailwind CSS v3 preset and v4 theme for VhyxUI — utilities that follow VhyxUI tokens and themes",
+  "keywords": [
+    "vhyxui",
+    "vhyxara",
+    "tailwindcss",
+    "tailwind-preset",
+    "design-tokens"
+  ],
   "license": "MIT",
+  "homepage": "https://vhyxui.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhyxara/vhyxUI.git",
+    "directory": "packages/tailwind"
+  },
+  "bugs": {
+    "url": "https://github.com/vhyxara/vhyxUI/issues"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
   "main": "./preset.cjs",
   "exports": {
     ".": "./preset.cjs",
