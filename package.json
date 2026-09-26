@@ -2,7 +2,7 @@
   "name": "vhyxui",
   "private": true,
   "engines": {
-    "node": ">=18"
+    "node": ">=20.19"
   },
   "packageManager": "pnpm@9.0.0",
   "scripts": {
@@ -31,8 +31,6 @@
   },
   "pnpm": {
     "overrides": {
-      "@vhyxseal/core": "file:.tarballs/vhyxseal-core-1.0.0-rc.3.tgz",
-      "@vhyxseal/react": "file:.tarballs/vhyxseal-react-1.0.0-rc.3.tgz",
       "@vhyxchart/core": "file:.tarballs/vhyxchart-core-0.1.0-alpha.tgz",
       "@vhyxchart/react": "file:.tarballs/vhyxchart-react-0.1.0-alpha.tgz"
     }
