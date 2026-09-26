@@ -5,8 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@vhyxseal/core': file:.tarballs/vhyxseal-core-1.0.0-rc.3.tgz
-  '@vhyxseal/react': file:.tarballs/vhyxseal-react-1.0.0-rc.3.tgz
   '@vhyxchart/core': file:.tarballs/vhyxchart-core-0.1.0-alpha.tgz
   '@vhyxchart/react': file:.tarballs/vhyxchart-react-0.1.0-alpha.tgz
 
@@ -63,10 +61,10 @@ importers:
   apps/docs:
     dependencies:
       '@vhyxchart/core':
-        specifier: file:/home/user/vhyxUI/.tarballs/vhyxchart-core-0.1.0-alpha.tgz
+        specifier: file:/Users/tanveer/Documents/tanveer/three-sibling/VhyxUI/.tarballs/vhyxchart-core-0.1.0-alpha.tgz
         version: file:.tarballs/vhyxchart-core-0.1.0-alpha.tgz
       '@vhyxchart/react':
-        specifier: file:/home/user/vhyxUI/.tarballs/vhyxchart-react-0.1.0-alpha.tgz
+        specifier: file:/Users/tanveer/Documents/tanveer/three-sibling/VhyxUI/.tarballs/vhyxchart-react-0.1.0-alpha.tgz
         version: file:.tarballs/vhyxchart-react-0.1.0-alpha.tgz(react@19.2.6)
       '@vhyxui/blocks':
         specifier: workspace:*
@@ -115,10 +113,10 @@ importers:
   apps/playground:
     dependencies:
       '@vhyxchart/core':
-        specifier: file:/home/user/vhyxUI/.tarballs/vhyxchart-core-0.1.0-alpha.tgz
+        specifier: file:/Users/tanveer/Documents/tanveer/three-sibling/VhyxUI/.tarballs/vhyxchart-core-0.1.0-alpha.tgz
         version: file:.tarballs/vhyxchart-core-0.1.0-alpha.tgz
       '@vhyxchart/react':
-        specifier: file:/home/user/vhyxUI/.tarballs/vhyxchart-react-0.1.0-alpha.tgz
+        specifier: file:/Users/tanveer/Documents/tanveer/three-sibling/VhyxUI/.tarballs/vhyxchart-react-0.1.0-alpha.tgz
         version: file:.tarballs/vhyxchart-react-0.1.0-alpha.tgz(react@19.2.6)
       '@vhyxui/blocks':
         specifier: workspace:*
@@ -189,8 +187,8 @@ importers:
   packages/core:
     dependencies:
       '@vhyxseal/core':
-        specifier: file:/home/user/vhyxUI/.tarballs/vhyxseal-core-1.0.0-rc.3.tgz
-        version: file:.tarballs/vhyxseal-core-1.0.0-rc.3.tgz
+        specifier: 1.0.0-rc.3
+        version: 1.0.0-rc.3
       react:
         specifier: '>=18'
         version: 19.2.6
@@ -208,8 +206,8 @@ importers:
   packages/react:
     dependencies:
       '@vhyxseal/react':
-        specifier: file:/home/user/vhyxUI/.tarballs/vhyxseal-react-1.0.0-rc.3.tgz
-        version: file:.tarballs/vhyxseal-react-1.0.0-rc.3.tgz(react@19.2.6)
+        specifier: 1.0.0-rc.3
+        version: 1.0.0-rc.3(react@19.2.6)
       '@vhyxui/core':
         specifier: workspace:*
         version: link:../core
@@ -1144,13 +1142,13 @@ packages:
     peerDependencies:
       react: '>=18'
 
-  '@vhyxseal/core@file:.tarballs/vhyxseal-core-1.0.0-rc.3.tgz':
-    resolution: {integrity: sha512-dnRazXx2znHcFBotNmXafI6z6dNs/o4KKXmRA48GHmFvGcD7W6fg3dCC2QDANvSFsjc+WemHPdMFJMHm7giLjw==, tarball: file:.tarballs/vhyxseal-core-1.0.0-rc.3.tgz}
-    version: 1.0.0-rc.3
+  '@vhyxseal/core@1.0.0-rc.3':
+    resolution: {integrity: sha512-3+6Tr6LZUfwLOl2z5NIWxEnIa6plbhsK3d+Pij/CZ+4eKdaaK337uAq2gyEyE2b+LyKNW31JsI28IenlwlpT8Q==}
+    engines: {node: '>=20.19'}
 
-  '@vhyxseal/react@file:.tarballs/vhyxseal-react-1.0.0-rc.3.tgz':
-    resolution: {integrity: sha512-vURLSAQQkJq3EErFlKgoP9iEO0/JlwmRW+NAF+cm+qT7nwX3XG9ZQ7ymhXYQ1LA8AulTPW7NjmIy60lxfEHs0A==, tarball: file:.tarballs/vhyxseal-react-1.0.0-rc.3.tgz}
-    version: 1.0.0-rc.3
+  '@vhyxseal/react@1.0.0-rc.3':
+    resolution: {integrity: sha512-0QsvB5uuEJfmMcWlmmMyLngS9/4JsfvmJO/DTGIGvnscCn2vEXkF3p20NFMveRd1sU6tCjC/P9uNVJv1UFi8Og==}
+    engines: {node: '>=20.19'}
     peerDependencies:
       react: '>=18.0.0'
 
@@ -3150,11 +3148,11 @@ snapshots:
       '@vhyxchart/core': file:.tarballs/vhyxchart-core-0.1.0-alpha.tgz
       react: 19.2.6
 
-  '@vhyxseal/core@file:.tarballs/vhyxseal-core-1.0.0-rc.3.tgz': {}
+  '@vhyxseal/core@1.0.0-rc.3': {}
 
-  '@vhyxseal/react@file:.tarballs/vhyxseal-react-1.0.0-rc.3.tgz(react@19.2.6)':
+  '@vhyxseal/react@1.0.0-rc.3(react@19.2.6)':
     dependencies:
-      '@vhyxseal/core': file:.tarballs/vhyxseal-core-1.0.0-rc.3.tgz
+      '@vhyxseal/core': 1.0.0-rc.3
       react: 19.2.6
 
   '@vitejs/plugin-react@4.7.0(vite@5.4.21(@types/node@20.19.41))':
