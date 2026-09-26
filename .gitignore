@@ -12,3 +12,6 @@ apps/docs/public/pagefind/fragment/
 apps/docs/public/pagefind/index/
 apps/docs/public/pagefind/*.pf_meta
 apps/docs/public/pagefind/pagefind-entry.json
+
+# Local notes
+/internal-tools/
