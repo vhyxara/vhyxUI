@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo } from 'react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@vhyxui/icons';
 import type { ComponentContract } from '@vhyxui/core';
 import { paginationContract } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
@@ -156,7 +157,7 @@ const PaginationBase = React.forwardRef<HTMLElement, PaginationProps>(
                 aria-label="Previous page"
                 data-size={size}
               >
-                ‹
+                <ChevronLeftIcon />
               </button>
             </li>
           )}
@@ -202,7 +203,7 @@ const PaginationBase = React.forwardRef<HTMLElement, PaginationProps>(
                 aria-label="Next page"
                 data-size={size}
               >
-                ›
+                <ChevronRightIcon />
               </button>
             </li>
           )}

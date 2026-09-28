@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { CircleCheckIcon, CircleXIcon, InfoIcon, TriangleAlertIcon } from '@vhyxui/icons';
 import type { ComponentContract } from '@vhyxui/core';
 import { toastContract } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
@@ -160,14 +161,13 @@ function ToastItemComponent({
   );
 }
 
-/** Returns the icon character for a given toast variant. */
-function variantIcon(variant: ToastVariant): string {
+/** Returns the icon for a given toast variant. */
+function variantIcon(variant: ToastVariant): React.ReactNode {
   switch (variant) {
-    case 'success': return '✓';
-    case 'danger': return '✕';
-    case 'warning': return '⚠';
-    case 'info': return 'ℹ';
-    default: return '●';
+    case 'success': return <CircleCheckIcon />;
+    case 'danger': return <CircleXIcon />;
+    case 'warning': return <TriangleAlertIcon />;
+    default: return <InfoIcon />;
   }
 }
 

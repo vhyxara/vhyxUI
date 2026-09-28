@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { alertContract } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
+import { CircleCheckIcon, CircleXIcon, InfoIcon, TriangleAlertIcon } from '@vhyxui/icons';
 import { useId } from '../shared/useId';
 import styles from './Alert.module.css';
 
@@ -128,13 +129,12 @@ export const Alert = withAgentContract(AlertBase, alertSealContract) as React.Fo
 >;
 Alert.displayName = 'VhyxAlert';
 
-/** Returns the default icon string for a given variant. */
-function defaultIcon(variant: AlertVariant): string {
+/** Returns the default icon for a given variant. */
+function defaultIcon(variant: AlertVariant): React.ReactNode {
   switch (variant) {
-    case 'success': return '✓';
-    case 'danger':  return '✕';
-    case 'warning': return '⚠';
-    case 'info':    return 'ℹ';
-    default:        return '●';
+    case 'success': return <CircleCheckIcon />;
+    case 'danger':  return <CircleXIcon />;
+    case 'warning': return <TriangleAlertIcon />;
+    default:        return <InfoIcon />;
   }
 }

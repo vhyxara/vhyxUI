@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { ArrowDownIcon, ArrowUpDownIcon, ArrowUpIcon } from '@vhyxui/icons';
 import { HStack, Input, Pagination, Stack, Table, Text, type TableColumn } from '@vhyxui/react';
 
 /** Props for DataTable. */
@@ -72,7 +73,7 @@ export function DataTable<Row extends Record<string, unknown>>({
         style={{ all: 'unset', cursor: 'pointer', display: 'inline-flex', gap: 4 }}
       >
         {col.header}
-        <span aria-hidden="true">{active === 'asc' ? '▲' : active === 'desc' ? '▼' : '↕'}</span>
+        <span aria-hidden="true" style={{ display: 'inline-flex', alignItems: 'center', opacity: active ? 1 : 0.5 }}>{active === 'asc' ? <ArrowUpIcon /> : active === 'desc' ? <ArrowDownIcon /> : <ArrowUpDownIcon />}</span>
       </button>
     );
   };

@@ -20,7 +20,7 @@ export interface FeatureGridProps {
 /**
  * FeatureGrid — responsive grid of icon + title + description.
  * @example
- * <FeatureGrid title="Why teams switch" features={[{ icon: '⚡', title: 'Fast', description: '…' }]} />
+ * <FeatureGrid title="Why teams switch" features={[{ icon: <ZapIcon />, title: 'Fast', description: '…' }]} />
  */
 export function FeatureGrid({ features, title, description, minItemWidth = '16rem' }: FeatureGridProps): React.ReactElement {
   return (

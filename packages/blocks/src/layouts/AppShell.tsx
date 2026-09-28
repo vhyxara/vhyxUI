@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MenuIcon } from '@vhyxui/icons';
 import { Button, Drawer } from '@vhyxui/react';
 import { SidebarNav, type SidebarNavGroup } from './SidebarNav';
 import type { LinkComponent } from '../blocks/shared';
@@ -65,7 +66,7 @@ export function AppShell({
       <header className={styles['header']}>
         <Drawer open={mobileOpen} onOpenChange={setMobileOpen} side="left" size="sm">
           <Drawer.Trigger asChild>
-            <Button variant="ghost" size="sm" iconOnly aria-label="Open navigation" className={styles['mobileOnly']} icon={<span aria-hidden="true">☰</span>} />
+            <Button variant="ghost" size="sm" iconOnly aria-label="Open navigation" className={styles['mobileOnly']} icon={<MenuIcon />} />
           </Drawer.Trigger>
           <Drawer.Content>
             <Drawer.Title>Navigation</Drawer.Title>

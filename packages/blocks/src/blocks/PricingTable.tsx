@@ -1,4 +1,5 @@
 import React from 'react';
+import { CheckIcon } from '@vhyxui/icons';
 import { Badge, Card, Grid, Heading, HStack, Stack, Text } from '@vhyxui/react';
 import { ActionButton } from './ActionButton';
 import type { Action, LinkComponent } from './shared';
@@ -59,7 +60,7 @@ export function PricingTable({ plans, linkAs }: PricingTableProps): React.ReactE
               <Stack as="ul" gap={2} style={{ listStyle: 'none', padding: 0, margin: 0, flex: 1 }}>
                 {plan.features.map((f, i) => (
                   <HStack as="li" key={i} gap={2} align="start">
-                    <span aria-hidden="true" style={{ color: 'var(--vhyx-color-success)' }}>✓</span>
+                    <CheckIcon style={{ color: 'var(--vhyx-color-success)', flexShrink: 0, marginTop: '0.2em' }} />
                     <Text as="span" size="sm">{f}</Text>
                   </HStack>
                 ))}
