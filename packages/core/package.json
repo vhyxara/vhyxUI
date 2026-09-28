@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/core",
-  "version": "0.2.0-alpha",
+  "version": "0.2.1",
   "private": false,
   "description": "VhyxUI core — shared types, contracts, slot, and error infrastructure",
   "keywords": [
@@ -65,7 +65,7 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "@vhyxseal/core": "1.0.0-rc.3"
+    "@vhyxseal/core": "1.0.0-rc.4"
   },
   "peerDependencies": {
     "react": ">=18",

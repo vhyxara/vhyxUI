@@ -183,8 +183,8 @@ importers:
   packages/core:
     dependencies:
       '@vhyxseal/core':
-        specifier: 1.0.0-rc.3
-        version: 1.0.0-rc.3
+        specifier: 1.0.0-rc.4
+        version: 1.0.0-rc.4
       react:
         specifier: '>=18'
         version: 19.2.6
@@ -202,8 +202,8 @@ importers:
   packages/react:
     dependencies:
       '@vhyxseal/react':
-        specifier: 1.0.0-rc.3
-        version: 1.0.0-rc.3(react@19.2.6)
+        specifier: 1.0.0-rc.4
+        version: 1.0.0-rc.4(react@19.2.6)
       '@vhyxui/core':
         specifier: workspace:*
         version: link:../core
@@ -1138,12 +1138,12 @@ packages:
     peerDependencies:
       react: '>=18'
 
-  '@vhyxseal/core@1.0.0-rc.3':
-    resolution: {integrity: sha512-3+6Tr6LZUfwLOl2z5NIWxEnIa6plbhsK3d+Pij/CZ+4eKdaaK337uAq2gyEyE2b+LyKNW31JsI28IenlwlpT8Q==}
+  '@vhyxseal/core@1.0.0-rc.4':
+    resolution: {integrity: sha512-Igw/UjCDBJfDunrI1jgJZEbaOHyfO+ZNvQpGJBMKNoTMKgl9AqLblBzkNZ7UFpy1G34wwb5urV5FB3USJVW70A==}
     engines: {node: '>=20.19'}
 
-  '@vhyxseal/react@1.0.0-rc.3':
-    resolution: {integrity: sha512-0QsvB5uuEJfmMcWlmmMyLngS9/4JsfvmJO/DTGIGvnscCn2vEXkF3p20NFMveRd1sU6tCjC/P9uNVJv1UFi8Og==}
+  '@vhyxseal/react@1.0.0-rc.4':
+    resolution: {integrity: sha512-7AaWqbo0OzY96I8wopxLjeYmuwKesYYGMQDmbv457En1a6pJP4xheD/v8vchBbwmcsI0S91GYslEbGEl+6/lQg==}
     engines: {node: '>=20.19'}
     peerDependencies:
       react: '>=18.0.0'
@@ -3144,11 +3144,11 @@ snapshots:
       '@vhyxchart/core': 0.1.0-alpha
       react: 19.2.6
 
-  '@vhyxseal/core@1.0.0-rc.3': {}
+  '@vhyxseal/core@1.0.0-rc.4': {}
 
-  '@vhyxseal/react@1.0.0-rc.3(react@19.2.6)':
+  '@vhyxseal/react@1.0.0-rc.4(react@19.2.6)':
     dependencies:
-      '@vhyxseal/core': 1.0.0-rc.3
+      '@vhyxseal/core': 1.0.0-rc.4
       react: 19.2.6
 
   '@vitejs/plugin-react@4.7.0(vite@5.4.21(@types/node@20.19.41))':
