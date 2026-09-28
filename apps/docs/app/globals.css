@@ -1019,3 +1019,28 @@
 .cl-alpha-notice strong {
   font-weight: var(--vhyx-weight-semibold);
 }
+
+/* ─── Icons gallery ─────────────────────────────────────────────────────────── */
+.icon-gallery-controls { display: flex; flex-direction: column; gap: var(--vhyx-space-3); margin-top: var(--vhyx-space-4); }
+.icon-gallery-search {
+  width: 100%; padding: var(--vhyx-space-2) var(--vhyx-space-3); border-radius: var(--vhyx-radius-md);
+  border: var(--vhyx-border-width) solid var(--vhyx-color-border); background: var(--vhyx-color-surface); color: var(--vhyx-color-text);
+  font: inherit;
+}
+.icon-gallery-search:focus-visible { outline: 2px solid var(--vhyx-color-border-focus); outline-offset: 1px; }
+.icon-gallery-categories { display: flex; flex-wrap: wrap; gap: var(--vhyx-space-2); }
+.icon-gallery-chip {
+  padding: 2px var(--vhyx-space-3); border-radius: 999px; border: var(--vhyx-border-width) solid var(--vhyx-color-border);
+  background: transparent; color: var(--vhyx-color-text-subtle); font: inherit; font-size: var(--vhyx-text-sm); cursor: pointer; text-transform: capitalize;
+}
+.icon-gallery-chip[aria-pressed='true'] { background: var(--vhyx-color-accent); border-color: var(--vhyx-color-accent); color: var(--vhyx-color-accent-foreground, #fff); }
+.icon-gallery-count { margin: var(--vhyx-space-3) 0; color: var(--vhyx-color-text-subtle); font-size: var(--vhyx-text-sm); }
+.icon-gallery-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--vhyx-space-2); grid-template-columns: repeat(auto-fill, minmax(min(7.5rem, 100%), 1fr)); }
+.icon-gallery-tile {
+  width: 100%; display: flex; flex-direction: column; align-items: center; gap: var(--vhyx-space-2); padding: var(--vhyx-space-4) var(--vhyx-space-2);
+  border-radius: var(--vhyx-radius-lg); border: var(--vhyx-border-width) solid var(--vhyx-color-border); background: var(--vhyx-color-surface);
+  color: var(--vhyx-color-text); cursor: pointer; font: inherit;
+}
+.icon-gallery-tile:hover { border-color: var(--vhyx-color-accent); color: var(--vhyx-color-accent); }
+.icon-gallery-tile:focus-visible { outline: 2px solid var(--vhyx-color-border-focus); outline-offset: 2px; }
+.icon-gallery-name { font-size: var(--vhyx-text-xs); color: var(--vhyx-color-text-subtle); text-align: center; word-break: break-word; }
