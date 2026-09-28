@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Separator } from '@vhyxui/react';
 import { separatorContract } from '@vhyxui/core';
@@ -108,9 +109,9 @@ export default function SeparatorPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>decorative=true</code> (default) sets <code>aria-hidden="true"</code> — screen readers skip it entirely.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>decorative=false</code> renders <code>role="separator"</code> with <code>aria-orientation</code> for structural divisions.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Label text on horizontal separators is visible text and read by screen readers.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>decorative=true</code> (default) sets <code>aria-hidden="true"</code> — screen readers skip it entirely.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>decorative=false</code> renders <code>role="separator"</code> with <code>aria-orientation</code> for structural divisions.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Label text on horizontal separators is visible text and read by screen readers.</li>
           </ul>
         </Section>
 

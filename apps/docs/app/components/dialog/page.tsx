@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Dialog, Button, Input, Field } from '@vhyxui/react';
 import { dialogContract } from '@vhyxui/core';
@@ -191,12 +192,12 @@ export default function DialogPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>role="dialog"</code>, <code>aria-modal="true"</code>, <code>aria-labelledby</code> pointing to Dialog.Title.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <strong>Dialog.Title is required</strong> — a development warning is logged if absent.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus is trapped inside the dialog while open. Tab cycles only within.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> On close, focus returns to the exact trigger element that opened the dialog.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Escape always closes the dialog and restores focus.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Overlay click closes the dialog by default.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>role="dialog"</code>, <code>aria-modal="true"</code>, <code>aria-labelledby</code> pointing to Dialog.Title.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <strong>Dialog.Title is required</strong> — a development warning is logged if absent.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus is trapped inside the dialog while open. Tab cycles only within.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> On close, focus returns to the exact trigger element that opened the dialog.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Escape always closes the dialog and restores focus.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Overlay click closes the dialog by default.</li>
           </ul>
         </Section>
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon, RocketIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Alert, Button } from '@vhyxui/react';
 import { alertContract } from '@vhyxui/core';
@@ -120,11 +121,11 @@ export default function AlertPage(): React.ReactElement {
           </ComponentExample>
           <ComponentExample
             label="Custom icon"
-            code={`<Alert icon={<span role="img" aria-label="rocket">🚀</span>} variant="info">
+            code={`<Alert icon={<RocketIcon />} variant="info">
   Deployment in progress. ETA: 2 minutes.
 </Alert>`}
           >
-            <Alert icon={<span role="img" aria-label="rocket">🚀</span>} variant="info">
+            <Alert icon={<RocketIcon />} variant="info">
               Deployment in progress. ETA: 2 minutes.
             </Alert>
           </ComponentExample>
@@ -137,11 +138,11 @@ export default function AlertPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>danger</code> variant uses <code>role="alert"</code>, <code>aria-live="assertive"</code> — announced immediately.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> All other variants use <code>role="status"</code>, <code>aria-live="polite"</code> — announced at next opportunity.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Fade-in on mount only — no exit animation (Alert persists until explicitly dismissed).</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Dismiss button has <code>aria-label="Dismiss"</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Unlike Toast, Alert is persistent — suitable for important information that must not auto-dismiss.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>danger</code> variant uses <code>role="alert"</code>, <code>aria-live="assertive"</code> — announced immediately.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> All other variants use <code>role="status"</code>, <code>aria-live="polite"</code> — announced at next opportunity.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Fade-in on mount only — no exit animation (Alert persists until explicitly dismissed).</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Dismiss button has <code>aria-label="Dismiss"</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Unlike Toast, Alert is persistent — suitable for important information that must not auto-dismiss.</li>
           </ul>
         </Section>
 

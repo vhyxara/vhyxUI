@@ -1,5 +1,6 @@
 'use client';
 
+import { StarIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import {
   Button,
@@ -52,7 +53,7 @@ function RenderButton(props: Record<string, unknown>): React.ReactElement {
       iconOnly={Boolean(props['iconOnly'])}
       aria-label={Boolean(props['iconOnly']) ? String(props['children'] ?? 'Button') : undefined}
     >
-      {!props['iconOnly'] ? String(props['children'] ?? 'Click me') : '★'}
+      {!props['iconOnly'] ? String(props['children'] ?? 'Click me') : <StarIcon />}
     </Button>
   );
 }

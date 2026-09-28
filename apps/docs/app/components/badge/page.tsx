@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Badge } from '@vhyxui/react';
 import { badgeContract } from '@vhyxui/core';
@@ -150,10 +151,10 @@ export default function BadgePage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Text badges are read directly by screen readers — content is the accessible name.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Dot badges are decorative — add <code>aria-label</code> to the parent element for context.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Count badges — supplement with context text or <code>aria-label</code> on a parent container.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Badge has no interactive behavior — it is purely informational display.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Text badges are read directly by screen readers — content is the accessible name.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Dot badges are decorative — add <code>aria-label</code> to the parent element for context.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Count badges — supplement with context text or <code>aria-label</code> on a parent container.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Badge has no interactive behavior — it is purely informational display.</li>
           </ul>
         </Section>
 

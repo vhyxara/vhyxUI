@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { RadioGroup, RadioItem } from '@vhyxui/react';
 import { radioContract } from '@vhyxui/core';
@@ -184,12 +185,12 @@ export default function RadioPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Uses roving <code>tabIndex</code> — only the selected (or first) item is in the tab order.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>role="radiogroup"</code> on the group. <code>role="radio"</code> and <code>aria-checked</code> on each item.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Arrow keys navigate between options without leaving the group — Tab exits entirely.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Disabled items have <code>aria-disabled="true"</code> and are skipped during arrow key navigation.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Always provide <code>aria-label</code> on <code>RadioGroup</code> to name the group for screen readers.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Uses roving <code>tabIndex</code> — only the selected (or first) item is in the tab order.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>role="radiogroup"</code> on the group. <code>role="radio"</code> and <code>aria-checked</code> on each item.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Arrow keys navigate between options without leaving the group — Tab exits entirely.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Disabled items have <code>aria-disabled="true"</code> and are skipped during arrow key navigation.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Always provide <code>aria-label</code> on <code>RadioGroup</code> to name the group for screen readers.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
           </ul>
         </Section>
 

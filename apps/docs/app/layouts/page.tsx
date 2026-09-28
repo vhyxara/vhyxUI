@@ -1,5 +1,6 @@
 'use client';
 
+import { SmileIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Avatar, Badge, Grid, Input, Text } from '@vhyxui/react';
 import { AppShell, AuthForm, AuthLayout, DashboardLayout, DocsLayout, Hero, MarketingLayout, StatCard } from '@vhyxui/blocks';
@@ -21,7 +22,7 @@ const nav = [
   { label: 'Workspace', items: [
     { label: 'Overview', href: '#', active: true, icon: '◧' },
     { label: 'Projects', href: '#projects', icon: '▤', badge: 4 },
-    { label: 'Team', href: '#team', icon: '☺' },
+    { label: 'Team', href: '#team', icon: <SmileIcon /> },
   ] },
   { label: 'Settings', items: [{ label: 'Billing', href: '#billing', icon: '$' }] },
 ];

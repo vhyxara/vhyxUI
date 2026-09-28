@@ -1,5 +1,6 @@
 'use client';
 
+import { AccessibilityIcon, BotIcon, InboxIcon, PaletteIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Button, Grid, Text, toast } from '@vhyxui/react';
 import {
@@ -78,10 +79,10 @@ import { PricingTable, AuthForm, DataTable } from '@vhyxui/blocks';`} />
               </Grid>
             </div>
           </ComponentExample>
-          <ComponentExample label="EmptyState" code={`<EmptyState icon="📭" title="No invoices yet" description="Create your first invoice to get paid faster."
+          <ComponentExample label="EmptyState" code={`<EmptyState icon={<InboxIcon />} title="No invoices yet" description="Create your first invoice to get paid faster."
   actions={[{ label: 'New invoice' }, { label: 'Import', variant: 'outline' }]} />`}>
             <div style={{ width: '100%' }}>
-              <EmptyState icon="📭" title="No invoices yet" description="Create your first invoice to get paid faster." actions={[{ label: 'New invoice' }, { label: 'Import', variant: 'outline' }]} />
+              <EmptyState icon={<InboxIcon />} title="No invoices yet" description="Create your first invoice to get paid faster." actions={[{ label: 'New invoice' }, { label: 'Import', variant: 'outline' }]} />
             </div>
           </ComponentExample>
           <ComponentExample label="ConfirmDialog — the 'are you sure?' pattern" code={`<ConfirmDialog destructive title="Delete project?" description="This cannot be undone."
@@ -170,12 +171,12 @@ import { PricingTable, AuthForm, DataTable } from '@vhyxui/blocks';`} />
               <Hero eyebrow="v0.4 is out" title="Build UIs humans and AI agents both understand" description="Accessible components, Tailwind-friendly styling, and machine-readable contracts in one library." actions={[{ label: 'Get started', href: '/getting-started' }, { label: 'Blocks', href: '/blocks', variant: 'outline' }]} />
             </div>
           </ComponentExample>
-          <ComponentExample label="FeatureGrid" code={`<FeatureGrid title="Why VhyxUI" features={[{ icon: '⚡', title: 'Fast', description: '…' }]} />`}>
+          <ComponentExample label="FeatureGrid" code={`<FeatureGrid title="Why VhyxUI" features={[{ icon: <ZapIcon />, title: 'Fast', description: '…' }]} />`}>
             <div style={{ width: '100%' }}>
               <FeatureGrid title="Why VhyxUI" features={[
-                { icon: '♿', title: 'Accessible', description: 'Keyboard, focus and screen-reader support are built in and tested with axe.' },
-                { icon: '🎨', title: 'Your styles', description: 'CSS variables, cascade layers and a Tailwind preset — override anything.' },
-                { icon: '🤖', title: 'Agent-ready', description: 'Every component publishes a VhyxSeal contract describing what it does.' },
+                { icon: <AccessibilityIcon />, title: 'Accessible', description: 'Keyboard, focus and screen-reader support are built in and tested with axe.' },
+                { icon: <PaletteIcon />, title: 'Your styles', description: 'CSS variables, cascade layers and a Tailwind preset — override anything.' },
+                { icon: <BotIcon />, title: 'Agent-ready', description: 'Every component publishes a VhyxSeal contract describing what it does.' },
               ]} />
             </div>
           </ComponentExample>

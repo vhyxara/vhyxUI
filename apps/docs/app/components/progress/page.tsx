@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState, useEffect } from 'react';
 import { Progress, Button } from '@vhyxui/react';
 import { progressContract } from '@vhyxui/core';
@@ -136,10 +137,10 @@ export default function ProgressPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>role="progressbar"</code> with <code>aria-valuenow</code>, <code>aria-valuemin="0"</code>, <code>aria-valuemax</code> always set.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Indeterminate mode omits <code>aria-valuenow</code> per ARIA spec for indeterminate progress.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Provide <code>aria-label</code> or <code>aria-labelledby</code> so screen readers announce what is loading.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> The <code>label</code> prop text is also set as <code>aria-valuetext</code> for richer announcements.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>role="progressbar"</code> with <code>aria-valuenow</code>, <code>aria-valuemin="0"</code>, <code>aria-valuemax</code> always set.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Indeterminate mode omits <code>aria-valuenow</code> per ARIA spec for indeterminate progress.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Provide <code>aria-label</code> or <code>aria-labelledby</code> so screen readers announce what is loading.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> The <code>label</code> prop text is also set as <code>aria-valuetext</code> for richer announcements.</li>
           </ul>
         </Section>
 

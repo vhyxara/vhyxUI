@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Textarea } from '@vhyxui/react';
 import { textareaContract } from '@vhyxui/core';
@@ -141,10 +142,10 @@ export default function TextareaPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>aria-invalid</code> set automatically when <code>error=true</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Character count is announced by screen readers via <code>aria-live</code> when <code>showCount=true</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Pair with <code>Field</code> for automatic label, hint, and error <code>aria-describedby</code> associations.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>aria-invalid</code> set automatically when <code>error=true</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Character count is announced by screen readers via <code>aria-live</code> when <code>showCount=true</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Pair with <code>Field</code> for automatic label, hint, and error <code>aria-describedby</code> associations.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
           </ul>
         </Section>
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { AccessibilityIcon, CheckIcon, PaletteIcon, ZapIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Card, Badge, Button } from '@vhyxui/react';
 import { cardContract } from '@vhyxui/core';
@@ -164,10 +165,10 @@ export default function CardPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Card renders as a <code>&lt;div&gt;</code> — not interactive by default, no implicit ARIA role.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> For clickable cards, wrap with <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> as the root element.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Card.Image should always have a meaningful <code>alt</code> attribute.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Group related cards in a <code>&lt;ul&gt;</code> list when they represent a collection.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Card renders as a <code>&lt;div&gt;</code> — not interactive by default, no implicit ARIA role.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> For clickable cards, wrap with <code>&lt;a&gt;</code> or <code>&lt;button&gt;</code> as the root element.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Card.Image should always have a meaningful <code>alt</code> attribute.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Group related cards in a <code>&lt;ul&gt;</code> list when they represent a collection.</li>
           </ul>
         </Section>
 
@@ -216,9 +217,9 @@ export default function CardPage(): React.ReactElement {
           >
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--vhyx-space-4)', width: '100%' }}>
               {[
-                { icon: '⚡', title: 'Fast', desc: 'Zero runtime overhead.' },
-                { icon: '♿', title: 'Accessible', desc: 'WCAG 2.1 AA by default.' },
-                { icon: '🎨', title: 'Themeable', desc: 'CSS tokens throughout.' },
+                { icon: <ZapIcon />, title: 'Fast', desc: 'Zero runtime overhead.' },
+                { icon: <AccessibilityIcon />, title: 'Accessible', desc: 'WCAG 2.1 AA by default.' },
+                { icon: <PaletteIcon />, title: 'Themeable', desc: 'CSS tokens throughout.' },
               ].map((f) => (
                 <Card key={f.title} variant="outline" padding="md">
                   <Card.Body>

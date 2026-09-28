@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon, MailIcon, SearchIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Input } from '@vhyxui/react';
 import { inputContract } from '@vhyxui/core';
@@ -96,8 +97,8 @@ export default function InputPage(): React.ReactElement {
             code={`<Input icon={<SearchIcon />} placeholder="Search…" />
 <Input icon={<MailIcon />} iconPosition="right" placeholder="Email" />`}
           >
-            <Input icon={<span aria-hidden="true">🔍</span>} placeholder="Search…" style={{ width: '18rem' }} />
-            <Input icon={<span aria-hidden="true">✉</span>} iconPosition="right" placeholder="Email" style={{ width: '18rem' }} />
+            <Input icon={<SearchIcon />} placeholder="Search…" style={{ width: '18rem' }} />
+            <Input icon={<MailIcon />} iconPosition="right" placeholder="Email" style={{ width: '18rem' }} />
           </ComponentExample>
           <ComponentExample
             label="With prefix and suffix"
@@ -163,12 +164,12 @@ export default function InputPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>aria-invalid</code> set automatically when <code>error=true</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Password toggle button has <code>aria-label</code> that updates with state ("Show password" / "Hide password").</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Clear button has <code>aria-label="Clear"</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Icons are <code>aria-hidden</code> — decorative only.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Use with <code>Field</code> to automatically connect label, hint, and error via <code>aria-describedby</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>aria-invalid</code> set automatically when <code>error=true</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Password toggle button has <code>aria-label</code> that updates with state ("Show password" / "Hide password").</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Clear button has <code>aria-label="Clear"</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Icons are <code>aria-hidden</code> — decorative only.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Use with <code>Field</code> to automatically connect label, hint, and error via <code>aria-describedby</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
           </ul>
         </Section>
 
@@ -214,7 +215,7 @@ export default function InputPage(): React.ReactElement {
             label="Email with left icon"
             code={`<Input type="email" icon={<MailIcon />} placeholder="you@example.com" />`}
           >
-            <Input type="email" icon={<span aria-hidden="true">✉</span>} placeholder="you@example.com" style={{ width: '20rem' }} />
+            <Input type="email" icon={<MailIcon />} placeholder="you@example.com" style={{ width: '20rem' }} />
           </ComponentExample>
 
           <h3 className="docs-subsection-heading">Inside a Field for full label + error wiring</h3>

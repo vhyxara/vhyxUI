@@ -1,5 +1,6 @@
 'use client';
 
+import { AccessibilityIcon, BotIcon, InboxIcon, SettingsIcon, SmileIcon, ZapIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Avatar, Button, Grid, HStack, Input, Stack, Text, toast } from '@vhyxui/react';
 import {
@@ -25,10 +26,10 @@ type Template = 'dashboard' | 'auth' | 'marketing' | 'settings' | 'empty';
 const nav = [
   { label: 'Workspace', items: [
     { label: 'Overview', href: '#', active: true, icon: '◧' },
-    { label: 'Customers', href: '#customers', icon: '☺', badge: 12 },
+    { label: 'Customers', href: '#customers', icon: <SmileIcon />, badge: 12 },
     { label: 'Reports', href: '#reports', icon: '▤' },
   ] },
-  { label: 'Account', items: [{ label: 'Settings', href: '#settings', icon: '⚙' }] },
+  { label: 'Account', items: [{ label: 'Settings', href: '#settings', icon: <SettingsIcon /> }] },
 ];
 
 const customers = Array.from({ length: 18 }, (_, i) => ({
@@ -91,7 +92,7 @@ function Marketing(): React.ReactElement {
       footer={{ brand: 'Acme', tagline: 'Ship faster.', columns: [{ title: 'Product', links: [{ label: 'Pricing', href: '#pricing' }] }, { title: 'Company', links: [{ label: 'About', href: '#about' }] }], legal: '© 2026 Acme Inc.' }}
     >
       <Hero eyebrow="New · Agent-ready UI" title="The fastest way from idea to product" description="Blocks and layouts built on accessible components." actions={[{ label: 'Start free' }, { label: 'Book a demo', variant: 'outline' }]} />
-      <FeatureGrid title="Everything included" features={[{ icon: '⚡', title: 'Fast', description: 'Tree-shakeable, no runtime CSS-in-JS.' }, { icon: '♿', title: 'Accessible', description: 'axe-tested components.' }, { icon: '🤖', title: 'Agent-ready', description: 'VhyxSeal contracts built in.' }]} />
+      <FeatureGrid title="Everything included" features={[{ icon: <ZapIcon />, title: 'Fast', description: 'Tree-shakeable, no runtime CSS-in-JS.' }, { icon: <AccessibilityIcon />, title: 'Accessible', description: 'axe-tested components.' }, { icon: <BotIcon />, title: 'Agent-ready', description: 'VhyxSeal contracts built in.' }]} />
       <div id="pricing" style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
         <PricingTable plans={[{ name: 'Hobby', price: '$0', period: '/mo', features: ['1 project'], action: { label: 'Start' } }, { name: 'Pro', price: '$19', period: '/mo', features: ['Unlimited projects', 'Blocks'], action: { label: 'Upgrade' }, highlighted: true }, { name: 'Team', price: '$49', period: '/mo', features: ['SSO', 'Audit log'], action: { label: 'Contact' } }]} />
       </div>
@@ -105,7 +106,7 @@ const TEMPLATES: Record<Template, { label: string; render: () => React.ReactElem
   settings: { label: 'Settings', render: () => <Settings /> },
   marketing: { label: 'Marketing', render: () => <Marketing /> },
   auth: { label: 'Auth', render: () => <AuthLayout variant="split" brand={<b>Acme</b>} aside={<Text size="lg" style={{ color: 'inherit' }}>“Shipped in a weekend.”</Text>}><AuthForm mode="sign-up" onSubmit={() => { toast.success('Account created'); }} /></AuthLayout> },
-  empty: { label: 'Empty state', render: () => <div style={{ padding: 48 }}><EmptyState icon="📭" title="No projects yet" description="Create a project to get started." actions={[{ label: 'New project' }]} /></div> },
+  empty: { label: 'Empty state', render: () => <div style={{ padding: 48 }}><EmptyState icon={<InboxIcon />} title="No projects yet" description="Create a project to get started." actions={[{ label: 'New project' }]} /></div> },
 };
 
 export default function BlocksPlayground(): React.ReactElement {

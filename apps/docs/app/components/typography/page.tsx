@@ -1,5 +1,6 @@
 'use client';
 
+import { XIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Button, Heading, HStack, Kbd, Stack, Text, VisuallyHidden } from '@vhyxui/react';
 import { PageHeader } from '../../../components/PageHeader';
@@ -68,8 +69,8 @@ export default function TypographyPage(): React.ReactElement {
         <Section id="visually-hidden" title="VisuallyHidden">
           <ComponentExample label="Icon button with a screen-reader label" code={`<Button variant="ghost" iconOnly aria-label="Close" icon={<XIcon />} />
 <button><XIcon /><VisuallyHidden>Close</VisuallyHidden></button>`}>
-            <button type="button" style={{ all: 'unset', cursor: 'pointer', fontSize: 20 }}>✕<VisuallyHidden>Close dialog</VisuallyHidden></button>
-            <Button variant="ghost" iconOnly aria-label="Close" icon={<span aria-hidden="true">✕</span>} />
+            <button type="button" style={{ all: 'unset', cursor: 'pointer', fontSize: 20 }}><XIcon /><VisuallyHidden>Close dialog</VisuallyHidden></button>
+            <Button variant="ghost" iconOnly aria-label="Close" icon={<XIcon />} />
           </ComponentExample>
         </Section>
 

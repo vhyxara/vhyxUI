@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Spinner, Button } from '@vhyxui/react';
 import { spinnerContract } from '@vhyxui/core';
@@ -107,10 +108,10 @@ export default function SpinnerPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>role="status"</code> on the SVG — state is communicated to assistive technology.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Visually hidden <code>label</code> always rendered — defaults to "Loading". Never invisible to screen readers.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> SVG spinner — better rendering quality than the CSS border-trick at all sizes and resolutions.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Animation collapses to zero duration with <code>prefers-reduced-motion: reduce</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>role="status"</code> on the SVG — state is communicated to assistive technology.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Visually hidden <code>label</code> always rendered — defaults to "Loading". Never invisible to screen readers.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> SVG spinner — better rendering quality than the CSS border-trick at all sizes and resolutions.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Animation collapses to zero duration with <code>prefers-reduced-motion: reduce</code>.</li>
           </ul>
         </Section>
 

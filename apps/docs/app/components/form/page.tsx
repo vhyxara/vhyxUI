@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Form, Field, Input, Textarea, Button, Checkbox } from '@vhyxui/react';
 import { formContract } from '@vhyxui/core';
@@ -195,12 +196,12 @@ export default function FormPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Field generates unique IDs and connects <code>label[for]</code> → input automatically.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Hint and error text are connected via <code>aria-describedby</code> — announced by screen readers.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Error text has <code>role="alert"</code> — announced immediately when it appears.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>aria-invalid</code> propagated to child input when an error is present.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Required indicator (*) is decorative — screen readers hear "required" from <code>aria-required</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Disabled Form sets <code>disabled</code> on all child inputs and <code>aria-disabled</code> where needed.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Field generates unique IDs and connects <code>label[for]</code> → input automatically.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Hint and error text are connected via <code>aria-describedby</code> — announced by screen readers.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Error text has <code>role="alert"</code> — announced immediately when it appears.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>aria-invalid</code> propagated to child input when an error is present.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Required indicator (*) is decorative — screen readers hear "required" from <code>aria-required</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Disabled Form sets <code>disabled</code> on all child inputs and <code>aria-disabled</code> where needed.</li>
           </ul>
         </Section>
 

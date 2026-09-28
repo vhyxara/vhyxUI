@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Switch } from '@vhyxui/react';
 import { switchContract } from '@vhyxui/core';
@@ -132,11 +133,11 @@ export default function SwitchPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Renders as <code>&lt;button role="switch"&gt;</code> — correct semantics for a toggle.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>aria-checked</code> reflects the current on/off state automatically.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Always provide <code>aria-label</code> or pair with a visible <code>&lt;label&gt;</code> using <code>htmlFor</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Use Switch for immediate-effect settings. Use Checkbox for form values submitted on save.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Renders as <code>&lt;button role="switch"&gt;</code> — correct semantics for a toggle.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>aria-checked</code> reflects the current on/off state automatically.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Always provide <code>aria-label</code> or pair with a visible <code>&lt;label&gt;</code> using <code>htmlFor</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Use Switch for immediate-effect settings. Use Checkbox for form values submitted on save.</li>
           </ul>
         </Section>
 
