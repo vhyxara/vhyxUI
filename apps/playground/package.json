@@ -18,8 +18,8 @@
     "react-dom": "^19.0.0",
     "shiki": "^4.1.0",
     "@vhyxui/blocks": "workspace:*",
-    "@vhyxchart/react": "0.1.0-alpha",
-    "@vhyxchart/core": "0.1.0-alpha",
+    "@vhyxchart/react": "0.1.1",
+    "@vhyxchart/core": "0.1.1",
     "@vhyxui/icons": "workspace:*"
   },
   "devDependencies": {
