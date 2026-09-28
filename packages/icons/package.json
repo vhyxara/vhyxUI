@@ -1,13 +1,16 @@
 {
   "name": "@vhyxui/icons",
-  "version": "0.1.0",
-  "description": "SVG icon components for VhyxUI: consistent, accessible, tree-shakeable, zero runtime dependencies",
+  "version": "0.2.0",
+  "description": "SVG icons for VhyxUI: React components, framework-free SVG strings, a <vhyx-icon> web component and a sprite — token-driven sizes, built-in motion, zero runtime dependencies",
   "keywords": [
     "vhyxui",
     "vhyxara",
     "icons",
     "svg",
-    "react"
+    "react",
+    "web-components",
+    "sprite",
+    "design-tokens"
   ],
   "license": "MIT",
   "homepage": "https://vhyxui.com",
@@ -23,7 +26,9 @@
     "node": ">=20.19"
   },
   "type": "module",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
@@ -32,17 +37,36 @@
       "import": "./dist/index.js",
       "require": "./dist/index.js",
       "default": "./dist/index.js"
-    }
+    },
+    "./svg": {
+      "types": "./dist/svg.d.ts",
+      "import": "./dist/svg.js",
+      "require": "./dist/svg.js",
+      "default": "./dist/svg.js"
+    },
+    "./element": {
+      "types": "./dist/element.d.ts",
+      "import": "./dist/element.js",
+      "require": "./dist/element.js",
+      "default": "./dist/element.js"
+    },
+    "./style.css": "./dist/style.css",
+    "./sprite.svg": "./dist/sprite.svg",
+    "./icons.json": "./dist/icons.json",
+    "./icons/*.svg": "./icons/*.svg",
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
+    "icons",
     "NOTICE"
   ],
   "scripts": {
-    "generate": "node scripts/generate.mjs",
-    "build": "tsc -p tsconfig.json",
+    "import:lucide": "node scripts/import-lucide.mjs",
+    "generate": "node scripts/build.mjs",
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && node scripts/build.mjs && tsc -p tsconfig.json && node scripts/build.mjs --assets",
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "node scripts/build.mjs && tsc -p tsconfig.json --noEmit"
   },
   "peerDependencies": {
     "react": ">=18"
