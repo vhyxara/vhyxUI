@@ -1,4 +1,5 @@
 import React from 'react';
+import { ArrowRightIcon, TrendingDownIcon, TrendingUpIcon } from '@vhyxui/icons';
 import { Card, HStack, Stack, Text, Skeleton } from '@vhyxui/react';
 
 /** Props for StatCard. */
@@ -23,7 +24,7 @@ export interface StatCardProps {
  */
 export function StatCard({ label, value, change, trend = 'flat', invertTrend = false, hint, icon, loading = false }: StatCardProps): React.ReactElement {
   const good = trend === 'flat' ? undefined : (trend === 'up') !== invertTrend;
-  const arrow = trend === 'up' ? '↑' : trend === 'down' ? '↓' : '→';
+  const arrow = trend === 'up' ? <TrendingUpIcon /> : trend === 'down' ? <TrendingDownIcon /> : <ArrowRightIcon />;
   return (
     <Card padding="md" aria-busy={loading || undefined}>
       <Stack gap={2}>
@@ -42,7 +43,7 @@ export function StatCard({ label, value, change, trend = 'flat', invertTrend = f
           <HStack gap={2}>
             {change && (
               <Text as="span" size="sm" weight="medium" tone={good === undefined ? 'subtle' : good ? 'success' : 'danger'}>
-                <span aria-hidden="true">{arrow} </span>
+                <span aria-hidden="true" style={{ display: 'inline-flex', verticalAlign: '-0.125em', marginRight: '0.25em' }}>{arrow}</span>
                 {change}
               </Text>
             )}
