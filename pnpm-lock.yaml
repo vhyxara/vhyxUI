@@ -57,11 +57,11 @@ importers:
   apps/docs:
     dependencies:
       '@vhyxchart/core':
-        specifier: 0.1.0-alpha
-        version: 0.1.0-alpha
+        specifier: 0.1.1
+        version: 0.1.1
       '@vhyxchart/react':
-        specifier: 0.1.0-alpha
-        version: 0.1.0-alpha(react@19.2.6)
+        specifier: 0.1.1
+        version: 0.1.1(react@19.2.6)
       '@vhyxui/blocks':
         specifier: workspace:*
         version: link:../../packages/blocks
@@ -112,11 +112,11 @@ importers:
   apps/playground:
     dependencies:
       '@vhyxchart/core':
-        specifier: 0.1.0-alpha
-        version: 0.1.0-alpha
+        specifier: 0.1.1
+        version: 0.1.1
       '@vhyxchart/react':
-        specifier: 0.1.0-alpha
-        version: 0.1.0-alpha(react@19.2.6)
+        specifier: 0.1.1
+        version: 0.1.1(react@19.2.6)
       '@vhyxui/blocks':
         specifier: workspace:*
         version: link:../../packages/blocks
@@ -164,14 +164,14 @@ importers:
   apps/web:
     dependencies:
       '@vhyxchart/core':
-        specifier: 0.1.0-alpha
-        version: 0.1.0-alpha
+        specifier: 0.1.1
+        version: 0.1.1
       '@vhyxchart/react':
-        specifier: 0.1.0-alpha
-        version: 0.1.0-alpha(react@19.2.6)
+        specifier: 0.1.1
+        version: 0.1.1(react@19.2.6)
       '@vhyxseal/core':
-        specifier: 1.0.0-rc.4
-        version: 1.0.0-rc.4
+        specifier: 1.0.0-rc.5
+        version: 1.0.0-rc.5
       '@vhyxui/blocks':
         specifier: workspace:*
         version: link:../../packages/blocks
@@ -241,8 +241,8 @@ importers:
   packages/core:
     dependencies:
       '@vhyxseal/core':
-        specifier: 1.0.0-rc.4
-        version: 1.0.0-rc.4
+        specifier: 1.0.0-rc.5
+        version: 1.0.0-rc.5
       react:
         specifier: '>=18'
         version: 19.2.6
@@ -287,8 +287,8 @@ importers:
   packages/react:
     dependencies:
       '@vhyxseal/react':
-        specifier: 1.0.0-rc.4
-        version: 1.0.0-rc.4(react@19.2.6)
+        specifier: 1.0.0-rc.5
+        version: 1.0.0-rc.5(react@19.2.6)
       '@vhyxui/core':
         specifier: workspace:*
         version: link:../core
@@ -1224,22 +1224,22 @@ packages:
   '@ungap/structured-clone@1.3.1':
     resolution: {integrity: sha512-mUFwbeTqrVgDQxFveS+df2yfap6iuP20NAKAsBt5jDEoOTDew+zwLAOilHCeQJOVSvmgCX4ogqIrA0mnyr08yQ==}
 
-  '@vhyxchart/core@0.1.0-alpha':
-    resolution: {integrity: sha512-Np466MV9t3gTu4Go811tdtXaEhXSC5IgIfVSISK05W3IQFXf6JJ2w61XOS9ztO9bZiushVD+cd+0P42KvLy5wA==}
+  '@vhyxchart/core@0.1.1':
+    resolution: {integrity: sha512-nLzbbnP+p2sb3i2kQJgG8qnbxY6PAmJrq732+Y8vv6oWDDs5MCPQJgipBkCLPFy21zI+sScIKBsWNif06zUVEA==}
     engines: {node: '>=20.19'}
 
-  '@vhyxchart/react@0.1.0-alpha':
-    resolution: {integrity: sha512-t2i2oj6FNl7jp7AamIhIXeYgxlMm/0vvf8gJ9OX+D9BaDX9WWSokvhoprRbMqcIZFlBy0LQmwatygk/k/W0KeA==}
+  '@vhyxchart/react@0.1.1':
+    resolution: {integrity: sha512-MkJnqk9MwmQ92vDaoR9DW6qis52fdjs7/uWgrATR8SNeZS4zvzmaPrHUS9XF7gV0tucbUTY37ZnLPzr2HTchyg==}
     engines: {node: '>=20.19'}
     peerDependencies:
       react: '>=18'
 
-  '@vhyxseal/core@1.0.0-rc.4':
-    resolution: {integrity: sha512-Igw/UjCDBJfDunrI1jgJZEbaOHyfO+ZNvQpGJBMKNoTMKgl9AqLblBzkNZ7UFpy1G34wwb5urV5FB3USJVW70A==}
+  '@vhyxseal/core@1.0.0-rc.5':
+    resolution: {integrity: sha512-zdaURcOp2nQSGdYcPT6NcEcuEQngnrEJOyHnRSXmisdZSKCfFaYMENKAYYitC1zupO5AuGoNDPsynM+BNsRI6w==}
     engines: {node: '>=20.19'}
 
-  '@vhyxseal/react@1.0.0-rc.4':
-    resolution: {integrity: sha512-7AaWqbo0OzY96I8wopxLjeYmuwKesYYGMQDmbv457En1a6pJP4xheD/v8vchBbwmcsI0S91GYslEbGEl+6/lQg==}
+  '@vhyxseal/react@1.0.0-rc.5':
+    resolution: {integrity: sha512-m8gI89y9UYWW2nIqg1h0i6JFFX7PiYYG99GBRF0jdKbVifU+gvADimkjYcnSLe0p7z9oyqF6dxS/70PCBYWTcQ==}
     engines: {node: '>=20.19'}
     peerDependencies:
       react: '>=18.0.0'
@@ -3269,18 +3269,18 @@ snapshots:
 
   '@ungap/structured-clone@1.3.1': {}
 
-  '@vhyxchart/core@0.1.0-alpha': {}
+  '@vhyxchart/core@0.1.1': {}
 
-  '@vhyxchart/react@0.1.0-alpha(react@19.2.6)':
+  '@vhyxchart/react@0.1.1(react@19.2.6)':
     dependencies:
-      '@vhyxchart/core': 0.1.0-alpha
+      '@vhyxchart/core': 0.1.1
       react: 19.2.6
 
-  '@vhyxseal/core@1.0.0-rc.4': {}
+  '@vhyxseal/core@1.0.0-rc.5': {}
 
-  '@vhyxseal/react@1.0.0-rc.4(react@19.2.6)':
+  '@vhyxseal/react@1.0.0-rc.5(react@19.2.6)':
     dependencies:
-      '@vhyxseal/core': 1.0.0-rc.4
+      '@vhyxseal/core': 1.0.0-rc.5
       react: 19.2.6
 
   '@vitejs/plugin-react@4.7.0(vite@5.4.21(@types/node@20.19.41))':
