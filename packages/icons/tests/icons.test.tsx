@@ -26,7 +26,7 @@ describe('@vhyxui/icons', () => {
     const ref = createRef<SVGSVGElement>();
     const { container } = render(<CheckIcon ref={ref} className="c" strokeWidth={1.5} data-x="1" />);
     expect(ref.current).toBe(container.querySelector('svg'));
-    expect(ref.current?.getAttribute('class')).toBe('c');
+    expect(ref.current?.getAttribute('class')).toBe('vhyx-icon c');
     expect(ref.current?.getAttribute('stroke-width')).toBe('1.5');
   });
 
