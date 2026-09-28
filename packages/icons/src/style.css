@@ -1,0 +1,46 @@
+/* @vhyxui/icons — optional styles: default tokens and the built-in animations. */
+@layer theme, base, components, utilities;
+
+@layer base {
+  :where(:root) {
+    --vhyx-icon-size-xs: 12px;
+    --vhyx-icon-size-sm: 16px;
+    --vhyx-icon-size-md: 20px;
+    --vhyx-icon-size-lg: 24px;
+    --vhyx-icon-size-xl: 32px;
+    --vhyx-icon-stroke: 2;
+  }
+}
+
+@layer components {
+  .vhyx-icon {
+    flex-shrink: 0;
+  }
+
+  .vhyx-icon--spin {
+    transform-origin: center;
+    animation: vhyx-icon-spin 1s linear infinite;
+  }
+
+  .vhyx-icon--draw > * {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: vhyx-icon-draw var(--vhyx-duration-glacial, 500ms) var(--vhyx-easing-decelerate, cubic-bezier(0, 0, 0.2, 1)) forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vhyx-icon--spin,
+    .vhyx-icon--draw > * {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+@keyframes vhyx-icon-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vhyx-icon-draw {
+  to { stroke-dashoffset: 0; }
+}
