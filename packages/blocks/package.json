@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/blocks",
-  "version": "0.1.0-alpha",
+  "version": "0.1.1",
   "private": false,
   "description": "VhyxUI blocks and prebuilt layouts — page sections, auth, pricing, dashboards, app shells — composed only from @vhyxui/react",
   "keywords": [
@@ -59,7 +59,7 @@
     "typecheck": "tsc --project tsconfig.test.json --noEmit"
   },
   "peerDependencies": {
-    "@vhyxui/react": ">=0.4.0-alpha",
+    "@vhyxui/react": "^0.4.1",
     "react": ">=18",
     "react-dom": ">=18"
   },
