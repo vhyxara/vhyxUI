@@ -88,4 +88,4 @@ resolve correctly.
 
 ## License
 
-[MIT](LICENSE) © Vhyxara · [vhyxui.com](https://vhyxui.com)
+[MIT](LICENSE) © [Vhyxara](https://vhyxara.com) · [vhyxui.com](https://vhyxui.com)
