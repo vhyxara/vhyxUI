@@ -1,0 +1,60 @@
+{
+  "name": "@vhyxui/icons",
+  "version": "0.1.0",
+  "description": "SVG icon components for VhyxUI: consistent, accessible, tree-shakeable, zero runtime dependencies",
+  "keywords": [
+    "vhyxui",
+    "vhyxara",
+    "icons",
+    "svg",
+    "react"
+  ],
+  "license": "MIT",
+  "homepage": "https://vhyxui.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhyxara/vhyxUI.git",
+    "directory": "packages/icons"
+  },
+  "bugs": {
+    "url": "https://github.com/vhyxara/vhyxUI/issues"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "NOTICE"
+  ],
+  "scripts": {
+    "generate": "node scripts/generate.mjs",
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^18.0.0",
+    "jsdom": "^25.0.0",
+    "lucide-static": "1.48.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}
