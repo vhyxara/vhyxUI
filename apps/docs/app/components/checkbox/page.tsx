@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Checkbox } from '@vhyxui/react';
 import { checkboxContract } from '@vhyxui/core';
@@ -146,10 +147,10 @@ export default function CheckboxPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Renders as <code>&lt;button role="checkbox"&gt;</code> for full CSS styling control.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>aria-checked="mixed"</code> set automatically for the indeterminate state.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Always provide <code>aria-label</code> or use with <code>Field</code> for label association.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Renders as <code>&lt;button role="checkbox"&gt;</code> for full CSS styling control.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>aria-checked="mixed"</code> set automatically for the indeterminate state.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse click.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Always provide <code>aria-label</code> or use with <code>Field</code> for label association.</li>
           </ul>
         </Section>
 

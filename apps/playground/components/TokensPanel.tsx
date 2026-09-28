@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon, CopyIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import type { ComponentDef } from './component-defs';
 
@@ -61,7 +62,7 @@ export function TokensPanel({ def }: TokensPanelProps): React.ReactElement {
                   aria-label={`Copy ${token.name}`}
                   onClick={() => { handleCopy(token.name); }}
                 >
-                  {copiedToken === token.name ? '✓' : '⧉'}
+                  {copiedToken === token.name ? <CheckIcon /> : <CopyIcon />}
                 </button>
               </div>
               <span className="pg-token-desc">{token.desc}</span>

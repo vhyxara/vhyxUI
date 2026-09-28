@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon, StarIcon, XIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Button, Badge, Separator } from '@vhyxui/react';
 import { buttonContract } from '@vhyxui/core';
@@ -141,12 +142,12 @@ export default function ButtonPage(): React.ReactElement {
             code={`<Button icon={<StarIcon />}>With icon</Button>
 <Button icon={<StarIcon />} iconPosition="right">Icon right</Button>`}
           >
-            <Button icon={<span aria-hidden="true">★</span>}>With icon</Button>
-            <Button icon={<span aria-hidden="true">★</span>} iconPosition="right">Icon right</Button>
+            <Button icon={<StarIcon />}>With icon</Button>
+            <Button icon={<StarIcon />} iconPosition="right">Icon right</Button>
           </ComponentExample>
           <ComponentExample label="Icon only — requires aria-label" code={`<Button iconOnly icon={<StarIcon />} aria-label="Favourite" />`}>
-            <Button iconOnly icon={<span aria-hidden="true">★</span>} aria-label="Favourite" />
-            <Button iconOnly icon={<span aria-hidden="true">✕</span>} aria-label="Close" variant="ghost" />
+            <Button iconOnly icon={<StarIcon />} aria-label="Favourite" />
+            <Button iconOnly icon={<XIcon />} aria-label="Close" variant="ghost" />
           </ComponentExample>
           <ComponentExample
             label="asChild — renders as anchor"
@@ -169,12 +170,12 @@ export default function ButtonPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Renders as native <code>&lt;button&gt;</code> — no role override needed.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>aria-busy</code> set automatically when <code>loading=true</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>iconOnly</code> warns in development if <code>aria-label</code> is missing.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>asChild</code> prevents nested interactive elements — correct DOM structure.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>disabled</code> attribute propagated — no separate <code>aria-disabled</code> needed.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Renders as native <code>&lt;button&gt;</code> — no role override needed.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>aria-busy</code> set automatically when <code>loading=true</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus ring via <code>:focus-visible</code> — visible on keyboard, hidden on mouse.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>iconOnly</code> warns in development if <code>aria-label</code> is missing.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>asChild</code> prevents nested interactive elements — correct DOM structure.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>disabled</code> attribute propagated — no separate <code>aria-disabled</code> needed.</li>
           </ul>
         </Section>
 

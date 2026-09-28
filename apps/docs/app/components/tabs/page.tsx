@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Tabs } from '@vhyxui/react';
 import { tabsContract } from '@vhyxui/core';
@@ -166,10 +167,10 @@ export default function TabsPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>role="tablist"</code> on List, <code>role="tab"</code> on Trigger, <code>role="tabpanel"</code> on Content.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>aria-selected</code> on the active trigger. <code>aria-controls</code> links each trigger to its panel.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Arrow keys navigate between triggers. Tab moves focus into the panel content.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Sliding indicator uses CSS <code>transform</code> — no layout recalculation or reflow.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>role="tablist"</code> on List, <code>role="tab"</code> on Trigger, <code>role="tabpanel"</code> on Content.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>aria-selected</code> on the active trigger. <code>aria-controls</code> links each trigger to its panel.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Arrow keys navigate between triggers. Tab moves focus into the panel content.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Sliding indicator uses CSS <code>transform</code> — no layout recalculation or reflow.</li>
           </ul>
         </Section>
 

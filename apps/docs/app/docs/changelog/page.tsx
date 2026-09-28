@@ -1,3 +1,4 @@
+import { CheckIcon } from '@vhyxui/icons';
 import React from "react";
 import type { Metadata } from "next";
 import { Badge } from "../../../components/ui";
@@ -169,9 +170,7 @@ export default function ChangelogPage(): React.ReactElement {
                 <ul className="cl-component-list">
                   {COMPONENTS.filter((c) => c.category === cat).map((c) => (
                     <li key={c.name} className="cl-component-item">
-                      <span className="cl-check" aria-hidden="true">
-                        ✓
-                      </span>
+                      <CheckIcon className="cl-check" />
                       {c.name}
                     </li>
                   ))}

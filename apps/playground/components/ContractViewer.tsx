@@ -1,5 +1,6 @@
 'use client';
 
+import { TriangleAlertIcon } from '@vhyxui/icons';
 import React from 'react';
 import type { ComponentDef } from './component-defs';
 
@@ -66,7 +67,7 @@ export function ContractViewer({ def, props }: ContractViewerProps): React.React
           marginBottom: 'var(--vhyx-space-3)',
           border: 'var(--vhyx-border-width) solid var(--vhyx-color-danger)',
         }}>
-          ⚠ Destructive variant — contract auto-upgraded to safetyLevel: high
+          <TriangleAlertIcon /> Destructive variant — contract auto-upgraded to safetyLevel: high
         </div>
       )}
 

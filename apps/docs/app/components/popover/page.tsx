@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Popover, Button } from '@vhyxui/react';
 import { popoverContract } from '@vhyxui/core';
@@ -140,11 +141,11 @@ export default function PopoverPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Content has <code>role="dialog"</code>, <code>aria-modal="false"</code> — non-modal per ARIA spec.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Trigger has <code>aria-haspopup="dialog"</code>, <code>aria-expanded</code>, <code>aria-controls</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus is NOT trapped — use Dialog for scenarios requiring a focus trap.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Escape closes and returns focus to trigger. Click outside closes.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Rendered in a portal — not clipped by overflow containers.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Content has <code>role="dialog"</code>, <code>aria-modal="false"</code> — non-modal per ARIA spec.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Trigger has <code>aria-haspopup="dialog"</code>, <code>aria-expanded</code>, <code>aria-controls</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus is NOT trapped — use Dialog for scenarios requiring a focus trap.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Escape closes and returns focus to trigger. Click outside closes.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Rendered in a portal — not clipped by overflow containers.</li>
           </ul>
         </Section>
 

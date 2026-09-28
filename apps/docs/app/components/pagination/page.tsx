@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Pagination } from '@vhyxui/react';
 import { paginationContract } from '@vhyxui/core';
@@ -165,12 +166,12 @@ export default function PaginationPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Renders as <code>&lt;nav aria-label="Pagination"&gt;</code> — a navigable landmark.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Current page button gets <code>aria-current="page"</code> per ARIA spec.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Previous/Next buttons have <code>aria-label="Previous page"</code> / <code>aria-label="Next page"</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> First/Last buttons have <code>aria-label="First page"</code> / <code>aria-label="Last page"</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Disabled buttons (e.g. Previous on page 1) have <code>aria-disabled="true"</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Ellipsis indicators are <code>aria-hidden="true"</code> — decorative only.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Renders as <code>&lt;nav aria-label="Pagination"&gt;</code> — a navigable landmark.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Current page button gets <code>aria-current="page"</code> per ARIA spec.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Previous/Next buttons have <code>aria-label="Previous page"</code> / <code>aria-label="Next page"</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> First/Last buttons have <code>aria-label="First page"</code> / <code>aria-label="Last page"</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Disabled buttons (e.g. Previous on page 1) have <code>aria-disabled="true"</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Ellipsis indicators are <code>aria-hidden="true"</code> — decorative only.</li>
           </ul>
         </Section>
 

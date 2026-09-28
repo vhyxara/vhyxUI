@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Button, toast } from '@vhyxui/react';
 import { toastContract } from '@vhyxui/core';
@@ -165,11 +166,11 @@ toast.dismiss(id)`}
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Toast region has <code>role="status"</code>, <code>aria-live="polite"</code> — toasts are announced at next opportunity.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>aria-atomic="false"</code> — each toast announced individually, not as a group.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Dismiss button has <code>aria-label="Dismiss"</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> For critical messages use <code>toast.danger()</code> which upgrades to <code>aria-live="assertive"</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Consider <code>duration: Infinity</code> for users who need more time to read notifications.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Toast region has <code>role="status"</code>, <code>aria-live="polite"</code> — toasts are announced at next opportunity.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>aria-atomic="false"</code> — each toast announced individually, not as a group.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Dismiss button has <code>aria-label="Dismiss"</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> For critical messages use <code>toast.danger()</code> which upgrades to <code>aria-live="assertive"</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Consider <code>duration: Infinity</code> for users who need more time to read notifications.</li>
           </ul>
         </Section>
 

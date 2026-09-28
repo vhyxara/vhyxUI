@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Select } from '@vhyxui/react';
 import { selectContract } from '@vhyxui/core';
@@ -201,11 +202,11 @@ export default function SelectPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Trigger has <code>role="combobox"</code>, <code>aria-haspopup="listbox"</code>, <code>aria-expanded</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Dropdown has <code>role="listbox"</code>. Items have <code>role="option"</code>.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Type-ahead: typing characters immediately jumps to the first matching option.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Disabled items have <code>aria-disabled="true"</code> and cannot be selected.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus ring via <code>:focus-visible</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Trigger has <code>role="combobox"</code>, <code>aria-haspopup="listbox"</code>, <code>aria-expanded</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Dropdown has <code>role="listbox"</code>. Items have <code>role="option"</code>.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Type-ahead: typing characters immediately jumps to the first matching option.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Disabled items have <code>aria-disabled="true"</code> and cannot be selected.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus ring via <code>:focus-visible</code>.</li>
           </ul>
         </Section>
 

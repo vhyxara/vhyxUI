@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon, StarIcon, XIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Tooltip, Button, Badge } from '@vhyxui/react';
 import { tooltipContract } from '@vhyxui/core';
@@ -101,14 +102,14 @@ export default function TooltipPage(): React.ReactElement {
             label="Icon-only button — tooltip provides the accessible name"
             center
             code={`<Tooltip content="Delete this item permanently">
-  <Button iconOnly icon={<span>✕</span>} aria-label="Delete item" variant="ghost" />
+  <Button iconOnly icon={<XIcon />} aria-label="Delete item" variant="ghost" />
 </Tooltip>`}
           >
             <Tooltip content="Delete this item permanently">
-              <Button iconOnly icon={<span aria-hidden="true">✕</span>} aria-label="Delete item" variant="ghost" />
+              <Button iconOnly icon={<XIcon />} aria-label="Delete item" variant="ghost" />
             </Tooltip>
             <Tooltip content="Add to favourites">
-              <Button iconOnly icon={<span aria-hidden="true">★</span>} aria-label="Favourite" variant="ghost" />
+              <Button iconOnly icon={<StarIcon />} aria-label="Favourite" variant="ghost" />
             </Tooltip>
           </ComponentExample>
           <ComponentExample
@@ -130,11 +131,11 @@ export default function TooltipPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>role="tooltip"</code> on the tooltip element.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Trigger receives <code>aria-describedby</code> pointing to the tooltip when visible.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Shows on keyboard focus without delay — keyboard users are not penalized.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Rendered in a portal — not clipped by overflow containers.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Use <code>aria-label</code> on the trigger for interactive meaning; tooltip provides supplemental description only.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>role="tooltip"</code> on the tooltip element.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Trigger receives <code>aria-describedby</code> pointing to the tooltip when visible.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Shows on keyboard focus without delay — keyboard users are not penalized.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Rendered in a portal — not clipped by overflow containers.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Use <code>aria-label</code> on the trigger for interactive meaning; tooltip provides supplemental description only.</li>
           </ul>
         </Section>
 

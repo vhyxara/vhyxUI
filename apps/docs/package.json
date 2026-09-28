@@ -19,7 +19,8 @@
     "shiki": "^4.1.0",
     "@vhyxui/blocks": "workspace:*",
     "@vhyxchart/react": "0.1.0-alpha",
-    "@vhyxchart/core": "0.1.0-alpha"
+    "@vhyxchart/core": "0.1.0-alpha",
+    "@vhyxui/icons": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",

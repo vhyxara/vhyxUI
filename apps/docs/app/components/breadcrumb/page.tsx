@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Breadcrumb } from '@vhyxui/react';
 import { breadcrumbContract } from '@vhyxui/core';
@@ -135,10 +136,10 @@ export default function BreadcrumbPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Renders as <code>&lt;nav aria-label="Breadcrumb"&gt;</code> — a landmark navigable by screen readers.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>Breadcrumb.Page</code> renders as <code>&lt;span aria-current="page"&gt;</code> — correct per ARIA spec (not a link).</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Separators are <code>aria-hidden="true"</code> — screen readers skip them.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Ellipsis is <code>aria-hidden="true"</code> — decorative indicator only.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Renders as <code>&lt;nav aria-label="Breadcrumb"&gt;</code> — a landmark navigable by screen readers.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>Breadcrumb.Page</code> renders as <code>&lt;span aria-current="page"&gt;</code> — correct per ARIA spec (not a link).</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Separators are <code>aria-hidden="true"</code> — screen readers skip them.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Ellipsis is <code>aria-hidden="true"</code> — decorative indicator only.</li>
           </ul>
         </Section>
 

@@ -1,5 +1,6 @@
 'use client';
 
+import { CheckIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Drawer, Button } from '@vhyxui/react';
 import { drawerContract } from '@vhyxui/core';
@@ -172,10 +173,10 @@ export default function DrawerPage(): React.ReactElement {
 
         <Section id="accessibility" title="Accessibility">
           <ul className="docs-a11y-list">
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <code>role="dialog"</code>, <code>aria-modal="true"</code>, <code>aria-labelledby</code> pointing to Drawer.Title.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> <strong>Drawer.Title is required</strong> — a development warning is logged if absent.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus trap and Escape-to-close — identical behavior to Dialog.</li>
-            <li className="docs-a11y-item"><span className="docs-a11y-icon">✓</span> Focus returns to the exact trigger element on close.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <code>role="dialog"</code>, <code>aria-modal="true"</code>, <code>aria-labelledby</code> pointing to Drawer.Title.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> <strong>Drawer.Title is required</strong> — a development warning is logged if absent.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus trap and Escape-to-close — identical behavior to Dialog.</li>
+            <li className="docs-a11y-item"><CheckIcon className="docs-a11y-icon" /> Focus returns to the exact trigger element on close.</li>
           </ul>
         </Section>
 
