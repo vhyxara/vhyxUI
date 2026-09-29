@@ -39,7 +39,7 @@
         "arrow",
         "down"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "arrow-right": {
       "category": "navigation",
@@ -52,7 +52,7 @@
         "arrow",
         "right"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "arrow-up": {
       "category": "navigation",
@@ -63,7 +63,7 @@
         "arrow",
         "up"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "arrow-up-down": {
       "category": "navigation",
@@ -81,7 +81,7 @@
         "move",
         "arrow"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "blocks": {
       "category": "development",
@@ -151,7 +151,7 @@
         "complete",
         "task"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "chevron-down": {
       "category": "navigation",
@@ -163,7 +163,7 @@
         "chevron",
         "down"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "chevron-left": {
       "category": "navigation",
@@ -177,7 +177,7 @@
         "chevron",
         "left"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "chevron-right": {
       "category": "navigation",
@@ -195,7 +195,7 @@
         "shell",
         ">"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "chevron-up": {
       "category": "navigation",
@@ -213,7 +213,7 @@
         "^",
         "dropdown"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "circle-alert": {
       "category": "status",
@@ -224,7 +224,7 @@
         "exclamation mark",
         "circle"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "circle-check": {
       "category": "status",
@@ -237,7 +237,7 @@
         "circle",
         "check"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "circle-play": {
       "category": "media",
@@ -248,7 +248,7 @@
         "circle",
         "play"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "circle-x": {
       "category": "status",
@@ -266,7 +266,7 @@
         "failure",
         "linter"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "code": {
       "category": "development",
@@ -295,7 +295,7 @@
         "duplicate",
         "multiple"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "external-link": {
       "category": "navigation",
@@ -306,7 +306,7 @@
         "external",
         "link"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "eye-off": {
       "category": "security",
@@ -388,7 +388,7 @@
         "status",
         "support"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "laptop": {
       "category": "devices",
@@ -443,7 +443,7 @@
         "circle",
         "loader"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "lock": {
       "category": "security",
@@ -453,7 +453,7 @@
         "secure",
         "admin"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "mail": {
       "category": "communication",
@@ -463,7 +463,7 @@
         "letter",
         "unread"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "menu": {
       "category": "navigation",
@@ -473,7 +473,7 @@
         "hamburger",
         "options"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "minus": {
       "category": "actions",
@@ -491,7 +491,7 @@
         "horizontal rule",
         "hr"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "moon": {
       "category": "theme",
@@ -499,7 +499,7 @@
         "dark",
         "night"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "package": {
       "category": "development",
@@ -538,7 +538,7 @@
         "music",
         "stop"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "pen-line": {
       "category": "design",
@@ -567,7 +567,7 @@
         "start",
         "run"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "plus": {
       "category": "actions",
@@ -585,7 +585,7 @@
         "scope",
         "sight"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "puzzle": {
       "category": "development",
@@ -622,7 +622,7 @@
         "enlarge",
         "zoom"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "settings": {
       "category": "actions",
@@ -661,7 +661,7 @@
         "skip",
         "back"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "smile": {
       "category": "people",
@@ -699,7 +699,7 @@
         "review",
         "rating"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "stethoscope": {
       "category": "status",
@@ -720,7 +720,7 @@
         "light",
         "summer"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "ticket": {
       "category": "commerce",
@@ -752,7 +752,7 @@
         "recycle",
         "discard"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "trending-down": {
       "category": "data",
@@ -782,7 +782,7 @@
         "linter",
         "triangle"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "waves": {
       "category": "data",
@@ -828,7 +828,7 @@
         "multiply",
         "multiplication"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "zap": {
       "category": "actions",
