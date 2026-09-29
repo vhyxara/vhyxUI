@@ -37,10 +37,10 @@ describe('source pipeline', () => {
     expect(sprite).toContain('id="vhyx-icon-triangle-alert"');
   });
 
-  it('records the artwork source so the replacement can be tracked', () => {
+  it('contains only original Vhyxara drawings', () => {
     const meta = JSON.parse(readFileSync(resolve(dir, 'icons.json'), 'utf8'));
     for (const m of Object.values(meta.icons) as Array<{ source: string; category: string }>) {
-      expect(['lucide', 'vhyxara']).toContain(m.source);
+      expect(m.source).toBe('vhyxara');
       expect(m.category).toBeTruthy();
     }
   });
