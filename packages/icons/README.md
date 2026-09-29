@@ -75,11 +75,10 @@ The build validates every file (allowed shapes only, no hard-coded colours, a si
 generates all formats from them. Icons may add an optical 16px drawing (`name.16.svg`) that is
 used automatically at small sizes, and a filled variant (`name.solid.svg` → `NameSolidIcon`).
 
-Some drawings are still derived from [Lucide](https://lucide.dev) (ISC) while the Vhyxara set
-is being drawn; see `NOTICE` and the `source` field in `icons.json`.
+Every icon is an original Vhyxara drawing.
 
 ## Links
 
 - Documentation — https://vhyxui.com
 - Source — https://github.com/vhyxara/vhyxUI/tree/main/packages/icons
-- License — MIT (see `NOTICE` for third-party artwork)
+- License — MIT
