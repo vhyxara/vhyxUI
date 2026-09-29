@@ -1,5 +1,5 @@
 {
-  "$schema": "Icon metadata: category, search tags and artwork source (lucide = transition artwork, vhyxara = our own drawing).",
+  "$schema": "Icon metadata: category, search tags and artwork source. Every drawing is an original Vhyxara icon.",
   "icons": {
     "accessibility": {
       "category": "people",
@@ -9,7 +9,7 @@
         "dda",
         "wheelchair"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "activity": {
       "category": "data",
@@ -27,7 +27,7 @@
         "emergency room",
         "er"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "arrow-down": {
       "category": "navigation",
@@ -99,7 +99,7 @@
         "learning",
         "squares"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "bot": {
       "category": "development",
@@ -109,7 +109,7 @@
         "chat",
         "assistant"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "brush": {
       "category": "design",
@@ -123,7 +123,7 @@
         "color",
         "artist"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "bug": {
       "category": "development",
@@ -140,7 +140,7 @@
         "insect",
         "beetle"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "check": {
       "category": "status",
@@ -276,7 +276,7 @@
         "html",
         "xml"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "coins": {
       "category": "commerce",
@@ -286,7 +286,7 @@
         "finance",
         "gamble"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "copy": {
       "category": "actions",
@@ -323,7 +323,7 @@
         "eye",
         "off"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "feather": {
       "category": "design",
@@ -340,7 +340,7 @@
         "lightweight",
         "soft"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "git-branch": {
       "category": "development",
@@ -352,7 +352,7 @@
         "git",
         "branch"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "image-play": {
       "category": "media",
@@ -363,14 +363,14 @@
         "image",
         "play"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "inbox": {
       "category": "communication",
       "tags": [
         "email"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "info": {
       "category": "status",
@@ -397,7 +397,7 @@
         "screen",
         "remote"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "layers": {
       "category": "design",
@@ -410,7 +410,7 @@
         "copies",
         "copy"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "life-buoy": {
       "category": "communication",
@@ -428,7 +428,7 @@
         "donut",
         "life"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "loader-circle": {
       "category": "status",
@@ -516,7 +516,7 @@
         "zip",
         "module"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "palette": {
       "category": "design",
@@ -530,7 +530,7 @@
         "watercolour",
         "artist"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "pause": {
       "category": "media",
@@ -556,7 +556,7 @@
         "stationery",
         "artist"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "play": {
       "category": "media",
@@ -595,7 +595,7 @@
         "part",
         "piece"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "rocket": {
       "category": "development",
@@ -606,7 +606,7 @@
         "space",
         "version"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "search": {
       "category": "actions",
@@ -632,7 +632,7 @@
         "gear",
         "preferences"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "shield-check": {
       "category": "security",
@@ -650,7 +650,7 @@
         "defence",
         "defended"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "skip-back": {
       "category": "media",
@@ -677,7 +677,7 @@
         "emoji",
         "emotion"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "sparkles": {
       "category": "design",
@@ -688,7 +688,7 @@
         "night",
         "magic"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "star": {
       "category": "actions",
@@ -710,7 +710,7 @@
         "lungs",
         "sound"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "sun": {
       "category": "theme",
@@ -734,7 +734,7 @@
         "perforated",
         "dashed"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "trash": {
       "category": "actions",
@@ -761,7 +761,7 @@
         "trending",
         "down"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "trending-up": {
       "category": "data",
@@ -770,7 +770,7 @@
         "trending",
         "up"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "triangle-alert": {
       "category": "status",
@@ -797,7 +797,7 @@
         "swimming",
         "frequency"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "workflow": {
       "category": "development",
@@ -811,7 +811,7 @@
         "node",
         "connection"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     },
     "x": {
       "category": "status",
@@ -841,7 +841,7 @@
         "power",
         "quick"
       ],
-      "source": "lucide"
+      "source": "vhyxara"
     }
   }
 }
