@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/blocks",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "private": false,
   "description": "VhyxUI blocks and prebuilt layouts — page sections, auth, pricing, dashboards, app shells — composed only from @vhyxui/react",
   "keywords": [
@@ -71,6 +71,6 @@
     "@types/react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@vhyxui/icons": "workspace:*"
+    "@vhyxui/icons": "workspace:^"
   }
 }
