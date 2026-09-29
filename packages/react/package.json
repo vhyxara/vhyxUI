@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/react",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "private": false,
   "description": "VhyxUI React components — accessible, Tailwind-friendly, agent-ready",
   "keywords": [
@@ -250,7 +250,7 @@
   "dependencies": {
     "@vhyxseal/react": "1.0.0-rc.5",
     "@vhyxui/core": "workspace:*",
-    "@vhyxui/icons": "workspace:*"
+    "@vhyxui/icons": "workspace:^"
   },
   "peerDependencies": {
     "react": ">=18",

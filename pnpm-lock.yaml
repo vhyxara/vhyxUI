@@ -213,7 +213,7 @@ importers:
   packages/blocks:
     dependencies:
       '@vhyxui/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../icons
       react:
         specifier: '>=18'
@@ -293,7 +293,7 @@ importers:
         specifier: workspace:*
         version: link:../core
       '@vhyxui/icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../icons
       react:
         specifier: '>=18'
