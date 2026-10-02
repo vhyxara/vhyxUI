@@ -657,7 +657,10 @@
         "start",
         "run"
       ],
-      "source": "vhyxara"
+      "source": "vhyxara",
+      "waive": {
+        "balance": "the triangle centroid sits at x=12 (the optical centre), so the box is shifted right on purpose"
+      }
     },
     "plus": {
       "category": "actions",

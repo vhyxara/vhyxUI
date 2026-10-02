@@ -2,6 +2,7 @@
 // and serialisers for SVG files and the sprite sheet.
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { checkKeylines } from './geometry.mjs';
 
 export const GRID = '0 0 24 24';
 export const SMALL_GRID = '0 0 16 16';
@@ -74,6 +75,8 @@ export function loadIcons(dir) {
     const small = read('.16');
     if (small && small.viewBox !== SMALL_GRID) throw new Error(`${name}.16.svg: optical 16px drawings use the 16×16 grid`);
     const solid = read('.solid');
+    const problems = checkKeylines(main.nodes, m.waive);
+    if (problems.length) throw new Error(`${name}.svg breaks the keyline rules (scripts/geometry.mjs):\n  ${problems.join('\n  ')}`);
     return { name, category: m.category, tags: m.tags ?? [], source: m.source ?? 'vhyxara', main, small, solid };
   });
   if (files.size) throw new Error(`icons/ has files not listed in icons.json: ${[...files].join(', ')}`);
