@@ -29,6 +29,34 @@
       ],
       "source": "vhyxara"
     },
+    "align-center": {
+      "category": "text",
+      "tags": [
+        "text align",
+        "centre",
+        "center",
+        "paragraph"
+      ],
+      "source": "vhyxara"
+    },
+    "align-left": {
+      "category": "text",
+      "tags": [
+        "text align",
+        "left",
+        "paragraph"
+      ],
+      "source": "vhyxara"
+    },
+    "align-right": {
+      "category": "text",
+      "tags": [
+        "text align",
+        "right",
+        "paragraph"
+      ],
+      "source": "vhyxara"
+    },
     "app-window": {
       "category": "layout",
       "tags": [
@@ -221,6 +249,27 @@
       ],
       "source": "vhyxara"
     },
+    "bold": {
+      "category": "text",
+      "tags": [
+        "strong",
+        "weight",
+        "format",
+        "text"
+      ],
+      "source": "vhyxara"
+    },
+    "book-open": {
+      "category": "objects",
+      "tags": [
+        "read",
+        "docs",
+        "documentation",
+        "guide",
+        "learn"
+      ],
+      "source": "vhyxara"
+    },
     "bookmark": {
       "category": "actions",
       "tags": [
@@ -281,6 +330,16 @@
         "code",
         "insect",
         "beetle"
+      ],
+      "source": "vhyxara"
+    },
+    "building": {
+      "category": "places",
+      "tags": [
+        "office",
+        "company",
+        "organisation",
+        "business"
       ],
       "source": "vhyxara"
     },
@@ -623,6 +682,16 @@
       ],
       "source": "vhyxara"
     },
+    "compass": {
+      "category": "places",
+      "tags": [
+        "explore",
+        "direction",
+        "navigate",
+        "discover"
+      ],
+      "source": "vhyxara"
+    },
     "contrast": {
       "category": "theme",
       "tags": [
@@ -672,6 +741,16 @@
         "card",
         "checkout",
         "purchase"
+      ],
+      "source": "vhyxara"
+    },
+    "crop": {
+      "category": "design",
+      "tags": [
+        "trim",
+        "cut",
+        "resize",
+        "frame"
       ],
       "source": "vhyxara"
     },
@@ -930,6 +1009,17 @@
       ],
       "source": "vhyxara"
     },
+    "globe": {
+      "category": "places",
+      "tags": [
+        "world",
+        "internet",
+        "language",
+        "international",
+        "web"
+      ],
+      "source": "vhyxara"
+    },
     "grip-vertical": {
       "category": "navigation",
       "tags": [
@@ -1059,6 +1149,16 @@
       ],
       "source": "vhyxara"
     },
+    "italic": {
+      "category": "text",
+      "tags": [
+        "emphasis",
+        "slant",
+        "format",
+        "text"
+      ],
+      "source": "vhyxara"
+    },
     "kanban": {
       "category": "layout",
       "tags": [
@@ -1162,6 +1262,16 @@
       ],
       "source": "vhyxara"
     },
+    "lightbulb": {
+      "category": "objects",
+      "tags": [
+        "idea",
+        "tip",
+        "insight",
+        "hint"
+      ],
+      "source": "vhyxara"
+    },
     "link": {
       "category": "actions",
       "tags": [
@@ -1169,6 +1279,26 @@
         "url",
         "connect",
         "hyperlink"
+      ],
+      "source": "vhyxara"
+    },
+    "list": {
+      "category": "text",
+      "tags": [
+        "bullets",
+        "unordered",
+        "items",
+        "menu"
+      ],
+      "source": "vhyxara"
+    },
+    "list-ordered": {
+      "category": "text",
+      "tags": [
+        "numbered",
+        "ordered",
+        "steps",
+        "sequence"
       ],
       "source": "vhyxara"
     },
@@ -1234,6 +1364,26 @@
         "message",
         "letter",
         "unread"
+      ],
+      "source": "vhyxara"
+    },
+    "map": {
+      "category": "places",
+      "tags": [
+        "directions",
+        "route",
+        "navigation",
+        "travel"
+      ],
+      "source": "vhyxara"
+    },
+    "map-pin": {
+      "category": "places",
+      "tags": [
+        "location",
+        "place",
+        "marker",
+        "address"
       ],
       "source": "vhyxara"
     },
@@ -1510,6 +1660,16 @@
       ],
       "source": "vhyxara"
     },
+    "pipette": {
+      "category": "design",
+      "tags": [
+        "eyedropper",
+        "color picker",
+        "sample",
+        "colour"
+      ],
+      "source": "vhyxara"
+    },
     "play": {
       "category": "media",
       "tags": [
@@ -1578,6 +1738,15 @@
         "module",
         "part",
         "piece"
+      ],
+      "source": "vhyxara"
+    },
+    "quote": {
+      "category": "text",
+      "tags": [
+        "blockquote",
+        "citation",
+        "testimonial"
       ],
       "source": "vhyxara"
     },
@@ -1661,6 +1830,16 @@
         "subscribe",
         "news",
         "blog"
+      ],
+      "source": "vhyxara"
+    },
+    "ruler": {
+      "category": "design",
+      "tags": [
+        "measure",
+        "scale",
+        "dimensions",
+        "size"
       ],
       "source": "vhyxara"
     },
@@ -1907,6 +2086,16 @@
       ],
       "source": "vhyxara"
     },
+    "strikethrough": {
+      "category": "text",
+      "tags": [
+        "strike",
+        "delete",
+        "format",
+        "text"
+      ],
+      "source": "vhyxara"
+    },
     "sun": {
       "category": "theme",
       "tags": [
@@ -1943,6 +2132,16 @@
         "price",
         "category",
         "discount"
+      ],
+      "source": "vhyxara"
+    },
+    "target": {
+      "category": "objects",
+      "tags": [
+        "goal",
+        "focus",
+        "aim",
+        "objective"
       ],
       "source": "vhyxara"
     },
@@ -2035,6 +2234,35 @@
         "exclamation mark",
         "linter",
         "triangle"
+      ],
+      "source": "vhyxara"
+    },
+    "trophy": {
+      "category": "objects",
+      "tags": [
+        "award",
+        "win",
+        "achievement",
+        "prize"
+      ],
+      "source": "vhyxara"
+    },
+    "type": {
+      "category": "design",
+      "tags": [
+        "text",
+        "font",
+        "typography",
+        "letter"
+      ],
+      "source": "vhyxara"
+    },
+    "underline": {
+      "category": "text",
+      "tags": [
+        "format",
+        "text",
+        "line"
       ],
       "source": "vhyxara"
     },
@@ -2133,6 +2361,17 @@
         "payment",
         "balance",
         "funds"
+      ],
+      "source": "vhyxara"
+    },
+    "wand": {
+      "category": "design",
+      "tags": [
+        "magic",
+        "auto",
+        "generate",
+        "enhance",
+        "ai"
       ],
       "source": "vhyxara"
     },
