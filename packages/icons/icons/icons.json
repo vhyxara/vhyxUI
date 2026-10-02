@@ -163,6 +163,26 @@
       ],
       "source": "vhyxara"
     },
+    "banknote": {
+      "category": "commerce",
+      "tags": [
+        "money",
+        "cash",
+        "payment",
+        "bill"
+      ],
+      "source": "vhyxara"
+    },
+    "battery": {
+      "category": "devices",
+      "tags": [
+        "power",
+        "charge",
+        "energy",
+        "level"
+      ],
+      "source": "vhyxara"
+    },
     "bell": {
       "category": "communication",
       "tags": [
@@ -261,6 +281,35 @@
         "code",
         "insect",
         "beetle"
+      ],
+      "source": "vhyxara"
+    },
+    "calendar": {
+      "category": "time",
+      "tags": [
+        "date",
+        "schedule",
+        "event",
+        "month"
+      ],
+      "source": "vhyxara"
+    },
+    "calendar-plus": {
+      "category": "time",
+      "tags": [
+        "add event",
+        "schedule",
+        "new date"
+      ],
+      "source": "vhyxara"
+    },
+    "camera": {
+      "category": "media",
+      "tags": [
+        "photo",
+        "picture",
+        "snapshot",
+        "capture"
       ],
       "source": "vhyxara"
     },
@@ -513,6 +562,16 @@
       ],
       "source": "vhyxara"
     },
+    "clock": {
+      "category": "time",
+      "tags": [
+        "time",
+        "hour",
+        "watch",
+        "schedule"
+      ],
+      "source": "vhyxara"
+    },
     "cloud": {
       "category": "data",
       "tags": [
@@ -553,6 +612,17 @@
       ],
       "source": "vhyxara"
     },
+    "command": {
+      "category": "development",
+      "tags": [
+        "cmd",
+        "shortcut",
+        "keyboard",
+        "mac",
+        "hotkey"
+      ],
+      "source": "vhyxara"
+    },
     "contrast": {
       "category": "theme",
       "tags": [
@@ -581,6 +651,16 @@
         "return",
         "submit",
         "keyboard"
+      ],
+      "source": "vhyxara"
+    },
+    "cpu": {
+      "category": "devices",
+      "tags": [
+        "processor",
+        "chip",
+        "hardware",
+        "compute"
       ],
       "source": "vhyxara"
     },
@@ -623,6 +703,17 @@
         "share",
         "external",
         "link"
+      ],
+      "source": "vhyxara"
+    },
+    "eye": {
+      "category": "security",
+      "tags": [
+        "view",
+        "show",
+        "visible",
+        "preview",
+        "watch"
       ],
       "source": "vhyxara"
     },
@@ -728,6 +819,16 @@
       ],
       "source": "vhyxara"
     },
+    "fingerprint": {
+      "category": "security",
+      "tags": [
+        "biometric",
+        "identity",
+        "touch id",
+        "authentication"
+      ],
+      "source": "vhyxara"
+    },
     "flag": {
       "category": "actions",
       "tags": [
@@ -777,6 +878,16 @@
       ],
       "source": "vhyxara"
     },
+    "gift": {
+      "category": "commerce",
+      "tags": [
+        "present",
+        "reward",
+        "bonus",
+        "birthday"
+      ],
+      "source": "vhyxara"
+    },
     "git-branch": {
       "category": "development",
       "tags": [
@@ -786,6 +897,36 @@
         "repository",
         "git",
         "branch"
+      ],
+      "source": "vhyxara"
+    },
+    "git-commit": {
+      "category": "development",
+      "tags": [
+        "commit",
+        "version",
+        "history",
+        "node"
+      ],
+      "source": "vhyxara"
+    },
+    "git-merge": {
+      "category": "development",
+      "tags": [
+        "merge",
+        "combine",
+        "branch",
+        "join"
+      ],
+      "source": "vhyxara"
+    },
+    "git-pull-request": {
+      "category": "development",
+      "tags": [
+        "pull request",
+        "review",
+        "merge request",
+        "pr"
       ],
       "source": "vhyxara"
     },
@@ -829,6 +970,17 @@
       ],
       "source": "vhyxara"
     },
+    "history": {
+      "category": "time",
+      "tags": [
+        "recent",
+        "past",
+        "log",
+        "activity",
+        "restore"
+      ],
+      "source": "vhyxara"
+    },
     "home": {
       "category": "navigation",
       "tags": [
@@ -858,6 +1010,16 @@
         "contact",
         "license",
         "credentials"
+      ],
+      "source": "vhyxara"
+    },
+    "image": {
+      "category": "media",
+      "tags": [
+        "picture",
+        "photo",
+        "gallery",
+        "media"
       ],
       "source": "vhyxara"
     },
@@ -904,6 +1066,27 @@
         "columns",
         "tasks",
         "project"
+      ],
+      "source": "vhyxara"
+    },
+    "key": {
+      "category": "security",
+      "tags": [
+        "password",
+        "access",
+        "credentials",
+        "login",
+        "api key"
+      ],
+      "source": "vhyxara"
+    },
+    "keyboard": {
+      "category": "devices",
+      "tags": [
+        "type",
+        "input",
+        "keys",
+        "shortcut"
       ],
       "source": "vhyxara"
     },
@@ -1014,6 +1197,16 @@
       ],
       "source": "vhyxara"
     },
+    "lock-open": {
+      "category": "security",
+      "tags": [
+        "unlock",
+        "unlocked",
+        "access",
+        "open"
+      ],
+      "source": "vhyxara"
+    },
     "log-in": {
       "category": "navigation",
       "tags": [
@@ -1093,6 +1286,25 @@
       ],
       "source": "vhyxara"
     },
+    "mic": {
+      "category": "media",
+      "tags": [
+        "microphone",
+        "record",
+        "voice",
+        "audio"
+      ],
+      "source": "vhyxara"
+    },
+    "mic-off": {
+      "category": "media",
+      "tags": [
+        "mute",
+        "microphone off",
+        "silent"
+      ],
+      "source": "vhyxara"
+    },
     "minimize": {
       "category": "navigation",
       "tags": [
@@ -1117,6 +1329,16 @@
         "separator",
         "horizontal rule",
         "hr"
+      ],
+      "source": "vhyxara"
+    },
+    "monitor": {
+      "category": "devices",
+      "tags": [
+        "desktop",
+        "screen",
+        "display",
+        "computer"
       ],
       "source": "vhyxara"
     },
@@ -1147,6 +1369,16 @@
         "options",
         "overflow",
         "kebab"
+      ],
+      "source": "vhyxara"
+    },
+    "music": {
+      "category": "media",
+      "tags": [
+        "audio",
+        "song",
+        "note",
+        "sound"
       ],
       "source": "vhyxara"
     },
@@ -1248,6 +1480,16 @@
       ],
       "source": "vhyxara"
     },
+    "percent": {
+      "category": "commerce",
+      "tags": [
+        "discount",
+        "sale",
+        "rate",
+        "ratio"
+      ],
+      "source": "vhyxara"
+    },
     "phone": {
       "category": "communication",
       "tags": [
@@ -1282,6 +1524,16 @@
         "balance": "the triangle centroid sits at x=12 (the optical centre), so the box is shifted right on purpose"
       }
     },
+    "plug": {
+      "category": "development",
+      "tags": [
+        "integration",
+        "connect",
+        "power",
+        "plugin"
+      ],
+      "source": "vhyxara"
+    },
     "plus": {
       "category": "actions",
       "tags": [
@@ -1310,6 +1562,15 @@
       ],
       "source": "vhyxara"
     },
+    "printer": {
+      "category": "devices",
+      "tags": [
+        "print",
+        "paper",
+        "document"
+      ],
+      "source": "vhyxara"
+    },
     "puzzle": {
       "category": "development",
       "tags": [
@@ -1317,6 +1578,16 @@
         "module",
         "part",
         "piece"
+      ],
+      "source": "vhyxara"
+    },
+    "receipt": {
+      "category": "commerce",
+      "tags": [
+        "invoice",
+        "bill",
+        "order",
+        "transaction"
       ],
       "source": "vhyxara"
     },
@@ -1338,6 +1609,16 @@
         "rotate",
         "retry",
         "update"
+      ],
+      "source": "vhyxara"
+    },
+    "repeat": {
+      "category": "media",
+      "tags": [
+        "loop",
+        "again",
+        "cycle",
+        "replay"
       ],
       "source": "vhyxara"
     },
@@ -1449,6 +1730,26 @@
       ],
       "source": "vhyxara"
     },
+    "shield": {
+      "category": "security",
+      "tags": [
+        "protection",
+        "secure",
+        "guard",
+        "safety"
+      ],
+      "source": "vhyxara"
+    },
+    "shield-alert": {
+      "category": "security",
+      "tags": [
+        "warning",
+        "threat",
+        "vulnerability",
+        "risk"
+      ],
+      "source": "vhyxara"
+    },
     "shield-check": {
       "category": "security",
       "tags": [
@@ -1467,6 +1768,35 @@
       ],
       "source": "vhyxara"
     },
+    "shopping-bag": {
+      "category": "commerce",
+      "tags": [
+        "bag",
+        "buy",
+        "purchase",
+        "shop"
+      ],
+      "source": "vhyxara"
+    },
+    "shopping-cart": {
+      "category": "commerce",
+      "tags": [
+        "cart",
+        "basket",
+        "buy",
+        "checkout"
+      ],
+      "source": "vhyxara"
+    },
+    "shuffle": {
+      "category": "media",
+      "tags": [
+        "random",
+        "mix",
+        "crossing"
+      ],
+      "source": "vhyxara"
+    },
     "skip-back": {
       "category": "media",
       "tags": [
@@ -1478,6 +1808,15 @@
       ],
       "source": "vhyxara"
     },
+    "skip-forward": {
+      "category": "media",
+      "tags": [
+        "next",
+        "forward",
+        "track"
+      ],
+      "source": "vhyxara"
+    },
     "sliders": {
       "category": "actions",
       "tags": [
@@ -1486,6 +1825,16 @@
         "controls",
         "preferences",
         "tune"
+      ],
+      "source": "vhyxara"
+    },
+    "smartphone": {
+      "category": "devices",
+      "tags": [
+        "mobile",
+        "phone",
+        "cell",
+        "device"
       ],
       "source": "vhyxara"
     },
@@ -1538,6 +1887,26 @@
       ],
       "source": "vhyxara"
     },
+    "stop": {
+      "category": "media",
+      "tags": [
+        "halt",
+        "end",
+        "square",
+        "record"
+      ],
+      "source": "vhyxara"
+    },
+    "store": {
+      "category": "commerce",
+      "tags": [
+        "shop",
+        "market",
+        "storefront",
+        "business"
+      ],
+      "source": "vhyxara"
+    },
     "sun": {
       "category": "theme",
       "tags": [
@@ -1555,6 +1924,36 @@
         "spreadsheet",
         "data",
         "cells"
+      ],
+      "source": "vhyxara"
+    },
+    "tablet": {
+      "category": "devices",
+      "tags": [
+        "ipad",
+        "device",
+        "screen"
+      ],
+      "source": "vhyxara"
+    },
+    "tag": {
+      "category": "commerce",
+      "tags": [
+        "label",
+        "price",
+        "category",
+        "discount"
+      ],
+      "source": "vhyxara"
+    },
+    "terminal": {
+      "category": "development",
+      "tags": [
+        "console",
+        "shell",
+        "command line",
+        "cli",
+        "prompt"
       ],
       "source": "vhyxara"
     },
@@ -1579,6 +1978,15 @@
         "show",
         "perforated",
         "dashed"
+      ],
+      "source": "vhyxara"
+    },
+    "timer": {
+      "category": "time",
+      "tags": [
+        "stopwatch",
+        "countdown",
+        "duration"
       ],
       "source": "vhyxara"
     },
@@ -1698,6 +2106,36 @@
       ],
       "source": "vhyxara"
     },
+    "volume-2": {
+      "category": "media",
+      "tags": [
+        "sound",
+        "audio",
+        "speaker",
+        "loud"
+      ],
+      "source": "vhyxara"
+    },
+    "volume-x": {
+      "category": "media",
+      "tags": [
+        "mute",
+        "silent",
+        "sound off",
+        "audio"
+      ],
+      "source": "vhyxara"
+    },
+    "wallet": {
+      "category": "commerce",
+      "tags": [
+        "money",
+        "payment",
+        "balance",
+        "funds"
+      ],
+      "source": "vhyxara"
+    },
     "waves": {
       "category": "data",
       "tags": [
@@ -1710,6 +2148,26 @@
         "ocean",
         "swimming",
         "frequency"
+      ],
+      "source": "vhyxara"
+    },
+    "wifi": {
+      "category": "devices",
+      "tags": [
+        "wireless",
+        "internet",
+        "network",
+        "connection",
+        "online"
+      ],
+      "source": "vhyxara"
+    },
+    "wifi-off": {
+      "category": "devices",
+      "tags": [
+        "offline",
+        "disconnected",
+        "no connection"
       ],
       "source": "vhyxara"
     },
