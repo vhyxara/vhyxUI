@@ -17,6 +17,8 @@ export const arrowUpDownNode: IconNode = [["path",{"d":"M8 19V5"}],["path",{"d":
 export const blocksNode: IconNode = [["rect",{"x":"3.5","y":"12.5","width":"8","height":"8","rx":"1.5"}],["rect",{"x":"12.5","y":"12.5","width":"8","height":"8","rx":"1.5"}],["rect",{"x":"8","y":"3.5","width":"8","height":"8","rx":"1.5"}]];
 /** bot — development; robot, ai, chat, assistant */
 export const botNode: IconNode = [["rect",{"x":"4.5","y":"8","width":"15","height":"11","rx":"3"}],["path",{"d":"M12 8V5.5"}],["circle",{"cx":"12","cy":"4","r":"1.25"}],["path",{"d":"M9 12.75v1.5M15 12.75v1.5"}],["path",{"d":"M2.5 12.5v2.5M21.5 12.5v2.5"}]];
+/** braces — development; json, object, curly, code, manifest, data */
+export const bracesNode: IconNode = [["path",{"d":"M9 4.5H8a2 2 0 0 0-2 2V10l-1.5 2L6 14v3.5a2 2 0 0 0 2 2h1"}],["path",{"d":"M15 4.5h1a2 2 0 0 1 2 2V10l1.5 2-1.5 2v3.5a2 2 0 0 1-2 2h-1"}]];
 /** brush — design; clean, sweep, refactor, remove, draw, paint */
 export const brushNode: IconNode = [["path",{"d":"M10 14 17.8 6.2a1.77 1.77 0 0 1 2.5 2.5L12.5 16.5"}],["path",{"d":"M9.75 13.75c-2.75 0-4.75 1.75-4.75 4.25V20h2.25c2.75 0 4.75-1.75 4.75-4.25"}]];
 /** bug — development; issue, error, defect, testing, troubleshoot, problem */
@@ -31,6 +33,10 @@ export const chevronLeftNode: IconNode = [["path",{"d":"M14.75 6.5 9.25 12l5.5 5
 export const chevronRightNode: IconNode = [["path",{"d":"M9.25 6.5 14.75 12l-5.5 5.5"}]];
 /** chevron-up — navigation; caret, keyboard, mac, control, ctrl, superscript */
 export const chevronUpNode: IconNode = [["path",{"d":"M6.5 14.75l5.5-5.5 5.5 5.5"}]];
+/** chevrons-left — navigation; first, start, double, rewind, previous */
+export const chevronsLeftNode: IconNode = [["path",{"d":"M17.75 6.5 12.25 12l5.5 5.5"}],["path",{"d":"M11.75 6.5 6.25 12l5.5 5.5"}]];
+/** chevrons-right — navigation; last, end, double, forward, next */
+export const chevronsRightNode: IconNode = [["path",{"d":"M6.25 6.5 11.75 12l-5.5 5.5"}],["path",{"d":"M12.25 6.5 17.75 12l-5.5 5.5"}]];
 /** circle-alert — status; warning, alert, danger, exclamation mark, circle */
 export const circleAlertNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"M12 7.5v5"}],["path",{"d":"M12 16.25h.01"}]];
 /** circle-check — status; done, todo, tick, complete, task, circle */
@@ -43,14 +49,22 @@ export const circleXNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],[
 export const codeNode: IconNode = [["path",{"d":"m8 7.5-4.5 4.5L8 16.5M16 7.5l4.5 4.5-4.5 4.5"}],["path",{"d":"M13.5 5.5l-3 13"}]];
 /** coins — commerce; money, cash, finance, gamble */
 export const coinsNode: IconNode = [["circle",{"cx":"9.5","cy":"13.5","r":"6.5"}],["path",{"d":"M8.15 7.15a6.5 6.5 0 1 1 7.7 7.7"}],["path",{"d":"M9.5 11v5"}]];
+/** contrast — theme; theme, half, partial, system, appearance, auto */
+export const contrastNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"M12 3a9 9 0 0 1 0 18Z","fill":"currentColor"}]];
 /** copy — actions; clone, duplicate, multiple */
 export const copyNode: IconNode = [["path",{"d":"M15.5 8.5V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7.5a2 2 0 0 0 2 2h2.5"}],["rect",{"x":"8.5","y":"8.5","width":"11.5","height":"11.5","rx":"2"}]];
+/** credit-card — commerce; billing, payment, card, checkout, purchase */
+export const creditCardNode: IconNode = [["rect",{"x":"3","y":"5.5","width":"18","height":"13","rx":"2"}],["path",{"d":"M3 10h18"}],["path",{"d":"M6.5 14.5h3"}]];
 /** external-link — navigation; outbound, open, share, external, link */
 export const externalLinkNode: IconNode = [["path",{"d":"M18.5 13.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7.5a2 2 0 0 1 2-2h4.5"}],["path",{"d":"M14 4h6v6"}],["path",{"d":"M20 4l-8.5 8.5"}]];
 /** eye-off — security; view, watch, see, hide, conceal, mask */
 export const eyeOffNode: IconNode = [["path",{"d":"M3 12s3.5-6.5 9-6.5 9 6.5 9 6.5-3.5 6.5-9 6.5S3 12 3 12Z"}],["circle",{"cx":"12","cy":"12","r":"2.25"}],["path",{"d":"M4 4l16 16"}]];
 /** feather — design; quill, plume, writing, author, literature, poetry */
 export const featherNode: IconNode = [["path",{"d":"M20 4c-7 0-12.5 4.5-12.5 12.5V18H9c8 0 11-7 11-14Z"}],["path",{"d":"M4 20l9.5-9.5"}],["path",{"d":"M10.5 14.5h5"}]];
+/** file-text — files; document, report, page, text, article */
+export const fileTextNode: IconNode = [["path",{"d":"M14 3.5H7a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5Z"}],["path",{"d":"M14 3.5v5h5"}],["path",{"d":"M8.5 9.5h2M8.5 13h7M8.5 16.5h5"}]];
+/** folder — files; directory, project, collection, files */
+export const folderNode: IconNode = [["path",{"d":"M3.5 7a2 2 0 0 1 2-2h4l2 2.5h7a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2Z"}]];
 /** git-branch — development; code, version control, vcs, repository, git, branch */
 export const gitBranchNode: IconNode = [["circle",{"cx":"7","cy":"5.5","r":"2.25"}],["circle",{"cx":"7","cy":"18.5","r":"2.25"}],["circle",{"cx":"17","cy":"7.5","r":"2.25"}],["path",{"d":"M7 7.75v8.5"}],["path",{"d":"M17 9.75c0 3.75-3 5.5-8.5 6.75"}]];
 /** image-play — media; picture, gif, photo, image, play */
@@ -63,6 +77,8 @@ export const infoNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["pa
 export const laptopNode: IconNode = [["rect",{"x":"5","y":"5","width":"14","height":"10","rx":"1.5"}],["path",{"d":"M3 18.5h18"}]];
 /** layers — design; stack, pile, pages, sheets, paperwork, copies */
 export const layersNode: IconNode = [["path",{"d":"M12 3.5 20.5 8 12 12.5 3.5 8Z"}],["path",{"d":"M3.5 12 12 16.5l8.5-4.5"}],["path",{"d":"M3.5 16 12 20.5l8.5-4.5"}]];
+/** layout-dashboard — layout; dashboard, overview, panels, sidebar, grid, home */
+export const layoutDashboardNode: IconNode = [["rect",{"x":"3.5","y":"3.5","width":"17","height":"17","rx":"2"}],["path",{"d":"M10 3.5v17"}],["path",{"d":"M10 12h10.5"}]];
 /** life-buoy — communication; preserver, life belt, lifesaver, help, rescue, ship */
 export const lifeBuoyNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["circle",{"cx":"12","cy":"12","r":"3.75"}],["path",{"d":"M14.65 14.65L18.36 18.36M9.35 14.65L5.64 18.36M9.35 9.35L5.64 5.64M14.65 9.35L18.36 5.64"}]];
 /** loader-circle — status; loading, wait, busy, progress, spinner, spinning */
@@ -91,6 +107,8 @@ export const playNode: IconNode = [["path",{"d":"M8 5.8v12.4a1 1 0 0 0 1.52.85l1
 export const plusNode: IconNode = [["path",{"d":"M12 5.5v13M5.5 12h13"}]];
 /** puzzle — development; component, module, part, piece */
 export const puzzleNode: IconNode = [["path",{"d":"M5 6.5A1.5 1.5 0 0 1 6.5 5H10a2 2 0 1 1 4 0h3.5A1.5 1.5 0 0 1 19 6.5V10a2 2 0 1 1 0 4v3.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 0-4 0H6.5A1.5 1.5 0 0 1 5 17.5V14a2 2 0 1 0 0-4Z"}]];
+/** refresh-cw — actions; reload, refresh, sync, rotate, retry, update */
+export const refreshCwNode: IconNode = [["path",{"d":"M20 12a8 8 0 1 1-2.34-5.66L20 8.5"}],["path",{"d":"M20 4v4.5h-4.5"}]];
 /** rocket — development; release, boost, launch, space, version */
 export const rocketNode: IconNode = [["path",{"d":"M12 2.8c3.5 2.2 5 6 5 9.7L15 17H9l-2-4.5c0-3.7 1.5-7.5 5-9.7Z"}],["circle",{"cx":"12","cy":"9.5","r":"1.75"}],["path",{"d":"M7 12.5 4.5 15v3.5l3.5-2M17 12.5l2.5 2.5v3.5l-3.5-2"}],["path",{"d":"M10 19.5c0 1 .8 1.8 2 1.8s2-.8 2-1.8"}]];
 /** search — actions; find, scan, magnifier, magnifying glass, lens, locate */
