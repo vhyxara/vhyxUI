@@ -29,6 +29,15 @@
       ],
       "source": "vhyxara"
     },
+    "alarm-clock": {
+      "category": "time",
+      "tags": [
+        "alarm",
+        "wake up",
+        "reminder"
+      ],
+      "source": "vhyxara"
+    },
     "align-center": {
       "category": "text",
       "tags": [
@@ -63,6 +72,16 @@
         "text align",
         "right",
         "paragraph"
+      ],
+      "source": "vhyxara"
+    },
+    "aperture": {
+      "category": "media",
+      "tags": [
+        "camera",
+        "lens",
+        "shutter",
+        "photography"
       ],
       "source": "vhyxara"
     },
@@ -285,6 +304,24 @@
       ],
       "source": "vhyxara"
     },
+    "battery-charging": {
+      "category": "devices",
+      "tags": [
+        "charging",
+        "power",
+        "energy"
+      ],
+      "source": "vhyxara"
+    },
+    "battery-low": {
+      "category": "devices",
+      "tags": [
+        "low battery",
+        "power",
+        "warning"
+      ],
+      "source": "vhyxara"
+    },
     "bell": {
       "category": "communication",
       "tags": [
@@ -339,6 +376,15 @@
         "children",
         "learning",
         "squares"
+      ],
+      "source": "vhyxara"
+    },
+    "bluetooth": {
+      "category": "devices",
+      "tags": [
+        "wireless",
+        "connect",
+        "pair"
       ],
       "source": "vhyxara"
     },
@@ -455,12 +501,57 @@
       ],
       "source": "vhyxara"
     },
+    "calendar-check": {
+      "category": "time",
+      "tags": [
+        "event confirmed",
+        "scheduled",
+        "booked"
+      ],
+      "source": "vhyxara"
+    },
+    "calendar-clock": {
+      "category": "time",
+      "tags": [
+        "schedule",
+        "appointment",
+        "reminder"
+      ],
+      "source": "vhyxara"
+    },
+    "calendar-days": {
+      "category": "time",
+      "tags": [
+        "month",
+        "dates",
+        "schedule"
+      ],
+      "source": "vhyxara"
+    },
     "calendar-plus": {
       "category": "time",
       "tags": [
         "add event",
         "schedule",
         "new date"
+      ],
+      "source": "vhyxara"
+    },
+    "calendar-range": {
+      "category": "time",
+      "tags": [
+        "date range",
+        "period",
+        "booking"
+      ],
+      "source": "vhyxara"
+    },
+    "calendar-x": {
+      "category": "time",
+      "tags": [
+        "cancelled",
+        "event removed",
+        "unavailable"
       ],
       "source": "vhyxara"
     },
@@ -471,6 +562,16 @@
         "picture",
         "snapshot",
         "capture"
+      ],
+      "source": "vhyxara"
+    },
+    "cast": {
+      "category": "media",
+      "tags": [
+        "screen share",
+        "stream",
+        "airplay",
+        "broadcast"
       ],
       "source": "vhyxara"
     },
@@ -769,6 +870,15 @@
       ],
       "source": "vhyxara"
     },
+    "circle-pause": {
+      "category": "media",
+      "tags": [
+        "pause",
+        "hold",
+        "stop playback"
+      ],
+      "source": "vhyxara"
+    },
     "circle-play": {
       "category": "media",
       "tags": [
@@ -815,6 +925,16 @@
         "mistake",
         "failure",
         "linter"
+      ],
+      "source": "vhyxara"
+    },
+    "clapperboard": {
+      "category": "media",
+      "tags": [
+        "movie",
+        "scene",
+        "production",
+        "video"
       ],
       "source": "vhyxara"
     },
@@ -1064,6 +1184,16 @@
       ],
       "source": "vhyxara"
     },
+    "disc": {
+      "category": "media",
+      "tags": [
+        "album",
+        "cd",
+        "record",
+        "vinyl"
+      ],
+      "source": "vhyxara"
+    },
     "download": {
       "category": "actions",
       "tags": [
@@ -1120,6 +1250,15 @@
         "vision",
         "eye",
         "off"
+      ],
+      "source": "vhyxara"
+    },
+    "fast-forward": {
+      "category": "media",
+      "tags": [
+        "skip",
+        "forward",
+        "speed"
       ],
       "source": "vhyxara"
     },
@@ -1281,6 +1420,16 @@
       ],
       "source": "vhyxara"
     },
+    "film": {
+      "category": "media",
+      "tags": [
+        "movie",
+        "video",
+        "cinema",
+        "reel"
+      ],
+      "source": "vhyxara"
+    },
     "filter": {
       "category": "actions",
       "tags": [
@@ -1355,6 +1504,16 @@
         "unhappy",
         "face",
         "emotion"
+      ],
+      "source": "vhyxara"
+    },
+    "gamepad": {
+      "category": "devices",
+      "tags": [
+        "game",
+        "controller",
+        "play",
+        "console"
       ],
       "source": "vhyxara"
     },
@@ -1502,6 +1661,16 @@
       ],
       "source": "vhyxara"
     },
+    "headphones": {
+      "category": "media",
+      "tags": [
+        "audio",
+        "listen",
+        "music",
+        "podcast"
+      ],
+      "source": "vhyxara"
+    },
     "heart": {
       "category": "actions",
       "tags": [
@@ -1573,6 +1742,25 @@
         "photo",
         "image",
         "play"
+      ],
+      "source": "vhyxara"
+    },
+    "image-plus": {
+      "category": "media",
+      "tags": [
+        "add image",
+        "upload photo",
+        "new picture"
+      ],
+      "source": "vhyxara"
+    },
+    "images": {
+      "category": "media",
+      "tags": [
+        "gallery",
+        "photos",
+        "album",
+        "collection"
       ],
       "source": "vhyxara"
     },
@@ -2090,6 +2278,15 @@
       ],
       "source": "vhyxara"
     },
+    "mouse": {
+      "category": "devices",
+      "tags": [
+        "click",
+        "pointer device",
+        "computer"
+      ],
+      "source": "vhyxara"
+    },
     "mouse-pointer": {
       "category": "actions",
       "tags": [
@@ -2483,6 +2680,15 @@
       ],
       "source": "vhyxara"
     },
+    "rewind": {
+      "category": "media",
+      "tags": [
+        "back",
+        "previous",
+        "reverse"
+      ],
+      "source": "vhyxara"
+    },
     "rocket": {
       "category": "development",
       "tags": [
@@ -2502,6 +2708,16 @@
         "rotate",
         "refresh",
         "restore"
+      ],
+      "source": "vhyxara"
+    },
+    "router": {
+      "category": "devices",
+      "tags": [
+        "internet",
+        "modem",
+        "network",
+        "wifi"
       ],
       "source": "vhyxara"
     },
@@ -2835,6 +3051,15 @@
       ],
       "source": "vhyxara"
     },
+    "speaker": {
+      "category": "devices",
+      "tags": [
+        "audio",
+        "sound",
+        "music"
+      ],
+      "source": "vhyxara"
+    },
     "square": {
       "category": "actions",
       "tags": [
@@ -2966,6 +3191,24 @@
       ],
       "source": "vhyxara"
     },
+    "sunrise": {
+      "category": "time",
+      "tags": [
+        "morning",
+        "dawn",
+        "day start"
+      ],
+      "source": "vhyxara"
+    },
+    "sunset": {
+      "category": "time",
+      "tags": [
+        "evening",
+        "dusk",
+        "day end"
+      ],
+      "source": "vhyxara"
+    },
     "table": {
       "category": "layout",
       "tags": [
@@ -3069,6 +3312,15 @@
       ],
       "source": "vhyxara"
     },
+    "timer-off": {
+      "category": "time",
+      "tags": [
+        "stopwatch off",
+        "disabled timer",
+        "no limit"
+      ],
+      "source": "vhyxara"
+    },
     "toggle-left": {
       "category": "actions",
       "tags": [
@@ -3147,6 +3399,16 @@
       ],
       "source": "vhyxara"
     },
+    "tv": {
+      "category": "devices",
+      "tags": [
+        "television",
+        "screen",
+        "display",
+        "stream"
+      ],
+      "source": "vhyxara"
+    },
     "type": {
       "category": "design",
       "tags": [
@@ -3191,6 +3453,16 @@
         "import",
         "attach",
         "publish"
+      ],
+      "source": "vhyxara"
+    },
+    "usb": {
+      "category": "devices",
+      "tags": [
+        "port",
+        "cable",
+        "connector",
+        "plug"
       ],
       "source": "vhyxara"
     },
@@ -3297,6 +3569,16 @@
       ],
       "source": "vhyxara"
     },
+    "volume-1": {
+      "category": "media",
+      "tags": [
+        "sound",
+        "quiet",
+        "audio",
+        "low volume"
+      ],
+      "source": "vhyxara"
+    },
     "volume-2": {
       "category": "media",
       "tags": [
@@ -3338,6 +3620,15 @@
       ],
       "source": "vhyxara"
     },
+    "watch": {
+      "category": "devices",
+      "tags": [
+        "smartwatch",
+        "wearable",
+        "time"
+      ],
+      "source": "vhyxara"
+    },
     "waves": {
       "category": "data",
       "tags": [
@@ -3350,6 +3641,15 @@
         "ocean",
         "swimming",
         "frequency"
+      ],
+      "source": "vhyxara"
+    },
+    "webcam": {
+      "category": "devices",
+      "tags": [
+        "camera",
+        "video call",
+        "meeting"
       ],
       "source": "vhyxara"
     },
