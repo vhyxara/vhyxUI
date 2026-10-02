@@ -390,7 +390,7 @@ export const tableNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","heigh
 /** tablet — devices; ipad, device, screen */
 export const tabletNode: IconNode = [["rect",{"x":"4","y":"3","width":"16","height":"18","rx":"2"}],["path",{"d":"M11 18h2"}]];
 /** tag — commerce; label, price, category, discount */
-export const tagNode: IconNode = [["polygon",{"points":"4.67,4.67 11.67,4.04 19.95,12.31 12.31,19.95 4.04,11.67"}],["circle",{"cx":"8.49","cy":"8.49","r":"1"}]];
+export const tagNode: IconNode = [["polygon",{"points":"3,12 8,6 21,6 21,18 8,18"}],["circle",{"cx":"9","cy":"12","r":"1.25"}]];
 /** target — objects; goal, focus, aim, objective */
 export const targetNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["circle",{"cx":"12","cy":"12","r":"5"}],["circle",{"cx":"12","cy":"12","r":"1"}]];
 /** terminal — development; console, shell, command line, cli, prompt */
