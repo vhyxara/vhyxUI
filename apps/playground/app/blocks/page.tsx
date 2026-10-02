@@ -1,6 +1,6 @@
 'use client';
 
-import { AccessibilityIcon, BotIcon, InboxIcon, SettingsIcon, SmileIcon, ZapIcon } from '@vhyxui/icons';
+import { AccessibilityIcon, BotIcon, FileTextIcon, InboxIcon, LayoutDashboardIcon, SettingsIcon, SmileIcon, ZapIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import { Avatar, Button, Grid, HStack, Input, Stack, Text, toast } from '@vhyxui/react';
 import {
@@ -25,9 +25,9 @@ type Template = 'dashboard' | 'auth' | 'marketing' | 'settings' | 'empty';
 
 const nav = [
   { label: 'Workspace', items: [
-    { label: 'Overview', href: '#', active: true, icon: '◧' },
+    { label: 'Overview', href: '#', active: true, icon: <LayoutDashboardIcon /> },
     { label: 'Customers', href: '#customers', icon: <SmileIcon />, badge: 12 },
-    { label: 'Reports', href: '#reports', icon: '▤' },
+    { label: 'Reports', href: '#reports', icon: <FileTextIcon /> },
   ] },
   { label: 'Account', items: [{ label: 'Settings', href: '#settings', icon: <SettingsIcon /> }] },
 ];

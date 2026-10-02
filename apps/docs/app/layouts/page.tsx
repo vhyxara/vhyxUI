@@ -1,6 +1,6 @@
 'use client';
 
-import { SmileIcon } from '@vhyxui/icons';
+import { CreditCardIcon, FolderIcon, LayoutDashboardIcon, SmileIcon } from '@vhyxui/icons';
 import React from 'react';
 import { Avatar, Badge, Grid, Input, Text } from '@vhyxui/react';
 import { AppShell, AuthForm, AuthLayout, DashboardLayout, DocsLayout, Hero, MarketingLayout, StatCard } from '@vhyxui/blocks';
@@ -20,11 +20,11 @@ const HEADINGS: ReadonlyArray<PageHeading> = [
 
 const nav = [
   { label: 'Workspace', items: [
-    { label: 'Overview', href: '#', active: true, icon: '◧' },
-    { label: 'Projects', href: '#projects', icon: '▤', badge: 4 },
+    { label: 'Overview', href: '#', active: true, icon: <LayoutDashboardIcon /> },
+    { label: 'Projects', href: '#projects', icon: <FolderIcon />, badge: 4 },
     { label: 'Team', href: '#team', icon: <SmileIcon /> },
   ] },
-  { label: 'Settings', items: [{ label: 'Billing', href: '#billing', icon: '$' }] },
+  { label: 'Settings', items: [{ label: 'Billing', href: '#billing', icon: <CreditCardIcon /> }] },
 ];
 
 /** Renders a full-page layout inside a scaled frame so it fits in the docs column. */
