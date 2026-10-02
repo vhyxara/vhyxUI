@@ -273,6 +273,16 @@
       ],
       "source": "vhyxara"
     },
+    "badge-percent": {
+      "category": "commerce",
+      "tags": [
+        "discount",
+        "sale",
+        "offer",
+        "deal"
+      ],
+      "source": "vhyxara"
+    },
     "ban": {
       "category": "status",
       "tags": [
@@ -291,6 +301,16 @@
         "cash",
         "payment",
         "bill"
+      ],
+      "source": "vhyxara"
+    },
+    "barcode": {
+      "category": "commerce",
+      "tags": [
+        "scan",
+        "product",
+        "inventory",
+        "sku"
       ],
       "source": "vhyxara"
     },
@@ -358,6 +378,15 @@
         "ringing",
         "alert",
         "alarm"
+      ],
+      "source": "vhyxara"
+    },
+    "bike": {
+      "category": "transport",
+      "tags": [
+        "bicycle",
+        "cycling",
+        "ride"
       ],
       "source": "vhyxara"
     },
@@ -470,6 +499,16 @@
       ],
       "source": "vhyxara"
     },
+    "briefcase": {
+      "category": "objects",
+      "tags": [
+        "work",
+        "job",
+        "business",
+        "portfolio"
+      ],
+      "source": "vhyxara"
+    },
     "brush": {
       "category": "design",
       "tags": [
@@ -517,6 +556,25 @@
         "company",
         "organisation",
         "business"
+      ],
+      "source": "vhyxara"
+    },
+    "bus": {
+      "category": "transport",
+      "tags": [
+        "transit",
+        "public transport",
+        "coach"
+      ],
+      "source": "vhyxara"
+    },
+    "calculator": {
+      "category": "commerce",
+      "tags": [
+        "math",
+        "calculate",
+        "finance",
+        "numbers"
       ],
       "source": "vhyxara"
     },
@@ -591,6 +649,16 @@
         "picture",
         "snapshot",
         "capture"
+      ],
+      "source": "vhyxara"
+    },
+    "car": {
+      "category": "transport",
+      "tags": [
+        "vehicle",
+        "drive",
+        "auto",
+        "ride"
       ],
       "source": "vhyxara"
     },
@@ -1016,12 +1084,49 @@
       ],
       "source": "vhyxara"
     },
+    "cloud-lightning": {
+      "category": "weather",
+      "tags": [
+        "storm",
+        "thunder",
+        "weather"
+      ],
+      "source": "vhyxara"
+    },
     "cloud-off": {
       "category": "data",
       "tags": [
         "offline",
         "disconnected",
         "no sync"
+      ],
+      "source": "vhyxara"
+    },
+    "cloud-rain": {
+      "category": "weather",
+      "tags": [
+        "rain",
+        "weather",
+        "storm",
+        "shower"
+      ],
+      "source": "vhyxara"
+    },
+    "cloud-snow": {
+      "category": "weather",
+      "tags": [
+        "snow",
+        "winter",
+        "weather"
+      ],
+      "source": "vhyxara"
+    },
+    "cloud-sun": {
+      "category": "weather",
+      "tags": [
+        "partly cloudy",
+        "weather",
+        "forecast"
       ],
       "source": "vhyxara"
     },
@@ -1041,6 +1146,16 @@
         "programming",
         "html",
         "xml"
+      ],
+      "source": "vhyxara"
+    },
+    "coffee": {
+      "category": "objects",
+      "tags": [
+        "cafe",
+        "break",
+        "drink",
+        "cup"
       ],
       "source": "vhyxara"
     },
@@ -1253,6 +1368,16 @@
       ],
       "source": "vhyxara"
     },
+    "droplet": {
+      "category": "weather",
+      "tags": [
+        "water",
+        "humidity",
+        "liquid",
+        "rain"
+      ],
+      "source": "vhyxara"
+    },
     "eraser": {
       "category": "actions",
       "tags": [
@@ -1299,6 +1424,16 @@
         "vision",
         "eye",
         "off"
+      ],
+      "source": "vhyxara"
+    },
+    "factory": {
+      "category": "places",
+      "tags": [
+        "industry",
+        "manufacturing",
+        "plant",
+        "production"
       ],
       "source": "vhyxara"
     },
@@ -1508,6 +1643,16 @@
       ],
       "source": "vhyxara"
     },
+    "flame": {
+      "category": "nature",
+      "tags": [
+        "fire",
+        "hot",
+        "trending",
+        "burn"
+      ],
+      "source": "vhyxara"
+    },
     "flask-conical": {
       "category": "development",
       "tags": [
@@ -1515,6 +1660,16 @@
         "lab",
         "science",
         "beta"
+      ],
+      "source": "vhyxara"
+    },
+    "flower": {
+      "category": "nature",
+      "tags": [
+        "bloom",
+        "spring",
+        "garden",
+        "plant"
       ],
       "source": "vhyxara"
     },
@@ -1583,6 +1738,16 @@
         "performance",
         "meter",
         "dashboard"
+      ],
+      "source": "vhyxara"
+    },
+    "gem": {
+      "category": "objects",
+      "tags": [
+        "diamond",
+        "premium",
+        "value",
+        "jewel"
       ],
       "source": "vhyxara"
     },
@@ -1799,6 +1964,16 @@
       ],
       "source": "vhyxara"
     },
+    "hospital": {
+      "category": "places",
+      "tags": [
+        "health",
+        "clinic",
+        "medical",
+        "emergency"
+      ],
+      "source": "vhyxara"
+    },
     "hourglass": {
       "category": "status",
       "tags": [
@@ -1877,6 +2052,16 @@
       ],
       "source": "vhyxara"
     },
+    "infinity": {
+      "category": "objects",
+      "tags": [
+        "unlimited",
+        "loop",
+        "forever",
+        "endless"
+      ],
+      "source": "vhyxara"
+    },
     "info": {
       "category": "status",
       "tags": [
@@ -1943,6 +2128,16 @@
         "input",
         "keys",
         "shortcut"
+      ],
+      "source": "vhyxara"
+    },
+    "landmark": {
+      "category": "commerce",
+      "tags": [
+        "bank",
+        "government",
+        "institution",
+        "museum"
       ],
       "source": "vhyxara"
     },
@@ -2017,6 +2212,16 @@
         "template",
         "page",
         "wireframe"
+      ],
+      "source": "vhyxara"
+    },
+    "leaf": {
+      "category": "nature",
+      "tags": [
+        "eco",
+        "green",
+        "plant",
+        "sustainability"
       ],
       "source": "vhyxara"
     },
@@ -2395,6 +2600,16 @@
       ],
       "source": "vhyxara"
     },
+    "mountain": {
+      "category": "places",
+      "tags": [
+        "nature",
+        "hiking",
+        "peak",
+        "landscape"
+      ],
+      "source": "vhyxara"
+    },
     "mouse": {
       "category": "devices",
       "tags": [
@@ -2497,6 +2712,15 @@
         "archive",
         "zip",
         "module"
+      ],
+      "source": "vhyxara"
+    },
+    "package-check": {
+      "category": "commerce",
+      "tags": [
+        "delivered",
+        "shipped",
+        "order complete"
       ],
       "source": "vhyxara"
     },
@@ -2668,6 +2892,16 @@
       ],
       "source": "vhyxara"
     },
+    "piggy-bank": {
+      "category": "commerce",
+      "tags": [
+        "savings",
+        "money",
+        "budget",
+        "deposit"
+      ],
+      "source": "vhyxara"
+    },
     "pilcrow": {
       "category": "text",
       "tags": [
@@ -2694,6 +2928,16 @@
         "color picker",
         "sample",
         "colour"
+      ],
+      "source": "vhyxara"
+    },
+    "plane": {
+      "category": "transport",
+      "tags": [
+        "flight",
+        "travel",
+        "airport",
+        "trip"
       ],
       "source": "vhyxara"
     },
@@ -2765,6 +3009,16 @@
         "module",
         "part",
         "piece"
+      ],
+      "source": "vhyxara"
+    },
+    "qr-code": {
+      "category": "commerce",
+      "tags": [
+        "scan",
+        "code",
+        "link",
+        "pay"
       ],
       "source": "vhyxara"
     },
@@ -2944,6 +3198,16 @@
         "biometric",
         "recognition",
         "unlock"
+      ],
+      "source": "vhyxara"
+    },
+    "school": {
+      "category": "places",
+      "tags": [
+        "education",
+        "academy",
+        "campus",
+        "university"
       ],
       "source": "vhyxara"
     },
@@ -3235,6 +3499,16 @@
       ],
       "source": "vhyxara"
     },
+    "snowflake": {
+      "category": "weather",
+      "tags": [
+        "winter",
+        "cold",
+        "freeze",
+        "snow"
+      ],
+      "source": "vhyxara"
+    },
     "sort-asc": {
       "category": "navigation",
       "tags": [
@@ -3511,6 +3785,16 @@
       ],
       "source": "vhyxara"
     },
+    "tent": {
+      "category": "places",
+      "tags": [
+        "camping",
+        "outdoor",
+        "travel",
+        "adventure"
+      ],
+      "source": "vhyxara"
+    },
     "terminal": {
       "category": "development",
       "tags": [
@@ -3539,6 +3823,16 @@
         "input",
         "type",
         "i-beam"
+      ],
+      "source": "vhyxara"
+    },
+    "thermometer": {
+      "category": "weather",
+      "tags": [
+        "temperature",
+        "heat",
+        "weather",
+        "fever"
       ],
       "source": "vhyxara"
     },
@@ -3614,6 +3908,16 @@
       ],
       "source": "vhyxara"
     },
+    "train": {
+      "category": "transport",
+      "tags": [
+        "rail",
+        "metro",
+        "subway",
+        "transit"
+      ],
+      "source": "vhyxara"
+    },
     "trash": {
       "category": "actions",
       "tags": [
@@ -3629,6 +3933,16 @@
         "waste",
         "recycle",
         "discard"
+      ],
+      "source": "vhyxara"
+    },
+    "tree": {
+      "category": "nature",
+      "tags": [
+        "nature",
+        "forest",
+        "park",
+        "green"
       ],
       "source": "vhyxara"
     },
@@ -3669,6 +3983,16 @@
         "win",
         "achievement",
         "prize"
+      ],
+      "source": "vhyxara"
+    },
+    "truck": {
+      "category": "transport",
+      "tags": [
+        "delivery",
+        "shipping",
+        "logistics",
+        "transport"
       ],
       "source": "vhyxara"
     },
@@ -3913,6 +4237,16 @@
       ],
       "source": "vhyxara"
     },
+    "warehouse": {
+      "category": "places",
+      "tags": [
+        "storage",
+        "depot",
+        "inventory",
+        "logistics"
+      ],
+      "source": "vhyxara"
+    },
     "watch": {
       "category": "devices",
       "tags": [
@@ -3973,6 +4307,16 @@
         "offline",
         "disconnected",
         "no connection"
+      ],
+      "source": "vhyxara"
+    },
+    "wind": {
+      "category": "weather",
+      "tags": [
+        "breeze",
+        "air",
+        "weather",
+        "blow"
       ],
       "source": "vhyxara"
     },
