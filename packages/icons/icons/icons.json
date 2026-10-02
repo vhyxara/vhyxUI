@@ -39,6 +39,15 @@
       ],
       "source": "vhyxara"
     },
+    "align-justify": {
+      "category": "text",
+      "tags": [
+        "justify",
+        "paragraph",
+        "text align"
+      ],
+      "source": "vhyxara"
+    },
     "align-left": {
       "category": "text",
       "tags": [
@@ -465,6 +474,15 @@
       ],
       "source": "vhyxara"
     },
+    "chart-area": {
+      "category": "data",
+      "tags": [
+        "analytics",
+        "volume",
+        "graph"
+      ],
+      "source": "vhyxara"
+    },
     "chart-bar": {
       "category": "data",
       "tags": [
@@ -472,6 +490,25 @@
         "statistics",
         "graph",
         "report"
+      ],
+      "source": "vhyxara"
+    },
+    "chart-candlestick": {
+      "category": "data",
+      "tags": [
+        "stocks",
+        "trading",
+        "finance",
+        "market"
+      ],
+      "source": "vhyxara"
+    },
+    "chart-donut": {
+      "category": "data",
+      "tags": [
+        "ring chart",
+        "proportion",
+        "share"
       ],
       "source": "vhyxara"
     },
@@ -492,6 +529,15 @@
         "share",
         "proportion",
         "segment"
+      ],
+      "source": "vhyxara"
+    },
+    "chart-scatter": {
+      "category": "data",
+      "tags": [
+        "correlation",
+        "points",
+        "distribution"
       ],
       "source": "vhyxara"
     },
@@ -812,6 +858,33 @@
       ],
       "source": "vhyxara"
     },
+    "cloud-download": {
+      "category": "data",
+      "tags": [
+        "download",
+        "restore",
+        "sync"
+      ],
+      "source": "vhyxara"
+    },
+    "cloud-off": {
+      "category": "data",
+      "tags": [
+        "offline",
+        "disconnected",
+        "no sync"
+      ],
+      "source": "vhyxara"
+    },
+    "cloud-upload": {
+      "category": "data",
+      "tags": [
+        "upload",
+        "backup",
+        "sync"
+      ],
+      "source": "vhyxara"
+    },
     "code": {
       "category": "development",
       "tags": [
@@ -839,6 +912,15 @@
         "split",
         "compare",
         "side by side"
+      ],
+      "source": "vhyxara"
+    },
+    "columns-3": {
+      "category": "layout",
+      "tags": [
+        "three columns",
+        "split",
+        "grid"
       ],
       "source": "vhyxara"
     },
@@ -1067,6 +1149,15 @@
       ],
       "source": "vhyxara"
     },
+    "file-check": {
+      "category": "files",
+      "tags": [
+        "approved",
+        "verified document",
+        "done"
+      ],
+      "source": "vhyxara"
+    },
     "file-code": {
       "category": "files",
       "tags": [
@@ -1074,6 +1165,15 @@
         "script",
         "program",
         "developer"
+      ],
+      "source": "vhyxara"
+    },
+    "file-down": {
+      "category": "files",
+      "tags": [
+        "download file",
+        "export",
+        "save"
       ],
       "source": "vhyxara"
     },
@@ -1087,12 +1187,49 @@
       ],
       "source": "vhyxara"
     },
+    "file-lock": {
+      "category": "files",
+      "tags": [
+        "protected",
+        "private document",
+        "secure"
+      ],
+      "source": "vhyxara"
+    },
+    "file-minus": {
+      "category": "files",
+      "tags": [
+        "remove",
+        "delete",
+        "subtract"
+      ],
+      "source": "vhyxara"
+    },
     "file-plus": {
       "category": "files",
       "tags": [
         "new document",
         "add file",
         "create"
+      ],
+      "source": "vhyxara"
+    },
+    "file-search": {
+      "category": "files",
+      "tags": [
+        "find document",
+        "lookup",
+        "search file"
+      ],
+      "source": "vhyxara"
+    },
+    "file-spreadsheet": {
+      "category": "files",
+      "tags": [
+        "sheet",
+        "excel",
+        "csv",
+        "table"
       ],
       "source": "vhyxara"
     },
@@ -1104,6 +1241,33 @@
         "page",
         "text",
         "article"
+      ],
+      "source": "vhyxara"
+    },
+    "file-up": {
+      "category": "files",
+      "tags": [
+        "upload file",
+        "import",
+        "attach"
+      ],
+      "source": "vhyxara"
+    },
+    "file-video": {
+      "category": "files",
+      "tags": [
+        "movie",
+        "clip",
+        "media file"
+      ],
+      "source": "vhyxara"
+    },
+    "file-x": {
+      "category": "files",
+      "tags": [
+        "delete file",
+        "remove document",
+        "invalid"
       ],
       "source": "vhyxara"
     },
@@ -1153,6 +1317,15 @@
         "project",
         "collection",
         "files"
+      ],
+      "source": "vhyxara"
+    },
+    "folder-check": {
+      "category": "files",
+      "tags": [
+        "done",
+        "synced",
+        "approved folder"
       ],
       "source": "vhyxara"
     },
@@ -1319,6 +1492,16 @@
       ],
       "source": "vhyxara"
     },
+    "heading": {
+      "category": "text",
+      "tags": [
+        "title",
+        "h1",
+        "header",
+        "format"
+      ],
+      "source": "vhyxara"
+    },
     "heart": {
       "category": "actions",
       "tags": [
@@ -1397,6 +1580,15 @@
       "category": "communication",
       "tags": [
         "email"
+      ],
+      "source": "vhyxara"
+    },
+    "indent": {
+      "category": "text",
+      "tags": [
+        "increase indent",
+        "tab",
+        "nest"
       ],
       "source": "vhyxara"
     },
@@ -1524,6 +1716,15 @@
       ],
       "source": "vhyxara"
     },
+    "layout-template": {
+      "category": "layout",
+      "tags": [
+        "template",
+        "page",
+        "wireframe"
+      ],
+      "source": "vhyxara"
+    },
     "life-buoy": {
       "category": "communication",
       "tags": [
@@ -1579,6 +1780,25 @@
         "ordered",
         "steps",
         "sequence"
+      ],
+      "source": "vhyxara"
+    },
+    "list-todo": {
+      "category": "text",
+      "tags": [
+        "checklist",
+        "tasks",
+        "todo"
+      ],
+      "source": "vhyxara"
+    },
+    "list-tree": {
+      "category": "layout",
+      "tags": [
+        "hierarchy",
+        "outline",
+        "nested",
+        "structure"
       ],
       "source": "vhyxara"
     },
@@ -1910,6 +2130,16 @@
       ],
       "source": "vhyxara"
     },
+    "network": {
+      "category": "data",
+      "tags": [
+        "nodes",
+        "topology",
+        "connections",
+        "graph"
+      ],
+      "source": "vhyxara"
+    },
     "octagon-alert": {
       "category": "status",
       "tags": [
@@ -1928,6 +2158,14 @@
         "danger",
         "halt",
         "denied"
+      ],
+      "source": "vhyxara"
+    },
+    "outdent": {
+      "category": "text",
+      "tags": [
+        "decrease indent",
+        "unnest"
       ],
       "source": "vhyxara"
     },
@@ -1989,6 +2227,15 @@
         "inspector",
         "details",
         "drawer"
+      ],
+      "source": "vhyxara"
+    },
+    "panel-top": {
+      "category": "layout",
+      "tags": [
+        "header",
+        "toolbar",
+        "top bar"
       ],
       "source": "vhyxara"
     },
@@ -2083,6 +2330,15 @@
         "hang up",
         "end call",
         "decline"
+      ],
+      "source": "vhyxara"
+    },
+    "pilcrow": {
+      "category": "text",
+      "tags": [
+        "paragraph",
+        "format",
+        "text"
       ],
       "source": "vhyxara"
     },
@@ -2259,6 +2515,15 @@
       ],
       "source": "vhyxara"
     },
+    "rows-3": {
+      "category": "layout",
+      "tags": [
+        "three rows",
+        "stack",
+        "list"
+      ],
+      "source": "vhyxara"
+    },
     "rss": {
       "category": "communication",
       "tags": [
@@ -2286,6 +2551,16 @@
         "floppy",
         "store",
         "keep"
+      ],
+      "source": "vhyxara"
+    },
+    "scan": {
+      "category": "layout",
+      "tags": [
+        "capture",
+        "frame",
+        "focus",
+        "viewfinder"
       ],
       "source": "vhyxara"
     },
@@ -2441,6 +2716,16 @@
       ],
       "source": "vhyxara"
     },
+    "sigma": {
+      "category": "data",
+      "tags": [
+        "sum",
+        "total",
+        "math",
+        "formula"
+      ],
+      "source": "vhyxara"
+    },
     "signal": {
       "category": "status",
       "tags": [
@@ -2567,6 +2852,16 @@
         "checked",
         "done",
         "task"
+      ],
+      "source": "vhyxara"
+    },
+    "square-dashed": {
+      "category": "layout",
+      "tags": [
+        "selection",
+        "marquee",
+        "placeholder",
+        "area"
       ],
       "source": "vhyxara"
     },
@@ -2718,6 +3013,16 @@
         "command line",
         "cli",
         "prompt"
+      ],
+      "source": "vhyxara"
+    },
+    "text-cursor": {
+      "category": "text",
+      "tags": [
+        "caret",
+        "input",
+        "type",
+        "i-beam"
       ],
       "source": "vhyxara"
     },
@@ -3079,6 +3384,15 @@
         "network",
         "node",
         "connection"
+      ],
+      "source": "vhyxara"
+    },
+    "wrap-text": {
+      "category": "text",
+      "tags": [
+        "wrap",
+        "line break",
+        "format"
       ],
       "source": "vhyxara"
     },
