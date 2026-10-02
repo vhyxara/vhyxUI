@@ -361,6 +361,26 @@
       ],
       "source": "vhyxara"
     },
+    "binary": {
+      "category": "development",
+      "tags": [
+        "bits",
+        "code",
+        "data",
+        "zeros and ones"
+      ],
+      "source": "vhyxara"
+    },
+    "blend": {
+      "category": "design",
+      "tags": [
+        "mix",
+        "overlay",
+        "opacity",
+        "merge"
+      ],
+      "source": "vhyxara"
+    },
     "blocks": {
       "category": "development",
       "tags": [
@@ -478,6 +498,15 @@
         "code",
         "insect",
         "beetle"
+      ],
+      "source": "vhyxara"
+    },
+    "bug-off": {
+      "category": "development",
+      "tags": [
+        "fixed",
+        "no bugs",
+        "resolved"
       ],
       "source": "vhyxara"
     },
@@ -1065,12 +1094,32 @@
       ],
       "source": "vhyxara"
     },
+    "component": {
+      "category": "design",
+      "tags": [
+        "component",
+        "module",
+        "design system",
+        "symbol"
+      ],
+      "source": "vhyxara"
+    },
     "contact": {
       "category": "people",
       "tags": [
         "address book",
         "contacts",
         "directory"
+      ],
+      "source": "vhyxara"
+    },
+    "container": {
+      "category": "development",
+      "tags": [
+        "docker",
+        "shipping",
+        "deploy",
+        "box"
       ],
       "source": "vhyxara"
     },
@@ -1459,6 +1508,16 @@
       ],
       "source": "vhyxara"
     },
+    "flask-conical": {
+      "category": "development",
+      "tags": [
+        "experiment",
+        "lab",
+        "science",
+        "beta"
+      ],
+      "source": "vhyxara"
+    },
     "folder": {
       "category": "files",
       "tags": [
@@ -1559,6 +1618,24 @@
       ],
       "source": "vhyxara"
     },
+    "git-compare": {
+      "category": "development",
+      "tags": [
+        "diff",
+        "compare",
+        "changes"
+      ],
+      "source": "vhyxara"
+    },
+    "git-fork": {
+      "category": "development",
+      "tags": [
+        "fork",
+        "branch",
+        "copy repository"
+      ],
+      "source": "vhyxara"
+    },
     "git-merge": {
       "category": "development",
       "tags": [
@@ -1598,6 +1675,16 @@
         "learn",
         "academy",
         "course"
+      ],
+      "source": "vhyxara"
+    },
+    "grid-3x3": {
+      "category": "design",
+      "tags": [
+        "grid",
+        "guides",
+        "layout",
+        "matrix"
       ],
       "source": "vhyxara"
     },
@@ -1678,6 +1765,16 @@
         "love",
         "favourite",
         "health"
+      ],
+      "source": "vhyxara"
+    },
+    "highlighter": {
+      "category": "design",
+      "tags": [
+        "highlight",
+        "marker",
+        "emphasis",
+        "annotate"
       ],
       "source": "vhyxara"
     },
@@ -1826,6 +1923,16 @@
         "credentials",
         "login",
         "api key"
+      ],
+      "source": "vhyxara"
+    },
+    "key-round": {
+      "category": "security",
+      "tags": [
+        "password",
+        "access",
+        "passkey",
+        "credentials"
       ],
       "source": "vhyxara"
     },
@@ -2032,6 +2139,16 @@
         "password",
         "secure",
         "admin"
+      ],
+      "source": "vhyxara"
+    },
+    "lock-keyhole": {
+      "category": "security",
+      "tags": [
+        "locked",
+        "secure",
+        "private",
+        "vault"
       ],
       "source": "vhyxara"
     },
@@ -2383,6 +2500,16 @@
       ],
       "source": "vhyxara"
     },
+    "paint-bucket": {
+      "category": "design",
+      "tags": [
+        "fill",
+        "color",
+        "paint",
+        "bucket"
+      ],
+      "source": "vhyxara"
+    },
     "palette": {
       "category": "design",
       "tags": [
@@ -2469,6 +2596,17 @@
         "felt tip",
         "stationery",
         "artist"
+      ],
+      "source": "vhyxara"
+    },
+    "pen-tool": {
+      "category": "design",
+      "tags": [
+        "vector",
+        "bezier",
+        "path",
+        "draw",
+        "nib"
       ],
       "source": "vhyxara"
     },
@@ -2670,6 +2808,16 @@
       ],
       "source": "vhyxara"
     },
+    "regex": {
+      "category": "development",
+      "tags": [
+        "pattern",
+        "search",
+        "expression",
+        "match"
+      ],
+      "source": "vhyxara"
+    },
     "repeat": {
       "category": "media",
       "tags": [
@@ -2770,6 +2918,15 @@
       ],
       "source": "vhyxara"
     },
+    "scaling": {
+      "category": "design",
+      "tags": [
+        "resize",
+        "scale",
+        "transform"
+      ],
+      "source": "vhyxara"
+    },
     "scan": {
       "category": "layout",
       "tags": [
@@ -2777,6 +2934,16 @@
         "frame",
         "focus",
         "viewfinder"
+      ],
+      "source": "vhyxara"
+    },
+    "scan-face": {
+      "category": "security",
+      "tags": [
+        "face id",
+        "biometric",
+        "recognition",
+        "unlock"
       ],
       "source": "vhyxara"
     },
@@ -2845,6 +3012,16 @@
       ],
       "source": "vhyxara"
     },
+    "shapes": {
+      "category": "design",
+      "tags": [
+        "shapes",
+        "geometry",
+        "elements",
+        "objects"
+      ],
+      "source": "vhyxara"
+    },
     "share": {
       "category": "actions",
       "tags": [
@@ -2903,6 +3080,34 @@
       ],
       "source": "vhyxara"
     },
+    "shield-off": {
+      "category": "security",
+      "tags": [
+        "unprotected",
+        "disabled security",
+        "insecure"
+      ],
+      "source": "vhyxara"
+    },
+    "shield-question": {
+      "category": "security",
+      "tags": [
+        "unknown",
+        "unverified",
+        "help security"
+      ],
+      "source": "vhyxara"
+    },
+    "shield-x": {
+      "category": "security",
+      "tags": [
+        "blocked",
+        "unsafe",
+        "threat",
+        "denied"
+      ],
+      "source": "vhyxara"
+    },
     "shopping-bag": {
       "category": "commerce",
       "tags": [
@@ -2950,6 +3155,16 @@
         "bars",
         "reception",
         "level"
+      ],
+      "source": "vhyxara"
+    },
+    "siren": {
+      "category": "security",
+      "tags": [
+        "alarm",
+        "emergency",
+        "alert",
+        "police"
       ],
       "source": "vhyxara"
     },
@@ -3060,6 +3275,15 @@
       ],
       "source": "vhyxara"
     },
+    "spline": {
+      "category": "design",
+      "tags": [
+        "curve",
+        "bezier",
+        "path"
+      ],
+      "source": "vhyxara"
+    },
     "square": {
       "category": "actions",
       "tags": [
@@ -3087,6 +3311,16 @@
         "marquee",
         "placeholder",
         "area"
+      ],
+      "source": "vhyxara"
+    },
+    "square-function": {
+      "category": "development",
+      "tags": [
+        "function",
+        "formula",
+        "fx",
+        "method"
       ],
       "source": "vhyxara"
     },
@@ -3119,6 +3353,15 @@
       ],
       "source": "vhyxara"
     },
+    "square-terminal": {
+      "category": "development",
+      "tags": [
+        "console",
+        "shell",
+        "command line"
+      ],
+      "source": "vhyxara"
+    },
     "square-x": {
       "category": "status",
       "tags": [
@@ -3148,6 +3391,16 @@
         "heart",
         "lungs",
         "sound"
+      ],
+      "source": "vhyxara"
+    },
+    "sticker": {
+      "category": "design",
+      "tags": [
+        "sticker",
+        "emoji",
+        "label",
+        "reaction"
       ],
       "source": "vhyxara"
     },
@@ -3209,6 +3462,16 @@
       ],
       "source": "vhyxara"
     },
+    "swatch-book": {
+      "category": "design",
+      "tags": [
+        "colors",
+        "palette",
+        "swatches",
+        "theme"
+      ],
+      "source": "vhyxara"
+    },
     "table": {
       "category": "layout",
       "tags": [
@@ -3256,6 +3519,16 @@
         "command line",
         "cli",
         "prompt"
+      ],
+      "source": "vhyxara"
+    },
+    "test-tube": {
+      "category": "development",
+      "tags": [
+        "test",
+        "lab",
+        "sample",
+        "experiment"
       ],
       "source": "vhyxara"
     },
@@ -3541,6 +3814,26 @@
       ],
       "source": "vhyxara"
     },
+    "variable": {
+      "category": "development",
+      "tags": [
+        "x",
+        "math",
+        "formula",
+        "parameter"
+      ],
+      "source": "vhyxara"
+    },
+    "vault": {
+      "category": "security",
+      "tags": [
+        "safe",
+        "bank",
+        "secure storage",
+        "locker"
+      ],
+      "source": "vhyxara"
+    },
     "video": {
       "category": "communication",
       "tags": [
@@ -3650,6 +3943,16 @@
         "camera",
         "video call",
         "meeting"
+      ],
+      "source": "vhyxara"
+    },
+    "webhook": {
+      "category": "development",
+      "tags": [
+        "hook",
+        "callback",
+        "integration",
+        "event"
       ],
       "source": "vhyxara"
     },
