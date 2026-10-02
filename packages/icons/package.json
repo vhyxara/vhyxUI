@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/icons",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "SVG icons for VhyxUI: React components, framework-free SVG strings, a <vhyx-icon> web component and a sprite — token-driven sizes, built-in motion, zero runtime dependencies",
   "keywords": [
     "vhyxui",

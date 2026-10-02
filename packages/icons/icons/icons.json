@@ -111,6 +111,18 @@
       ],
       "source": "vhyxara"
     },
+    "braces": {
+      "category": "development",
+      "tags": [
+        "json",
+        "object",
+        "curly",
+        "code",
+        "manifest",
+        "data"
+      ],
+      "source": "vhyxara"
+    },
     "brush": {
       "category": "design",
       "tags": [
@@ -215,6 +227,28 @@
       ],
       "source": "vhyxara"
     },
+    "chevrons-left": {
+      "category": "navigation",
+      "tags": [
+        "first",
+        "start",
+        "double",
+        "rewind",
+        "previous"
+      ],
+      "source": "vhyxara"
+    },
+    "chevrons-right": {
+      "category": "navigation",
+      "tags": [
+        "last",
+        "end",
+        "double",
+        "forward",
+        "next"
+      ],
+      "source": "vhyxara"
+    },
     "circle-alert": {
       "category": "status",
       "tags": [
@@ -288,12 +322,35 @@
       ],
       "source": "vhyxara"
     },
+    "contrast": {
+      "category": "theme",
+      "tags": [
+        "theme",
+        "half",
+        "partial",
+        "system",
+        "appearance",
+        "auto"
+      ],
+      "source": "vhyxara"
+    },
     "copy": {
       "category": "actions",
       "tags": [
         "clone",
         "duplicate",
         "multiple"
+      ],
+      "source": "vhyxara"
+    },
+    "credit-card": {
+      "category": "commerce",
+      "tags": [
+        "billing",
+        "payment",
+        "card",
+        "checkout",
+        "purchase"
       ],
       "source": "vhyxara"
     },
@@ -339,6 +396,27 @@
         "plumage",
         "lightweight",
         "soft"
+      ],
+      "source": "vhyxara"
+    },
+    "file-text": {
+      "category": "files",
+      "tags": [
+        "document",
+        "report",
+        "page",
+        "text",
+        "article"
+      ],
+      "source": "vhyxara"
+    },
+    "folder": {
+      "category": "files",
+      "tags": [
+        "directory",
+        "project",
+        "collection",
+        "files"
       ],
       "source": "vhyxara"
     },
@@ -409,6 +487,18 @@
         "paperwork",
         "copies",
         "copy"
+      ],
+      "source": "vhyxara"
+    },
+    "layout-dashboard": {
+      "category": "layout",
+      "tags": [
+        "dashboard",
+        "overview",
+        "panels",
+        "sidebar",
+        "grid",
+        "home"
       ],
       "source": "vhyxara"
     },
@@ -594,6 +684,18 @@
         "module",
         "part",
         "piece"
+      ],
+      "source": "vhyxara"
+    },
+    "refresh-cw": {
+      "category": "actions",
+      "tags": [
+        "reload",
+        "refresh",
+        "sync",
+        "rotate",
+        "retry",
+        "update"
       ],
       "source": "vhyxara"
     },
