@@ -89,6 +89,34 @@
       ],
       "source": "vhyxara"
     },
+    "arrow-down-left": {
+      "category": "navigation",
+      "tags": [
+        "diagonal",
+        "south west",
+        "inbound"
+      ],
+      "source": "vhyxara"
+    },
+    "arrow-down-right": {
+      "category": "navigation",
+      "tags": [
+        "diagonal",
+        "south east",
+        "expand"
+      ],
+      "source": "vhyxara"
+    },
+    "arrow-down-to-line": {
+      "category": "navigation",
+      "tags": [
+        "download",
+        "bottom",
+        "end",
+        "save"
+      ],
+      "source": "vhyxara"
+    },
     "arrow-left": {
       "category": "navigation",
       "tags": [
@@ -147,6 +175,25 @@
         "reorder",
         "move",
         "arrow"
+      ],
+      "source": "vhyxara"
+    },
+    "arrow-up-from-line": {
+      "category": "navigation",
+      "tags": [
+        "upload",
+        "top",
+        "raise",
+        "publish"
+      ],
+      "source": "vhyxara"
+    },
+    "arrow-up-left": {
+      "category": "navigation",
+      "tags": [
+        "diagonal",
+        "north west",
+        "back"
       ],
       "source": "vhyxara"
     },
@@ -277,6 +324,15 @@
         "favourite",
         "read later",
         "tag"
+      ],
+      "source": "vhyxara"
+    },
+    "bookmark-plus": {
+      "category": "actions",
+      "tags": [
+        "save",
+        "add bookmark",
+        "read later"
       ],
       "source": "vhyxara"
     },
@@ -413,6 +469,16 @@
       ],
       "source": "vhyxara"
     },
+    "check-check": {
+      "category": "actions",
+      "tags": [
+        "read",
+        "seen",
+        "all done",
+        "double check"
+      ],
+      "source": "vhyxara"
+    },
     "chevron-down": {
       "category": "navigation",
       "tags": [
@@ -541,6 +607,26 @@
       ],
       "source": "vhyxara"
     },
+    "circle-dot": {
+      "category": "actions",
+      "tags": [
+        "radio",
+        "selected",
+        "record",
+        "option"
+      ],
+      "source": "vhyxara"
+    },
+    "circle-ellipsis": {
+      "category": "actions",
+      "tags": [
+        "more",
+        "options",
+        "menu",
+        "overflow"
+      ],
+      "source": "vhyxara"
+    },
     "circle-help": {
       "category": "status",
       "tags": [
@@ -618,6 +704,16 @@
         "copy",
         "notes",
         "tasks"
+      ],
+      "source": "vhyxara"
+    },
+    "clipboard-check": {
+      "category": "actions",
+      "tags": [
+        "done",
+        "tasks",
+        "checklist",
+        "approved"
       ],
       "source": "vhyxara"
     },
@@ -713,6 +809,15 @@
       ],
       "source": "vhyxara"
     },
+    "copy-check": {
+      "category": "actions",
+      "tags": [
+        "copied",
+        "duplicate",
+        "done"
+      ],
+      "source": "vhyxara"
+    },
     "corner-down-left": {
       "category": "navigation",
       "tags": [
@@ -720,6 +825,24 @@
         "return",
         "submit",
         "keyboard"
+      ],
+      "source": "vhyxara"
+    },
+    "corner-up-left": {
+      "category": "navigation",
+      "tags": [
+        "reply",
+        "return",
+        "back"
+      ],
+      "source": "vhyxara"
+    },
+    "corner-up-right": {
+      "category": "navigation",
+      "tags": [
+        "forward",
+        "share",
+        "redirect"
       ],
       "source": "vhyxara"
     },
@@ -771,6 +894,16 @@
         "export",
         "get",
         "import"
+      ],
+      "source": "vhyxara"
+    },
+    "eraser": {
+      "category": "actions",
+      "tags": [
+        "clear",
+        "remove",
+        "rubber",
+        "delete"
       ],
       "source": "vhyxara"
     },
@@ -1020,6 +1153,15 @@
       ],
       "source": "vhyxara"
     },
+    "grip-horizontal": {
+      "category": "navigation",
+      "tags": [
+        "drag",
+        "handle",
+        "reorder"
+      ],
+      "source": "vhyxara"
+    },
     "grip-vertical": {
       "category": "navigation",
       "tags": [
@@ -1027,6 +1169,17 @@
         "handle",
         "reorder",
         "move"
+      ],
+      "source": "vhyxara"
+    },
+    "hand": {
+      "category": "actions",
+      "tags": [
+        "grab",
+        "pan",
+        "stop",
+        "palm",
+        "wave"
       ],
       "source": "vhyxara"
     },
@@ -1317,6 +1470,16 @@
       ],
       "source": "vhyxara"
     },
+    "locate": {
+      "category": "navigation",
+      "tags": [
+        "crosshair",
+        "current location",
+        "gps",
+        "target"
+      ],
+      "source": "vhyxara"
+    },
     "lock": {
       "category": "security",
       "tags": [
@@ -1522,6 +1685,26 @@
       ],
       "source": "vhyxara"
     },
+    "mouse-pointer": {
+      "category": "actions",
+      "tags": [
+        "cursor",
+        "click",
+        "select",
+        "pointer"
+      ],
+      "source": "vhyxara"
+    },
+    "move": {
+      "category": "navigation",
+      "tags": [
+        "drag",
+        "pan",
+        "position",
+        "arrows"
+      ],
+      "source": "vhyxara"
+    },
     "music": {
       "category": "media",
       "tags": [
@@ -1529,6 +1712,16 @@
         "song",
         "note",
         "sound"
+      ],
+      "source": "vhyxara"
+    },
+    "navigation": {
+      "category": "navigation",
+      "tags": [
+        "direction",
+        "location arrow",
+        "gps",
+        "pointer"
       ],
       "source": "vhyxara"
     },
@@ -1574,6 +1767,16 @@
       ],
       "source": "vhyxara"
     },
+    "panel-bottom": {
+      "category": "navigation",
+      "tags": [
+        "console",
+        "footer",
+        "drawer",
+        "terminal"
+      ],
+      "source": "vhyxara"
+    },
     "panel-left": {
       "category": "layout",
       "tags": [
@@ -1581,6 +1784,16 @@
         "drawer",
         "navigation",
         "toggle"
+      ],
+      "source": "vhyxara"
+    },
+    "panel-right": {
+      "category": "navigation",
+      "tags": [
+        "sidebar",
+        "inspector",
+        "details",
+        "drawer"
       ],
       "source": "vhyxara"
     },
@@ -1853,6 +2066,15 @@
       ],
       "source": "vhyxara"
     },
+    "scissors": {
+      "category": "actions",
+      "tags": [
+        "cut",
+        "trim",
+        "clip"
+      ],
+      "source": "vhyxara"
+    },
     "search": {
       "category": "actions",
       "tags": [
@@ -1906,6 +2128,16 @@
         "send",
         "connect",
         "social"
+      ],
+      "source": "vhyxara"
+    },
+    "share-up": {
+      "category": "actions",
+      "tags": [
+        "share",
+        "export",
+        "send",
+        "ios share"
       ],
       "source": "vhyxara"
     },
@@ -2033,6 +2265,26 @@
       ],
       "source": "vhyxara"
     },
+    "sort-asc": {
+      "category": "navigation",
+      "tags": [
+        "ascending",
+        "order",
+        "sort up",
+        "a-z"
+      ],
+      "source": "vhyxara"
+    },
+    "sort-desc": {
+      "category": "navigation",
+      "tags": [
+        "descending",
+        "order",
+        "sort down",
+        "z-a"
+      ],
+      "source": "vhyxara"
+    },
     "sparkles": {
       "category": "design",
       "tags": [
@@ -2041,6 +2293,55 @@
         "filter",
         "night",
         "magic"
+      ],
+      "source": "vhyxara"
+    },
+    "square": {
+      "category": "actions",
+      "tags": [
+        "checkbox",
+        "unchecked",
+        "shape",
+        "stop"
+      ],
+      "source": "vhyxara"
+    },
+    "square-check": {
+      "category": "actions",
+      "tags": [
+        "checkbox",
+        "checked",
+        "done",
+        "task"
+      ],
+      "source": "vhyxara"
+    },
+    "square-minus": {
+      "category": "actions",
+      "tags": [
+        "remove",
+        "collapse",
+        "subtract"
+      ],
+      "source": "vhyxara"
+    },
+    "square-pen": {
+      "category": "actions",
+      "tags": [
+        "edit",
+        "compose",
+        "write",
+        "new note"
+      ],
+      "source": "vhyxara"
+    },
+    "square-plus": {
+      "category": "actions",
+      "tags": [
+        "add",
+        "new",
+        "create",
+        "insert"
       ],
       "source": "vhyxara"
     },
@@ -2156,6 +2457,16 @@
       ],
       "source": "vhyxara"
     },
+    "thumbs-down": {
+      "category": "actions",
+      "tags": [
+        "dislike",
+        "disagree",
+        "reject",
+        "vote"
+      ],
+      "source": "vhyxara"
+    },
     "thumbs-up": {
       "category": "actions",
       "tags": [
@@ -2186,6 +2497,26 @@
         "stopwatch",
         "countdown",
         "duration"
+      ],
+      "source": "vhyxara"
+    },
+    "toggle-left": {
+      "category": "actions",
+      "tags": [
+        "switch",
+        "off",
+        "disabled",
+        "setting"
+      ],
+      "source": "vhyxara"
+    },
+    "toggle-right": {
+      "category": "actions",
+      "tags": [
+        "switch",
+        "on",
+        "enabled",
+        "setting"
       ],
       "source": "vhyxara"
     },
@@ -2272,6 +2603,15 @@
         "back",
         "revert",
         "history"
+      ],
+      "source": "vhyxara"
+    },
+    "unlink": {
+      "category": "actions",
+      "tags": [
+        "broken link",
+        "disconnect",
+        "detach"
       ],
       "source": "vhyxara"
     },
