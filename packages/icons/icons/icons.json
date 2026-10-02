@@ -217,6 +217,24 @@
       ],
       "source": "vhyxara"
     },
+    "badge": {
+      "category": "status",
+      "tags": [
+        "verified",
+        "seal",
+        "label"
+      ],
+      "source": "vhyxara"
+    },
+    "badge-alert": {
+      "category": "status",
+      "tags": [
+        "warning",
+        "attention",
+        "unverified"
+      ],
+      "source": "vhyxara"
+    },
     "badge-check": {
       "category": "status",
       "tags": [
@@ -275,6 +293,25 @@
         "silent",
         "notifications off",
         "do not disturb"
+      ],
+      "source": "vhyxara"
+    },
+    "bell-plus": {
+      "category": "communication",
+      "tags": [
+        "subscribe",
+        "add reminder",
+        "new notification"
+      ],
+      "source": "vhyxara"
+    },
+    "bell-ring": {
+      "category": "communication",
+      "tags": [
+        "notification",
+        "ringing",
+        "alert",
+        "alarm"
       ],
       "source": "vhyxara"
     },
@@ -584,6 +621,44 @@
       ],
       "source": "vhyxara"
     },
+    "circle-arrow-down": {
+      "category": "status",
+      "tags": [
+        "download",
+        "decrease",
+        "down"
+      ],
+      "source": "vhyxara"
+    },
+    "circle-arrow-left": {
+      "category": "status",
+      "tags": [
+        "back",
+        "previous",
+        "left"
+      ],
+      "source": "vhyxara"
+    },
+    "circle-arrow-right": {
+      "category": "status",
+      "tags": [
+        "next",
+        "continue",
+        "forward",
+        "right"
+      ],
+      "source": "vhyxara"
+    },
+    "circle-arrow-up": {
+      "category": "status",
+      "tags": [
+        "upload",
+        "increase",
+        "top",
+        "up"
+      ],
+      "source": "vhyxara"
+    },
     "circle-check": {
       "category": "status",
       "tags": [
@@ -788,6 +863,15 @@
       ],
       "source": "vhyxara"
     },
+    "contact": {
+      "category": "people",
+      "tags": [
+        "address book",
+        "contacts",
+        "directory"
+      ],
+      "source": "vhyxara"
+    },
     "contrast": {
       "category": "theme",
       "tags": [
@@ -874,6 +958,17 @@
         "cut",
         "resize",
         "frame"
+      ],
+      "source": "vhyxara"
+    },
+    "crown": {
+      "category": "people",
+      "tags": [
+        "premium",
+        "king",
+        "pro",
+        "vip",
+        "leader"
       ],
       "source": "vhyxara"
     },
@@ -1080,6 +1175,16 @@
       ],
       "source": "vhyxara"
     },
+    "frown": {
+      "category": "people",
+      "tags": [
+        "sad",
+        "unhappy",
+        "face",
+        "emotion"
+      ],
+      "source": "vhyxara"
+    },
     "gauge": {
       "category": "data",
       "tags": [
@@ -1150,6 +1255,17 @@
         "language",
         "international",
         "web"
+      ],
+      "source": "vhyxara"
+    },
+    "graduation-cap": {
+      "category": "people",
+      "tags": [
+        "education",
+        "school",
+        "learn",
+        "academy",
+        "course"
       ],
       "source": "vhyxara"
     },
@@ -1352,6 +1468,17 @@
       ],
       "source": "vhyxara"
     },
+    "laugh": {
+      "category": "people",
+      "tags": [
+        "happy",
+        "joy",
+        "face",
+        "emotion",
+        "fun"
+      ],
+      "source": "vhyxara"
+    },
     "layers": {
       "category": "design",
       "tags": [
@@ -1455,6 +1582,16 @@
       ],
       "source": "vhyxara"
     },
+    "loader": {
+      "category": "status",
+      "tags": [
+        "loading",
+        "spinner",
+        "progress",
+        "busy"
+      ],
+      "source": "vhyxara"
+    },
     "loader-circle": {
       "category": "status",
       "tags": [
@@ -1530,6 +1667,25 @@
       ],
       "source": "vhyxara"
     },
+    "mail-check": {
+      "category": "communication",
+      "tags": [
+        "sent",
+        "verified",
+        "delivered",
+        "email"
+      ],
+      "source": "vhyxara"
+    },
+    "mail-open": {
+      "category": "communication",
+      "tags": [
+        "read",
+        "opened",
+        "email"
+      ],
+      "source": "vhyxara"
+    },
     "map": {
       "category": "places",
       "tags": [
@@ -1569,6 +1725,16 @@
       ],
       "source": "vhyxara"
     },
+    "meh": {
+      "category": "people",
+      "tags": [
+        "neutral",
+        "indifferent",
+        "face",
+        "emotion"
+      ],
+      "source": "vhyxara"
+    },
     "menu": {
       "category": "navigation",
       "tags": [
@@ -1596,6 +1762,25 @@
         "comment",
         "feedback",
         "note"
+      ],
+      "source": "vhyxara"
+    },
+    "message-square-plus": {
+      "category": "communication",
+      "tags": [
+        "new message",
+        "compose",
+        "comment"
+      ],
+      "source": "vhyxara"
+    },
+    "messages-square": {
+      "category": "communication",
+      "tags": [
+        "conversation",
+        "chat",
+        "discussion",
+        "forum"
       ],
       "source": "vhyxara"
     },
@@ -1722,6 +1907,16 @@
         "location arrow",
         "gps",
         "pointer"
+      ],
+      "source": "vhyxara"
+    },
+    "octagon-alert": {
+      "category": "status",
+      "tags": [
+        "warning",
+        "stop",
+        "error",
+        "danger"
       ],
       "source": "vhyxara"
     },
@@ -1853,6 +2048,16 @@
       ],
       "source": "vhyxara"
     },
+    "person-standing": {
+      "category": "people",
+      "tags": [
+        "human",
+        "body",
+        "figure",
+        "accessibility"
+      ],
+      "source": "vhyxara"
+    },
     "phone": {
       "category": "communication",
       "tags": [
@@ -1860,6 +2065,24 @@
         "contact",
         "telephone",
         "support"
+      ],
+      "source": "vhyxara"
+    },
+    "phone-call": {
+      "category": "communication",
+      "tags": [
+        "calling",
+        "ringing",
+        "contact"
+      ],
+      "source": "vhyxara"
+    },
+    "phone-off": {
+      "category": "communication",
+      "tags": [
+        "hang up",
+        "end call",
+        "decline"
       ],
       "source": "vhyxara"
     },
@@ -2101,6 +2324,16 @@
       ],
       "source": "vhyxara"
     },
+    "send-horizontal": {
+      "category": "communication",
+      "tags": [
+        "send",
+        "submit",
+        "message",
+        "deliver"
+      ],
+      "source": "vhyxara"
+    },
     "server": {
       "category": "data",
       "tags": [
@@ -2208,6 +2441,17 @@
       ],
       "source": "vhyxara"
     },
+    "signal": {
+      "category": "status",
+      "tags": [
+        "strength",
+        "network",
+        "bars",
+        "reception",
+        "level"
+      ],
+      "source": "vhyxara"
+    },
     "skip-back": {
       "category": "media",
       "tags": [
@@ -2262,6 +2506,16 @@
         "ironic",
         "emoji",
         "emotion"
+      ],
+      "source": "vhyxara"
+    },
+    "smile-plus": {
+      "category": "people",
+      "tags": [
+        "add reaction",
+        "emoji",
+        "react",
+        "feedback"
       ],
       "source": "vhyxara"
     },
@@ -2342,6 +2596,16 @@
         "new",
         "create",
         "insert"
+      ],
+      "source": "vhyxara"
+    },
+    "square-x": {
+      "category": "status",
+      "tags": [
+        "close",
+        "cancel",
+        "remove",
+        "error"
       ],
       "source": "vhyxara"
     },
@@ -2635,12 +2899,30 @@
       ],
       "source": "vhyxara"
     },
+    "user-check": {
+      "category": "people",
+      "tags": [
+        "verified user",
+        "approved",
+        "member"
+      ],
+      "source": "vhyxara"
+    },
     "user-minus": {
       "category": "people",
       "tags": [
         "remove user",
         "leave",
         "delete member"
+      ],
+      "source": "vhyxara"
+    },
+    "user-pen": {
+      "category": "people",
+      "tags": [
+        "edit profile",
+        "account",
+        "rename user"
       ],
       "source": "vhyxara"
     },
@@ -2651,6 +2933,24 @@
         "invite",
         "new member",
         "sign up"
+      ],
+      "source": "vhyxara"
+    },
+    "user-search": {
+      "category": "people",
+      "tags": [
+        "find user",
+        "lookup",
+        "people search"
+      ],
+      "source": "vhyxara"
+    },
+    "user-x": {
+      "category": "people",
+      "tags": [
+        "remove user",
+        "blocked",
+        "banned"
       ],
       "source": "vhyxara"
     },
@@ -2671,6 +2971,24 @@
         "call",
         "meeting",
         "record"
+      ],
+      "source": "vhyxara"
+    },
+    "video-off": {
+      "category": "communication",
+      "tags": [
+        "camera off",
+        "no video",
+        "mute camera"
+      ],
+      "source": "vhyxara"
+    },
+    "voicemail": {
+      "category": "communication",
+      "tags": [
+        "message",
+        "tape",
+        "audio message"
       ],
       "source": "vhyxara"
     },
