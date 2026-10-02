@@ -17,6 +17,12 @@ export const appWindowNode: IconNode = [["rect",{"x":"3","y":"4","width":"18","h
 export const archiveNode: IconNode = [["rect",{"x":"3","y":"4","width":"18","height":"5","rx":"1"}],["path",{"d":"M5 9v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9"}],["path",{"d":"M10 13h4"}]];
 /** arrow-down — navigation; backwards, reverse, direction, south, arrow, down */
 export const arrowDownNode: IconNode = [["path",{"d":"M12 5v14"}],["path",{"d":"M6.5 13.5 12 19l5.5-5.5"}]];
+/** arrow-down-left — navigation; diagonal, south west, inbound */
+export const arrowDownLeftNode: IconNode = [["path",{"d":"M17 7 7 17"}],["path",{"d":"M16 17H7V8"}]];
+/** arrow-down-right — navigation; diagonal, south east, expand */
+export const arrowDownRightNode: IconNode = [["path",{"d":"M7 7l10 10"}],["path",{"d":"M17 8v9H8"}]];
+/** arrow-down-to-line — navigation; download, bottom, end, save */
+export const arrowDownToLineNode: IconNode = [["path",{"d":"M12 4v11"}],["path",{"d":"M7.5 10.5 12 15l4.5-4.5"}],["path",{"d":"M5 20h14"}]];
 /** arrow-left — navigation; back, previous, west */
 export const arrowLeftNode: IconNode = [["path",{"d":"M19 12H5"}],["path",{"d":"M10.5 6.5 5 12l5.5 5.5"}]];
 /** arrow-left-right — navigation; swap, exchange, horizontal, transfer */
@@ -27,6 +33,10 @@ export const arrowRightNode: IconNode = [["path",{"d":"M5 12h14"}],["path",{"d":
 export const arrowUpNode: IconNode = [["path",{"d":"M12 19V5"}],["path",{"d":"M6.5 10.5 12 5l5.5 5.5"}]];
 /** arrow-up-down — navigation; bidirectional, two-way, 2-way, swap, switch, network */
 export const arrowUpDownNode: IconNode = [["path",{"d":"M8 19V5"}],["path",{"d":"M4.5 8.5 8 5l3.5 3.5"}],["path",{"d":"M16 5v14"}],["path",{"d":"M12.5 15.5 16 19l3.5-3.5"}]];
+/** arrow-up-from-line — navigation; upload, top, raise, publish */
+export const arrowUpFromLineNode: IconNode = [["path",{"d":"M12 20V9"}],["path",{"d":"M7.5 13.5 12 9l4.5 4.5"}],["path",{"d":"M5 4h14"}]];
+/** arrow-up-left — navigation; diagonal, north west, back */
+export const arrowUpLeftNode: IconNode = [["path",{"d":"M17 17 7 7"}],["path",{"d":"M7 16V7h9"}]];
 /** arrow-up-right — navigation; diagonal, open, outbound, trend */
 export const arrowUpRightNode: IconNode = [["path",{"d":"M7 17 17 7"}],["path",{"d":"M8 7h9v9"}]];
 /** at-sign — actions; mention, email, handle, address */
@@ -51,6 +61,8 @@ export const boldNode: IconNode = [["path",{"d":"M7 5h6a3.5 3.5 0 0 1 0 7H7Z"}],
 export const bookOpenNode: IconNode = [["path",{"d":"M12 6.5C10.5 5 8 4 3 4v14c5 0 7.5 1 9 2.5 1.5-1.5 4-2.5 9-2.5V4c-5 0-7.5 1-9 2.5Z"}],["path",{"d":"M12 6.5v14"}]];
 /** bookmark — actions; save, favourite, read later, tag */
 export const bookmarkNode: IconNode = [["path",{"d":"M6 5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-4-6 4Z"}]];
+/** bookmark-plus — actions; save, add bookmark, read later */
+export const bookmarkPlusNode: IconNode = [["path",{"d":"M6 5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16l-6-4-6 4Z"}],["path",{"d":"M12 7v6M9 10h6"}]];
 /** bot — development; robot, ai, chat, assistant */
 export const botNode: IconNode = [["rect",{"x":"5","y":"9","width":"14","height":"11","rx":"3"}],["path",{"d":"M12 9V6.25"}],["circle",{"cx":"12","cy":"5","r":"1.25"}],["path",{"d":"M9 13.5V15M15 13.5V15"}],["path",{"d":"M3 13v3M21 13v3"}]];
 /** braces — development; json, object, curly, code, manifest, data */
@@ -75,6 +87,8 @@ export const chartLineNode: IconNode = [["path",{"d":"M4 4v15a1 1 0 0 0 1 1h15"}
 export const chartPieNode: IconNode = [["path",{"d":"M10 6.5a7.5 7.5 0 1 0 7.5 7.5H10Z"}],["path",{"d":"M13 3.5a7.5 7.5 0 0 1 7.5 7.5H13Z"}]];
 /** check — status; done, todo, tick, complete, task */
 export const checkNode: IconNode = [["path",{"d":"M5 12.5 9.5 17 19 7.5"}]];
+/** check-check — actions; read, seen, all done, double check */
+export const checkCheckNode: IconNode = [["path",{"d":"M2.5 12.5 7 17l9.5-9.5"}],["path",{"d":"M11.5 15 13.5 17 21.5 9"}]];
 /** chevron-down — navigation; backwards, reverse, slow, dropdown, chevron, down */
 export const chevronDownNode: IconNode = [["path",{"d":"M6.5 9.25l5.5 5.5 5.5-5.5"}]];
 /** chevron-left — navigation; back, previous, less than, fewer, menu, < */
@@ -95,6 +109,10 @@ export const circleAlertNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"
 export const circleCheckNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"m8.5 12.25 2.5 2.5 4.75-5"}]];
 /** circle-dashed — status; pending, draft, incomplete, optional */
 export const circleDashedNode: IconNode = [["path",{"d":"M13.17 3.08A9 9 0 0 1 17.48 4.86M19.14 6.52A9 9 0 0 1 20.92 10.83M20.92 13.17A9 9 0 0 1 19.14 17.48M17.48 19.14A9 9 0 0 1 13.17 20.92M10.83 20.92A9 9 0 0 1 6.52 19.14M4.86 17.48A9 9 0 0 1 3.08 13.17M3.08 10.83A9 9 0 0 1 4.86 6.52M6.52 4.86A9 9 0 0 1 10.83 3.08"}]];
+/** circle-dot — actions; radio, selected, record, option */
+export const circleDotNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["circle",{"cx":"12","cy":"12","r":"2.5","fill":"currentColor"}]];
+/** circle-ellipsis — actions; more, options, menu, overflow */
+export const circleEllipsisNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"M8 12h.01M12 12h.01M16 12h.01"}]];
 /** circle-help — status; question, help, support, faq, unknown */
 export const circleHelpNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"M9.6 9a2.5 2.5 0 0 1 4.9.7c0 1.7-2.5 2.3-2.5 4.3"}],["path",{"d":"M12 17.25h.01"}]];
 /** circle-minus — status; remove, subtract, collapse, negative */
@@ -109,6 +127,8 @@ export const circleUserNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}
 export const circleXNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"m9.25 9.25 5.5 5.5M14.75 9.25l-5.5 5.5"}]];
 /** clipboard — actions; paste, copy, notes, tasks */
 export const clipboardNode: IconNode = [["rect",{"x":"8","y":"3","width":"8","height":"4","rx":"1"}],["path",{"d":"M16 5h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1"}]];
+/** clipboard-check — actions; done, tasks, checklist, approved */
+export const clipboardCheckNode: IconNode = [["rect",{"x":"8","y":"3","width":"8","height":"4","rx":"1"}],["path",{"d":"M16 5h1a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h1"}],["path",{"d":"m9 14 2 2 4-4"}]];
 /** clock — time; time, hour, watch, schedule */
 export const clockNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"M12 7v5l3.5 2"}]];
 /** cloud — data; storage, weather, online, sync */
@@ -127,8 +147,14 @@ export const compassNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],[
 export const contrastNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"M12 3a9 9 0 0 1 0 18Z","fill":"currentColor"}]];
 /** copy — actions; clone, duplicate, multiple */
 export const copyNode: IconNode = [["path",{"d":"M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"}],["rect",{"x":"9","y":"9","width":"11","height":"11","rx":"2"}]];
+/** copy-check — actions; copied, duplicate, done */
+export const copyCheckNode: IconNode = [["path",{"d":"M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"}],["rect",{"x":"9","y":"9","width":"11","height":"11","rx":"2"}],["path",{"d":"m12 14.5 2 2 3.5-3.5"}]];
 /** corner-down-left — navigation; enter, return, submit, keyboard */
 export const cornerDownLeftNode: IconNode = [["path",{"d":"M19 5v7a3 3 0 0 1-3 3H5"}],["path",{"d":"M9.5 10.5 5 15l4.5 4.5"}]];
+/** corner-up-left — navigation; reply, return, back */
+export const cornerUpLeftNode: IconNode = [["path",{"d":"M9 14 4 9l5-5"}],["path",{"d":"M4 9h9a7 7 0 0 1 7 7v4"}]];
+/** corner-up-right — navigation; forward, share, redirect */
+export const cornerUpRightNode: IconNode = [["path",{"d":"M15 14l5-5-5-5"}],["path",{"d":"M20 9h-9a7 7 0 0 0-7 7v4"}]];
 /** cpu — devices; processor, chip, hardware, compute */
 export const cpuNode: IconNode = [["rect",{"x":"6","y":"6","width":"12","height":"12","rx":"1.5"}],["rect",{"x":"9","y":"9","width":"6","height":"6","rx":"1"}],["path",{"d":"M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"}]];
 /** credit-card — commerce; billing, payment, card, checkout, purchase */
@@ -139,6 +165,8 @@ export const cropNode: IconNode = [["path",{"d":"M7 3v12a2 2 0 0 0 2 2h12"}],["p
 export const databaseNode: IconNode = [["ellipse",{"cx":"12","cy":"5.5","rx":"8","ry":"2.5"}],["path",{"d":"M4 5.5v13c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5v-13"}],["path",{"d":"M4 12c0 1.4 3.6 2.5 8 2.5s8-1.1 8-2.5"}]];
 /** download — actions; save, export, get, import */
 export const downloadNode: IconNode = [["path",{"d":"M12 4v11.5"}],["path",{"d":"M7.5 11 12 15.5l4.5-4.5"}],["path",{"d":"M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"}]];
+/** eraser — actions; clear, remove, rubber, delete */
+export const eraserNode: IconNode = [["path",{"d":"M5.4 14.6 14.6 5.4a2 2 0 0 1 2.8 0l3.2 3.2a2 2 0 0 1 0 2.8L12 20H8.8a2 2 0 0 1-1.4-.6l-2-2a2 2 0 0 1 0-2.8Z"}],["path",{"d":"M9.5 10.5l6 6"}],["path",{"d":"M12 20h8"}]];
 /** external-link — navigation; outbound, open, share, external, link */
 export const externalLinkNode: IconNode = [["path",{"d":"M19 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"}],["path",{"d":"M14 4h6v6"}],["path",{"d":"M20 4l-8.5 8.5"}]];
 /** eye — security; view, show, visible, preview, watch */
@@ -185,8 +213,12 @@ export const gitMergeNode: IconNode = [["circle",{"cx":"6","cy":"6","r":"2.5"}],
 export const gitPullRequestNode: IconNode = [["circle",{"cx":"6","cy":"6","r":"2.5"}],["circle",{"cx":"6","cy":"18","r":"2.5"}],["circle",{"cx":"18","cy":"18","r":"2.5"}],["path",{"d":"M6 8.5v7"}],["path",{"d":"M18 15.5V9a3 3 0 0 0-3-3h-3"}],["path",{"d":"m14.5 3.5-2.5 2.5 2.5 2.5"}]];
 /** globe — places; world, internet, language, international, web */
 export const globeNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"M3 12h18"}],["path",{"d":"M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"}]];
+/** grip-horizontal — navigation; drag, handle, reorder */
+export const gripHorizontalNode: IconNode = [["circle",{"cx":"5","cy":"9","r":"1"}],["circle",{"cx":"12","cy":"9","r":"1"}],["circle",{"cx":"19","cy":"9","r":"1"}],["circle",{"cx":"5","cy":"15","r":"1"}],["circle",{"cx":"12","cy":"15","r":"1"}],["circle",{"cx":"19","cy":"15","r":"1"}]];
 /** grip-vertical — navigation; drag, handle, reorder, move */
 export const gripVerticalNode: IconNode = [["circle",{"cx":"9","cy":"5","r":"1"}],["circle",{"cx":"15","cy":"5","r":"1"}],["circle",{"cx":"9","cy":"12","r":"1"}],["circle",{"cx":"15","cy":"12","r":"1"}],["circle",{"cx":"9","cy":"19","r":"1"}],["circle",{"cx":"15","cy":"19","r":"1"}]];
+/** hand — actions; grab, pan, stop, palm, wave */
+export const handNode: IconNode = [["path",{"d":"M7 13V6.5a1.5 1.5 0 0 1 3 0V12"}],["path",{"d":"M10 11V4.5a1.5 1.5 0 0 1 3 0V11"}],["path",{"d":"M13 11V5.5a1.5 1.5 0 0 1 3 0V12"}],["path",{"d":"M16 12V8.5a1.5 1.5 0 0 1 3 0V14a7 7 0 0 1-7 7h-1c-2.3 0-3.8-.8-5.2-2.3L3.5 16a1.5 1.5 0 0 1 2.2-2L7 15.3"}]];
 /** hard-drive — data; disk, storage, drive, device */
 export const hardDriveNode: IconNode = [["path",{"d":"M3 13l2.5-7a2 2 0 0 1 1.9-1h9.2a2 2 0 0 1 1.9 1L21 13"}],["rect",{"x":"3","y":"13","width":"18","height":"7","rx":"2"}],["path",{"d":"M7 16.5h.01M10 16.5h.01"}]];
 /** hash — actions; number, channel, tag, pound */
@@ -239,6 +271,8 @@ export const listNode: IconNode = [["path",{"d":"M9 6h11M9 12h11M9 18h11"}],["pa
 export const listOrderedNode: IconNode = [["path",{"d":"M10 6h10M10 12h10M10 18h10"}],["path",{"d":"M4 5l1-1v5"}],["path",{"d":"M4 15a1.2 1.2 0 0 1 2.2.5c0 1-2.2 2-2.2 3.5h2.5"}]];
 /** loader-circle — status; loading, wait, busy, progress, spinner, spinning */
 export const loaderCircleNode: IconNode = [["path",{"d":"M20 12a8 8 0 1 1-8-8"}]];
+/** locate — navigation; crosshair, current location, gps, target */
+export const locateNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"7"}],["path",{"d":"M12 2v3M12 19v3M2 12h3M19 12h3"}],["circle",{"cx":"12","cy":"12","r":"2"}]];
 /** lock — security; security, password, secure, admin */
 export const lockNode: IconNode = [["rect",{"x":"5","y":"11","width":"14","height":"10","rx":"2"}],["path",{"d":"M8 11V8a4 4 0 0 1 8 0v3"}],["path",{"d":"M12 15v2"}]];
 /** lock-open — security; unlock, unlocked, access, open */
@@ -279,16 +313,26 @@ export const moonNode: IconNode = [["path",{"d":"M20.5 14A8.5 8.5 0 1 1 10 3.5a6
 export const moreHorizontalNode: IconNode = [["circle",{"cx":"5","cy":"12","r":"1"}],["circle",{"cx":"12","cy":"12","r":"1"}],["circle",{"cx":"19","cy":"12","r":"1"}]];
 /** more-vertical — navigation; ellipsis, menu, options, overflow, kebab */
 export const moreVerticalNode: IconNode = [["circle",{"cx":"12","cy":"5","r":"1"}],["circle",{"cx":"12","cy":"12","r":"1"}],["circle",{"cx":"12","cy":"19","r":"1"}]];
+/** mouse-pointer — actions; cursor, click, select, pointer */
+export const mousePointerNode: IconNode = [["path",{"d":"M4 4l6.5 16 2.3-6.8L19.5 11Z"}],["path",{"d":"m13 13 6 6"}]];
+/** move — navigation; drag, pan, position, arrows */
+export const moveNode: IconNode = [["path",{"d":"M12 3v18M3 12h18"}],["path",{"d":"M9 6l3-3 3 3M9 18l3 3 3-3M6 9l-3 3 3 3M18 9l3 3-3 3"}]];
 /** music — media; audio, song, note, sound */
 export const musicNode: IconNode = [["path",{"d":"M9 18V5l11-2v13"}],["circle",{"cx":"6","cy":"18","r":"3"}],["circle",{"cx":"17","cy":"16","r":"3"}]];
+/** navigation — navigation; direction, location arrow, gps, pointer */
+export const navigationNode: IconNode = [["path",{"d":"M3 11 21 3l-8 18-2-8Z"}]];
 /** octagon-x — status; stop, error, danger, halt, denied */
 export const octagonXNode: IconNode = [["polygon",{"points":"8.27,3 15.73,3 21,8.27 21,15.73 15.73,21 8.27,21 3,15.73 3,8.27"}],["path",{"d":"M9 9l6 6M15 9l-6 6"}]];
 /** package — development; box, container, storage, sealed, delivery, undelivered */
 export const packageNode: IconNode = [["path",{"d":"M12 2.8 20 7.2v9.6l-8 4.4-8-4.4V7.2Z"}],["path",{"d":"M4 7.2l8 4.4 8-4.4"}],["path",{"d":"M12 11.6v9.6"}],["path",{"d":"M8 5l8 4.4"}]];
 /** palette — design; colors, colours, theme, scheme, paint, watercolor */
 export const paletteNode: IconNode = [["path",{"d":"M12 3a9 9 0 0 0 0 18c1.1 0 2-.9 2-2v-1a2 2 0 0 1 2-2h1.5a3.5 3.5 0 0 0 3.5-3.5C21 7 17 3 12 3Z"}],["circle",{"cx":"7.5","cy":"12.5","r":".5","fill":"currentColor"}],["circle",{"cx":"8.5","cy":"8.5","r":".5","fill":"currentColor"}],["circle",{"cx":"12","cy":"7","r":".5","fill":"currentColor"}],["circle",{"cx":"15.5","cy":"8.5","r":".5","fill":"currentColor"}]];
+/** panel-bottom — navigation; console, footer, drawer, terminal */
+export const panelBottomNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","height":"18","rx":"2"}],["path",{"d":"M3 15h18"}]];
 /** panel-left — layout; sidebar, drawer, navigation, toggle */
 export const panelLeftNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","height":"18","rx":"2"}],["path",{"d":"M9 3v18"}]];
+/** panel-right — navigation; sidebar, inspector, details, drawer */
+export const panelRightNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","height":"18","rx":"2"}],["path",{"d":"M15 3v18"}]];
 /** paperclip — files; attachment, attach, clip, file */
 export const paperclipNode: IconNode = [["path",{"d":"M20 11.5 12.4 19a5 5 0 0 1-7.1-7.1l8-8a3.3 3.3 0 0 1 4.7 4.7l-8 8a1.7 1.7 0 0 1-2.4-2.4L15 6.8"}]];
 /** pause — media; music, stop */
@@ -339,6 +383,8 @@ export const rssNode: IconNode = [["path",{"d":"M5 19h.01"}],["path",{"d":"M5 11
 export const rulerNode: IconNode = [["path",{"d":"M3.5 15.5 15.5 3.5a1.4 1.4 0 0 1 2 0l3 3a1.4 1.4 0 0 1 0 2L8.5 20.5a1.4 1.4 0 0 1-2 0l-3-3a1.4 1.4 0 0 1 0-2Z"}],["path",{"d":"m7.5 11.5 2 2M10.5 8.5l2 2M13.5 5.5l2 2"}]];
 /** save — actions; disk, floppy, store, keep */
 export const saveNode: IconNode = [["path",{"d":"M6 4h10l4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"}],["path",{"d":"M8 4v4h6"}],["path",{"d":"M7 20v-6h10v6"}]];
+/** scissors — actions; cut, trim, clip */
+export const scissorsNode: IconNode = [["circle",{"cx":"6","cy":"6","r":"3"}],["circle",{"cx":"6","cy":"18","r":"3"}],["path",{"d":"M20 4 8.1 15.9"}],["path",{"d":"M14.5 14.5 20 20"}],["path",{"d":"M8.1 8.1 12 12"}]];
 /** search — actions; find, scan, magnifier, magnifying glass, lens, locate */
 export const searchNode: IconNode = [["circle",{"cx":"10.5","cy":"10.5","r":"6.5"}],["path",{"d":"m15.5 15.5 4.5 4.5"}]];
 /** send — actions; paper plane, submit, message, deliver */
@@ -349,6 +395,8 @@ export const serverNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","heig
 export const settingsNode: IconNode = [["path",{"d":"M10.01 5.29L10.59 3L13.41 3L13.99 5.29L15.34 5.85L17.29 4.72L19.28 6.71L18.15 8.66L18.71 10.01L21 10.59L21 13.41L18.71 13.99L18.15 15.34L19.28 17.29L17.29 19.28L15.34 18.15L13.99 18.71L13.41 21L10.59 21L10.01 18.71L8.66 18.15L6.71 19.28L4.72 17.29L5.85 15.34L5.29 13.99L3 13.41L3 10.59L5.29 10.01L5.85 8.66L4.72 6.71L6.71 4.72L8.66 5.85Z"}],["circle",{"cx":"12","cy":"12","r":"3"}]];
 /** share — actions; network, send, connect, social */
 export const shareNode: IconNode = [["circle",{"cx":"18","cy":"5","r":"2.5"}],["circle",{"cx":"6","cy":"12","r":"2.5"}],["circle",{"cx":"18","cy":"19","r":"2.5"}],["path",{"d":"M8.16 10.74l7.68-4.48M8.16 13.26l7.68 4.48"}]];
+/** share-up — actions; share, export, send, ios share */
+export const shareUpNode: IconNode = [["path",{"d":"M12 3v12"}],["path",{"d":"M8 7l4-4 4 4"}],["path",{"d":"M8 10H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2"}]];
 /** shield — security; protection, secure, guard, safety */
 export const shieldNode: IconNode = [["path",{"d":"M12 21s7-3 7-9.5V6l-7-3-7 3v5.5C5 18 12 21 12 21Z"}]];
 /** shield-alert — security; warning, threat, vulnerability, risk */
@@ -371,8 +419,22 @@ export const slidersNode: IconNode = [["path",{"d":"M4 7h9M17 7h3M4 17h3M11 17h9
 export const smartphoneNode: IconNode = [["rect",{"x":"6","y":"3","width":"12","height":"18","rx":"2.5"}],["path",{"d":"M11 18h2"}]];
 /** smile — people; happy, happiness, good, positive, friendly, patronizing */
 export const smileNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["path",{"d":"M9 9.5v1M15 9.5v1"}],["path",{"d":"M8.5 14.25a4.5 4.5 0 0 0 7 0"}]];
+/** sort-asc — navigation; ascending, order, sort up, a-z */
+export const sortAscNode: IconNode = [["path",{"d":"M7 20V4"}],["path",{"d":"M3.5 7.5 7 4l3.5 3.5"}],["path",{"d":"M12 6h3M12 12h5M12 18h8"}]];
+/** sort-desc — navigation; descending, order, sort down, z-a */
+export const sortDescNode: IconNode = [["path",{"d":"M7 4v16"}],["path",{"d":"M3.5 16.5 7 20l3.5-3.5"}],["path",{"d":"M12 6h8M12 12h5M12 18h3"}]];
 /** sparkles — design; stars, effect, filter, night, magic */
 export const sparklesNode: IconNode = [["path",{"d":"M11 3.5c.6 3.8 2.2 5.4 6 6-3.8.6-5.4 2.2-6 6-.6-3.8-2.2-5.4-6-6 3.8-.6 5.4-2.2 6-6Z"}],["path",{"d":"M18 14.5c.3 1.6 1 2.2 2.5 2.5-1.6.3-2.2 1-2.5 2.5-.3-1.6-1-2.2-2.5-2.5 1.6-.3 2.2-1 2.5-2.5Z"}],["path",{"d":"M5 16.5v3M3.5 18h3"}]];
+/** square — actions; checkbox, unchecked, shape, stop */
+export const squareNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","height":"18","rx":"2"}]];
+/** square-check — actions; checkbox, checked, done, task */
+export const squareCheckNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","height":"18","rx":"2"}],["path",{"d":"m8 12.5 3 3 5-6"}]];
+/** square-minus — actions; remove, collapse, subtract */
+export const squareMinusNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","height":"18","rx":"2"}],["path",{"d":"M8 12h8"}]];
+/** square-pen — actions; edit, compose, write, new note */
+export const squarePenNode: IconNode = [["path",{"d":"M12 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6"}],["path",{"d":"M17.5 3.5a2.12 2.12 0 0 1 3 3L12 15l-4 1 1-4Z"}]];
+/** square-plus — actions; add, new, create, insert */
+export const squarePlusNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","height":"18","rx":"2"}],["path",{"d":"M12 8v8M8 12h8"}]];
 /** star — actions; bookmark, favorite, like, review, rating */
 export const starNode: IconNode = [["path",{"d":"M12 3.1L14.47 9.2L21.04 9.66L15.99 13.9L17.58 20.29L12 16.8L6.42 20.29L8.01 13.9L2.96 9.66L9.53 9.2Z"}]];
 /** stethoscope — status; phonendoscope, medical, heart, lungs, sound */
@@ -395,12 +457,18 @@ export const tagNode: IconNode = [["polygon",{"points":"3,12 8,6 21,6 21,18 8,18
 export const targetNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["circle",{"cx":"12","cy":"12","r":"5"}],["circle",{"cx":"12","cy":"12","r":"1"}]];
 /** terminal — development; console, shell, command line, cli, prompt */
 export const terminalNode: IconNode = [["path",{"d":"m4 17 6-5-6-5"}],["path",{"d":"M12 19h8"}]];
+/** thumbs-down — actions; dislike, disagree, reject, vote */
+export const thumbsDownNode: IconNode = [["path",{"d":"M3 13a1 1 0 0 0 1 1h3l3.5 6.5A1.8 1.8 0 0 0 14 19l-1-4h5.5a2 2 0 0 0 2-2.3l-1.2-6.9a2 2 0 0 0-2-1.8H4a1 1 0 0 0-1 1Z"}],["path",{"d":"M7 14V4"}]];
 /** thumbs-up — actions; like, approve, agree, vote */
 export const thumbsUpNode: IconNode = [["path",{"d":"M3 11a1 1 0 0 1 1-1h3l3.5-6.5A1.8 1.8 0 0 1 14 5l-1 4h5.5a2 2 0 0 1 2 2.3l-1.2 6.9a2 2 0 0 1-2 1.8H4a1 1 0 0 1-1-1Z"}],["path",{"d":"M7 10v10"}]];
 /** ticket — commerce; entry, pass, voucher, event, concert, show */
 export const ticketNode: IconNode = [["path",{"d":"M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4Z"}],["path",{"d":"M15 5v2M15 11v2M15 17v2"}]];
 /** timer — time; stopwatch, countdown, duration */
 export const timerNode: IconNode = [["circle",{"cx":"12","cy":"13","r":"8"}],["path",{"d":"M10 3h4"}],["path",{"d":"M12 13V9"}],["path",{"d":"M18.5 6.5 17.5 7.5"}]];
+/** toggle-left — actions; switch, off, disabled, setting */
+export const toggleLeftNode: IconNode = [["rect",{"x":"2","y":"6","width":"20","height":"12","rx":"6"}],["circle",{"cx":"8","cy":"12","r":"3"}]];
+/** toggle-right — actions; switch, on, enabled, setting */
+export const toggleRightNode: IconNode = [["rect",{"x":"2","y":"6","width":"20","height":"12","rx":"6"}],["circle",{"cx":"16","cy":"12","r":"2.5","fill":"currentColor"}]];
 /** trash — actions; empty, deletion, cleanup, junk, clear, garbage */
 export const trashNode: IconNode = [["path",{"d":"M4.5 7h15"}],["path",{"d":"M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7"}],["path",{"d":"M6.5 7l.8 11.2A2 2 0 0 0 9.3 20h5.4a2 2 0 0 0 2-1.8L17.5 7"}],["path",{"d":"M10 11v5M14 11v5"}]];
 /** trending-down — data; statistics, trending, down */
@@ -417,6 +485,8 @@ export const typeNode: IconNode = [["path",{"d":"M5 7V5h14v2"}],["path",{"d":"M1
 export const underlineNode: IconNode = [["path",{"d":"M7 4v6a5 5 0 0 0 10 0V4"}],["path",{"d":"M5 20h14"}]];
 /** undo — actions; back, revert, history */
 export const undoNode: IconNode = [["path",{"d":"M9 14 4 9l5-5"}],["path",{"d":"M4 9h10.5a5.5 5.5 0 0 1 0 11H11"}]];
+/** unlink — actions; broken link, disconnect, detach */
+export const unlinkNode: IconNode = [["path",{"d":"M18.84 12.25l1.72-1.71a4.5 4.5 0 0 0-6.36-6.36l-1.72 1.71"}],["path",{"d":"M5.17 11.75 3.45 13.46a4.5 4.5 0 0 0 6.36 6.36l1.71-1.71"}],["path",{"d":"M8 2v3M2 8h3M16 19v3M19 16h3"}]];
 /** upload — actions; send, import, attach, publish */
 export const uploadNode: IconNode = [["path",{"d":"M12 15.5V4"}],["path",{"d":"M7.5 8.5 12 4l4.5 4.5"}],["path",{"d":"M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"}]];
 /** user — people; person, account, profile, avatar */
