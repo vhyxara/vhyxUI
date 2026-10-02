@@ -105,6 +105,15 @@
       ],
       "source": "vhyxara"
     },
+    "archive-restore": {
+      "category": "actions",
+      "tags": [
+        "unarchive",
+        "restore",
+        "recover"
+      ],
+      "source": "vhyxara"
+    },
     "arrow-down": {
       "category": "navigation",
       "tags": [
@@ -245,6 +254,16 @@
       ],
       "source": "vhyxara"
     },
+    "baby": {
+      "category": "people",
+      "tags": [
+        "child",
+        "infant",
+        "kid",
+        "family"
+      ],
+      "source": "vhyxara"
+    },
     "badge": {
       "category": "status",
       "tags": [
@@ -273,6 +292,15 @@
       ],
       "source": "vhyxara"
     },
+    "badge-info": {
+      "category": "status",
+      "tags": [
+        "information",
+        "details",
+        "about"
+      ],
+      "source": "vhyxara"
+    },
     "badge-percent": {
       "category": "commerce",
       "tags": [
@@ -291,6 +319,16 @@
         "prohibited",
         "cancel",
         "disabled"
+      ],
+      "source": "vhyxara"
+    },
+    "bandage": {
+      "category": "health",
+      "tags": [
+        "plaster",
+        "first aid",
+        "injury",
+        "band-aid"
       ],
       "source": "vhyxara"
     },
@@ -342,6 +380,16 @@
       ],
       "source": "vhyxara"
     },
+    "bed": {
+      "category": "home",
+      "tags": [
+        "sleep",
+        "hotel",
+        "bedroom",
+        "rest"
+      ],
+      "source": "vhyxara"
+    },
     "bell": {
       "category": "communication",
       "tags": [
@@ -349,6 +397,15 @@
         "alert",
         "reminder",
         "alarm"
+      ],
+      "source": "vhyxara"
+    },
+    "bell-dot": {
+      "category": "communication",
+      "tags": [
+        "unread",
+        "new notification",
+        "badge"
       ],
       "source": "vhyxara"
     },
@@ -465,6 +522,15 @@
         "favourite",
         "read later",
         "tag"
+      ],
+      "source": "vhyxara"
+    },
+    "bookmark-check": {
+      "category": "actions",
+      "tags": [
+        "saved",
+        "read",
+        "done"
       ],
       "source": "vhyxara"
     },
@@ -822,6 +888,15 @@
       ],
       "source": "vhyxara"
     },
+    "chevrons-down-up": {
+      "category": "navigation",
+      "tags": [
+        "collapse",
+        "fold",
+        "close all"
+      ],
+      "source": "vhyxara"
+    },
     "chevrons-left": {
       "category": "navigation",
       "tags": [
@@ -997,6 +1072,16 @@
       ],
       "source": "vhyxara"
     },
+    "circle-slash": {
+      "category": "status",
+      "tags": [
+        "disabled",
+        "none",
+        "not allowed",
+        "null"
+      ],
+      "source": "vhyxara"
+    },
     "circle-user": {
       "category": "people",
       "tags": [
@@ -1052,6 +1137,25 @@
         "tasks",
         "checklist",
         "approved"
+      ],
+      "source": "vhyxara"
+    },
+    "clipboard-list": {
+      "category": "actions",
+      "tags": [
+        "tasks",
+        "checklist",
+        "notes",
+        "inventory"
+      ],
+      "source": "vhyxara"
+    },
+    "clipboard-x": {
+      "category": "actions",
+      "tags": [
+        "rejected",
+        "cancel task",
+        "remove"
       ],
       "source": "vhyxara"
     },
@@ -1268,6 +1372,15 @@
       ],
       "source": "vhyxara"
     },
+    "copy-plus": {
+      "category": "actions",
+      "tags": [
+        "duplicate",
+        "clone",
+        "add copy"
+      ],
+      "source": "vhyxara"
+    },
     "corner-down-left": {
       "category": "navigation",
       "tags": [
@@ -1378,6 +1491,16 @@
       ],
       "source": "vhyxara"
     },
+    "dumbbell": {
+      "category": "health",
+      "tags": [
+        "fitness",
+        "gym",
+        "workout",
+        "exercise"
+      ],
+      "source": "vhyxara"
+    },
     "eraser": {
       "category": "actions",
       "tags": [
@@ -1385,6 +1508,15 @@
         "remove",
         "rubber",
         "delete"
+      ],
+      "source": "vhyxara"
+    },
+    "expand": {
+      "category": "actions",
+      "tags": [
+        "enlarge",
+        "fullscreen",
+        "grow"
       ],
       "source": "vhyxara"
     },
@@ -1933,6 +2065,16 @@
       ],
       "source": "vhyxara"
     },
+    "heart-pulse": {
+      "category": "health",
+      "tags": [
+        "health",
+        "heartbeat",
+        "vital",
+        "cardio"
+      ],
+      "source": "vhyxara"
+    },
     "highlighter": {
       "category": "design",
       "tags": [
@@ -2033,6 +2175,15 @@
         "photos",
         "album",
         "collection"
+      ],
+      "source": "vhyxara"
+    },
+    "import": {
+      "category": "actions",
+      "tags": [
+        "bring in",
+        "load",
+        "download into"
       ],
       "source": "vhyxara"
     },
@@ -2263,6 +2414,16 @@
       ],
       "source": "vhyxara"
     },
+    "link-2": {
+      "category": "actions",
+      "tags": [
+        "url",
+        "chain",
+        "connect",
+        "hyperlink"
+      ],
+      "source": "vhyxara"
+    },
     "list": {
       "category": "text",
       "tags": [
@@ -2273,6 +2434,34 @@
       ],
       "source": "vhyxara"
     },
+    "list-checks": {
+      "category": "text",
+      "tags": [
+        "checklist",
+        "tasks",
+        "done",
+        "todo"
+      ],
+      "source": "vhyxara"
+    },
+    "list-filter": {
+      "category": "actions",
+      "tags": [
+        "filter",
+        "refine",
+        "narrow",
+        "sort"
+      ],
+      "source": "vhyxara"
+    },
+    "list-minus": {
+      "category": "text",
+      "tags": [
+        "remove item",
+        "delete entry"
+      ],
+      "source": "vhyxara"
+    },
     "list-ordered": {
       "category": "text",
       "tags": [
@@ -2280,6 +2469,15 @@
         "ordered",
         "steps",
         "sequence"
+      ],
+      "source": "vhyxara"
+    },
+    "list-plus": {
+      "category": "text",
+      "tags": [
+        "add item",
+        "append",
+        "new entry"
       ],
       "source": "vhyxara"
     },
@@ -2416,6 +2614,25 @@
       ],
       "source": "vhyxara"
     },
+    "mail-plus": {
+      "category": "communication",
+      "tags": [
+        "new email",
+        "compose",
+        "add mail"
+      ],
+      "source": "vhyxara"
+    },
+    "mailbox": {
+      "category": "communication",
+      "tags": [
+        "post",
+        "letter",
+        "inbox",
+        "delivery"
+      ],
+      "source": "vhyxara"
+    },
     "map": {
       "category": "places",
       "tags": [
@@ -2485,6 +2702,16 @@
       ],
       "source": "vhyxara"
     },
+    "message-circle-question": {
+      "category": "communication",
+      "tags": [
+        "help",
+        "faq",
+        "support chat",
+        "ask"
+      ],
+      "source": "vhyxara"
+    },
     "message-square": {
       "category": "communication",
       "tags": [
@@ -2501,6 +2728,16 @@
         "new message",
         "compose",
         "comment"
+      ],
+      "source": "vhyxara"
+    },
+    "message-square-text": {
+      "category": "communication",
+      "tags": [
+        "comment",
+        "note",
+        "chat",
+        "reply"
       ],
       "source": "vhyxara"
     },
@@ -2797,6 +3034,16 @@
       ],
       "source": "vhyxara"
     },
+    "party-popper": {
+      "category": "people",
+      "tags": [
+        "celebrate",
+        "success",
+        "congrats",
+        "party"
+      ],
+      "source": "vhyxara"
+    },
     "pause": {
       "category": "media",
       "tags": [
@@ -2883,12 +3130,30 @@
       ],
       "source": "vhyxara"
     },
+    "phone-incoming": {
+      "category": "communication",
+      "tags": [
+        "incoming call",
+        "receive",
+        "answer"
+      ],
+      "source": "vhyxara"
+    },
     "phone-off": {
       "category": "communication",
       "tags": [
         "hang up",
         "end call",
         "decline"
+      ],
+      "source": "vhyxara"
+    },
+    "phone-outgoing": {
+      "category": "communication",
+      "tags": [
+        "outgoing call",
+        "dial",
+        "call out"
       ],
       "source": "vhyxara"
     },
@@ -2911,6 +3176,16 @@
       ],
       "source": "vhyxara"
     },
+    "pill": {
+      "category": "health",
+      "tags": [
+        "medicine",
+        "capsule",
+        "pharmacy",
+        "drug"
+      ],
+      "source": "vhyxara"
+    },
     "pin": {
       "category": "actions",
       "tags": [
@@ -2918,6 +3193,15 @@
         "attach",
         "keep",
         "stick"
+      ],
+      "source": "vhyxara"
+    },
+    "pin-off": {
+      "category": "actions",
+      "tags": [
+        "unpin",
+        "detach",
+        "remove pin"
       ],
       "source": "vhyxara"
     },
@@ -3236,6 +3520,24 @@
       ],
       "source": "vhyxara"
     },
+    "search-check": {
+      "category": "actions",
+      "tags": [
+        "found",
+        "verified search",
+        "match"
+      ],
+      "source": "vhyxara"
+    },
+    "search-x": {
+      "category": "actions",
+      "tags": [
+        "no results",
+        "clear search",
+        "not found"
+      ],
+      "source": "vhyxara"
+    },
     "send": {
       "category": "actions",
       "tags": [
@@ -3392,6 +3694,15 @@
       ],
       "source": "vhyxara"
     },
+    "shrink": {
+      "category": "actions",
+      "tags": [
+        "reduce",
+        "collapse",
+        "exit fullscreen"
+      ],
+      "source": "vhyxara"
+    },
     "shuffle": {
       "category": "media",
       "tags": [
@@ -3526,6 +3837,17 @@
         "order",
         "sort down",
         "z-a"
+      ],
+      "source": "vhyxara"
+    },
+    "sparkle": {
+      "category": "design",
+      "tags": [
+        "ai",
+        "magic",
+        "new",
+        "star",
+        "generate"
       ],
       "source": "vhyxara"
     },
@@ -3743,6 +4065,16 @@
         "palette",
         "swatches",
         "theme"
+      ],
+      "source": "vhyxara"
+    },
+    "syringe": {
+      "category": "health",
+      "tags": [
+        "injection",
+        "vaccine",
+        "medical",
+        "needle"
       ],
       "source": "vhyxara"
     },
@@ -3964,6 +4296,16 @@
       ],
       "source": "vhyxara"
     },
+    "triangle": {
+      "category": "design",
+      "tags": [
+        "shape",
+        "warning",
+        "delta",
+        "geometry"
+      ],
+      "source": "vhyxara"
+    },
     "triangle-alert": {
       "category": "status",
       "tags": [
@@ -4079,6 +4421,15 @@
         "verified user",
         "approved",
         "member"
+      ],
+      "source": "vhyxara"
+    },
+    "user-lock": {
+      "category": "people",
+      "tags": [
+        "private profile",
+        "locked account",
+        "secure user"
       ],
       "source": "vhyxara"
     },
