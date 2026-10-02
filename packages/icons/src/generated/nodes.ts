@@ -316,7 +316,7 @@ export const powerNode: IconNode = [["path",{"d":"M12 3v8"}],["path",{"d":"M6.3 
 /** printer — devices; print, paper, document */
 export const printerNode: IconNode = [["path",{"d":"M6 9V3h12v6"}],["path",{"d":"M6 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1"}],["rect",{"x":"6","y":"14","width":"12","height":"7","rx":"1"}]];
 /** puzzle — development; component, module, part, piece */
-export const puzzleNode: IconNode = [["path",{"d":"M4.5 8L8 8A2.75 2.75 0 1 1 11 8L14.5 8a1.5 1.5 0 0 1 1.5 1.5L16 13A2.75 2.75 0 1 1 16 16L16 19.5a1.5 1.5 0 0 1 -1.5 1.5L4.5 21a1.5 1.5 0 0 1 -1.5 -1.5L3 16A2.75 2.75 0 1 0 3 13L3 9.5a1.5 1.5 0 0 1 1.5 -1.5Z"}]];
+export const puzzleNode: IconNode = [["path",{"d":"M5.5 6L9.7 6A2.1 2.1 0 1 1 12.3 6L16.5 6a1.5 1.5 0 0 1 1.5 1.5L18 11.7A2.1 2.1 0 1 1 18 14.3L18 18.5a1.5 1.5 0 0 1 -1.5 1.5L12.3 20A2.1 2.1 0 1 0 9.7 20L5.5 20a1.5 1.5 0 0 1 -1.5 -1.5L4 14.3A2.1 2.1 0 1 0 4 11.7L4 7.5a1.5 1.5 0 0 1 1.5 -1.5Z"}]];
 /** quote — text; blockquote, citation, testimonial */
 export const quoteNode: IconNode = [["path",{"d":"M6 18c2.5-1 4-3.3 4-6V7a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4"}],["path",{"d":"M15 18c2.5-1 4-3.3 4-6V7a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4"}]];
 /** receipt — commerce; invoice, bill, order, transaction */
@@ -390,7 +390,7 @@ export const tableNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","heigh
 /** tablet — devices; ipad, device, screen */
 export const tabletNode: IconNode = [["rect",{"x":"4","y":"3","width":"16","height":"18","rx":"2"}],["path",{"d":"M11 18h2"}]];
 /** tag — commerce; label, price, category, discount */
-export const tagNode: IconNode = [["polygon",{"points":"4.67,4.67 11.67,4.04 19.95,12.31 12.31,19.95 4.04,11.67"}],["circle",{"cx":"8.17","cy":"8.17","r":"1.5"}]];
+export const tagNode: IconNode = [["polygon",{"points":"4.67,4.67 11.67,4.04 19.95,12.31 12.31,19.95 4.04,11.67"}],["circle",{"cx":"8.49","cy":"8.49","r":"1"}]];
 /** target — objects; goal, focus, aim, objective */
 export const targetNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["circle",{"cx":"12","cy":"12","r":"5"}],["circle",{"cx":"12","cy":"12","r":"1"}]];
 /** terminal — development; console, shell, command line, cli, prompt */
