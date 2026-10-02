@@ -72,7 +72,7 @@ export const chartBarNode: IconNode = [["path",{"d":"M4 4v15a1 1 0 0 0 1 1h15"}]
 /** chart-line — data; analytics, trend, graph, growth */
 export const chartLineNode: IconNode = [["path",{"d":"M4 4v15a1 1 0 0 0 1 1h15"}],["path",{"d":"m8 15 3.5-4 3 2.5L20 7"}]];
 /** chart-pie — data; analytics, share, proportion, segment */
-export const chartPieNode: IconNode = [["path",{"d":"M20.5 13.5A8.5 8.5 0 1 1 10.5 3.6"}],["path",{"d":"M14 3.1A8.5 8.5 0 0 1 20.9 10H14Z"}]];
+export const chartPieNode: IconNode = [["path",{"d":"M10 6.5a7.5 7.5 0 1 0 7.5 7.5H10Z"}],["path",{"d":"M13 3.5a7.5 7.5 0 0 1 7.5 7.5H13Z"}]];
 /** check — status; done, todo, tick, complete, task */
 export const checkNode: IconNode = [["path",{"d":"M5 12.5 9.5 17 19 7.5"}]];
 /** chevron-down — navigation; backwards, reverse, slow, dropdown, chevron, down */
@@ -316,7 +316,7 @@ export const powerNode: IconNode = [["path",{"d":"M12 3v8"}],["path",{"d":"M6.3 
 /** printer — devices; print, paper, document */
 export const printerNode: IconNode = [["path",{"d":"M6 9V3h12v6"}],["path",{"d":"M6 18H5a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1"}],["rect",{"x":"6","y":"14","width":"12","height":"7","rx":"1"}]];
 /** puzzle — development; component, module, part, piece */
-export const puzzleNode: IconNode = [["path",{"d":"M5 6.5A1.5 1.5 0 0 1 6.5 5H10a2 2 0 1 1 4 0h3.5A1.5 1.5 0 0 1 19 6.5V10a2 2 0 1 1 0 4v3.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 0-4 0H6.5A1.5 1.5 0 0 1 5 17.5V14a2 2 0 1 0 0-4Z"}]];
+export const puzzleNode: IconNode = [["path",{"d":"M4.5 8L8 8A2.75 2.75 0 1 1 11 8L14.5 8a1.5 1.5 0 0 1 1.5 1.5L16 13A2.75 2.75 0 1 1 16 16L16 19.5a1.5 1.5 0 0 1 -1.5 1.5L4.5 21a1.5 1.5 0 0 1 -1.5 -1.5L3 16A2.75 2.75 0 1 0 3 13L3 9.5a1.5 1.5 0 0 1 1.5 -1.5Z"}]];
 /** quote — text; blockquote, citation, testimonial */
 export const quoteNode: IconNode = [["path",{"d":"M6 18c2.5-1 4-3.3 4-6V7a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4"}],["path",{"d":"M15 18c2.5-1 4-3.3 4-6V7a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h4"}]];
 /** receipt — commerce; invoice, bill, order, transaction */
@@ -390,7 +390,7 @@ export const tableNode: IconNode = [["rect",{"x":"3","y":"3","width":"18","heigh
 /** tablet — devices; ipad, device, screen */
 export const tabletNode: IconNode = [["rect",{"x":"4","y":"3","width":"16","height":"18","rx":"2"}],["path",{"d":"M11 18h2"}]];
 /** tag — commerce; label, price, category, discount */
-export const tagNode: IconNode = [["path",{"d":"M3 5v6.2a2 2 0 0 0 .6 1.4l7.8 7.8a2 2 0 0 0 2.8 0l5.2-5.2a2 2 0 0 0 0-2.8l-7.8-7.8A2 2 0 0 0 11.2 3H5a2 2 0 0 0-2 2Z"}],["circle",{"cx":"7.5","cy":"7.5","r":"1.25"}]];
+export const tagNode: IconNode = [["polygon",{"points":"4.67,4.67 11.67,4.04 19.95,12.31 12.31,19.95 4.04,11.67"}],["circle",{"cx":"8.17","cy":"8.17","r":"1.5"}]];
 /** target — objects; goal, focus, aim, objective */
 export const targetNode: IconNode = [["circle",{"cx":"12","cy":"12","r":"9"}],["circle",{"cx":"12","cy":"12","r":"5"}],["circle",{"cx":"12","cy":"12","r":"1"}]];
 /** terminal — development; console, shell, command line, cli, prompt */
