@@ -7,6 +7,8 @@ import { checkNode, toSvg } from '../src/svg.js';
 import { defineIconElement, iconNames, icons } from '../src/element.js';
 // @ts-expect-error — plain ESM helper without types
 import { loadIcons, parseSvg, toSprite, BUDGET } from '../scripts/lib.mjs';
+// @ts-expect-error — plain ESM helper without types
+import { checkKeylines } from '../scripts/geometry.mjs';
 
 import { resolve } from 'node:path';
 const dir = resolve(process.cwd(), 'icons');
@@ -29,6 +31,18 @@ describe('source pipeline', () => {
     expect(() => parseSvg('<svg viewBox="0 0 24 24"><path d="M0 0" stroke="red"/></svg>')).toThrow(/stroke/);
     expect(() => parseSvg('<svg viewBox="0 0 32 32"><path d="M0 0"/></svg>')).toThrow(/viewBox/);
     expect(() => parseSvg('<svg viewBox="0 0 24 24" fill="red"><path d="M0 0"/></svg>')).toThrow(/may only set/);
+  });
+
+  it('enforces the keyline rules: safe zone, crisp edges, size and balance', () => {
+    const icon = (body: string) => parseSvg(`<svg viewBox="0 0 24 24">${body}</svg>`).nodes;
+    expect(checkKeylines(icon('<rect x="3" y="5" width="18" height="14" rx="2"/>'))).toEqual([]);
+    expect(checkKeylines(icon('<rect x="3.5" y="5" width="17" height="14" rx="2"/>')).join()).toMatch(/crisp: .*x=3\.5/);
+    expect(checkKeylines(icon('<path d="M1 12h22"/>')).join()).toMatch(/safe-zone/);
+    expect(checkKeylines(icon('<path d="M10 12h4"/>')).join()).toMatch(/size/);
+    expect(checkKeylines(icon('<rect x="10" y="4" width="11" height="14" rx="2"/>')).join()).toMatch(/balance/);
+    // Diagonals, curves and filled detail dots are free; a waiver needs a written reason in icons.json.
+    expect(checkKeylines(icon('<path d="m4.5 6.5 15 11"/><circle cx="12" cy="12.5" r="1" fill="currentColor"/>'))).toEqual([]);
+    expect(checkKeylines(icon('<rect x="10" y="4" width="11" height="14" rx="2"/>'), { balance: 'reason' })).toEqual([]);
   });
 
   it('builds a sprite with one symbol per icon', () => {
