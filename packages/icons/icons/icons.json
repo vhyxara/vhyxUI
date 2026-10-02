@@ -29,6 +29,16 @@
       ],
       "source": "vhyxara"
     },
+    "app-window": {
+      "category": "layout",
+      "tags": [
+        "window",
+        "browser",
+        "application",
+        "frame"
+      ],
+      "source": "vhyxara"
+    },
     "archive": {
       "category": "actions",
       "tags": [
@@ -132,6 +142,47 @@
       ],
       "source": "vhyxara"
     },
+    "badge-check": {
+      "category": "status",
+      "tags": [
+        "verified",
+        "certified",
+        "approved",
+        "trusted"
+      ],
+      "source": "vhyxara"
+    },
+    "ban": {
+      "category": "status",
+      "tags": [
+        "blocked",
+        "forbidden",
+        "prohibited",
+        "cancel",
+        "disabled"
+      ],
+      "source": "vhyxara"
+    },
+    "bell": {
+      "category": "communication",
+      "tags": [
+        "notification",
+        "alert",
+        "reminder",
+        "alarm"
+      ],
+      "source": "vhyxara"
+    },
+    "bell-off": {
+      "category": "communication",
+      "tags": [
+        "mute",
+        "silent",
+        "notifications off",
+        "do not disturb"
+      ],
+      "source": "vhyxara"
+    },
     "blocks": {
       "category": "development",
       "tags": [
@@ -210,6 +261,36 @@
         "code",
         "insect",
         "beetle"
+      ],
+      "source": "vhyxara"
+    },
+    "chart-bar": {
+      "category": "data",
+      "tags": [
+        "analytics",
+        "statistics",
+        "graph",
+        "report"
+      ],
+      "source": "vhyxara"
+    },
+    "chart-line": {
+      "category": "data",
+      "tags": [
+        "analytics",
+        "trend",
+        "graph",
+        "growth"
+      ],
+      "source": "vhyxara"
+    },
+    "chart-pie": {
+      "category": "data",
+      "tags": [
+        "analytics",
+        "share",
+        "proportion",
+        "segment"
       ],
       "source": "vhyxara"
     },
@@ -342,6 +423,37 @@
       ],
       "source": "vhyxara"
     },
+    "circle-dashed": {
+      "category": "status",
+      "tags": [
+        "pending",
+        "draft",
+        "incomplete",
+        "optional"
+      ],
+      "source": "vhyxara"
+    },
+    "circle-help": {
+      "category": "status",
+      "tags": [
+        "question",
+        "help",
+        "support",
+        "faq",
+        "unknown"
+      ],
+      "source": "vhyxara"
+    },
+    "circle-minus": {
+      "category": "status",
+      "tags": [
+        "remove",
+        "subtract",
+        "collapse",
+        "negative"
+      ],
+      "source": "vhyxara"
+    },
     "circle-play": {
       "category": "media",
       "tags": [
@@ -350,6 +462,26 @@
         "run",
         "circle",
         "play"
+      ],
+      "source": "vhyxara"
+    },
+    "circle-plus": {
+      "category": "status",
+      "tags": [
+        "add",
+        "new",
+        "create",
+        "positive"
+      ],
+      "source": "vhyxara"
+    },
+    "circle-user": {
+      "category": "people",
+      "tags": [
+        "account",
+        "profile",
+        "avatar",
+        "me"
       ],
       "source": "vhyxara"
     },
@@ -381,6 +513,16 @@
       ],
       "source": "vhyxara"
     },
+    "cloud": {
+      "category": "data",
+      "tags": [
+        "storage",
+        "weather",
+        "online",
+        "sync"
+      ],
+      "source": "vhyxara"
+    },
     "code": {
       "category": "development",
       "tags": [
@@ -398,6 +540,16 @@
         "cash",
         "finance",
         "gamble"
+      ],
+      "source": "vhyxara"
+    },
+    "columns-2": {
+      "category": "layout",
+      "tags": [
+        "columns",
+        "split",
+        "compare",
+        "side by side"
       ],
       "source": "vhyxara"
     },
@@ -440,6 +592,16 @@
         "card",
         "checkout",
         "purchase"
+      ],
+      "source": "vhyxara"
+    },
+    "database": {
+      "category": "data",
+      "tags": [
+        "storage",
+        "sql",
+        "data",
+        "records"
       ],
       "source": "vhyxara"
     },
@@ -498,6 +660,44 @@
       ],
       "source": "vhyxara"
     },
+    "file": {
+      "category": "files",
+      "tags": [
+        "document",
+        "page",
+        "blank"
+      ],
+      "source": "vhyxara"
+    },
+    "file-code": {
+      "category": "files",
+      "tags": [
+        "source",
+        "script",
+        "program",
+        "developer"
+      ],
+      "source": "vhyxara"
+    },
+    "file-image": {
+      "category": "files",
+      "tags": [
+        "picture",
+        "photo",
+        "graphic",
+        "media"
+      ],
+      "source": "vhyxara"
+    },
+    "file-plus": {
+      "category": "files",
+      "tags": [
+        "new document",
+        "add file",
+        "create"
+      ],
+      "source": "vhyxara"
+    },
     "file-text": {
       "category": "files",
       "tags": [
@@ -506,6 +706,16 @@
         "page",
         "text",
         "article"
+      ],
+      "source": "vhyxara"
+    },
+    "files": {
+      "category": "files",
+      "tags": [
+        "documents",
+        "copies",
+        "multiple",
+        "duplicate"
       ],
       "source": "vhyxara"
     },
@@ -538,6 +748,35 @@
       ],
       "source": "vhyxara"
     },
+    "folder-open": {
+      "category": "files",
+      "tags": [
+        "directory",
+        "browse",
+        "open",
+        "explore"
+      ],
+      "source": "vhyxara"
+    },
+    "folder-plus": {
+      "category": "files",
+      "tags": [
+        "new folder",
+        "add directory",
+        "create"
+      ],
+      "source": "vhyxara"
+    },
+    "gauge": {
+      "category": "data",
+      "tags": [
+        "speed",
+        "performance",
+        "meter",
+        "dashboard"
+      ],
+      "source": "vhyxara"
+    },
     "git-branch": {
       "category": "development",
       "tags": [
@@ -557,6 +796,16 @@
         "handle",
         "reorder",
         "move"
+      ],
+      "source": "vhyxara"
+    },
+    "hard-drive": {
+      "category": "data",
+      "tags": [
+        "disk",
+        "storage",
+        "drive",
+        "device"
       ],
       "source": "vhyxara"
     },
@@ -587,6 +836,28 @@
         "start",
         "dashboard",
         "main"
+      ],
+      "source": "vhyxara"
+    },
+    "hourglass": {
+      "category": "status",
+      "tags": [
+        "waiting",
+        "time",
+        "loading",
+        "timer",
+        "pending"
+      ],
+      "source": "vhyxara"
+    },
+    "id-card": {
+      "category": "people",
+      "tags": [
+        "identity",
+        "badge",
+        "contact",
+        "license",
+        "credentials"
       ],
       "source": "vhyxara"
     },
@@ -626,6 +897,16 @@
       ],
       "source": "vhyxara"
     },
+    "kanban": {
+      "category": "layout",
+      "tags": [
+        "board",
+        "columns",
+        "tasks",
+        "project"
+      ],
+      "source": "vhyxara"
+    },
     "laptop": {
       "category": "devices",
       "tags": [
@@ -657,6 +938,26 @@
         "sidebar",
         "grid",
         "home"
+      ],
+      "source": "vhyxara"
+    },
+    "layout-grid": {
+      "category": "layout",
+      "tags": [
+        "grid",
+        "apps",
+        "tiles",
+        "gallery"
+      ],
+      "source": "vhyxara"
+    },
+    "layout-list": {
+      "category": "layout",
+      "tags": [
+        "list",
+        "rows",
+        "items",
+        "feed"
       ],
       "source": "vhyxara"
     },
@@ -752,6 +1053,16 @@
       ],
       "source": "vhyxara"
     },
+    "megaphone": {
+      "category": "communication",
+      "tags": [
+        "announce",
+        "broadcast",
+        "marketing",
+        "speaker"
+      ],
+      "source": "vhyxara"
+    },
     "menu": {
       "category": "navigation",
       "tags": [
@@ -759,6 +1070,26 @@
         "navigation",
         "hamburger",
         "options"
+      ],
+      "source": "vhyxara"
+    },
+    "message-circle": {
+      "category": "communication",
+      "tags": [
+        "chat",
+        "comment",
+        "conversation",
+        "reply"
+      ],
+      "source": "vhyxara"
+    },
+    "message-square": {
+      "category": "communication",
+      "tags": [
+        "chat",
+        "comment",
+        "feedback",
+        "note"
       ],
       "source": "vhyxara"
     },
@@ -819,6 +1150,17 @@
       ],
       "source": "vhyxara"
     },
+    "octagon-x": {
+      "category": "status",
+      "tags": [
+        "stop",
+        "error",
+        "danger",
+        "halt",
+        "denied"
+      ],
+      "source": "vhyxara"
+    },
     "package": {
       "category": "development",
       "tags": [
@@ -847,6 +1189,26 @@
         "watercolor",
         "watercolour",
         "artist"
+      ],
+      "source": "vhyxara"
+    },
+    "panel-left": {
+      "category": "layout",
+      "tags": [
+        "sidebar",
+        "drawer",
+        "navigation",
+        "toggle"
+      ],
+      "source": "vhyxara"
+    },
+    "paperclip": {
+      "category": "files",
+      "tags": [
+        "attachment",
+        "attach",
+        "clip",
+        "file"
       ],
       "source": "vhyxara"
     },
@@ -883,6 +1245,16 @@
         "write",
         "rename",
         "change"
+      ],
+      "source": "vhyxara"
+    },
+    "phone": {
+      "category": "communication",
+      "tags": [
+        "call",
+        "contact",
+        "telephone",
+        "support"
       ],
       "source": "vhyxara"
     },
@@ -991,6 +1363,26 @@
       ],
       "source": "vhyxara"
     },
+    "rows-2": {
+      "category": "layout",
+      "tags": [
+        "rows",
+        "split",
+        "stack",
+        "horizontal"
+      ],
+      "source": "vhyxara"
+    },
+    "rss": {
+      "category": "communication",
+      "tags": [
+        "feed",
+        "subscribe",
+        "news",
+        "blog"
+      ],
+      "source": "vhyxara"
+    },
     "save": {
       "category": "actions",
       "tags": [
@@ -1024,6 +1416,16 @@
         "submit",
         "message",
         "deliver"
+      ],
+      "source": "vhyxara"
+    },
+    "server": {
+      "category": "data",
+      "tags": [
+        "host",
+        "backend",
+        "infrastructure",
+        "rack"
       ],
       "source": "vhyxara"
     },
@@ -1146,6 +1548,16 @@
       ],
       "source": "vhyxara"
     },
+    "table": {
+      "category": "layout",
+      "tags": [
+        "grid",
+        "spreadsheet",
+        "data",
+        "cells"
+      ],
+      "source": "vhyxara"
+    },
     "thumbs-up": {
       "category": "actions",
       "tags": [
@@ -1234,6 +1646,55 @@
         "import",
         "attach",
         "publish"
+      ],
+      "source": "vhyxara"
+    },
+    "user": {
+      "category": "people",
+      "tags": [
+        "person",
+        "account",
+        "profile",
+        "avatar"
+      ],
+      "source": "vhyxara"
+    },
+    "user-minus": {
+      "category": "people",
+      "tags": [
+        "remove user",
+        "leave",
+        "delete member"
+      ],
+      "source": "vhyxara"
+    },
+    "user-plus": {
+      "category": "people",
+      "tags": [
+        "add user",
+        "invite",
+        "new member",
+        "sign up"
+      ],
+      "source": "vhyxara"
+    },
+    "users": {
+      "category": "people",
+      "tags": [
+        "team",
+        "group",
+        "people",
+        "members"
+      ],
+      "source": "vhyxara"
+    },
+    "video": {
+      "category": "communication",
+      "tags": [
+        "camera",
+        "call",
+        "meeting",
+        "record"
       ],
       "source": "vhyxara"
     },
