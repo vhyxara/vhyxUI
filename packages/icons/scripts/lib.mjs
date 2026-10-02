@@ -61,6 +61,7 @@ export function toSvgFile(nodes, viewBox = GRID) {
 export function loadIcons(dir) {
   const meta = JSON.parse(readFileSync(join(dir, 'icons.json'), 'utf8'));
   const files = new Set(readdirSync(dir).filter((f) => f.endsWith('.svg')));
+  const offGrid = [];
   const icons = Object.entries(meta.icons).sort(([a], [b]) => a.localeCompare(b)).map(([name, m]) => {
     if (!/^[a-z][a-z0-9]*(-[a-z0-9]+)*$/.test(name)) throw new Error(`icons.json: "${name}" must be kebab-case`);
     const read = (suffix) => {
@@ -75,11 +76,11 @@ export function loadIcons(dir) {
     const small = read('.16');
     if (small && small.viewBox !== SMALL_GRID) throw new Error(`${name}.16.svg: optical 16px drawings use the 16×16 grid`);
     const solid = read('.solid');
-    const problems = checkKeylines(main.nodes, m.waive);
-    if (problems.length) throw new Error(`${name}.svg breaks the keyline rules (scripts/geometry.mjs):\n  ${problems.join('\n  ')}`);
+    for (const problem of checkKeylines(main.nodes, m.waive)) offGrid.push(`${name}.svg ${problem}`);
     return { name, category: m.category, tags: m.tags ?? [], source: m.source ?? 'vhyxara', main, small, solid };
   });
   if (files.size) throw new Error(`icons/ has files not listed in icons.json: ${[...files].join(', ')}`);
+  if (offGrid.length) throw new Error(`Icons break the keyline rules (scripts/geometry.mjs):\n  ${offGrid.join('\n  ')}`);
   return icons;
 }
 

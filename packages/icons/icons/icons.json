@@ -29,6 +29,16 @@
       ],
       "source": "vhyxara"
     },
+    "archive": {
+      "category": "actions",
+      "tags": [
+        "box",
+        "store",
+        "storage",
+        "backup"
+      ],
+      "source": "vhyxara"
+    },
     "arrow-down": {
       "category": "navigation",
       "tags": [
@@ -38,6 +48,25 @@
         "south",
         "arrow",
         "down"
+      ],
+      "source": "vhyxara"
+    },
+    "arrow-left": {
+      "category": "navigation",
+      "tags": [
+        "back",
+        "previous",
+        "west"
+      ],
+      "source": "vhyxara"
+    },
+    "arrow-left-right": {
+      "category": "navigation",
+      "tags": [
+        "swap",
+        "exchange",
+        "horizontal",
+        "transfer"
       ],
       "source": "vhyxara"
     },
@@ -83,6 +112,26 @@
       ],
       "source": "vhyxara"
     },
+    "arrow-up-right": {
+      "category": "navigation",
+      "tags": [
+        "diagonal",
+        "open",
+        "outbound",
+        "trend"
+      ],
+      "source": "vhyxara"
+    },
+    "at-sign": {
+      "category": "actions",
+      "tags": [
+        "mention",
+        "email",
+        "handle",
+        "address"
+      ],
+      "source": "vhyxara"
+    },
     "blocks": {
       "category": "development",
       "tags": [
@@ -98,6 +147,16 @@
         "children",
         "learning",
         "squares"
+      ],
+      "source": "vhyxara"
+    },
+    "bookmark": {
+      "category": "actions",
+      "tags": [
+        "save",
+        "favourite",
+        "read later",
+        "tag"
       ],
       "source": "vhyxara"
     },
@@ -249,6 +308,16 @@
       ],
       "source": "vhyxara"
     },
+    "chevrons-up-down": {
+      "category": "navigation",
+      "tags": [
+        "select",
+        "sort",
+        "expand",
+        "combobox"
+      ],
+      "source": "vhyxara"
+    },
     "circle-alert": {
       "category": "status",
       "tags": [
@@ -302,6 +371,16 @@
       ],
       "source": "vhyxara"
     },
+    "clipboard": {
+      "category": "actions",
+      "tags": [
+        "paste",
+        "copy",
+        "notes",
+        "tasks"
+      ],
+      "source": "vhyxara"
+    },
     "code": {
       "category": "development",
       "tags": [
@@ -343,6 +422,16 @@
       ],
       "source": "vhyxara"
     },
+    "corner-down-left": {
+      "category": "navigation",
+      "tags": [
+        "enter",
+        "return",
+        "submit",
+        "keyboard"
+      ],
+      "source": "vhyxara"
+    },
     "credit-card": {
       "category": "commerce",
       "tags": [
@@ -351,6 +440,16 @@
         "card",
         "checkout",
         "purchase"
+      ],
+      "source": "vhyxara"
+    },
+    "download": {
+      "category": "actions",
+      "tags": [
+        "save",
+        "export",
+        "get",
+        "import"
       ],
       "source": "vhyxara"
     },
@@ -410,6 +509,25 @@
       ],
       "source": "vhyxara"
     },
+    "filter": {
+      "category": "actions",
+      "tags": [
+        "funnel",
+        "refine",
+        "narrow"
+      ],
+      "source": "vhyxara"
+    },
+    "flag": {
+      "category": "actions",
+      "tags": [
+        "report",
+        "mark",
+        "milestone",
+        "country"
+      ],
+      "source": "vhyxara"
+    },
     "folder": {
       "category": "files",
       "tags": [
@@ -429,6 +547,46 @@
         "repository",
         "git",
         "branch"
+      ],
+      "source": "vhyxara"
+    },
+    "grip-vertical": {
+      "category": "navigation",
+      "tags": [
+        "drag",
+        "handle",
+        "reorder",
+        "move"
+      ],
+      "source": "vhyxara"
+    },
+    "hash": {
+      "category": "actions",
+      "tags": [
+        "number",
+        "channel",
+        "tag",
+        "pound"
+      ],
+      "source": "vhyxara"
+    },
+    "heart": {
+      "category": "actions",
+      "tags": [
+        "like",
+        "love",
+        "favourite",
+        "health"
+      ],
+      "source": "vhyxara"
+    },
+    "home": {
+      "category": "navigation",
+      "tags": [
+        "house",
+        "start",
+        "dashboard",
+        "main"
       ],
       "source": "vhyxara"
     },
@@ -520,6 +678,16 @@
       ],
       "source": "vhyxara"
     },
+    "link": {
+      "category": "actions",
+      "tags": [
+        "chain",
+        "url",
+        "connect",
+        "hyperlink"
+      ],
+      "source": "vhyxara"
+    },
     "loader-circle": {
       "category": "status",
       "tags": [
@@ -545,6 +713,26 @@
       ],
       "source": "vhyxara"
     },
+    "log-in": {
+      "category": "navigation",
+      "tags": [
+        "sign in",
+        "enter",
+        "login",
+        "account"
+      ],
+      "source": "vhyxara"
+    },
+    "log-out": {
+      "category": "navigation",
+      "tags": [
+        "sign out",
+        "exit",
+        "logout",
+        "leave"
+      ],
+      "source": "vhyxara"
+    },
     "mail": {
       "category": "communication",
       "tags": [
@@ -555,6 +743,15 @@
       ],
       "source": "vhyxara"
     },
+    "maximize": {
+      "category": "navigation",
+      "tags": [
+        "fullscreen",
+        "expand",
+        "enlarge"
+      ],
+      "source": "vhyxara"
+    },
     "menu": {
       "category": "navigation",
       "tags": [
@@ -562,6 +759,15 @@
         "navigation",
         "hamburger",
         "options"
+      ],
+      "source": "vhyxara"
+    },
+    "minimize": {
+      "category": "navigation",
+      "tags": [
+        "exit fullscreen",
+        "shrink",
+        "collapse"
       ],
       "source": "vhyxara"
     },
@@ -588,6 +794,28 @@
       "tags": [
         "dark",
         "night"
+      ],
+      "source": "vhyxara"
+    },
+    "more-horizontal": {
+      "category": "navigation",
+      "tags": [
+        "ellipsis",
+        "menu",
+        "options",
+        "overflow",
+        "dots"
+      ],
+      "source": "vhyxara"
+    },
+    "more-vertical": {
+      "category": "navigation",
+      "tags": [
+        "ellipsis",
+        "menu",
+        "options",
+        "overflow",
+        "kebab"
       ],
       "source": "vhyxara"
     },
@@ -648,6 +876,26 @@
       ],
       "source": "vhyxara"
     },
+    "pencil": {
+      "category": "actions",
+      "tags": [
+        "edit",
+        "write",
+        "rename",
+        "change"
+      ],
+      "source": "vhyxara"
+    },
+    "pin": {
+      "category": "actions",
+      "tags": [
+        "pushpin",
+        "attach",
+        "keep",
+        "stick"
+      ],
+      "source": "vhyxara"
+    },
     "play": {
       "category": "media",
       "tags": [
@@ -680,6 +928,16 @@
       ],
       "source": "vhyxara"
     },
+    "power": {
+      "category": "actions",
+      "tags": [
+        "on",
+        "off",
+        "shutdown",
+        "switch"
+      ],
+      "source": "vhyxara"
+    },
     "puzzle": {
       "category": "development",
       "tags": [
@@ -687,6 +945,15 @@
         "module",
         "part",
         "piece"
+      ],
+      "source": "vhyxara"
+    },
+    "redo": {
+      "category": "actions",
+      "tags": [
+        "forward",
+        "repeat",
+        "history"
       ],
       "source": "vhyxara"
     },
@@ -713,6 +980,27 @@
       ],
       "source": "vhyxara"
     },
+    "rotate-ccw": {
+      "category": "actions",
+      "tags": [
+        "reset",
+        "undo",
+        "rotate",
+        "refresh",
+        "restore"
+      ],
+      "source": "vhyxara"
+    },
+    "save": {
+      "category": "actions",
+      "tags": [
+        "disk",
+        "floppy",
+        "store",
+        "keep"
+      ],
+      "source": "vhyxara"
+    },
     "search": {
       "category": "actions",
       "tags": [
@@ -729,6 +1017,16 @@
       ],
       "source": "vhyxara"
     },
+    "send": {
+      "category": "actions",
+      "tags": [
+        "paper plane",
+        "submit",
+        "message",
+        "deliver"
+      ],
+      "source": "vhyxara"
+    },
     "settings": {
       "category": "actions",
       "tags": [
@@ -736,6 +1034,16 @@
         "edit",
         "gear",
         "preferences"
+      ],
+      "source": "vhyxara"
+    },
+    "share": {
+      "category": "actions",
+      "tags": [
+        "network",
+        "send",
+        "connect",
+        "social"
       ],
       "source": "vhyxara"
     },
@@ -765,6 +1073,17 @@
         "music",
         "skip",
         "back"
+      ],
+      "source": "vhyxara"
+    },
+    "sliders": {
+      "category": "actions",
+      "tags": [
+        "adjust",
+        "settings",
+        "controls",
+        "preferences",
+        "tune"
       ],
       "source": "vhyxara"
     },
@@ -824,6 +1143,16 @@
         "weather",
         "light",
         "summer"
+      ],
+      "source": "vhyxara"
+    },
+    "thumbs-up": {
+      "category": "actions",
+      "tags": [
+        "like",
+        "approve",
+        "agree",
+        "vote"
       ],
       "source": "vhyxara"
     },
@@ -889,6 +1218,25 @@
       ],
       "source": "vhyxara"
     },
+    "undo": {
+      "category": "actions",
+      "tags": [
+        "back",
+        "revert",
+        "history"
+      ],
+      "source": "vhyxara"
+    },
+    "upload": {
+      "category": "actions",
+      "tags": [
+        "send",
+        "import",
+        "attach",
+        "publish"
+      ],
+      "source": "vhyxara"
+    },
     "waves": {
       "category": "data",
       "tags": [
@@ -945,6 +1293,24 @@
         "energy",
         "power",
         "quick"
+      ],
+      "source": "vhyxara"
+    },
+    "zoom-in": {
+      "category": "actions",
+      "tags": [
+        "magnify",
+        "enlarge",
+        "scale"
+      ],
+      "source": "vhyxara"
+    },
+    "zoom-out": {
+      "category": "actions",
+      "tags": [
+        "magnify",
+        "reduce",
+        "scale"
       ],
       "source": "vhyxara"
     }
