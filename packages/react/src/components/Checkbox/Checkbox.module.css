@@ -78,8 +78,8 @@
 
 /* ─── Checkmark / indeterminate icon — scale-in animation ─── */
 .check-icon {
-  width: 75%;
-  height: 75%;
+  width: 100%;
+  height: 100%;
 
   /* scale(0) → scale(1) on check: duration-fast / easing-spring */
   animation: vhyx-scale-in var(--vhyx-duration-fast) var(--vhyx-easing-spring) both;

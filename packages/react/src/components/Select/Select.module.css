@@ -71,8 +71,8 @@
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  width: var(--vhyx-space-3);
-  height: var(--vhyx-space-3);
+  width: var(--vhyx-space-4);
+  height: var(--vhyx-space-4);
   color: var(--vhyx-color-text-muted);
 }
 
@@ -142,8 +142,8 @@
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
-  width: var(--vhyx-space-3);
-  height: var(--vhyx-space-3);
+  width: var(--vhyx-space-4);
+  height: var(--vhyx-space-4);
   color: var(--vhyx-color-accent);
 }
 
