@@ -1,4 +1,5 @@
-:root {
+:root,
+[data-theme="light"] {
   /* Background */
   --vhyx-color-bg:              var(--vhyx-primitive-slate-50);
   --vhyx-color-bg-subtle:       var(--vhyx-primitive-slate-100);
