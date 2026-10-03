@@ -1,49 +1,11 @@
 'use client';
 
+import { MenuIcon, XIcon } from '@vhyxui/icons';
 import React from 'react';
 import Link from 'next/link';
 import { Badge } from '@vhyxui/react';
 import { ThemeToggle } from '@/app/components/ThemeToggle';
 import { Search } from './Search';
-
-function HamburgerIcon(): React.ReactElement {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <line x1="3" y1="6" x2="21" y2="6" />
-      <line x1="3" y1="12" x2="21" y2="12" />
-      <line x1="3" y1="18" x2="21" y2="18" />
-    </svg>
-  );
-}
-
-function CloseIcon(): React.ReactElement {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <line x1="18" y1="6" x2="6" y2="18" />
-      <line x1="6" y1="6" x2="18" y2="18" />
-    </svg>
-  );
-}
 
 function GitHubIcon(): React.ReactElement {
   return (
@@ -74,7 +36,7 @@ export function Header({ sidebarOpen, onSidebarToggle }: HeaderProps): React.Rea
         aria-controls="docs-sidebar"
         onClick={onSidebarToggle}
       >
-        {sidebarOpen ? <CloseIcon /> : <HamburgerIcon />}
+        {sidebarOpen ? <XIcon size={20} /> : <MenuIcon size={20} />}
       </button>
 
       <Link href="/" className="docs-header-brand">

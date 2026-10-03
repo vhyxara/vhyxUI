@@ -1,92 +1,10 @@
+import { CpuIcon, EyeIcon, ShieldCheckIcon, ZapIcon } from '@vhyxui/icons';
 import React from "react";
 import Link from "next/link";
 import { Button, Card, CardBody } from "../components/ui";
 import { CodeBlock } from "../components/CodeBlock";
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
-
-function EyeIcon(): React.ReactElement {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-      <circle cx="12" cy="12" r="3" />
-    </svg>
-  );
-}
-
-function ShieldCheckIcon(): React.ReactElement {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <polyline points="9 12 11 14 15 10" />
-    </svg>
-  );
-}
-
-function ZapIcon(): React.ReactElement {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-    </svg>
-  );
-}
-
-function CpuIcon(): React.ReactElement {
-  return (
-    <svg
-      width="20"
-      height="20"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="4" y="4" width="16" height="16" rx="2" />
-      <rect x="9" y="9" width="6" height="6" />
-      <line x1="9" y1="1" x2="9" y2="4" />
-      <line x1="15" y1="1" x2="15" y2="4" />
-      <line x1="9" y1="20" x2="9" y2="23" />
-      <line x1="15" y1="20" x2="15" y2="23" />
-      <line x1="20" y1="9" x2="23" y2="9" />
-      <line x1="20" y1="14" x2="23" y2="14" />
-      <line x1="1" y1="9" x2="4" y2="9" />
-      <line x1="1" y1="14" x2="4" y2="14" />
-    </svg>
-  );
-}
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -99,25 +17,25 @@ interface LayerItem {
 
 const LAYERS: LayerItem[] = [
   {
-    icon: <EyeIcon />,
+    icon: <EyeIcon size={20} />,
     color: "accent",
     title: "Zero Lock-In Styling",
     body: "Beautiful defaults driven entirely by CSS custom properties. Override any token and the entire library updates instantly. Zero runtime cost. Zero bundler lock-in.",
   },
   {
-    icon: <ShieldCheckIcon />,
+    icon: <ShieldCheckIcon size={20} />,
     color: "success",
     title: "Accessibility By Default",
     body: "WCAG 2.1 AA as the floor, not the ceiling. Keyboard navigation, focus management, and ARIA semantics are built into every component. Cannot be accidentally skipped.",
   },
   {
-    icon: <ZapIcon />,
+    icon: <ZapIcon size={20} />,
     color: "info",
     title: "Motion As First Class",
     body: "Every enter, exit, and state change is defined with token-driven durations and easings. prefers-reduced-motion is handled automatically — always, with zero extra code.",
   },
   {
-    icon: <CpuIcon />,
+    icon: <CpuIcon size={20} />,
     color: "warning",
     title: "AI Agent Ready",
     body: "Every component ships with a VhyxSeal contract describing intent, safety level, and consequences. AI agents can read and reason about your UI right out of the box.",

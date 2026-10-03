@@ -1,5 +1,6 @@
 'use client';
 
+import { SearchIcon } from '@vhyxui/icons';
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Dialog, Badge, Spinner } from '@vhyxui/react';
 
@@ -20,15 +21,6 @@ declare global {
   interface Window {
     __pagefind__?: PagefindAPI;
   }
-}
-
-function SearchIcon(): React.ReactElement {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </svg>
-  );
 }
 
 function KbdHint(): React.ReactElement {
@@ -194,7 +186,7 @@ export function Search(): React.ReactElement {
         aria-label="Search documentation (⌘K)"
         onClick={openSearch}
       >
-        <SearchIcon />
+        <SearchIcon size={16} />
         <span className="search-trigger-text">Search…</span>
         <KbdHint />
       </button>
@@ -210,7 +202,7 @@ export function Search(): React.ReactElement {
             <Dialog.Title className="sr-only">Search documentation</Dialog.Title>
             {/* Input */}
             <div className="search-input-row">
-              <SearchIcon />
+              <SearchIcon size={16} />
               <input
                 ref={inputRef}
                 type="search"
