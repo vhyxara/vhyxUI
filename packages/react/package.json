@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/react",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "private": false,
   "description": "VhyxUI React components — accessible, Tailwind-friendly, agent-ready",
   "keywords": [
@@ -248,7 +248,7 @@
     "lint": "eslint src"
   },
   "dependencies": {
-    "@vhyxseal/react": "1.0.0-rc.5",
+    "@vhyxseal/react": "1.0.0-rc.6",
     "@vhyxui/core": "workspace:*",
     "@vhyxui/icons": "workspace:^"
   },
