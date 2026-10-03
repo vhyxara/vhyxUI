@@ -1,202 +1,121 @@
-import { CpuIcon, EyeIcon, ShieldCheckIcon, ZapIcon } from '@vhyxui/icons';
-import React from "react";
-import Link from "next/link";
-import { Button, Card, CardBody } from "../components/ui";
-import { CodeBlock } from "../components/CodeBlock";
+import { ArrowRightIcon, TriangleAlertIcon } from '@vhyxui/icons';
+import React from 'react';
+import Link from 'next/link';
+import { Alert, Button, TextField } from '@vhyxui/react';
+import { CopyButton } from '../components/CopyButton';
+import { DualViewHero } from '../components/home/DualViewHero';
+import { CapabilityMap } from '../components/home/CapabilityMap';
+import { PLAYGROUND, VHYXARA, VHYXCHART, VHYXSEAL } from '../components/links';
 
-// ─── Icons ────────────────────────────────────────────────────────────────────
+const INSTALL = 'pnpm add @vhyxui/react @vhyxui/tokens';
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-interface LayerItem {
-  icon: React.ReactElement;
-  color: "accent" | "success" | "info" | "warning";
-  title: string;
-  body: string;
-}
-
-const LAYERS: LayerItem[] = [
-  {
-    icon: <EyeIcon size={20} />,
-    color: "accent",
-    title: "Zero Lock-In Styling",
-    body: "Beautiful defaults driven entirely by CSS custom properties. Override any token and the entire library updates instantly. Zero runtime cost. Zero bundler lock-in.",
-  },
-  {
-    icon: <ShieldCheckIcon size={20} />,
-    color: "success",
-    title: "Accessibility By Default",
-    body: "WCAG 2.1 AA as the floor, not the ceiling. Keyboard navigation, focus management, and ARIA semantics are built into every component. Cannot be accidentally skipped.",
-  },
-  {
-    icon: <ZapIcon size={20} />,
-    color: "info",
-    title: "Motion As First Class",
-    body: "Every enter, exit, and state change is defined with token-driven durations and easings. prefers-reduced-motion is handled automatically — always, with zero extra code.",
-  },
-  {
-    icon: <CpuIcon size={20} />,
-    color: "warning",
-    title: "AI Agent Ready",
-    body: "Every component ships with a VhyxSeal contract describing intent, safety level, and consequences. AI agents can read and reason about your UI right out of the box.",
-  },
+const CATEGORIES = [
+  { title: 'Inputs & Forms', text: 'Button, Input, Select, Checkbox, Switch, Form fields', href: '/components/button' },
+  { title: 'Feedback', text: 'Toast, Alert, Badge, Progress, Spinner', href: '/components/toast' },
+  { title: 'Overlays', text: 'Dialog, Drawer, Tooltip, Popover', href: '/components/dialog' },
+  { title: 'Blocks & Layouts', text: 'DataTable, StatCard, Pricing, AppShell and more', href: '/blocks' },
 ];
 
-// ─── Step sub-component (async server component per step) ─────────────────────
-
-interface StepProps {
-  num: number;
-  title: string;
-  code: string;
-  language: string;
-}
-
-async function InstallStep({
-  num,
-  title,
-  code,
-  language,
-}: StepProps): Promise<React.ReactElement> {
+export default function HomePage(): React.ReactElement {
   return (
-    <div className="lp-step">
-      <div className="lp-step-num" aria-hidden="true">
-        {num}
-      </div>
-      <div className="lp-step-body">
-        <p className="lp-step-title">{title}</p>
-        <CodeBlock code={code} language={language} />
-      </div>
-    </div>
-  );
-}
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
-
-export default async function HomePage(): Promise<React.ReactElement> {
-  return (
-    <>
-      {/* ── Section 1: Hero ───────────────────────────────────────────────── */}
-      <section className="lp-hero">
-        <div className="lp-hero-content">
-          <h1 className="lp-headline">
-            The UI library built for
-            <br />
-            humans and AI agents.
-          </h1>
-          <p className="lp-sub">
-            22 production-ready React components with accessibility, motion, and
-            AI agent contracts built in. Override one token — everything
-            updates. Zero runtime overhead.
+    <div className="home">
+      <section className="home-hero docs-grid-bg">
+        <div className="home-inner home-hero-inner">
+          <span className="home-eyebrow">React · 37 components · 500 icons · agent contracts</span>
+          <h1 className="home-title">Build the screen once. Humans click it, agents read it.</h1>
+          <p className="home-lead">
+            Accessible React components with motion and design tokens. Every control publishes a signed
+            contract, so AI agents know what it does before they press it.
           </p>
-          <div className="lp-hero-actions">
-            <Button variant="primary" size="lg" asChild>
-              <Link href="/getting-started">Get Started</Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <Link href="/components/button">View Components</Link>
-            </Button>
-          </div>
-          <a
-            href="https://play.vhyxui.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="lp-playground-link"
-          >
-            Open Playground →
-          </a>
-          <div className="lp-hero-install">
-            <CodeBlock
-              code="npm install @vhyxui/react @vhyxui/tokens"
-              language="bash"
-            />
+          <div className="home-actions">
+            <Button asChild size="lg"><Link href="/getting-started">Get started</Link></Button>
+            <Button asChild size="lg" variant="outline"><a href={PLAYGROUND}>Open playground</a></Button>
+            <span className="home-install">
+              <span className="home-install-prompt" aria-hidden="true">$</span>
+              <code>{INSTALL}</code>
+              <CopyButton code={INSTALL} />
+            </span>
           </div>
         </div>
       </section>
 
-      {/* ── Section 2: Four Layers ────────────────────────────────────────── */}
-      <section className="lp-layers">
-        <div className="lp-layers-inner">
-          <p className="lp-section-label">Why VhyxUI</p>
-          <h2 className="lp-section-title">Four layers. One library.</h2>
-          <p className="lp-section-sub">
-            Every existing UI library makes a bet developers cannot escape.
-            VhyxUI makes one bet: CSS wins.
-          </p>
-          <div className="lp-layers-grid">
-            {LAYERS.map((layer) => (
-              <Card key={layer.title} variant="outline" padding="lg">
-                <CardBody>
-                  <div className="lp-card-icon" data-color={layer.color}>
-                    {layer.icon}
-                  </div>
-                  <h3 className="lp-card-title">{layer.title}</h3>
-                  <p className="lp-card-body">{layer.body}</p>
-                </CardBody>
-              </Card>
+      <section className="home-section">
+        <div className="home-inner">
+          <p className="home-caption">One settings screen, seen two ways.</p>
+          <DualViewHero />
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-inner">
+          <div className="home-heading-row">
+            <h2 className="home-h2">Designed to feel good</h2>
+            <Link href="/components/button" className="home-link">Browse all components <ArrowRightIcon size="1em" /></Link>
+          </div>
+          <div className="home-stages">
+            <div className="home-stage" data-tint="accent">
+              <span className="home-stage-label">Buttons</span>
+              <div className="home-stage-body home-stage-buttons">
+                <Button>Publish</Button>
+                <Button variant="outline">Preview</Button>
+                <Button variant="ghost">Cancel</Button>
+              </div>
+            </div>
+            <div className="home-stage" data-tint="success">
+              <span className="home-stage-label">Forms</span>
+              <div className="home-stage-body">
+                <TextField name="work-email" label="Work email" defaultValue="ada@company.dev" hint="We'll send a sign-in link." />
+              </div>
+            </div>
+            <div className="home-stage" data-tint="warning">
+              <span className="home-stage-label">Feedback</span>
+              <div className="home-stage-body">
+                <Alert variant="warning" icon={<TriangleAlertIcon />} title="Storage almost full">92% of 10 GB used.</Alert>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-inner home-split">
+          <div className="home-panel">
+            <span className="home-panel-eyebrow">Capability map · rendered by VhyxChart</span>
+            <CapabilityMap />
+            <p className="home-panel-text">
+              Every manifest can be drawn as an animated flow, so you can review what agents may do before you ship.
+            </p>
+          </div>
+          <div className="home-panel home-stats">
+            <div><strong>37</strong><span>components</span></div>
+            <div><strong>22</strong><span>blocks and layouts</span></div>
+            <div><strong>500</strong><span>original icons</span></div>
+            <div><strong>0</strong><span>lines to add contracts</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-inner">
+          <h2 className="home-h2">Browse the library</h2>
+          <div className="home-cards">
+            {CATEGORIES.map((c) => (
+              <Link key={c.title} href={c.href} className="home-card">
+                <strong>{c.title}</strong>
+                <span>{c.text}</span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Section 3: Quick Install ──────────────────────────────────────── */}
-      <section className="lp-install">
-        <div className="lp-install-inner">
-          <p className="lp-section-label">Quick Start</p>
-          <h2 className="lp-section-title">Get started in minutes</h2>
-          <div className="lp-steps">
-            <InstallStep
-              num={1}
-              title="Install the packages"
-              language="bash"
-              code="npm install @vhyxui/react @vhyxui/tokens"
-            />
-            <InstallStep
-              num={2}
-              title="Import the tokens"
-              language="css"
-              code="@import '@vhyxui/tokens/index.css';"
-            />
-            <InstallStep
-              num={3}
-              title="Wrap your app with VhyxUIProvider"
-              language="tsx"
-              code={`import { VhyxUIProvider } from '@vhyxui/react'
-
-export default function Layout({ children }) {
-  return (
-    <VhyxUIProvider>
-      {children}
-    </VhyxUIProvider>
-  )
-}`}
-            />
-            <InstallStep
-              num={4}
-              title="Use any component"
-              language="tsx"
-              code={`import { Button } from '@vhyxui/react'
-
-function MyButton() {
-  return (
-    <Button variant="primary" size="md">
-      Click me
-    </Button>
-  )
-}`}
-            />
-          </div>
-          <p className="lp-install-note">
-            No configuration. No theme object. No token mapping.
-          </p>
-        </div>
-      </section>
-
-      <footer className="lp-footer">
-        <p>
-          VhyxUI by <a href="https://vhyxara.com">Vhyxara</a> · MIT License ·{" "}
-          Build with freedom. Ship with confidence.
-        </p>
+      <footer className="home-footer">
+        <span>A <a href={VHYXARA} className="brand-link">Vhyxara</a> library · MIT licensed</span>
+        <span className="home-footer-links">
+          <a href={VHYXSEAL}>VhyxSeal</a>
+          <a href={VHYXCHART}>VhyxChart</a>
+        </span>
       </footer>
-    </>
+    </div>
   );
 }
