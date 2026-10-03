@@ -8,8 +8,8 @@ export function Providers({ children }: { children: React.ReactNode }): React.Re
   return (
     <ThemeProvider
       attribute="data-theme"
-      defaultTheme="system"
-      enableSystem
+      defaultTheme="dark"
+      enableSystem={false}
     >
       <VhyxUIProvider toastPosition="bottom-right">{children}</VhyxUIProvider>
     </ThemeProvider>

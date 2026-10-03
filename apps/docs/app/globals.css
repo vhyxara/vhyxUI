@@ -3,6 +3,8 @@
 @import '@vhyxui/react/style.css';
 @import '@vhyxui/blocks/style.css';
 @import '../styles/docs.css';
+@import '../styles/shell.css';
+@import '../styles/home.css';
 
 /* Documentation site layout — uses only VhyxUI tokens */
 .docs-layout {

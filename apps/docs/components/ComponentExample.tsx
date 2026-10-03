@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useId, useState } from 'react';
 import { CodeBlock } from './CodeBlockSimple';
 
 interface ComponentExampleProps {
@@ -10,48 +10,44 @@ interface ComponentExampleProps {
   children: React.ReactNode;
 }
 
-/** Live component example with optional code toggle. */
+/** Live component example: a dotted stage with Preview / Code tabs. */
 export function ComponentExample({
   label,
   code,
   center = false,
   children,
 }: ComponentExampleProps): React.ReactElement {
-  const [showCode, setShowCode] = useState(false);
+  const [tab, setTab] = useState<'preview' | 'code'>('preview');
+  const id = useId();
+  const showTabs = Boolean(code);
 
   return (
     <div className="docs-example-container">
-      <div
-        className={['docs-example-preview', center ? 'docs-example-preview--center' : ''].filter(Boolean).join(' ')}
-      >
-        {children}
-      </div>
-      {label && (
-        <div
-          className="docs-example-label"
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
-        >
-          <span>{label}</span>
-          {code && (
-            <button
-              type="button"
-              onClick={() => { setShowCode((v) => !v); }}
-              style={{
-                background: 'transparent',
-                border: 'none',
-                color: 'var(--vhyx-color-text-muted)',
-                cursor: 'pointer',
-                fontSize: 'var(--vhyx-text-xs)',
-                fontFamily: 'var(--vhyx-font-mono)',
-                padding: 'var(--vhyx-space-1) var(--vhyx-space-2)',
-              }}
-            >
-              {showCode ? 'Hide code' : 'Show code'}
-            </button>
-          )}
+      {(showTabs || label) && (
+        <div className="docs-example-toolbar">
+          {showTabs ? (
+            <div className="docs-example-tabs" role="tablist" aria-label={label ? `${label} example` : 'Example'}>
+              <button type="button" role="tab" id={`${id}-preview-tab`} aria-controls={`${id}-preview`} aria-selected={tab === 'preview'} className="docs-example-tab" onClick={() => { setTab('preview'); }}>Preview</button>
+              <button type="button" role="tab" id={`${id}-code-tab`} aria-controls={`${id}-code`} aria-selected={tab === 'code'} className="docs-example-tab" onClick={() => { setTab('code'); }}>Code</button>
+            </div>
+          ) : <span />}
+          {label && <span className="docs-example-caption">{label}</span>}
         </div>
       )}
-      {showCode && code && <CodeBlock code={code} />}
+      {tab === 'preview' || !code ? (
+        <div
+          id={`${id}-preview`}
+          role={showTabs ? 'tabpanel' : undefined}
+          aria-labelledby={showTabs ? `${id}-preview-tab` : undefined}
+          className={['docs-example-preview', center ? 'docs-example-preview--center' : ''].filter(Boolean).join(' ')}
+        >
+          {children}
+        </div>
+      ) : (
+        <div id={`${id}-code`} role="tabpanel" aria-labelledby={`${id}-code-tab`}>
+          <CodeBlock code={code} />
+        </div>
+      )}
     </div>
   );
 }

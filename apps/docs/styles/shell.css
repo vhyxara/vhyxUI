@@ -1,0 +1,346 @@
+/*
+ * Docs shell — the Vhyxara docs look (dark by default, light supported).
+ * Loaded after docs.css; everything reads VhyxUI tokens so both themes follow automatically.
+ */
+
+:root {
+  --vhyx-font-sans: var(--font-geist), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --vhyx-font-mono: var(--font-geist-mono), ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --docs-grid-line: color-mix(in srgb, var(--vhyx-color-border) 55%, transparent);
+  --docs-stage-dot: color-mix(in srgb, var(--vhyx-color-border-strong) 70%, transparent);
+  --docs-header-height: 60px;
+}
+
+body {
+  background: var(--vhyx-color-bg);
+  color: var(--vhyx-color-text);
+  font-family: var(--vhyx-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Top bar: brand + family | main menu (centred) | search, theme, GitHub ── */
+.docs-header-bar {
+  position: sticky;
+  top: 0;
+  z-index: var(--vhyx-z-sticky);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--vhyx-space-6);
+  height: var(--docs-header-height);
+  padding: 0 var(--vhyx-space-6);
+  background: color-mix(in srgb, var(--vhyx-color-bg-subtle) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(12px);
+  border-bottom: 1px solid var(--vhyx-color-border);
+}
+
+.docs-header-start {
+  display: flex;
+  align-items: center;
+  gap: var(--vhyx-space-4);
+  min-width: 0;
+}
+
+.docs-header-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--vhyx-color-text);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.docs-header-brand-mark { color: var(--vhyx-color-accent); }
+
+.docs-family {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--vhyx-color-border);
+  border-radius: 10px;
+  background: var(--vhyx-color-surface);
+}
+
+.docs-family-link {
+  padding: 5px 11px;
+  border-radius: 7px;
+  font-size: 13px;
+  color: var(--vhyx-color-text-muted);
+  text-decoration: none;
+  transition: color var(--vhyx-duration-fast) var(--vhyx-easing-standard), background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.docs-family-link:hover { color: var(--vhyx-color-text); }
+
+.docs-family-link[aria-current] {
+  background: var(--vhyx-color-accent-subtle);
+  color: var(--vhyx-color-accent);
+  font-weight: 600;
+}
+
+.docs-header-nav {
+  display: flex;
+  gap: 4px;
+}
+
+.docs-header-nav-link {
+  padding: 7px 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--vhyx-color-text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--vhyx-duration-fast) var(--vhyx-easing-standard), background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.docs-header-nav-link:hover { color: var(--vhyx-color-text); background: var(--vhyx-color-surface); }
+
+.docs-header-nav-link[aria-current='page'] {
+  color: var(--vhyx-color-text);
+  font-weight: 500;
+  background: var(--vhyx-color-surface);
+  box-shadow: inset 0 0 0 1px var(--vhyx-color-border);
+}
+
+.docs-header-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--vhyx-space-2);
+}
+
+.search-trigger {
+  width: 210px;
+  height: 36px;
+  border-radius: 9px;
+  border: 1px solid var(--vhyx-color-border);
+  background: var(--vhyx-color-surface);
+  color: var(--vhyx-color-text-muted);
+}
+
+.docs-theme-toggle,
+.docs-header-github,
+.docs-hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  border: 1px solid var(--vhyx-color-border);
+  background: var(--vhyx-color-surface);
+  color: var(--vhyx-color-text);
+  cursor: pointer;
+}
+
+.docs-theme-toggle:hover,
+.docs-header-github:hover { border-color: var(--vhyx-color-border-strong); }
+
+.docs-hamburger { display: none; }
+
+@media (max-width: 1024px) {
+  .docs-header-bar {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    padding: var(--vhyx-space-3) var(--vhyx-space-4) 0;
+    gap: var(--vhyx-space-3);
+  }
+  .docs-header-start { flex: 1 1 auto; }
+  .docs-hamburger { display: inline-flex; }
+  .docs-family { display: none; }
+  .docs-header-nav {
+    order: 3;
+    flex: 1 0 100%;
+    overflow-x: auto;
+    padding-bottom: var(--vhyx-space-2);
+    scrollbar-width: none;
+    /* Fade the right edge so the row reads as scrollable */
+    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+  }
+  .search-trigger { width: 36px; }
+}
+
+/* ── Sidebar ── */
+.docs-sidebar {
+  background: var(--vhyx-color-bg-subtle);
+  border-right: 1px solid var(--vhyx-color-border);
+}
+
+.docs-sidebar-group-trigger,
+.docs-sidebar-label {
+  font-family: var(--vhyx-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vhyx-color-text-muted);
+}
+
+.docs-sidebar-sub-label {
+  font-size: 12px;
+  color: var(--vhyx-color-text-muted);
+}
+
+.docs-sidebar-nav-link {
+  border-radius: 8px;
+  color: var(--vhyx-color-text-subtle);
+  font-size: 14px;
+  transition: color var(--vhyx-duration-fast) var(--vhyx-easing-standard), background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.docs-sidebar-nav-link:hover {
+  color: var(--vhyx-color-text);
+  background: var(--vhyx-color-surface);
+}
+
+.docs-sidebar-nav-link[data-active='true'] {
+  color: var(--vhyx-color-text);
+  font-weight: 500;
+  background: var(--vhyx-color-accent-subtle);
+  box-shadow: inset 2px 0 0 var(--vhyx-color-accent);
+}
+
+/* ── Page content ── */
+.docs-main-content { background-color: var(--vhyx-color-bg); }
+
+/* Grid texture for hero areas (home and section intros) */
+.docs-grid-bg {
+  background-image:
+    linear-gradient(var(--docs-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--docs-grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+}
+
+.docs-page-title {
+  font-size: clamp(2.25rem, 1.6rem + 2vw, 2.9rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.docs-page-description {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--vhyx-color-text-subtle);
+  max-width: 46rem;
+}
+
+.docs-section-heading {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.docs-section-text { color: var(--vhyx-color-text-subtle); line-height: 1.65; }
+
+/* ── Live examples: toolbar (tabs) + dotted stage ── */
+.docs-example-container {
+  border: 1px solid var(--vhyx-color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--vhyx-color-surface);
+}
+
+.docs-example-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--vhyx-space-2);
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--vhyx-color-border);
+  background: var(--vhyx-color-surface);
+}
+
+.docs-example-tabs { display: flex; gap: 4px; }
+
+.docs-example-tab {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--vhyx-color-text-muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.docs-example-tab:hover { color: var(--vhyx-color-text); }
+
+.docs-example-tab[aria-selected='true'] {
+  background: var(--vhyx-color-accent-subtle);
+  color: var(--vhyx-color-accent);
+  font-weight: 600;
+}
+
+.docs-example-caption {
+  font-family: var(--vhyx-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--vhyx-color-text-muted);
+}
+
+.docs-example-preview {
+  min-height: 160px;
+  padding: var(--vhyx-space-10) var(--vhyx-space-8);
+  background-color: var(--vhyx-color-bg-subtle);
+  background-image: radial-gradient(var(--docs-stage-dot) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.docs-example-container .docs-code-block,
+.docs-example-container .cb-wrap {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+/* ── Tables and code ── */
+.docs-props-table th {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--vhyx-color-text-muted);
+  background: var(--vhyx-color-surface);
+}
+
+.docs-props-table code,
+.docs-page code {
+  font-family: var(--vhyx-font-mono);
+}
+
+/* ── Code blocks follow the theme (no inverted white blocks in dark mode) ── */
+.docs-code-block,
+.cb-wrap {
+  background: var(--vhyx-color-bg-subtle);
+  color: var(--vhyx-color-text);
+  border: 1px solid var(--vhyx-color-border);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+.docs-code-header,
+.cb-header {
+  border-bottom: 1px solid var(--vhyx-color-border);
+  color: var(--vhyx-color-text-muted);
+  font-family: var(--vhyx-font-mono);
+  font-size: 12px;
+}
+
+.cb-filename,
+.cb-copy { color: var(--vhyx-color-text-muted); }
+
+.cb-copy:hover { color: var(--vhyx-color-text); background: var(--vhyx-color-surface); }
+
+.cb-body .shiki,
+[data-theme='dark'] .cb-body .shiki { background-color: transparent !important; }
+
+/* Section headings: no rule underneath — spacing does the work */
+.docs-section-heading {
+  padding-bottom: 0;
+  border-bottom: 0;
+  margin-bottom: var(--vhyx-space-3);
+}
