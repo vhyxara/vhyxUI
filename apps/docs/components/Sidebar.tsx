@@ -1,5 +1,6 @@
 'use client';
 
+import { ChevronRightIcon } from '@vhyxui/icons';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -112,24 +113,7 @@ interface ChevronIconProps {
 }
 
 function ChevronIcon({ open, small = false }: ChevronIconProps): React.ReactElement {
-  const size = small ? 12 : 14;
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="docs-sidebar-group-chevron"
-      data-open={open ? 'true' : 'false'}
-      aria-hidden="true"
-    >
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
-  );
+  return <ChevronRightIcon size={small ? 12 : 14} className="docs-sidebar-group-chevron" data-open={open ? 'true' : 'false'} />;
 }
 
 export interface SidebarProps {
