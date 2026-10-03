@@ -12,7 +12,20 @@
   --vhyx-primitive-slate-900:  #0f172a;
   --vhyx-primitive-slate-950:  #020617;
 
-  /* Indigo — default accent */
+  /* Orange — default accent ("signal orange") */
+  --vhyx-primitive-orange-50:  #fff3ea;
+  --vhyx-primitive-orange-100: #ffe2cc;
+  --vhyx-primitive-orange-200: #ffc49a;
+  --vhyx-primitive-orange-300: #ffa266;
+  --vhyx-primitive-orange-400: #ff8a3d;
+  --vhyx-primitive-orange-500: #f26a1b;
+  --vhyx-primitive-orange-600: #d9480f;
+  --vhyx-primitive-orange-700: #b93e0c;
+  --vhyx-primitive-orange-800: #9a330a;
+  --vhyx-primitive-orange-900: #7a2a0b;
+  --vhyx-primitive-orange-950: #2a1708;
+
+  /* Indigo — previous default accent, kept for overrides */
   --vhyx-primitive-indigo-50:  #eef2ff;
   --vhyx-primitive-indigo-100: #e0e7ff;
   --vhyx-primitive-indigo-200: #c7d2fe;

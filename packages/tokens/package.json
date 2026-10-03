@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/tokens",
-  "version": "0.2.0-alpha",
+  "version": "0.3.0",
   "description": "CSS design tokens for VhyxUI — zero JavaScript, zero build step",
   "keywords": [
     "vhyxui",

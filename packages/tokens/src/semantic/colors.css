@@ -16,7 +16,7 @@
   /* Border */
   --vhyx-color-border:          var(--vhyx-primitive-slate-200);
   --vhyx-color-border-strong:   var(--vhyx-primitive-slate-300);
-  --vhyx-color-border-focus:    var(--vhyx-primitive-indigo-500);
+  --vhyx-color-border-focus:    var(--vhyx-primitive-orange-600);
 
   /* Text */
   --vhyx-color-text:            var(--vhyx-primitive-slate-900);
@@ -27,11 +27,12 @@
   --vhyx-color-text-on-accent:  #ffffff;
 
   /* Accent */
-  --vhyx-color-accent:          var(--vhyx-primitive-indigo-500);
-  --vhyx-color-accent-hover:    var(--vhyx-primitive-indigo-600);
-  --vhyx-color-accent-active:   var(--vhyx-primitive-indigo-700);
-  --vhyx-color-accent-subtle:   var(--vhyx-primitive-indigo-50);
-  --vhyx-color-accent-muted:    var(--vhyx-primitive-indigo-100);
+  /* Orange 600 keeps white text above 4.5:1 */
+  --vhyx-color-accent:          var(--vhyx-primitive-orange-600);
+  --vhyx-color-accent-hover:    var(--vhyx-primitive-orange-700);
+  --vhyx-color-accent-active:   var(--vhyx-primitive-orange-800);
+  --vhyx-color-accent-subtle:   var(--vhyx-primitive-orange-50);
+  --vhyx-color-accent-muted:    var(--vhyx-primitive-orange-100);
 
   /* Success */
   --vhyx-color-success:         var(--vhyx-primitive-green-500);
