@@ -6,6 +6,7 @@ import { PropsPanel } from './PropsPanel';
 import { ContractPanel } from './ContractPanel';
 import { TokensPanel } from './TokensPanel';
 import { ThemePanel } from './ThemePanel';
+import { CodeOutput } from './CodeOutput';
 import type { ComponentDef } from './component-defs';
 
 interface ControlPanelProps {
@@ -28,11 +29,12 @@ export function ControlPanel({
   const [tab, setTab] = useState('props');
 
   return (
-    <div className="pg-control-panel">
-      <Tabs value={tab} onValueChange={setTab} variant="underline" size="sm">
+    <aside className="pg-control-panel" aria-label="Inspector">
+      <Tabs value={tab} onValueChange={setTab} variant="pills" size="sm">
         <Tabs.List>
           <Tabs.Trigger value="props">Props</Tabs.Trigger>
           <Tabs.Trigger value="contract">Contract</Tabs.Trigger>
+          <Tabs.Trigger value="code">Code</Tabs.Trigger>
           <Tabs.Trigger value="tokens">Tokens</Tabs.Trigger>
           <Tabs.Trigger value="theme">Theme</Tabs.Trigger>
         </Tabs.List>
@@ -42,6 +44,9 @@ export function ControlPanel({
         <Tabs.Content value="contract">
           <ContractPanel def={def} props={props} />
         </Tabs.Content>
+        <Tabs.Content value="code">
+          <CodeOutput def={def} props={props} />
+        </Tabs.Content>
         <Tabs.Content value="tokens">
           <TokensPanel def={def} />
         </Tabs.Content>
@@ -49,6 +54,6 @@ export function ControlPanel({
           <ThemePanel overrides={themeOverrides} onChange={onThemeOverridesChange} />
         </Tabs.Content>
       </Tabs>
-    </div>
+    </aside>
   );
 }
