@@ -62,14 +62,14 @@ export default function SwitchPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={switchContract}
           name="Switch"
           description="Toggles a binary on/off state with immediate effect. The thumb translates with spring easing for a premium feel. Use when the change applies instantly — use Checkbox for form submissions."
           tags={['Form element', 'Interactive', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={switchContract}
             label="Toggle notifications"
             code={`<Switch checked={enabled} onCheckedChange={setEnabled} aria-label="Enable notifications" />`}
           >

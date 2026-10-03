@@ -61,14 +61,14 @@ export default function TextareaPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={textareaContract}
           name="Textarea"
           description="Multi-line text input with auto-resize, character count, and error state. Pairs with Field for full label and error wiring."
           tags={['Form element', 'Interactive', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={textareaContract}
             label="Auto-resize textarea with character counter"
             code={`<Textarea
   resize="auto"

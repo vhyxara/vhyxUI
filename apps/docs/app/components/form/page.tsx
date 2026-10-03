@@ -71,14 +71,14 @@ export default function FormPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={formContract}
           name="Form & Field"
           description="Form provides layout and react-hook-form context. Field is the missing layer every project rebuilds: label + input + hint + error, automatically wired together with correct ARIA associations."
           tags={['Form element', 'Context provider', 'react-hook-form']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={formContract}
             label="Contact form with Field"
             code={`<Form layout="vertical">
   <Field name="name" label="Full name" required>

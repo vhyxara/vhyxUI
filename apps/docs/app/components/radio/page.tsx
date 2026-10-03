@@ -70,14 +70,14 @@ export default function RadioPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={radioContract}
           name="Radio"
           description="Mutually exclusive option selection. Arrow keys navigate between items — correct ARIA roving tabindex behavior. Supports vertical and horizontal layouts."
           tags={['Form element', 'Interactive', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={radioContract}
             label="Plan selection"
             code={`<RadioGroup value={plan} onValueChange={setPlan} aria-label="Pricing plan">
   <RadioItem value="starter">Starter — Free</RadioItem>

@@ -62,14 +62,14 @@ export default function ProgressPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={progressContract}
           name="Progress"
           description="Shows task completion as a filled track. Supports determinate (percentage-based) and indeterminate (animated) modes, four semantic variants, and four sizes."
           tags={['Display', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={progressContract}
             label="Simulated upload — click Start to begin"
             code={`<Progress value={value} showLabel variant={value === 100 ? 'success' : 'default'} />`}
           >

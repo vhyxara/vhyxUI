@@ -57,14 +57,14 @@ export default function DialogPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={dialogContract}
           name="Dialog"
           description="Modal overlay with focus trap, Escape-to-close, and automatic focus restoration to the trigger element. Dialog.Title is required for screen reader accessibility."
           tags={['Overlay', 'Compound', 'Focus trap', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={dialogContract}
             label="Edit profile dialog"
             code={`<Dialog>
   <Dialog.Trigger asChild>

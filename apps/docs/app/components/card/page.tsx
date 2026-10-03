@@ -44,14 +44,14 @@ export default function CardPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={cardContract}
           name="Card"
           description="Content container with four variants, configurable padding, and optional interactive states. Sub-components Card.Header, Card.Body, Card.Footer, and Card.Image provide semantic layout slots."
           tags={['Display', 'Compound', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={cardContract}
             label="Pricing card with header, body, and footer"
             code={`<Card variant="outline" padding="lg" style={{ width: '18rem' }}>
   <Card.Header>

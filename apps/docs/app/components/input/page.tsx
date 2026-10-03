@@ -64,14 +64,14 @@ export default function InputPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={inputContract}
           name="Input"
           description="Text input with icon, prefix, suffix, clear button, and password show/hide toggle. Error state triggers the shake animation."
           tags={['Form element', 'Interactive', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={inputContract}
             label="Controlled input"
             code={`<Input value={value} onChange={e => setValue(e.target.value)} placeholder="Type something…" />`}
           >

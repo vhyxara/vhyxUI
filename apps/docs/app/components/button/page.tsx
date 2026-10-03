@@ -69,14 +69,14 @@ export default function ButtonPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={buttonContract}
           name="Button"
           description="Triggers actions or submits forms. Six variants, four sizes, loading state, icon support, and asChild for link rendering — all built in."
           tags={['Interactive', 'Form element', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={buttonContract}
             label="Click to trigger loading state"
             code={`<Button variant="primary" size="md" loading={loading} onClick={handleLoading}>
   Save changes

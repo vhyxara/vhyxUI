@@ -58,14 +58,14 @@ export default function AlertPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={alertContract}
           name="Alert"
           description="Persistent in-page notification banner. Alert stays visible until dismissed — unlike Toast which auto-dismisses. The danger variant uses role='alert' for immediate screen reader announcement."
           tags={['Feedback', 'Persistent', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={alertContract}
             label="Dismissible alert — click × to dismiss"
             code={`<Alert variant="info" title="Beta feature" dismissible onDismiss={() => setShow(false)}>
   This feature is currently in beta. Please report any issues you encounter.
