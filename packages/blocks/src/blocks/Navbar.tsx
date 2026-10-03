@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container, Drawer, Stack } from '@vhyxui/react';
+import { MenuIcon } from '@vhyxui/icons';
 import { renderLink, type LinkComponent, type NavLink } from './shared';
 import styles from './Navbar.module.css';
 
@@ -65,10 +66,3 @@ export function Navbar({ brand, brandHref = '/', links = [], actions, linkAs = '
   );
 }
 
-function MenuIcon(): React.ReactElement {
-  return (
-    <svg viewBox="0 0 16 16" width="16" height="16" fill="none" aria-hidden="true">
-      <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  );
-}

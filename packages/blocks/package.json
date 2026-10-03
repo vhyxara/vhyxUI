@@ -1,6 +1,6 @@
 {
   "name": "@vhyxui/blocks",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
   "description": "VhyxUI blocks and prebuilt layouts — page sections, auth, pricing, dashboards, app shells — composed only from @vhyxui/react",
   "keywords": [
