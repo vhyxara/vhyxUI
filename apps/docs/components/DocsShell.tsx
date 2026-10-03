@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Header } from './Header';
 import { Sidebar } from './Sidebar';
 
@@ -10,6 +11,8 @@ interface DocsShellProps {
 
 export function DocsShell({ children }: DocsShellProps): React.ReactElement {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const path = usePathname() ?? '/';
+  const fullWidth = path === '/' || path === '/index' || path === '/index.html';
 
   function handleSidebarToggle(): void {
     setSidebarOpen((prev) => !prev);
@@ -17,6 +20,21 @@ export function DocsShell({ children }: DocsShellProps): React.ReactElement {
 
   function handleSidebarClose(): void {
     setSidebarOpen(false);
+  }
+
+  if (fullWidth) {
+    return (
+      <>
+        <Header sidebarOpen={sidebarOpen} onSidebarToggle={handleSidebarToggle} />
+        {sidebarOpen && (
+          <div className="docs-shell docs-shell--overlay">
+            <Sidebar open={sidebarOpen} onClose={handleSidebarClose} />
+            <div className="docs-sidebar-overlay" onClick={handleSidebarClose} aria-hidden="true" />
+          </div>
+        )}
+        <main id="vhyx-main" className="docs-main-content docs-main-content--full">{children}</main>
+      </>
+    );
   }
 
   return (

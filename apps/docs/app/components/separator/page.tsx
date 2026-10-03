@@ -42,14 +42,14 @@ export default function SeparatorPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={separatorContract}
           name="Separator"
           description="Visual divider between content sections. Decorative by default (aria-hidden). Semantic mode uses role='separator' for structural meaning. Supports horizontal and vertical orientations with an optional centered label."
           tags={['Display', 'Layout', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={separatorContract}
             label="Horizontal separator between content blocks"
             code={`<p>Content above the separator.</p>
 <Separator />

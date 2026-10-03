@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Badge, Separator } from '@vhyxui/react';
+import { ContractGlance, type ContractLike } from './ContractView';
 
 interface PageHeaderProps {
   name: string;
@@ -9,10 +10,12 @@ interface PageHeaderProps {
   /** e.g. ['Interactive', 'Form element'] */
   tags?: string[];
   stable?: boolean;
+  /** Default VhyxSeal contract, summarised under the description. */
+  contract?: ContractLike;
 }
 
 /** Component page header — name, description, tag badges. */
-export function PageHeader({ name, description, tags = [], stable = true }: PageHeaderProps): React.ReactElement {
+export function PageHeader({ name, description, tags = [], stable = true, contract }: PageHeaderProps): React.ReactElement {
   return (
     <div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--vhyx-space-3)', marginBottom: 'var(--vhyx-space-2)' }}>
@@ -27,6 +30,7 @@ export function PageHeader({ name, description, tags = [], stable = true }: Page
           ))}
         </div>
       )}
+      {contract && <ContractGlance contract={contract} />}
       <Separator decorative style={{ marginBottom: 'var(--vhyx-space-8)' }} />
     </div>
   );

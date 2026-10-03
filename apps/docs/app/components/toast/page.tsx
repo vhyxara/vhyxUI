@@ -61,14 +61,14 @@ export default function ToastPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={toastContract}
           name="Toast"
           description="Ephemeral notifications via imperative API. toast() can be called from anywhere — event handlers, async functions, outside React tree. ToastProvider is included in VhyxUIProvider."
           tags={['Feedback', 'Imperative API', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={toastContract}
             label="Click to trigger different toast variants"
             code={`import { toast } from '@vhyxui/react'
 

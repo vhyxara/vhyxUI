@@ -2,6 +2,8 @@
 
 import React from "react";
 import type { ComponentDef } from "./component-defs";
+import { effectiveContract } from "./contract";
+import { DOCS } from "./links";
 
 // What each contract field means
 const FIELD_DESCRIPTIONS: Record<string, string> = {
@@ -26,24 +28,8 @@ export function ContractPanel({
   def,
   props,
 }: ContractPanelProps): React.ReactElement {
-  // Merge base contract with destructive button upgrade
-  const contract = { ...def.contract };
-  if (def.id === "button" && props["variant"] === "destructive") {
-    contract["safetyLevel"] = "high";
-    contract["destructive"] = "true";
-    contract["requiresConfirmation"] = "true";
-  }
-
-  const isHighlighted = (key: string): boolean => {
-    if (def.id === "button" && props["variant"] === "destructive") {
-      return (
-        key === "safetyLevel" ||
-        key === "destructive" ||
-        key === "requiresConfirmation"
-      );
-    }
-    return false;
-  };
+  const { contract, upgraded } = effectiveContract(def, props);
+  const isHighlighted = (key: string): boolean => upgraded.includes(key);
 
   if (Object.keys(contract).length === 0) {
     return (
@@ -62,7 +48,7 @@ export function ContractPanel({
         Default VhyxSeal contract — merged with your <code>contract</code> prop
         at runtime.
       </p>
-      {def.id === "button" && props["variant"] === "destructive" && (
+      {upgraded.length > 0 && (
         <div className="pg-contract-upgrade-notice">
           <span className="pg-contract-upgrade-dot" />
           <span>
@@ -89,7 +75,7 @@ export function ContractPanel({
         })}
       </div>
       <a
-        href="https://docs.vhyxui.com/agent-contracts"
+        href={`${DOCS}/agent-contracts`}
         className="pg-contract-learn-more"
         target="_blank"
         rel="noopener noreferrer"

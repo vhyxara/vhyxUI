@@ -63,7 +63,7 @@ export default function PaginationPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={paginationContract}
           name="Pagination"
           description="Page navigation control with configurable sibling count, optional first/last buttons, and full ARIA landmark pattern. Current page receives aria-current='page'. Previous/Next/First/Last buttons have descriptive aria-labels."
           tags={['Navigation', 'VhyxSeal']}
@@ -71,7 +71,7 @@ export default function PaginationPage(): React.ReactElement {
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={paginationContract}
             label="10-page result set — click to navigate"
             code={`const [page, setPage] = useState(4);
 

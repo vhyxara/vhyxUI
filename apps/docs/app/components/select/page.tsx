@@ -64,14 +64,14 @@ export default function SelectPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={selectContract}
           name="Select"
           description="Compound dropdown with full keyboard navigation, type-ahead, groups, and separators. Controlled and uncontrolled modes both supported."
           tags={['Form element', 'Interactive', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={selectContract}
             label="Country selector with groups"
             code={`<Select value={country} onValueChange={setCountry} placeholder="Select country">
   <Select.Trigger />

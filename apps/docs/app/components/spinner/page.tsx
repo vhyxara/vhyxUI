@@ -42,14 +42,14 @@ export default function SpinnerPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={spinnerContract}
           name="Spinner"
           description="SVG loading indicator with consistent rendering at all sizes. Screen-reader label always present by default — accessible without extra configuration."
           tags={['Display', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={spinnerContract}
             label="Default and accent spinners"
             code={`<Spinner />
 <Spinner variant="accent" />`}

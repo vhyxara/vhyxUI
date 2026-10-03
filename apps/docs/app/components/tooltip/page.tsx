@@ -56,14 +56,14 @@ export default function TooltipPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={tooltipContract}
           name="Tooltip"
           description="Shows additional context on hover (with configurable delay) and on keyboard focus (no delay). Wraps the trigger via cloneElement — no Trigger sub-component needed."
           tags={['Overlay', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={tooltipContract}
             label="Hover or focus the button to see the tooltip"
             center
             code={`<Tooltip content="Save your current changes to the database">

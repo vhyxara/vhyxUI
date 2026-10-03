@@ -58,14 +58,14 @@ export default function DrawerPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={drawerContract}
           name="Drawer"
           description="Side panel overlay that slides in from any edge. Uses the same compound API as Dialog. Animation direction follows the side prop. Focus trap and restoration built in."
           tags={['Overlay', 'Compound', 'Focus trap', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={drawerContract}
             label="Click a side button to open that drawer"
             code={`<Drawer side="right" open={open} onOpenChange={setOpen}>
   <Drawer.Portal>

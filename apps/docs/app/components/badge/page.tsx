@@ -46,14 +46,14 @@ export default function BadgePage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={badgeContract}
           name="Badge"
           description="Small inline label for status, category, or count. Six semantic variants, dot mode for indicators, and automatic count truncation at configurable max."
           tags={['Display', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={badgeContract}
             label="Status badges and count indicator"
             code={`<Badge variant="success">Active</Badge>
 <Badge variant="warning">Pending</Badge>

@@ -51,14 +51,14 @@ export default function BreadcrumbPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={breadcrumbContract}
           name="Breadcrumb"
           description="Navigation landmark showing the current page location in the site hierarchy. Breadcrumb.Page receives aria-current='page' and renders as a span — not a link. Separators are aria-hidden."
           tags={['Navigation', 'Compound', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={breadcrumbContract}
             label="3-level hierarchy breadcrumb"
             code={`<Breadcrumb>
   <Breadcrumb.Item>

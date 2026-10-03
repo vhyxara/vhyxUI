@@ -61,14 +61,14 @@ export default function TabsPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={tabsContract}
           name="Tabs"
           description="Four visual variants with a sliding active indicator via CSS transform — zero layout recalculation. Full ARIA tablist pattern with arrow key navigation between triggers."
           tags={['Navigation', 'Compound', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={tabsContract}
             label="Dashboard tabs"
             code={`<Tabs value={tab} onValueChange={setTab}>
   <Tabs.List>

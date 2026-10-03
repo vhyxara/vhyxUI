@@ -54,14 +54,14 @@ export default function PopoverPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={popoverContract}
           name="Popover"
           description="Non-modal overlay for rich contextual content. Focus is NOT trapped — unlike Dialog. Escape and click-outside close it. Use for forms, menus, and content panels anchored to a trigger."
           tags={['Overlay', 'Compound', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={popoverContract}
             label="Filter options popover"
             center
             code={`<Popover>

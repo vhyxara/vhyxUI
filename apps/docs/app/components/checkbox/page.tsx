@@ -62,14 +62,14 @@ export default function CheckboxPage(): React.ReactElement {
     <div className="gs-layout">
       <main className="gs-content">
 
-        <PageHeader
+        <PageHeader contract={checkboxContract}
           name="Checkbox"
           description="Toggles a boolean or indeterminate selection. Checkmark animates in with spring easing. First-class indeterminate support for select-all table patterns."
           tags={['Form element', 'Interactive', 'VhyxSeal']}
         />
 
         <Section id="interactive-example" title="Interactive example">
-          <ComponentExample
+          <ComponentExample contract={checkboxContract}
             label="Click to toggle"
             code={`<Checkbox checked={checked} onCheckedChange={setChecked} aria-label="Accept terms" />`}
           >

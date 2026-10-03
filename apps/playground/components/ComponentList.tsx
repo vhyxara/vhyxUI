@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Badge, Input } from '@vhyxui/react';
+import { SearchIcon } from '@vhyxui/icons';
 import { COMPONENT_GROUPS, COMPONENT_DEFS } from './component-defs';
 
 interface ComponentListProps {
@@ -19,13 +19,15 @@ export function ComponentList({ selected }: ComponentListProps): React.ReactElem
     <aside className="pg-sidebar" aria-label="Component list">
       {/* Search */}
       <div className="pg-sidebar-search">
-        <Input
-          placeholder="Filter components…"
-          size="sm"
-          value={query}
-          onChange={(e) => { setQuery(e.target.value); }}
-          aria-label="Filter component list"
-        />
+        <label className="pg-filter">
+          <SearchIcon size={14} />
+          <input
+            placeholder="Filter components"
+            value={query}
+            onChange={(e) => { setQuery(e.target.value); }}
+            aria-label="Filter component list"
+          />
+        </label>
       </div>
 
       {/* Groups */}
@@ -51,13 +53,16 @@ export function ComponentList({ selected }: ComponentListProps): React.ReactElem
                   aria-current={selected === id ? 'page' : undefined}
                 >
                   <span>{def.name}</span>
-                  <Badge variant="success" size="sm">Stable</Badge>
                 </button>
               );
             })}
           </div>
         );
       })}
+      <div className="pg-sidebar-group">
+        <p className="pg-sidebar-group-label">Blocks</p>
+        <a href="/blocks" className="pg-sidebar-item" data-active={selected === 'blocks' ? 'true' : 'false'}>Blocks &amp; layouts</a>
+      </div>
     </aside>
   );
 }
