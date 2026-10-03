@@ -4,6 +4,7 @@ import React, { useCallback, useState } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { checkboxContract } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
+import { CheckIcon, MinusIcon } from '@vhyxui/icons';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import styles from './Checkbox.module.css';
@@ -36,39 +37,14 @@ export interface CheckboxProps
   contract?: Partial<ComponentContract>;
 }
 
-/** Check SVG mark */
+/** Check mark (heavier stroke so it reads at checkbox size). */
 function CheckMark(): React.ReactElement {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 12 12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={styles['check-icon']}
-    >
-      <polyline points="2,6 5,9 10,3" />
-    </svg>
-  );
+  return <CheckIcon className={styles['check-icon']} strokeWidth={3} />;
 }
 
-/** Indeterminate dash mark */
+/** Indeterminate dash mark. */
 function IndeterminateMark(): React.ReactElement {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 12 12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      className={styles['check-icon']}
-    >
-      <line x1="2" y1="6" x2="10" y2="6" />
-    </svg>
-  );
+  return <MinusIcon className={styles['check-icon']} strokeWidth={3} />;
 }
 
 /**

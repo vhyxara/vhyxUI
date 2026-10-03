@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
 import { alertContract } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
-import { CircleCheckIcon, CircleXIcon, InfoIcon, TriangleAlertIcon } from '@vhyxui/icons';
+import { CircleCheckIcon, CircleXIcon, InfoIcon, TriangleAlertIcon, XIcon } from '@vhyxui/icons';
 import { useId } from '../shared/useId';
 import styles from './Alert.module.css';
 
@@ -101,17 +101,7 @@ const AlertBase = React.forwardRef<HTMLDivElement, AlertProps>(
             onClick={handleDismiss}
             aria-label="Dismiss"
           >
-            <svg
-              aria-hidden="true"
-              viewBox="0 0 12 12"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1.5}
-              strokeLinecap="round"
-            >
-              <line x1="2" y1="2" x2="10" y2="10" />
-              <line x1="10" y1="2" x2="2" y2="10" />
-            </svg>
+            <XIcon />
           </button>
         )}
       </div>

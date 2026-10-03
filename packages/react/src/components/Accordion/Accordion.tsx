@@ -4,6 +4,7 @@ import React, { createContext, useCallback, useContext, useMemo, useState } from
 import type { ComponentContract } from '@vhyxui/core';
 import { accordionContract } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
+import { ChevronDownIcon } from '@vhyxui/icons';
 import { cx } from '../../utils/cx';
 import { useId } from '../shared/useId';
 import styles from './Accordion.module.css';
@@ -138,9 +139,7 @@ const AccordionItem = React.forwardRef<HTMLDetailsElement, AccordionItemProps>(
           onClick={disabled ? (e) => e.preventDefault() : undefined}
         >
           <span>{title}</span>
-          <svg className={styles['chevron']} viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <ChevronDownIcon className={styles['chevron']} />
         </summary>
         <div className={styles['content']}>{children}</div>
       </details>

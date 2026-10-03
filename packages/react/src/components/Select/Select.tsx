@@ -14,6 +14,7 @@ import type { ComponentContract } from '@vhyxui/core';
 import { selectContract } from '@vhyxui/core';
 import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
+import { CheckIcon, ChevronDownIcon } from '@vhyxui/icons';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import { clampToViewport, rafBatched } from '../shared/floatingPosition';
@@ -409,9 +410,7 @@ const SelectTrigger = React.forwardRef<HTMLButtonElement, SelectTriggerProps>((p
       </span>
       <span className={styles['trigger-icon']} aria-hidden="true">
         {icon ?? (
-          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.5}>
-            <path d="M2.5 4.5L6 8L9.5 4.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <ChevronDownIcon size="100%" />
         )}
       </span>
     </button>
@@ -661,9 +660,7 @@ const SelectItem = React.forwardRef<HTMLDivElement, SelectItemProps>(
         {children}
         {isSelected && (
           <span className={styles['item-check']} aria-hidden="true">
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round">
-              <polyline points="2,6 5,9 10,3" />
-            </svg>
+            <CheckIcon size="100%" strokeWidth={3} />
           </span>
         )}
       </div>
