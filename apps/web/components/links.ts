@@ -1,5 +1,10 @@
 export const GITHUB = 'https://github.com/vhyxara/vhyxUI';
 export const DOCS = 'https://docs.vhyxui.com';
+export const GET_STARTED = `${DOCS}/getting-started`;
+export const COMPONENTS = `${DOCS}/components/button`;
+export const ICONS = `${DOCS}/icons`;
+export const BLOCKS = `${DOCS}/blocks`;
+export const PLAYGROUND = 'https://play.vhyxui.com';
 export const NPM = 'https://www.npmjs.com/package/@vhyxui/react';
 export const VHYXSEAL = 'https://vhyxseal.com';
 export const VHYXCHART = 'https://github.com/vhyxara/vhyxchart';
