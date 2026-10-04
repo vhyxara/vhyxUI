@@ -5,11 +5,15 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
 import type { ComponentContract } from '@vhyxui/core';
+
+// Measure before paint in the browser; fall back to useEffect during server rendering.
+const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 import { tabsContract } from '@vhyxui/core';
 import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
@@ -230,6 +234,9 @@ const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
     const ctx = useTabsContext('Tabs.List');
     const listRef = useRef<HTMLDivElement | null>(null);
     const [indicatorStyle, setIndicatorStyle] = useState<React.CSSProperties>({});
+    // 'idle' until first measured, then 'placed' (no transition, avoids a grow-in on load),
+    // then 'ready' one frame later so later tab changes slide.
+    const [indicatorPhase, setIndicatorPhase] = useState<'idle' | 'placed' | 'ready'>('idle');
 
     const setRef = useCallback(
       (node: HTMLDivElement | null) => {
@@ -240,24 +247,49 @@ const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
       [ref],
     );
 
-    // Update indicator position when active tab changes
-    useEffect(() => {
+    const measure = useCallback((): void => {
       if (!ctx.value || !listRef.current) return;
       const activeTrigger = ctx.triggerElementsRef.current.get(ctx.value);
       if (!activeTrigger) return;
-
+      // Pills and enclosed slide a full-size background, so they also need height and top.
+      const fill = ctx.variant === 'pills' || ctx.variant === 'enclosed';
       if (ctx.orientation === 'horizontal') {
         setIndicatorStyle({
           width: activeTrigger.offsetWidth,
-          transform: `translateX(${activeTrigger.offsetLeft}px)`,
+          ...(fill ? { height: activeTrigger.offsetHeight } : {}),
+          transform: `translate(${activeTrigger.offsetLeft}px, ${fill ? activeTrigger.offsetTop : 0}px)`,
         });
       } else {
         setIndicatorStyle({
           height: activeTrigger.offsetHeight,
-          transform: `translateY(${activeTrigger.offsetTop}px)`,
+          ...(fill ? { width: activeTrigger.offsetWidth } : {}),
+          transform: `translate(${fill ? activeTrigger.offsetLeft : 0}px, ${activeTrigger.offsetTop}px)`,
         });
       }
-    }, [ctx.value, ctx.orientation, ctx.triggerElementsRef]);
+      setIndicatorPhase((phase) => (phase === 'idle' ? 'placed' : phase));
+    }, [ctx.value, ctx.orientation, ctx.variant, ctx.triggerElementsRef]);
+
+    // Position the indicator before paint whenever the active tab changes.
+    useIsomorphicLayoutEffect(() => {
+      measure();
+    }, [measure]);
+
+    // After the first placement, enable the slide on the next frame.
+    useEffect(() => {
+      if (indicatorPhase !== 'placed') return undefined;
+      const frame = requestAnimationFrame(() => setIndicatorPhase('ready'));
+      return () => cancelAnimationFrame(frame);
+    }, [indicatorPhase]);
+
+    // Re-measure when the list or tabs resize (fonts loading, responsive layout, label changes).
+    useEffect(() => {
+      const list = listRef.current;
+      if (!list || typeof ResizeObserver === 'undefined') return undefined;
+      const observer = new ResizeObserver(() => measure());
+      observer.observe(list);
+      ctx.triggerElementsRef.current.forEach((el) => observer.observe(el));
+      return () => observer.disconnect();
+    }, [measure, ctx.triggerElementsRef]);
 
     const listClass = [styles['list'], className].filter(Boolean).join(' ');
 
@@ -269,15 +301,16 @@ const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
         className={listClass}
         data-variant={ctx.variant}
         data-orientation={ctx.orientation}
+        data-indicator={indicatorPhase}
         {...rest}
       >
-        {children}
         <span
           className={styles['indicator']}
           data-orientation={ctx.orientation}
           aria-hidden="true"
           style={indicatorStyle}
         />
+        {children}
       </div>
     );
   },

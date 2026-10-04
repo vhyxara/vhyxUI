@@ -37,14 +37,16 @@ export interface CheckboxProps
   contract?: Partial<ComponentContract>;
 }
 
-/** Check mark (heavier stroke so it reads at checkbox size). */
-function CheckMark(): React.ReactElement {
-  return <CheckIcon className={styles['check-icon']} strokeWidth={3} />;
+/**
+ * Both marks stay mounted and CSS animates them in and out by the box's data-state, so
+ * unchecking reverses smoothly instead of the mark vanishing. Hidden marks are aria-hidden.
+ */
+function CheckMark({ visible }: { visible: boolean }): React.ReactElement {
+  return <CheckIcon className={styles['check-icon']} data-mark="check" data-visible={visible} aria-hidden="true" strokeWidth={3} />;
 }
 
-/** Indeterminate dash mark. */
-function IndeterminateMark(): React.ReactElement {
-  return <MinusIcon className={styles['check-icon']} strokeWidth={3} />;
+function IndeterminateMark({ visible }: { visible: boolean }): React.ReactElement {
+  return <MinusIcon className={styles['check-icon']} data-mark="dash" data-visible={visible} aria-hidden="true" strokeWidth={3} />;
 }
 
 /**
@@ -151,8 +153,8 @@ const CheckboxBase = React.forwardRef<HTMLButtonElement, CheckboxProps>(
     return (
       <button ref={ref} type="button" {...sharedProps}>
         <span className={styles['indicator']}>
-          {currentChecked === 'indeterminate' && <IndeterminateMark />}
-          {currentChecked === true && <CheckMark />}
+          <IndeterminateMark visible={currentChecked === 'indeterminate'} />
+          <CheckMark visible={currentChecked === true} />
         </span>
       </button>
     );

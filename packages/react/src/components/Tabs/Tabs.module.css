@@ -61,8 +61,8 @@
   white-space: nowrap;
   position: relative;
   transition:
-    color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
-    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+    color var(--vhyx-duration-normal) var(--vhyx-easing-out),
+    background-color var(--vhyx-duration-normal) var(--vhyx-easing-out);
 }
 
 .trigger:hover:not(:disabled) {
@@ -109,19 +109,33 @@
   font-size: var(--vhyx-text-md);
 }
 
-/* ─── Sliding indicator ───────────────────────────────────── */
+/* ─── Sliding indicator ───────────────────────────────────
+ * Positioned before paint by Tabs.List. data-indicator on the list is:
+ *   idle    not measured yet (server render / first frame) → hidden
+ *   placed  measured, no transition → appears in place, no grow-in on load
+ *   ready   later tab changes slide with a long soft settle
+ */
 
 .indicator {
   position: absolute;
   bottom: 0;
   left: 0;
   height: var(--vhyx-border-width-2);
+  border-radius: var(--vhyx-radius-full);
   background-color: var(--vhyx-color-accent);
+  pointer-events: none;
+  will-change: transform;
+}
 
-  /* Spring animation — duration-normal / easing-spring */
+.list[data-indicator="idle"] .indicator {
+  visibility: hidden;
+}
+
+.list[data-indicator="ready"] .indicator {
   transition:
-    transform var(--vhyx-duration-normal) var(--vhyx-easing-spring),
-    width var(--vhyx-duration-normal) var(--vhyx-easing-spring);
+    transform 320ms var(--vhyx-easing-out),
+    width 320ms var(--vhyx-easing-out),
+    height 320ms var(--vhyx-easing-out);
 }
 
 /* Vertical orientation — indicator on the right */
@@ -132,16 +146,43 @@
   top: 0;
   width: var(--vhyx-border-width-2);
   height: auto;
-
-  transition:
-    transform var(--vhyx-duration-normal) var(--vhyx-easing-spring),
-    height var(--vhyx-duration-normal) var(--vhyx-easing-spring);
 }
 
-/* Hide indicator for variants that handle their own active state visually */
+/* Pills and enclosed: the indicator is the active background, sliding behind the labels */
 .list[data-variant="pills"] .indicator,
 .list[data-variant="enclosed"] .indicator {
-  display: none;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  z-index: 0;
+}
+
+.list[data-variant="pills"] .indicator {
+  border-radius: var(--vhyx-radius-full);
+  background-color: var(--vhyx-color-accent);
+}
+
+.list[data-variant="enclosed"] .indicator {
+  border-radius: var(--vhyx-radius-md);
+  background-color: var(--vhyx-color-surface);
+  box-shadow: var(--vhyx-shadow-sm);
+}
+
+.list[data-variant="pills"] .trigger,
+.list[data-variant="enclosed"] .trigger {
+  z-index: 1;
+}
+
+/* Once the indicator is placed it carries the background, so active triggers drop their own */
+.list[data-variant="pills"]:not([data-indicator="idle"]) .trigger[data-state="active"],
+.list[data-variant="enclosed"]:not([data-indicator="idle"]) .trigger[data-state="active"] {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .list[data-indicator="ready"] .indicator { transition: none; }
 }
 
 /* ─── Panel ───────────────────────────────────────────────── */
