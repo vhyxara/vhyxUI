@@ -232,7 +232,7 @@ export default function SelectPage(): React.ReactElement {
               { name: '--vhyx-color-accent-subtle', desc: 'Selected item background' },
               { name: '--vhyx-shadow-lg',           desc: 'Dropdown shadow' },
               { name: '--vhyx-radius-md',           desc: 'Trigger and dropdown radius' },
-              { name: '--vhyx-shadow-focus',        desc: 'Focus ring' },
+              { name: '--vhyx-shadow-focus-field',        desc: 'Focus halo' },
             ].map((t) => (
               <div key={t.name} className="docs-token-item">
                 <span className="docs-token-name">{t.name}</span>

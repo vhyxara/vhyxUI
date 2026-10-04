@@ -169,7 +169,7 @@ export default function TextareaPage(): React.ReactElement {
               { name: '--vhyx-color-danger',       desc: 'Error border color' },
               { name: '--vhyx-color-surface',      desc: 'Textarea background' },
               { name: '--vhyx-radius-md',          desc: 'Border radius' },
-              { name: '--vhyx-shadow-focus',       desc: 'Focus ring' },
+              { name: '--vhyx-shadow-focus-field',       desc: 'Focus halo' },
               { name: '--vhyx-duration-fast',      desc: 'Border transition duration' },
             ].map((t) => (
               <div key={t.name} className="docs-token-item">

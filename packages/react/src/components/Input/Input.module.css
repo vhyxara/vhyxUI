@@ -21,7 +21,7 @@
 
 .wrapper:focus-within {
   border-color: var(--vhyx-color-border-focus);
-  box-shadow: var(--vhyx-shadow-focus);
+  box-shadow: var(--vhyx-shadow-focus-field);
   outline: none;
 }
 
@@ -33,7 +33,7 @@
 
 .wrapper--error:focus-within {
   border-color: var(--vhyx-color-danger);
-  box-shadow: var(--vhyx-shadow-focus-danger);
+  box-shadow: var(--vhyx-shadow-focus-field-danger);
 }
 
 /* ─── Sizes ───────────────────────────────────────────────── */
