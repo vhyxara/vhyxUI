@@ -197,8 +197,8 @@ export default function InputPage(): React.ReactElement {
               { name: '--vhyx-color-danger',       desc: 'Error border color' },
               { name: '--vhyx-color-surface',      desc: 'Input background' },
               { name: '--vhyx-radius-md',          desc: 'Border radius' },
-              { name: '--vhyx-shadow-focus',       desc: 'Focus ring' },
-              { name: '--vhyx-shadow-focus-danger', desc: 'Error focus ring' },
+              { name: '--vhyx-shadow-focus-field',       desc: 'Focus halo' },
+              { name: '--vhyx-shadow-focus-field-danger', desc: 'Error focus halo' },
               { name: '--vhyx-duration-slow',      desc: 'Shake animation duration (error state)' },
             ].map((t) => (
               <div key={t.name} className="docs-token-item">
