@@ -69,8 +69,14 @@
   background-color: var(--vhyx-color-surface);
 
   transition:
-    border-color var(--vhyx-duration-fast) var(--vhyx-easing-standard),
-    background-color var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+    border-color var(--vhyx-duration-normal) var(--vhyx-easing-out),
+    background-color var(--vhyx-duration-normal) var(--vhyx-easing-out),
+    transform var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+/* Press feedback: a slight squeeze */
+.item:active:not(:disabled) .radio-indicator {
+  transform: scale(0.92);
 }
 
 .item[data-state="checked"] .radio-indicator {
@@ -101,7 +107,23 @@
   height: 40%;
   border-radius: var(--vhyx-radius-full);
   background-color: var(--vhyx-color-text-on-accent);
-  animation: vhyx-scale-in var(--vhyx-duration-fast) var(--vhyx-easing-spring) both;
+  transform: scale(0);
+  opacity: 0;
+  transition:
+    transform var(--vhyx-duration-fast) var(--vhyx-easing-standard),
+    opacity var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+.item[data-state="checked"] .radio-dot {
+  transform: scale(1);
+  opacity: 1;
+  transition:
+    transform 260ms var(--vhyx-easing-out-back),
+    opacity var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .radio-dot, .item[data-state="checked"] .radio-dot { transition: none; }
 }
 
 /* ─── Label ───────────────────────────────────────────────── */

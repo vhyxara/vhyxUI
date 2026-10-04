@@ -85,22 +85,32 @@ describe('Checkbox — disabled state', () => {
 // ─── Animation — check icon present when checked ──────────────────────────────
 
 describe('Checkbox — animation', () => {
-  it('renders the check icon SVG when checked', () => {
+  const visibleMarks = (): string[] =>
+    Array.from(screen.getByRole('checkbox').querySelectorAll('svg[data-visible="true"]')).map(
+      (el) => el.getAttribute('data-mark') ?? '',
+    );
+
+  it('shows the check mark when checked', () => {
     render(<Checkbox checked aria-label="Check" />);
-    const svg = screen.getByRole('checkbox').querySelector('svg');
-    expect(svg).not.toBeNull();
+    expect(visibleMarks()).toEqual(['check']);
   });
 
-  it('does not render a check icon when unchecked', () => {
+  it('shows no mark when unchecked (marks stay mounted so unchecking can animate)', () => {
     render(<Checkbox aria-label="Check" />);
-    const svgs = screen.getByRole('checkbox').querySelectorAll('svg');
-    expect(svgs.length).toBe(0);
+    expect(visibleMarks()).toEqual([]);
+    expect(screen.getByRole('checkbox').querySelectorAll('svg').length).toBe(2);
   });
 
-  it('renders the indeterminate dash icon when indeterminate', () => {
+  it('shows the indeterminate dash when indeterminate', () => {
     render(<Checkbox indeterminate aria-label="Check" />);
-    const svg = screen.getByRole('checkbox').querySelector('svg');
-    expect(svg).not.toBeNull();
+    expect(visibleMarks()).toEqual(['dash']);
+  });
+
+  it('keeps hidden marks out of the accessibility tree', () => {
+    render(<Checkbox aria-label="Check" />);
+    for (const svg of Array.from(screen.getByRole('checkbox').querySelectorAll('svg'))) {
+      expect(svg).toHaveAttribute('aria-hidden', 'true');
+    }
   });
 });
 

@@ -1,18 +1,34 @@
 .switch {
+  /* Geometry as variables so sizes and the press stretch share one formula */
+  --switch-w: var(--vhyx-space-10);
+  --switch-h: var(--vhyx-space-6);
+  --switch-thumb: var(--vhyx-space-5);
+  --switch-pad: var(--vhyx-space-0-5);
+  --switch-stretch: 0px;
+
   /* Track */
   display: inline-flex;
   align-items: center;
   flex-shrink: 0;
   position: relative;
-  width: var(--vhyx-space-10);
-  height: var(--vhyx-space-6);
-  padding: var(--vhyx-space-0-5);
+  width: var(--switch-w);
+  height: var(--switch-h);
+  padding: var(--switch-pad);
   border-radius: var(--vhyx-radius-full);
   border: none;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 
-  background-color: var(--vhyx-color-bg-muted);
-  transition: background-color var(--vhyx-duration-normal) var(--vhyx-easing-spring);
+  /* Unchecked track: border-strong reads clearly on both light and dark pages */
+  background-color: var(--vhyx-color-border-strong);
+  transition:
+    background-color var(--vhyx-duration-normal) var(--vhyx-easing-standard),
+    box-shadow var(--vhyx-duration-fast) var(--vhyx-easing-standard);
+}
+
+/* Press: the thumb stretches toward its travel direction, like iOS */
+.switch:active:not(:disabled) {
+  --switch-stretch: calc(var(--switch-thumb) * 0.2);
 }
 
 .switch:disabled {
@@ -37,58 +53,40 @@
 /* ─── Thumb ───────────────────────────────────────────────── */
 .thumb {
   display: block;
-  width: var(--vhyx-space-5);
-  height: var(--vhyx-space-5);
+  width: calc(var(--switch-thumb) + var(--switch-stretch));
+  height: var(--switch-thumb);
   border-radius: var(--vhyx-radius-full);
-  background-color: var(--vhyx-color-surface);
-  box-shadow: var(--vhyx-shadow-xs);
+  /* A white thumb in both themes, like native switches; override with --vhyx-switch-thumb */
+  background-color: var(--vhyx-switch-thumb, #ffffff);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.18), 0 2px 6px rgb(0 0 0 / 0.12);
   flex-shrink: 0;
 
-  /* Spring animation on translate — this is what makes Switch feel premium */
-  transition: transform var(--vhyx-duration-normal) var(--vhyx-easing-spring);
+  /* Glide with a long soft settle (no wall bounce); width eases with the press stretch */
+  transition:
+    transform 280ms var(--vhyx-easing-out),
+    width 180ms var(--vhyx-easing-out);
   transform: translateX(0);
 }
 
 .switch[data-state="checked"] .thumb {
-  /* Translate thumb to the right: track-width - thumb-width - 2*padding */
-  transform: translateX(calc(var(--vhyx-space-10) - var(--vhyx-space-5) - var(--vhyx-space-1)));
+  /* track - thumb - both paddings, minus the stretch so a pressed thumb stays anchored right */
+  transform: translateX(calc(var(--switch-w) - var(--switch-thumb) - 2 * var(--switch-pad) - var(--switch-stretch)));
 }
 
 /* ─── Sizes ───────────────────────────────────────────────── */
 .switch[data-size="sm"] {
-  width: var(--vhyx-space-8);
-  height: var(--vhyx-space-5);
-}
-
-.switch[data-size="sm"] .thumb {
-  width: var(--vhyx-space-4);
-  height: var(--vhyx-space-4);
-}
-
-.switch[data-size="sm"][data-state="checked"] .thumb {
-  transform: translateX(calc(var(--vhyx-space-8) - var(--vhyx-space-4) - var(--vhyx-space-1)));
-}
-
-.switch[data-size="md"] {
-  width: var(--vhyx-space-10);
-  height: var(--vhyx-space-6);
-}
-
-.switch[data-size="md"] .thumb {
-  width: var(--vhyx-space-5);
-  height: var(--vhyx-space-5);
+  --switch-w: var(--vhyx-space-8);
+  --switch-h: var(--vhyx-space-5);
+  --switch-thumb: var(--vhyx-space-4);
 }
 
 .switch[data-size="lg"] {
-  width: var(--vhyx-space-12);
-  height: var(--vhyx-space-7);
+  --switch-w: var(--vhyx-space-12);
+  --switch-h: var(--vhyx-space-7);
+  --switch-thumb: var(--vhyx-space-6);
 }
 
-.switch[data-size="lg"] .thumb {
-  width: var(--vhyx-space-6);
-  height: var(--vhyx-space-6);
-}
-
-.switch[data-size="lg"][data-state="checked"] .thumb {
-  transform: translateX(calc(var(--vhyx-space-12) - var(--vhyx-space-6) - var(--vhyx-space-1)));
+@media (prefers-reduced-motion: reduce) {
+  .switch { --switch-stretch: 0px !important; }
+  .thumb { transition: none; }
 }

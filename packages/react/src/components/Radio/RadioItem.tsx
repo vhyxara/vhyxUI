@@ -103,7 +103,8 @@ export const RadioItem = React.forwardRef<HTMLButtonElement, RadioItemProps>(
         {...rest}
       >
         <span className={styles['radio-indicator']}>
-          {isSelected && <span className={styles['radio-dot']} />}
+          {/* Always mounted: CSS scales it in and out by data-state so both directions animate */}
+          <span className={styles['radio-dot']} aria-hidden="true" />
         </span>
         {children && (
           <span className={styles['radio-label']}>{children}</span>
