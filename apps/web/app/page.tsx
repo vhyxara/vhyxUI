@@ -22,7 +22,7 @@ import {
 } from '@vhyxui/react';
 import { CTASection, FeatureGrid, Hero, MarketingLayout } from '@vhyxui/blocks';
 import { AGENT_STORY } from '../components/diagram';
-import { DOCS, GITHUB, NPM, VHYXCHART, VHYXSEAL, VHYXARA } from '../components/links';
+import { BLOCKS, COMPONENTS, DOCS, GET_STARTED, GITHUB, ICONS, NPM, PLAYGROUND, VHYXCHART, VHYXSEAL, VHYXARA } from '../components/links';
 
 const INSTALL = 'npm install @vhyxui/react @vhyxui/tokens';
 
@@ -175,11 +175,12 @@ export default function Home() {
             { label: 'Agents', href: '#agents' },
             { label: 'Tailwind', href: '#tailwind' },
             { label: 'Docs', href: DOCS, external: true },
+            { label: 'Playground', href: PLAYGROUND, external: true },
             { label: 'GitHub', href: GITHUB, external: true },
           ],
           actions: (
-            <Button size="sm" asChild contract={{ id: 'get-started', intent: 'navigate', description: 'Open the VhyxUI documentation' }}>
-              <a href={DOCS}>Get started</a>
+            <Button size="sm" asChild contract={{ id: 'get-started', intent: 'navigate', description: 'Open the VhyxUI getting started guide' }}>
+              <a href={GET_STARTED}>Get started</a>
             </Button>
           ),
         }}
@@ -187,7 +188,8 @@ export default function Home() {
           brand: 'VhyxUI',
           tagline: <>Accessible React components that AI agents understand. MIT licensed, by <a href={VHYXARA} className="brand-link">Vhyxara</a>.</>,
           columns: [
-            { title: 'Product', links: [{ label: 'Documentation', href: DOCS }, { label: 'npm', href: NPM }, { label: 'GitHub', href: GITHUB }] },
+            { title: 'Product', links: [{ label: 'Documentation', href: DOCS }, { label: 'Components', href: COMPONENTS }, { label: 'Blocks & layouts', href: BLOCKS }, { label: 'Icons', href: ICONS }, { label: 'Playground', href: PLAYGROUND }] },
+            { title: 'Project', links: [{ label: 'npm', href: NPM }, { label: 'GitHub', href: GITHUB }] },
             { title: 'Family', links: [{ label: 'VhyxSeal — agent contracts', href: VHYXSEAL }, { label: 'VhyxChart — animated diagrams', href: VHYXCHART }] },
           ],
           legal: <>© 2026 <a href={VHYXARA} className="brand-link">Vhyxara</a></>,
@@ -198,8 +200,8 @@ export default function Home() {
           title="Accessible React components that AI agents understand."
           description="Beautiful, keyboard-friendly components with motion built in — and a machine-readable contract on every interactive element, so AI agents know what is safe to click."
           actions={[
-            { label: 'Get started', href: DOCS },
-            { label: 'View on GitHub', href: GITHUB, variant: 'outline' },
+            { label: 'Get started', href: GET_STARTED },
+            { label: 'Open playground', href: PLAYGROUND, variant: 'outline' },
           ]}
         />
 
@@ -260,7 +262,7 @@ export default function Home() {
             </div>
             <div className="family">
               {[
-                { name: 'VhyxUI', role: 'Components', text: 'Accessible React components with agent contracts built in.', href: GITHUB },
+                { name: 'VhyxUI', role: 'Components', text: 'Accessible React components with agent contracts built in.', href: DOCS },
                 { name: 'VhyxSeal', role: 'Agents', text: 'The contract layer that tells AI agents what your UI does.', href: VHYXSEAL },
                 { name: 'VhyxChart', role: 'Diagrams', text: 'Text-defined diagrams that animate — in docs, GitHub and VS Code.', href: VHYXCHART },
               ].map((p) => (
@@ -281,8 +283,9 @@ export default function Home() {
             title="Build interfaces people and agents can trust"
             description="Install VhyxUI and ship accessible components with agent contracts from day one."
             actions={[
-              { label: 'Read the docs', href: DOCS },
-              { label: 'Star on GitHub', href: GITHUB, variant: 'outline' },
+              { label: 'Read the docs', href: GET_STARTED },
+              { label: 'Open playground', href: PLAYGROUND, variant: 'outline' },
+              { label: 'Star on GitHub', href: GITHUB, variant: 'ghost' },
             ]}
           />
         </Container>
