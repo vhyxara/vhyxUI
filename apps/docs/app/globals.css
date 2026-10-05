@@ -4,6 +4,7 @@
 @import '@vhyxui/blocks/style.css';
 @import '../styles/docs.css';
 @import '../styles/shell.css';
+@import '../styles/atmosphere.css';
 @import '../styles/home.css';
 
 /* Documentation site layout — uses only VhyxUI tokens */

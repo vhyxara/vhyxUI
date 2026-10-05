@@ -169,3 +169,17 @@ body {
   .pg-preview-panel { flex: 0 0 auto; }
   .pg-control-panel { width: auto; border-left: 0; border-top: 1px solid var(--vhyx-color-border); }
 }
+
+/* ── Brand atmosphere (quiet): glow behind the preview, glowing top edge on the preview card ── */
+.pg-preview-stage {
+  background-image:
+    radial-gradient(60% 50% at 50% 0%, color-mix(in srgb, var(--atmo-brand) 9%, transparent), transparent 70%),
+    radial-gradient(var(--vhyx-color-border) 1px, transparent 1px);
+  background-size: auto, 1.5rem 1.5rem;
+}
+.pg-preview-viewport {
+  position: relative;
+  border: 1px solid color-mix(in srgb, var(--atmo-brand) 18%, var(--vhyx-color-border));
+  box-shadow: 0 30px 70px -40px var(--atmo-glow), var(--vhyx-shadow-md);
+}
+.pg-preview-viewport::after { content: ''; position: absolute; left: 24px; right: 24px; top: -1px; height: 1px; pointer-events: none; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--atmo-brand) 70%, transparent), transparent); }

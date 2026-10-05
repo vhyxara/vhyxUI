@@ -383,5 +383,15 @@ body {
 @media (max-width: 760px) {
   .contract-panel { grid-template-columns: minmax(0, 1fr); }
   .contract-panel-summary { border-right: 0; border-bottom: 1px solid var(--vhyx-color-border); }
-  .contract-glance > div { border-bottom: 1px solid var(--vhyx-color-border); }
+  /* Two even columns instead of flex-wrap, so the dividers line up row to row. */
+  .contract-glance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contract-glance > div { border-right: 0; border-bottom: 1px solid var(--vhyx-color-border); min-width: 0; }
+  .contract-glance > div:nth-child(odd) { border-right: 1px solid var(--vhyx-color-border); }
+  .contract-glance > div:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
+  .contract-glance > div:last-child, .contract-glance > div:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
+  .contract-glance dd { white-space: normal; overflow-wrap: anywhere; }
 }
+
+/* Brand touch on live examples: the same glowing top edge as the landing page cards. */
+.docs-example-container { position: relative; }
+.docs-example-container::after { content: ''; position: absolute; left: 24px; right: 24px; top: 0; height: 1px; pointer-events: none; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--atmo-brand) 70%, transparent), transparent); opacity: .7; }

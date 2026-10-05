@@ -1,35 +1,58 @@
-import { ArrowRightIcon, TriangleAlertIcon } from '@vhyxui/icons';
+import {
+  ArrowRightIcon,
+  BlocksIcon,
+  BotIcon,
+  BrushIcon,
+  ComponentIcon,
+  LayersIcon,
+  LayoutDashboardIcon,
+  PaletteIcon,
+  ShapesIcon,
+  WindIcon,
+} from '@vhyxui/icons';
 import React from 'react';
 import Link from 'next/link';
-import { Alert, Button, TextField } from '@vhyxui/react';
+import { Button } from '@vhyxui/react';
 import { CopyButton } from '../components/CopyButton';
-import { DualViewHero } from '../components/home/DualViewHero';
-import { CapabilityMap } from '../components/home/CapabilityMap';
-import { PLAYGROUND, VHYXARA, VHYXCHART, VHYXSEAL } from '../components/links';
+import { SearchLauncher } from '../components/home/SearchLauncher';
+import { PLAYGROUND, SITE, VHYXARA, VHYXCHART, VHYXSEAL } from '../components/links';
 
 const INSTALL = 'pnpm add @vhyxui/react @vhyxui/tokens';
 
-const CATEGORIES = [
-  { title: 'Inputs & Forms', text: 'Button, Input, Select, Checkbox, Switch, Form fields', href: '/components/button' },
-  { title: 'Feedback', text: 'Toast, Alert, Badge, Progress, Spinner', href: '/components/toast' },
-  { title: 'Overlays', text: 'Dialog, Drawer, Tooltip, Popover', href: '/components/dialog' },
-  { title: 'Blocks & Layouts', text: 'DataTable, StatCard, Pricing, AppShell and more', href: '/blocks' },
+const STEPS = [
+  { n: '01', title: 'Install', text: 'Add the components and the design tokens, then import the styles once.', href: '/getting-started' },
+  { n: '02', title: 'Theme it', text: 'Light, dark or your own brand: every component reads the same tokens.', href: '/theming' },
+  { n: '03', title: 'Ship agent-ready UI', text: 'Each control already carries a contract. See what agents read and how to tune it.', href: '/agent-contracts' },
 ];
+
+const SECTIONS = [
+  { icon: <ComponentIcon />, title: 'Components', text: '37 accessible components with motion, keyboard support and contracts.', href: '/components/button' },
+  { icon: <BlocksIcon />, title: 'Blocks', text: 'Data tables, stat cards, pricing, auth forms — ready-made sections.', href: '/blocks' },
+  { icon: <LayoutDashboardIcon />, title: 'Layouts', text: 'App shells, dashboards and docs layouts to start a page from.', href: '/layouts' },
+  { icon: <ShapesIcon />, title: 'Icons', text: '500 original icons on one grid, with animated variants.', href: '/icons' },
+  { icon: <PaletteIcon />, title: 'Theming', text: 'Switch themes, set your accent, and scope themes to a section.', href: '/theming' },
+  { icon: <BrushIcon />, title: 'Design tokens', text: 'Colour, spacing, radius, type and motion — all CSS variables.', href: '/docs/tokens' },
+  { icon: <WindIcon />, title: 'Tailwind', text: 'Use VhyxUI with Tailwind v3 or v4; your utilities still win.', href: '/tailwind' },
+  { icon: <BotIcon />, title: 'Agent contracts', text: 'Intent, safety level and confirmation for every interactive control.', href: '/agent-contracts' },
+  { icon: <LayersIcon />, title: 'Architecture', text: 'How the four layers fit: visuals, accessibility, motion, contracts.', href: '/architecture' },
+];
+
+const POPULAR = ['button', 'dialog', 'toast', 'select', 'tabs', 'form', 'input', 'switch', 'tooltip', 'drawer'];
 
 export default function HomePage(): React.ReactElement {
   return (
     <div className="home">
-      <section className="home-hero docs-grid-bg">
+      <section className="home-hero atmo-hero">
+        <div className="atmo-aurora" aria-hidden="true"><span /><span /><span /></div>
         <div className="home-inner home-hero-inner">
-          <span className="home-eyebrow">React · 37 components · 500 icons · agent contracts</span>
-          <h1 className="home-title">Build the screen once. Humans click it, agents read it.</h1>
+          <Link href="/docs/changelog" className="home-pill"><b>New</b> Smoother overlays in 0.4.11 <ArrowRightIcon size="1em" /></Link>
+          <span className="atmo-eyebrow">Documentation</span>
+          <h1 className="home-title">Learn VhyxUI, <span className="atmo-gradient-text">step by step</span>.</h1>
           <p className="home-lead">
-            Accessible React components with motion and design tokens. Every control publishes a signed
-            contract, so AI agents know what it does before they press it.
+            Install the library, browse every component, theme it with tokens, and see the contract each control gives AI agents.
           </p>
           <div className="home-actions">
-            <Button asChild size="lg"><Link href="/getting-started">Get started</Link></Button>
-            <Button asChild size="lg" variant="outline"><a href={PLAYGROUND}>Open playground</a></Button>
+            <SearchLauncher />
             <span className="home-install">
               <span className="home-install-prompt" aria-hidden="true">$</span>
               <code>{INSTALL}</code>
@@ -41,80 +64,73 @@ export default function HomePage(): React.ReactElement {
 
       <section className="home-section">
         <div className="home-inner">
-          <p className="home-caption">One settings screen, seen two ways.</p>
-          <DualViewHero />
-        </div>
-      </section>
-
-      <section className="home-section">
-        <div className="home-inner">
-          <div className="home-heading-row">
-            <h2 className="home-h2">Designed to feel good</h2>
-            <Link href="/components/button" className="home-link">Browse all components <ArrowRightIcon size="1em" /></Link>
-          </div>
-          <div className="home-stages">
-            <div className="home-stage" data-tint="accent">
-              <span className="home-stage-label">Buttons</span>
-              <div className="home-stage-body home-stage-buttons">
-                <Button>Publish</Button>
-                <Button variant="outline">Preview</Button>
-                <Button variant="ghost">Cancel</Button>
-              </div>
-            </div>
-            <div className="home-stage" data-tint="success">
-              <span className="home-stage-label">Forms</span>
-              <div className="home-stage-body">
-                <TextField name="work-email" label="Work email" defaultValue="ada@company.dev" hint="We'll send a sign-in link." />
-              </div>
-            </div>
-            <div className="home-stage" data-tint="warning">
-              <span className="home-stage-label">Feedback</span>
-              <div className="home-stage-body">
-                <Alert variant="warning" icon={<TriangleAlertIcon />} title="Storage almost full">92% of 10 GB used.</Alert>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section">
-        <div className="home-inner home-split">
-          <div className="home-panel">
-            <span className="home-panel-eyebrow">Capability map · rendered by VhyxChart</span>
-            <CapabilityMap />
-            <p className="home-panel-text">
-              Every manifest can be drawn as an animated flow, so you can review what agents may do before you ship.
-            </p>
-          </div>
-          <div className="home-panel home-stats">
-            <div><strong>37</strong><span>components</span></div>
-            <div><strong>22</strong><span>blocks and layouts</span></div>
-            <div><strong>500</strong><span>original icons</span></div>
-            <div><strong>0</strong><span>lines to add contracts</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="home-section">
-        <div className="home-inner">
-          <h2 className="home-h2">Browse the library</h2>
-          <div className="home-cards">
-            {CATEGORIES.map((c) => (
-              <Link key={c.title} href={c.href} className="home-card">
-                <strong>{c.title}</strong>
-                <span>{c.text}</span>
+          <h2 className="home-h2">Start here</h2>
+          <div className="home-steps">
+            {STEPS.map((s) => (
+              <Link key={s.n} href={s.href} className="atmo-card home-step">
+                <span className="home-step-n">{s.n}</span>
+                <strong>{s.title}</strong>
+                <p>{s.text}</p>
+                <span className="atmo-card-more">Read <ArrowRightIcon size="1em" /></span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
+      <section className="home-section">
+        <div className="home-inner">
+          <h2 className="home-h2">Explore the docs</h2>
+          <div className="home-grid">
+            {SECTIONS.map((s) => (
+              <Link key={s.title} href={s.href} className="atmo-card">
+                <span className="atmo-card-icon" aria-hidden="true">{s.icon}</span>
+                <strong>{s.title}</strong>
+                <p>{s.text}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-inner">
+          <div className="home-heading-row">
+            <h2 className="home-h2">Popular components</h2>
+            <Link href="/components/button" className="home-link">All components <ArrowRightIcon size="1em" /></Link>
+          </div>
+          <div className="home-chips">
+            {POPULAR.map((c) => (
+              <Link key={c} href={`/components/${c}`} className="home-chip">{c[0]!.toUpperCase() + c.slice(1)}</Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section">
+        <div className="home-inner">
+          <div className="atmo-card home-banner">
+            <div>
+              <strong>Try every component live</strong>
+              <p>The playground has props, contract, code and token panels, and an agent console that shows what an AI agent reads as you click.</p>
+            </div>
+            <div className="home-banner-actions">
+              <Button asChild size="lg"><a href={PLAYGROUND}>Open playground</a></Button>
+              <Button asChild size="lg" variant="ghost"><a href={SITE}>About VhyxUI</a></Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="home-footer">
-        <span>A <a href={VHYXARA} className="brand-link">Vhyxara</a> library · MIT licensed</span>
-        <span className="home-footer-links">
-          <a href={VHYXSEAL}>VhyxSeal</a>
-          <a href={VHYXCHART}>VhyxChart</a>
-        </span>
+        <span className="atmo-family-bar" aria-hidden="true" />
+        <div className="home-footer-row">
+          <span>A <a href={VHYXARA} className="brand-link">Vhyxara</a> library · MIT licensed</span>
+          <span className="home-footer-links">
+            <a href={VHYXSEAL}>VhyxSeal</a>
+            <a href={VHYXCHART}>VhyxChart</a>
+          </span>
+        </div>
       </footer>
     </div>
   );

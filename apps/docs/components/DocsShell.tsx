@@ -49,7 +49,7 @@ export function DocsShell({ children }: DocsShellProps): React.ReactElement {
             aria-hidden="true"
           />
         )}
-        <main id="vhyx-main" className="docs-main-content">
+        <main id="vhyx-main" className="docs-main-content atmo-page-glow">
           {children}
         </main>
       </div>
