@@ -109,8 +109,8 @@ a { color: inherit; }
 .lens-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 14px; }
 .lens-actions { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--vhyx-color-border); }
 .lens-ring {
-  position: absolute; left: 0; top: 0; pointer-events: none; border-radius: 12px;
-  box-shadow: 0 0 0 2px var(--lens-tone, var(--lp-brand)), 0 0 0 8px color-mix(in srgb, var(--lens-tone, var(--lp-brand)) 18%, transparent);
+  position: absolute; left: 0; top: 0; pointer-events: none; border-radius: 11px;
+  box-shadow: 0 0 0 1.5px var(--lens-tone, var(--lp-brand)), 0 0 0 4px color-mix(in srgb, var(--lens-tone, var(--lp-brand)) 16%, transparent);
   transition: transform .6s var(--lp-ease), width .6s var(--lp-ease), height .6s var(--lp-ease), box-shadow .3s var(--lp-ease);
 }
 .lens-chip {

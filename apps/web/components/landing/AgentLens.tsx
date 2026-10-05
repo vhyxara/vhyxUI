@@ -41,9 +41,9 @@ export function AgentLens(): React.ReactElement {
     if (!root || !el) return;
     const r = root.getBoundingClientRect();
     const t = el.getBoundingClientRect();
-    const x = t.left - r.left - 6;
-    const y = t.top - r.top - 6;
-    setPos({ x, y, w: t.width + 12, h: t.height + 12 });
+    const x = t.left - r.left - 4;
+    const y = t.top - r.top - 4;
+    setPos({ x, y, w: t.width + 8, h: t.height + 8 });
   }, [step.key]);
 
   useIsoLayoutEffect(() => {
