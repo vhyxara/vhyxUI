@@ -26,5 +26,5 @@ scenario An agent works through the page
 
 /** The settings page's manifest drawn as an animated VhyxChart flow. */
 export function CapabilityMap(): React.ReactElement {
-  return <VhyxChart source={SOURCE} autoplay controls />;
+  return <VhyxChart source={SOURCE} autoplay controls layout="plain" />;
 }

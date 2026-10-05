@@ -7,5 +7,5 @@ export const BLOCKS = `${DOCS}/blocks`;
 export const PLAYGROUND = 'https://play.vhyxui.com';
 export const NPM = 'https://www.npmjs.com/package/@vhyxui/react';
 export const VHYXSEAL = 'https://vhyxseal.com';
-export const VHYXCHART = 'https://github.com/vhyxara/vhyxchart';
+export const VHYXCHART = 'https://vhyxchart.com';
 export const VHYXARA = 'https://vhyxara.com';
