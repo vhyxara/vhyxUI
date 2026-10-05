@@ -1,3 +1,13 @@
+/* Declared here so CSS Modules scopes them together with the rules below (see Dialog.module.css). */
+@keyframes vhyx-float-in {
+  from { opacity: 0; transform: var(--vhyx-float-from, translateY(-4px)) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes vhyx-float-out {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: scale(0.98); }
+}
+
 .tooltip {
   padding: var(--vhyx-space-1-5) var(--vhyx-space-2-5);
   background-color: var(--vhyx-color-bg-inverse);
@@ -10,6 +20,14 @@
   max-width: var(--vhyx-space-32);
   pointer-events: none;
 
-  /* fade-in: duration-fast / easing-decelerate */
-  animation: vhyx-fade-in var(--vhyx-duration-fast) var(--vhyx-easing-decelerate) both;
+  animation: vhyx-float-in calc(var(--vhyx-duration-fast) * 1.5) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
 }
+
+.tooltip[data-state="closed"] {
+  animation: vhyx-float-out var(--vhyx-duration-fast) var(--vhyx-easing-accelerate) both;
+}
+
+.tooltip[data-side="bottom"] { --vhyx-float-from: translateY(-4px); transform-origin: top center; }
+.tooltip[data-side="top"]    { --vhyx-float-from: translateY(4px);  transform-origin: bottom center; }
+.tooltip[data-side="right"]  { --vhyx-float-from: translateX(-4px); transform-origin: center left; }
+.tooltip[data-side="left"]   { --vhyx-float-from: translateX(4px);  transform-origin: center right; }

@@ -6,6 +6,7 @@ import type { ComponentContract } from '@vhyxui/core';
 import { tooltipContract } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
 import { useId } from '../shared/useId';
+import { usePresence } from '../shared/usePresence';
 import styles from './Tooltip.module.css';
 
 /** Props for the Tooltip component. */
@@ -58,6 +59,7 @@ function TooltipBase({
 }: TooltipProps): React.ReactElement {
   const tooltipId = useId('vhyx-tooltip');
   const [visible, setVisible] = useState(false);
+  const presence = usePresence(visible);
   const [position, setPosition] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
 
   const triggerRef = useRef<HTMLElement | null>(null);
@@ -168,12 +170,14 @@ function TooltipBase({
     } as Record<string, unknown>,
   );
 
-  const tooltipPortal = visible
+  const tooltipPortal = presence.present
     ? ReactDOM.createPortal(
         <div
+          ref={presence.ref}
           id={tooltipId}
           role="tooltip"
           className={styles['tooltip']}
+          data-state={presence.state}
           data-side={side}
           data-align={align}
           style={{
@@ -181,7 +185,9 @@ function TooltipBase({
             top: position.top,
             left: position.left,
             zIndex: 550, // --vhyx-z-tooltip
-            transform: side === 'top' || side === 'bottom' ? 'translateX(-50%)' : 'translateY(-50%)',
+            // `translate`, not `transform`, so the enter/exit keyframes (which animate `transform`) keep the centring.
+            translate:
+              side === 'top' ? '-50% -100%' : side === 'bottom' ? '-50% 0' : side === 'left' ? '-100% -50%' : '0 -50%',
           }}
         >
           {content}

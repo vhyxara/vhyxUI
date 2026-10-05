@@ -4,14 +4,29 @@
   justify-content: center;
 }
 
+/* ─── Motion ──────────────────────────────────────────────── */
+
+/* Declared here so CSS Modules scopes them together with the rules below (see Dialog.module.css). */
+@keyframes vhyx-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vhyx-overlay-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes vhyx-drawer-in { from { transform: var(--vhyx-drawer-from); } to { transform: none; } }
+@keyframes vhyx-drawer-out { from { transform: none; } to { transform: var(--vhyx-drawer-from); } }
+
 /* ─── Overlay ─────────────────────────────────────────────── */
 
 .overlay {
   position: fixed;
   inset: 0;
   background-color: var(--vhyx-color-overlay);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   z-index: var(--vhyx-z-overlay);
-  animation: vhyx-overlay-in var(--vhyx-duration-normal) var(--vhyx-easing-standard) both;
+  animation: vhyx-overlay-in var(--vhyx-duration-slow) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+.overlay[data-state="closed"] {
+  pointer-events: none;
+  animation: vhyx-overlay-out var(--vhyx-duration-normal) var(--vhyx-easing-standard) both;
 }
 
 /* ─── Content — base ──────────────────────────────────────── */
@@ -24,6 +39,12 @@
   overflow-y: auto;
   outline: none;
   padding: var(--vhyx-space-6);
+  animation: vhyx-drawer-in calc(var(--vhyx-duration-slow) * 1.2) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+.content[data-state="closed"] {
+  pointer-events: none;
+  animation: vhyx-drawer-out var(--vhyx-duration-normal) cubic-bezier(0.4, 0, 0.8, 0.4) both;
 }
 
 /* ─── Side positioning ────────────────────────────────────── */
@@ -32,28 +53,28 @@
   top: 0;
   right: 0;
   bottom: 0;
-  animation: vhyx-slide-right-in var(--vhyx-duration-slow) var(--vhyx-easing-decelerate) both;
+  --vhyx-drawer-from: translateX(100%);
 }
 
 .content[data-side="left"] {
   top: 0;
   left: 0;
   bottom: 0;
-  animation: vhyx-slide-left-in var(--vhyx-duration-slow) var(--vhyx-easing-decelerate) both;
+  --vhyx-drawer-from: translateX(-100%);
 }
 
 .content[data-side="top"] {
   top: 0;
   left: 0;
   right: 0;
-  animation: vhyx-slide-down-in var(--vhyx-duration-slow) var(--vhyx-easing-decelerate) both;
+  --vhyx-drawer-from: translateY(-100%);
 }
 
 .content[data-side="bottom"] {
   bottom: 0;
   left: 0;
   right: 0;
-  animation: vhyx-slide-up-in var(--vhyx-duration-slow) var(--vhyx-easing-decelerate) both;
+  --vhyx-drawer-from: translateY(100%);
 }
 
 /* ─── Width/height by size (left/right = width, top/bottom = height) ── */

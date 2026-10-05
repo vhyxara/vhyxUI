@@ -7,16 +7,39 @@
   justify-content: center;
 }
 
+/* ─── Motion ──────────────────────────────────────────────── */
+
+/*
+ * Keyframes live in this module on purpose: CSS Modules renames `animation` names to scoped identifiers, and
+ * only keyframes declared in the same file are renamed to match. Referencing the global token keyframes from
+ * here produced names with no @keyframes behind them, so nothing animated.
+ */
+@keyframes vhyx-overlay-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vhyx-overlay-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes vhyx-dialog-in {
+  from { opacity: 0; transform: translateY(10px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes vhyx-dialog-out {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: translateY(4px) scale(0.98); }
+}
+
 /* ─── Overlay ─────────────────────────────────────────────── */
 
 .overlay {
   position: fixed;
   inset: 0;
   background-color: var(--vhyx-color-overlay);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
   z-index: var(--vhyx-z-overlay);
+  animation: vhyx-overlay-in var(--vhyx-duration-slow) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
 
-  /* vhyx-overlay-in: duration-normal / easing-standard */
-  animation: vhyx-overlay-in var(--vhyx-duration-normal) var(--vhyx-easing-standard) both;
+.overlay[data-state="closed"] {
+  pointer-events: none;
+  animation: vhyx-overlay-out var(--vhyx-duration-normal) var(--vhyx-easing-standard) both;
 }
 
 /* ─── Content ─────────────────────────────────────────────── */
@@ -25,7 +48,8 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  /* `translate`, not `transform`, so the enter/exit keyframes (which animate `transform`) never undo the centring. */
+  translate: -50% -50%;
   z-index: var(--vhyx-z-modal);
 
   width: calc(100% - var(--vhyx-space-8));
@@ -38,11 +62,15 @@
   box-shadow: var(--vhyx-shadow-2xl);
   padding: var(--vhyx-space-6);
 
-  /* vhyx-slide-up-in: duration-slow / easing-spring */
-  animation: vhyx-slide-up-in var(--vhyx-duration-slow) var(--vhyx-easing-spring) both;
+  animation: vhyx-dialog-in var(--vhyx-duration-slow) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
 
   /* Needed for focus trap — content itself can be focused as fallback */
   outline: none;
+}
+
+.content[data-state="closed"] {
+  pointer-events: none;
+  animation: vhyx-dialog-out var(--vhyx-duration-normal) var(--vhyx-easing-accelerate) both;
 }
 
 /* ─── Size variants ───────────────────────────────────────── */

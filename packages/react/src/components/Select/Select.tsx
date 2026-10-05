@@ -17,6 +17,7 @@ import { withAgentContract } from '@vhyxseal/react';
 import { CheckIcon, ChevronDownIcon } from '@vhyxui/icons';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
+import { usePresence } from '../shared/usePresence';
 import { clampToViewport, rafBatched } from '../shared/floatingPosition';
 import styles from './Select.module.css';
 
@@ -444,6 +445,8 @@ function SelectContent({ children, className, style, ...rest }: SelectContentPro
     minWidth: 0,
     zIndex: 'var(--vhyx-z-dropdown)',
   });
+  const [side, setSide] = useState<'top' | 'bottom'>('bottom');
+  const presence = usePresence(ctx.open);
 
   useEffect(() => {
     setMounted(true);
@@ -471,6 +474,7 @@ function SelectContent({ children, className, style, ...rest }: SelectContentPro
         ? Math.min(contentHeight, spaceAbove - 8)
         : Math.min(contentHeight, spaceBelow - 8);
       const top = showAbove ? rect.top - visibleHeight - 4 : rect.bottom + 4;
+      setSide(showAbove ? 'top' : 'bottom');
 
       setPositionStyle({
         position: 'fixed',
@@ -517,8 +521,9 @@ function SelectContent({ children, className, style, ...rest }: SelectContentPro
   const setRef = useCallback(
     (node: HTMLDivElement | null) => {
       ctx.contentRef.current = node;
+      presence.ref(node);
     },
-    [ctx.contentRef],
+    [ctx.contentRef, presence.ref],
   );
 
   // Render nothing until client mount — matches SSR output exactly.
@@ -534,6 +539,8 @@ function SelectContent({ children, className, style, ...rest }: SelectContentPro
       aria-labelledby={ctx.triggerId}
       className={contentClass}
       data-state={ctx.open ? 'open' : 'closed'}
+      data-present={presence.present ? 'true' : 'false'}
+      data-side={side}
       {...rest}
       style={{
         // Consumer's cosmetic style first — internal positioning/sizing keys

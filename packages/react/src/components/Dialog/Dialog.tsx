@@ -16,6 +16,7 @@ import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
+import { usePresence } from '../shared/usePresence';
 import { isDev } from '../shared/env';
 import styles from './Dialog.module.css';
 
@@ -23,6 +24,12 @@ import styles from './Dialog.module.css';
 
 interface DialogContextValue {
   open: boolean;
+  /** Mounted: open, or closed and still playing the exit animation. */
+  present: boolean;
+  /** `data-state` for the overlay and panel. */
+  state: 'open' | 'closed';
+  /** Attach to the panel so presence can wait for its exit animation. */
+  presenceRef: (node: HTMLElement | null) => void;
   onOpenChange: (open: boolean) => void;
   modal: boolean;
   size: 'sm' | 'md' | 'lg';
@@ -107,6 +114,7 @@ const DialogRoot = React.forwardRef<HTMLDivElement, DialogProps>(
 
     const triggerRef = useRef<HTMLElement | null>(null);
     const hasTitleRef = useRef<boolean>(false);
+    const presence = usePresence(isOpen);
 
     const handleOpenChange = useCallback(
       (nextOpen: boolean) => {
@@ -134,6 +142,9 @@ const DialogRoot = React.forwardRef<HTMLDivElement, DialogProps>(
     const ctx = useMemo<DialogContextValue>(
       () => ({
         open: isOpen,
+        present: presence.present,
+        state: presence.state,
+        presenceRef: presence.ref,
         onOpenChange: handleOpenChange,
         modal,
         size,
@@ -142,7 +153,7 @@ const DialogRoot = React.forwardRef<HTMLDivElement, DialogProps>(
         triggerRef,
         hasTitleRef,
       }),
-      [isOpen, handleOpenChange, modal, size, titleId, descriptionId],
+      [isOpen, presence.present, presence.state, presence.ref, handleOpenChange, modal, size, titleId, descriptionId],
     );
 
     return (
@@ -231,7 +242,7 @@ const DialogPortalContext = React.createContext(false);
 
 function DialogPortal({ children }: DialogPortalProps): React.ReactPortal | null {
   const ctx = useDialogContext('Dialog.Portal');
-  if (!ctx.open || typeof document === 'undefined') return null;
+  if (!ctx.present || typeof document === 'undefined') return null;
   return ReactDOM.createPortal(
     <DialogPortalContext.Provider value={true}>{children}</DialogPortalContext.Provider>,
     document.body,
@@ -264,7 +275,7 @@ const DialogOverlay = React.forwardRef<HTMLDivElement, DialogOverlayProps>(
       <div
         ref={ref}
         className={overlayClass}
-        data-state="open"
+        data-state={ctx.state}
         onClick={handleClick}
         aria-hidden="true"
         {...rest}
@@ -308,10 +319,11 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
     const setRef = useCallback(
       (node: HTMLDivElement | null) => {
         contentRef.current = node;
+        ctx.presenceRef(node);
         if (typeof ref === 'function') ref(node);
         else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
       },
-      [ref],
+      [ref, ctx.presenceRef],
     );
 
     // Scroll lock
@@ -388,7 +400,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
 
     // Hooks above always run; only the output depends on open state.
     // Previously Content rendered even when closed unless wrapped in Dialog.Portal.
-    if (!ctx.open) return null;
+    if (!ctx.present) return null;
 
     const panel = (
       <div
@@ -399,7 +411,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
         aria-describedby={ctx.descriptionId}
         tabIndex={-1}
         className={contentClass}
-        data-state="open"
+        data-state={ctx.state}
         data-size={ctx.size}
         {...rest}
       >
