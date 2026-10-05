@@ -24,9 +24,10 @@
   animation: vhyx-overlay-in var(--vhyx-duration-slow) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
 }
 
+/* The backdrop lifts on exactly the panel's timing, so the dim tracks the panel as it slides away. */
 .overlay[data-state="closed"] {
   pointer-events: none;
-  animation: vhyx-overlay-out var(--vhyx-duration-normal) var(--vhyx-easing-standard) both;
+  animation: vhyx-overlay-out var(--vhyx-duration-normal) cubic-bezier(0.4, 0, 0.8, 0.4) both;
 }
 
 /* ─── Content — base ──────────────────────────────────────── */

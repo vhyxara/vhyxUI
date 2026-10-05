@@ -22,7 +22,7 @@
 }
 @keyframes vhyx-dialog-out {
   from { opacity: 1; transform: none; }
-  to   { opacity: 0; transform: translateY(4px) scale(0.98); }
+  to   { opacity: 0; transform: scale(0.97); }
 }
 
 /* ─── Overlay ─────────────────────────────────────────────── */
@@ -68,9 +68,14 @@
   outline: none;
 }
 
+/*
+ * On close the panel leads and the backdrop follows over the same duration: the panel responds at once on an
+ * out curve and is gone while the page is still dimmed, then the dim lifts. With an ease-in panel it lingered
+ * half-visible over an already undimmed page.
+ */
 .content[data-state="closed"] {
   pointer-events: none;
-  animation: vhyx-dialog-out var(--vhyx-duration-normal) var(--vhyx-easing-accelerate) both;
+  animation: vhyx-dialog-out var(--vhyx-duration-normal) var(--vhyx-easing-decelerate) both;
 }
 
 /* ─── Size variants ───────────────────────────────────────── */
