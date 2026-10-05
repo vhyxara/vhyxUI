@@ -122,14 +122,11 @@ export function AgentLens(): React.ReactElement {
             aria-hidden="true"
             style={{ transform: `translate(${pos.x}px, ${pos.y}px)`, width: pos.w, height: pos.h, '--lens-tone': step.tone } as React.CSSProperties}
           />
-          <span className="lens-chip" aria-hidden="true" style={{ left: 'auto', right: 20, top: 18, '--lens-tone': step.tone } as React.CSSProperties}>
-            {step.contract} <b>{step.verdict}</b>
-          </span>
         </div>
         <div className="lens-foot">
           <span className="lens-dot" aria-hidden="true" />
           <span>
-            Agent reads <strong>{step.contract.split(' · ')[0]}</strong>: {step.verdict}
+            Agent reads <strong>{step.contract}</strong> → <b style={{ color: step.tone }}>{step.verdict}</b>
           </span>
         </div>
       </div>
