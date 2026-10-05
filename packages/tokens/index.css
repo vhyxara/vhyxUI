@@ -31,6 +31,19 @@
   --vhyx-primitive-orange-900: #7a2a0b;
   --vhyx-primitive-orange-950: #2a1708;
 
+  /* Rose — VhyxUI's accent (Vhyxara family: UI rose, Seal emerald, Chart sky) */
+  --vhyx-primitive-rose-50:  #fff1f2;
+  --vhyx-primitive-rose-100: #ffe4e6;
+  --vhyx-primitive-rose-200: #fecdd3;
+  --vhyx-primitive-rose-300: #fda4af;
+  --vhyx-primitive-rose-400: #fb7185;
+  --vhyx-primitive-rose-500: #f43f5e;
+  --vhyx-primitive-rose-600: #e11d48;
+  --vhyx-primitive-rose-700: #be123c;
+  --vhyx-primitive-rose-800: #9f1239;
+  --vhyx-primitive-rose-900: #881337;
+  --vhyx-primitive-rose-950: #2a0b14;
+
   /* Indigo — previous default accent, kept for overrides */
   --vhyx-primitive-indigo-50:  #eef2ff;
   --vhyx-primitive-indigo-100: #e0e7ff;
@@ -105,7 +118,7 @@
   /* Border */
   --vhyx-color-border:          var(--vhyx-primitive-slate-200);
   --vhyx-color-border-strong:   var(--vhyx-primitive-slate-300);
-  --vhyx-color-border-focus:    var(--vhyx-primitive-orange-600);
+  --vhyx-color-border-focus:    var(--vhyx-primitive-rose-600);
 
   /* Text */
   --vhyx-color-text:            var(--vhyx-primitive-slate-900);
@@ -117,11 +130,11 @@
 
   /* Accent */
   /* Orange 600 keeps white text above 4.5:1 */
-  --vhyx-color-accent:          var(--vhyx-primitive-orange-600);
-  --vhyx-color-accent-hover:    var(--vhyx-primitive-orange-700);
-  --vhyx-color-accent-active:   var(--vhyx-primitive-orange-800);
-  --vhyx-color-accent-subtle:   var(--vhyx-primitive-orange-50);
-  --vhyx-color-accent-muted:    var(--vhyx-primitive-orange-100);
+  --vhyx-color-accent:          var(--vhyx-primitive-rose-600);
+  --vhyx-color-accent-hover:    var(--vhyx-primitive-rose-700);
+  --vhyx-color-accent-active:   var(--vhyx-primitive-rose-800);
+  --vhyx-color-accent-subtle:   var(--vhyx-primitive-rose-50);
+  --vhyx-color-accent-muted:    var(--vhyx-primitive-rose-100);
 
   /* Success */
   --vhyx-color-success:         var(--vhyx-primitive-green-500);
@@ -461,7 +474,7 @@
 
   --vhyx-color-border:          #1c2333;
   --vhyx-color-border-strong:   #2a3247;
-  --vhyx-color-border-focus:    var(--vhyx-primitive-orange-400);
+  --vhyx-color-border-focus:    var(--vhyx-primitive-rose-400);
 
   --vhyx-color-text:            #e6e9f2;
   --vhyx-color-text-subtle:     #a3abbe;
@@ -469,13 +482,13 @@
   --vhyx-color-text-disabled:   #4a5368;
   --vhyx-color-text-inverse:    #0d111b;
 
-  /* Bright orange with dark text on top */
-  --vhyx-color-accent:          var(--vhyx-primitive-orange-400);
-  --vhyx-color-accent-hover:    var(--vhyx-primitive-orange-300);
-  --vhyx-color-accent-active:   var(--vhyx-primitive-orange-500);
-  --vhyx-color-accent-subtle:   var(--vhyx-primitive-orange-950);
-  --vhyx-color-accent-muted:    #3a220e;
-  --vhyx-color-text-on-accent:  #1a0a00;
+  /* Bright rose with dark text on top */
+  --vhyx-color-accent:          var(--vhyx-primitive-rose-400);
+  --vhyx-color-accent-hover:    var(--vhyx-primitive-rose-300);
+  --vhyx-color-accent-active:   var(--vhyx-primitive-rose-500);
+  --vhyx-color-accent-subtle:   var(--vhyx-primitive-rose-950);
+  --vhyx-color-accent-muted:    #3d1220;
+  --vhyx-color-text-on-accent:  #24040c;
 
   --vhyx-color-success-subtle:  #0b2a1d;
   --vhyx-color-danger-subtle:   #2a0e10;
@@ -499,7 +512,7 @@
   
     --vhyx-color-border:          #1c2333;
     --vhyx-color-border-strong:   #2a3247;
-    --vhyx-color-border-focus:    var(--vhyx-primitive-orange-400);
+    --vhyx-color-border-focus:    var(--vhyx-primitive-rose-400);
   
     --vhyx-color-text:            #e6e9f2;
     --vhyx-color-text-subtle:     #a3abbe;
@@ -507,13 +520,13 @@
     --vhyx-color-text-disabled:   #4a5368;
     --vhyx-color-text-inverse:    #0d111b;
   
-    /* Bright orange with dark text on top */
-    --vhyx-color-accent:          var(--vhyx-primitive-orange-400);
-    --vhyx-color-accent-hover:    var(--vhyx-primitive-orange-300);
-    --vhyx-color-accent-active:   var(--vhyx-primitive-orange-500);
-    --vhyx-color-accent-subtle:   var(--vhyx-primitive-orange-950);
-    --vhyx-color-accent-muted:    #3a220e;
-    --vhyx-color-text-on-accent:  #1a0a00;
+    /* Bright rose with dark text on top */
+    --vhyx-color-accent:          var(--vhyx-primitive-rose-400);
+    --vhyx-color-accent-hover:    var(--vhyx-primitive-rose-300);
+    --vhyx-color-accent-active:   var(--vhyx-primitive-rose-500);
+    --vhyx-color-accent-subtle:   var(--vhyx-primitive-rose-950);
+    --vhyx-color-accent-muted:    #3d1220;
+    --vhyx-color-text-on-accent:  #24040c;
   
     --vhyx-color-success-subtle:  #0b2a1d;
     --vhyx-color-danger-subtle:   #2a0e10;
