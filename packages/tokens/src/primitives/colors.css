@@ -25,6 +25,19 @@
   --vhyx-primitive-orange-900: #7a2a0b;
   --vhyx-primitive-orange-950: #2a1708;
 
+  /* Rose — VhyxUI's accent (Vhyxara family: UI rose, Seal emerald, Chart sky) */
+  --vhyx-primitive-rose-50:  #fff1f2;
+  --vhyx-primitive-rose-100: #ffe4e6;
+  --vhyx-primitive-rose-200: #fecdd3;
+  --vhyx-primitive-rose-300: #fda4af;
+  --vhyx-primitive-rose-400: #fb7185;
+  --vhyx-primitive-rose-500: #f43f5e;
+  --vhyx-primitive-rose-600: #e11d48;
+  --vhyx-primitive-rose-700: #be123c;
+  --vhyx-primitive-rose-800: #9f1239;
+  --vhyx-primitive-rose-900: #881337;
+  --vhyx-primitive-rose-950: #2a0b14;
+
   /* Indigo — previous default accent, kept for overrides */
   --vhyx-primitive-indigo-50:  #eef2ff;
   --vhyx-primitive-indigo-100: #e0e7ff;
