@@ -158,10 +158,10 @@ body {
 /* ── Narrow screens: stack the three columns ── */
 @media (max-width: 1100px) {
   .pg-header { grid-template-columns: minmax(0, 1fr) auto; height: auto; padding: 10px var(--vhyx-space-4); row-gap: 8px; }
-  .pg-header-nav { grid-column: 1 / -1; order: 3; overflow-x: auto; scrollbar-width: none; }
+  .pg-header-nav { grid-column: 1 / -1; order: 3; overflow-x: auto; scrollbar-width: none; mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent); }
   .pg-family { display: none; }
   .pg-body { flex-direction: column; height: auto; overflow: visible; }
-  .pg-sidebar { width: auto; display: flex; flex-wrap: nowrap; gap: 4px; overflow-x: auto; padding: 10px var(--vhyx-space-4); border-right: 0; border-bottom: 1px solid var(--vhyx-color-border); }
+  .pg-sidebar { width: auto; display: flex; flex-wrap: nowrap; gap: 4px; overflow-x: auto; padding: 10px var(--vhyx-space-4); border-right: 0; border-bottom: 1px solid var(--vhyx-color-border); mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent); }
   .pg-sidebar-search, .pg-sidebar-group-label { display: none; }
   .pg-sidebar-group { display: contents; }
   .pg-sidebar-item { width: auto; flex: 0 0 auto; white-space: nowrap; }
