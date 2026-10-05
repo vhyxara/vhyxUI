@@ -16,6 +16,7 @@ import { VhyxUIError, VhyxUIErrorCode } from '@vhyxui/core';
 import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
+import { usePresence } from '../shared/usePresence';
 import { isDev } from '../shared/env';
 import styles from './Drawer.module.css';
 
@@ -23,6 +24,12 @@ import styles from './Drawer.module.css';
 
 interface DrawerContextValue {
   open: boolean;
+  /** Mounted: open, or closed and still playing the exit animation. */
+  present: boolean;
+  /** `data-state` for the overlay and panel. */
+  state: 'open' | 'closed';
+  /** Attach to the panel so presence can wait for its exit animation. */
+  presenceRef: (node: HTMLElement | null) => void;
   onOpenChange: (open: boolean) => void;
   side: 'left' | 'right' | 'top' | 'bottom';
   size: 'sm' | 'md' | 'lg' | 'full';
@@ -110,6 +117,7 @@ const DrawerRoot = React.forwardRef<HTMLDivElement, DrawerProps>(
 
     const triggerRef = useRef<HTMLElement | null>(null);
     const hasTitleRef = useRef<boolean>(false);
+    const presence = usePresence(isOpen);
 
     const handleOpenChange = useCallback(
       (nextOpen: boolean) => {
@@ -136,6 +144,9 @@ const DrawerRoot = React.forwardRef<HTMLDivElement, DrawerProps>(
     const ctx = useMemo<DrawerContextValue>(
       () => ({
         open: isOpen,
+        present: presence.present,
+        state: presence.state,
+        presenceRef: presence.ref,
         onOpenChange: handleOpenChange,
         side,
         size,
@@ -144,7 +155,7 @@ const DrawerRoot = React.forwardRef<HTMLDivElement, DrawerProps>(
         triggerRef,
         hasTitleRef,
       }),
-      [isOpen, handleOpenChange, side, size, titleId, descriptionId],
+      [isOpen, presence.present, presence.state, presence.ref, handleOpenChange, side, size, titleId, descriptionId],
     );
 
     return (
@@ -234,7 +245,7 @@ const DrawerPortalContext = React.createContext(false);
 
 function DrawerPortal({ children }: DrawerPortalProps): React.ReactPortal | null {
   const ctx = useDrawerContext('Drawer.Portal');
-  if (!ctx.open || typeof document === 'undefined') return null;
+  if (!ctx.present || typeof document === 'undefined') return null;
   return ReactDOM.createPortal(
     <DrawerPortalContext.Provider value={true}>{children}</DrawerPortalContext.Provider>,
     document.body,
@@ -266,7 +277,7 @@ const DrawerOverlay = React.forwardRef<HTMLDivElement, DrawerOverlayProps>(
       <div
         ref={ref}
         className={overlayClass}
-        data-state="open"
+        data-state={ctx.state}
         onClick={handleClick}
         aria-hidden="true"
         {...rest}
@@ -294,10 +305,11 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps>(
     const setRef = useCallback(
       (node: HTMLDivElement | null) => {
         contentRef.current = node;
+        ctx.presenceRef(node);
         if (typeof ref === 'function') ref(node);
         else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
       },
-      [ref],
+      [ref, ctx.presenceRef],
     );
 
     // Scroll lock
@@ -368,7 +380,7 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps>(
 
     // Hooks above always run; only the output depends on open state.
     // Previously Content rendered even when closed unless wrapped in Drawer.Portal.
-    if (!ctx.open) return null;
+    if (!ctx.present) return null;
 
     const panel = (
       <div
@@ -379,7 +391,7 @@ const DrawerContent = React.forwardRef<HTMLDivElement, DrawerContentProps>(
         aria-describedby={ctx.descriptionId}
         tabIndex={-1}
         className={contentClass}
-        data-state="open"
+        data-state={ctx.state}
         data-side={ctx.side}
         data-size={ctx.size}
         {...rest}

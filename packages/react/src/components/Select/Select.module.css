@@ -78,6 +78,17 @@
 
 /* ─── Content (portal-rendered listbox) ───────────────────── */
 
+/* Declared here so CSS Modules scopes them together with the rules below (see Dialog.module.css). */
+@keyframes vhyx-float-in {
+  from { opacity: 0; transform: var(--vhyx-float-from, translateY(-4px)) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes vhyx-float-out {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: scale(0.98); }
+}
+
+
 .content {
   background-color: var(--vhyx-color-surface-overlay);
   border: var(--vhyx-border-width) solid var(--vhyx-color-border);
@@ -87,12 +98,22 @@
   max-height: min(var(--vhyx-space-64, 16rem), 40vh);
   overflow-y: auto;
 
-  /* Dropdown scale-in: duration-fast / easing-decelerate */
-  animation: vhyx-scale-in var(--vhyx-duration-fast) var(--vhyx-easing-decelerate) both;
+  transform-origin: top center;
+  animation: vhyx-float-in var(--vhyx-duration-normal) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
 }
 
-/* Always-rendered portal is hidden when closed */
+.content[data-side="top"] {
+  --vhyx-float-from: translateY(4px);
+  transform-origin: bottom center;
+}
+
 .content[data-state="closed"] {
+  pointer-events: none;
+  animation: vhyx-float-out calc(var(--vhyx-duration-normal) * 0.6) var(--vhyx-easing-accelerate) both;
+}
+
+/* The portal stays mounted; it is hidden once the exit animation has finished. */
+.content[data-present="false"] {
   display: none;
 }
 

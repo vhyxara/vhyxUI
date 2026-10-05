@@ -1,3 +1,17 @@
+/* ─── Motion ──────────────────────────────────────────────── */
+
+/* Declared here so CSS Modules scopes them together with the rules below (see Dialog.module.css). */
+@keyframes vhyx-toast-row-in { from { grid-template-rows: 0fr; } to { grid-template-rows: 1fr; } }
+@keyframes vhyx-toast-row-out { from { grid-template-rows: 1fr; } to { grid-template-rows: 0fr; } }
+@keyframes vhyx-toast-in {
+  from { opacity: 0; transform: translateY(var(--vhyx-toast-from, 12px)) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes vhyx-toast-out {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: scale(0.96); }
+}
+
 /* ─── Toast region ────────────────────────────────────────── */
 
 .region {
@@ -5,7 +19,6 @@
   z-index: var(--vhyx-z-toast);
   display: flex;
   flex-direction: column;
-  gap: var(--vhyx-space-2);
   pointer-events: none;
   /*
    * A literal rem value, not a space token — `--vhyx-space-32` (8rem/128px,
@@ -42,23 +55,48 @@
   right: var(--vhyx-space-4);
 }
 
+.region[data-position^="top"] {
+  --vhyx-toast-from: -12px;
+}
+
+/* Each slot carries its spacing below it, so bottom regions sit that much lower to keep the same edge gap. */
 .region[data-position="bottom-left"] {
-  bottom: var(--vhyx-space-4);
+  bottom: calc(var(--vhyx-space-4) - var(--vhyx-space-2));
   left: var(--vhyx-space-4);
 }
 
 .region[data-position="bottom-center"] {
-  bottom: var(--vhyx-space-4);
+  bottom: calc(var(--vhyx-space-4) - var(--vhyx-space-2));
   left: 50%;
   transform: translateX(-50%);
 }
 
 .region[data-position="bottom-right"] {
-  bottom: var(--vhyx-space-4);
+  bottom: calc(var(--vhyx-space-4) - var(--vhyx-space-2));
   right: var(--vhyx-space-4);
 }
 
 /* ─── Toast item ──────────────────────────────────────────── */
+
+/*
+ * The slot is a one-row grid whose row animates between 0fr and 1fr, so a toast arriving or leaving grows or
+ * shrinks its own space and the neighbours slide instead of jumping. The spacing between toasts lives inside
+ * the row (clip padding) so it collapses with it.
+ */
+.toast-slot {
+  display: grid;
+  grid-template-rows: 1fr;
+  animation: vhyx-toast-row-in var(--vhyx-duration-slow) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+.toast-slot[data-state="closed"] {
+  animation: vhyx-toast-row-out calc(var(--vhyx-duration-slow) * 0.8) var(--vhyx-easing-standard) both;
+}
+
+.toast-clip {
+  min-height: 0;
+  padding-bottom: var(--vhyx-space-2);
+}
 
 .toast {
   pointer-events: all;
@@ -67,8 +105,12 @@
   overflow: hidden;
   min-width: 18rem;
 
-  /* slide-up-in on enter: duration-normal / easing-spring */
-  animation: vhyx-slide-up-in var(--vhyx-duration-normal) var(--vhyx-easing-spring) both;
+  animation: vhyx-toast-in var(--vhyx-duration-slow) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
+}
+
+.toast[data-state="closed"] {
+  pointer-events: none;
+  animation: vhyx-toast-out var(--vhyx-duration-normal) var(--vhyx-easing-accelerate) both;
 }
 
 .toast-content {

@@ -17,6 +17,7 @@ import { withAgentContract } from '@vhyxseal/react';
 import { Slot } from '../shared/Slot';
 import { useId } from '../shared/useId';
 import { clampToViewport, rafBatched } from '../shared/floatingPosition';
+import { usePresence } from '../shared/usePresence';
 import styles from './Popover.module.css';
 
 // ─── Context ──────────────────────────────────────────────────────────────────
@@ -272,6 +273,8 @@ function PopoverContent({
     left: 0,
   });
 
+  const presence = usePresence(ctx.open);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -337,13 +340,15 @@ function PopoverContent({
   const setRef = useCallback(
     (node: HTMLDivElement | null) => {
       ctx.contentRef.current = node;
+      presence.ref(node);
     },
-    [ctx.contentRef],
+    [ctx.contentRef, presence.ref],
   );
 
   // Render nothing until client mount — matches SSR output exactly, same as
-  // Select.Content — before checking ctx.open at all.
-  if (!mounted || !ctx.open) return null;
+  // Select.Content — before checking ctx.open at all. After closing, stay
+  // mounted until the exit animation has played.
+  if (!mounted || !presence.present) return null;
 
   const contentClass = [styles['content'], className].filter(Boolean).join(' ');
 
@@ -355,7 +360,7 @@ function PopoverContent({
       aria-modal="false"
       aria-labelledby={ctx.triggerId}
       className={contentClass}
-      data-state="open"
+      data-state={presence.state}
       data-side={side}
       data-align={align}
       {...rest}

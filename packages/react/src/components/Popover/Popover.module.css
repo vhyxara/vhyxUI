@@ -4,6 +4,16 @@
   justify-content: center;
 }
 
+/* Declared here so CSS Modules scopes them together with the rules below (see Dialog.module.css). */
+@keyframes vhyx-float-in {
+  from { opacity: 0; transform: var(--vhyx-float-from, translateY(-4px)) scale(0.96); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes vhyx-float-out {
+  from { opacity: 1; transform: none; }
+  to   { opacity: 0; transform: scale(0.98); }
+}
+
 .content {
   background-color: var(--vhyx-color-surface-overlay);
   border: var(--vhyx-border-width) solid var(--vhyx-color-border);
@@ -14,9 +24,18 @@
   max-width: var(--vhyx-popover-max-width);
   outline: none;
 
-  /* scale-in: duration-normal / easing-spring */
-  animation: vhyx-scale-in var(--vhyx-duration-normal) var(--vhyx-easing-spring) both;
+  animation: vhyx-float-in var(--vhyx-duration-normal) var(--vhyx-easing-out, cubic-bezier(0.22, 1, 0.36, 1)) both;
 }
+
+.content[data-state="closed"] {
+  pointer-events: none;
+  animation: vhyx-float-out calc(var(--vhyx-duration-normal) * 0.7) var(--vhyx-easing-accelerate) both;
+}
+
+.content[data-side="bottom"] { --vhyx-float-from: translateY(-4px); transform-origin: top center; }
+.content[data-side="top"]    { --vhyx-float-from: translateY(4px);  transform-origin: bottom center; }
+.content[data-side="right"]  { --vhyx-float-from: translateX(-4px); transform-origin: center left; }
+.content[data-side="left"]   { --vhyx-float-from: translateX(4px);  transform-origin: center right; }
 
 .arrow {
   position: absolute;

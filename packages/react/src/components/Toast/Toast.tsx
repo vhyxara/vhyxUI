@@ -12,6 +12,7 @@ import {
   getToasts,
   subscribeToToasts,
 } from '../../toast/toast-store';
+import { usePresence } from '../shared/usePresence';
 import styles from './Toast.module.css';
 
 // ─── ToastProvider ────────────────────────────────────────────────────────────
@@ -47,7 +48,10 @@ export function ToastProvider({
   defaultDuration = 5000,
   children,
 }: ToastProviderProps): React.ReactElement {
-  const [items, setItems] = useState<readonly ToastItem[]>(() => getToasts());
+  // Toasts removed from the store stay rendered (`leaving`) until their exit animation has played.
+  const [items, setItems] = useState<readonly RenderedToast[]>(() =>
+    getToasts().map((item) => ({ item, leaving: false })),
+  );
 
   useEffect(() => {
     configureStore({ maxToasts });
@@ -55,9 +59,13 @@ export function ToastProvider({
 
   useEffect(() => {
     const unsubscribe = subscribeToToasts(() => {
-      setItems(getToasts());
+      setItems((prev) => mergeToasts(prev, getToasts()));
     });
     return unsubscribe;
+  }, []);
+
+  const handleExited = useCallback((id: string) => {
+    setItems((prev) => prev.filter((r) => !(r.leaving && r.item.id === id)));
   }, []);
 
   return (
@@ -71,11 +79,13 @@ export function ToastProvider({
         className={styles['region']}
         data-position={position}
       >
-        {items.map((item) => (
+        {items.map(({ item, leaving }) => (
           <ToastItemComponent
             key={item.id}
             item={item}
+            leaving={leaving}
             defaultDuration={defaultDuration}
+            onExited={handleExited}
           />
         ))}
       </div>
@@ -83,69 +93,100 @@ export function ToastProvider({
   );
 }
 
+/** A toast as rendered: still in the store, or removed and playing its exit animation. */
+interface RenderedToast {
+  item: ToastItem;
+  leaving: boolean;
+}
+
+/** Keeps rendered order stable: removed toasts stay in place marked `leaving`; new ones are appended. */
+function mergeToasts(prev: readonly RenderedToast[], next: readonly ToastItem[]): RenderedToast[] {
+  const byId = new Map(next.map((t) => [t.id, t]));
+  const out: RenderedToast[] = prev.map((r) => {
+    const current = byId.get(r.item.id);
+    return current ? { item: current, leaving: false } : { item: r.item, leaving: true };
+  });
+  const seen = new Set(prev.map((r) => r.item.id));
+  for (const t of next) if (!seen.has(t.id)) out.push({ item: t, leaving: false });
+  return out;
+}
+
 // ─── ToastItem component ──────────────────────────────────────────────────────
 
 function ToastItemComponent({
   item,
+  leaving,
   defaultDuration,
+  onExited,
 }: {
   item: ToastItem;
+  leaving: boolean;
   defaultDuration: number;
-}): React.ReactElement {
+  onExited: (id: string) => void;
+}): React.ReactElement | null {
   const dismiss = useCallback(() => dismissToast(item.id), [item.id]);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const exited = useCallback(() => onExited(item.id), [onExited, item.id]);
+  const presence = usePresence(!leaving, exited);
 
   const duration = item.duration ?? defaultDuration;
 
   // Auto-dismiss after duration
   useEffect(() => {
-    if (!isFinite(duration) || duration <= 0) return;
+    if (leaving || !isFinite(duration) || duration <= 0) return;
     timerRef.current = setTimeout(dismiss, duration);
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [dismiss, duration]);
+  }, [dismiss, duration, leaving]);
+
+  if (!presence.present) return null;
 
   return (
-    <div
-      role="status"
-      aria-live="polite"
-      className={styles['toast']}
-      data-variant={item.variant}
-      data-state="open"
-    >
-      <div className={styles['toast-content']}>
-        <span className={styles['toast-icon']} aria-hidden="true">
-          {variantIcon(item.variant)}
-        </span>
-        <div className={styles['toast-body']}>
-          <span className={styles['toast-message']}>{item.message}</span>
-          {item.description && (
-            <span className={styles['toast-description']}>{item.description}</span>
-          )}
+    // The slot animates its own row height so the rest of the stack slides instead of jumping.
+    <div ref={presence.ref} className={styles['toast-slot']} data-state={presence.state}>
+      <div className={styles['toast-clip']}>
+        <div
+          role="status"
+          aria-live="polite"
+          className={styles['toast']}
+          data-variant={item.variant}
+          data-state={presence.state}
+        >
+          <div className={styles['toast-content']}>
+            <span className={styles['toast-icon']} aria-hidden="true">
+              {variantIcon(item.variant)}
+            </span>
+            <div className={styles['toast-body']}>
+              <span className={styles['toast-message']}>{item.message}</span>
+              {item.description && (
+                <span className={styles['toast-description']}>{item.description}</span>
+              )}
+            </div>
+            {item.action && (
+              <button
+                type="button"
+                className={styles['toast-action']}
+                onClick={() => {
+                  item.action?.onClick();
+                  dismiss();
+                }}
+              >
+                {item.action.label}
+              </button>
+            )}
+            {item.dismissible !== false && (
+              <button
+                type="button"
+                className={styles['toast-dismiss']}
+                onClick={dismiss}
+                aria-label="Dismiss"
+              >
+                <XIcon />
+              </button>
+            )}
+          </div>
         </div>
-        {item.action && (
-          <button
-            type="button"
-            className={styles['toast-action']}
-            onClick={() => {
-              item.action?.onClick();
-              dismiss();
-            }}
-          >
-            {item.action.label}
-          </button>
-        )}
-        {item.dismissible !== false && (
-          <button
-            type="button"
-            className={styles['toast-dismiss']}
-            onClick={dismiss}
-            aria-label="Dismiss"
-          >
-            <XIcon />
-          </button>
-        )}
       </div>
     </div>
   );
