@@ -16,7 +16,8 @@ export const metadata: Metadata = {
 };
 
 // Applies a saved light theme before first paint (dark is the default).
-const THEME_SCRIPT = `try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}`;
+// Also marks that scripts run, so scroll-reveal only hides content when it can reveal it again.
+const THEME_SCRIPT = `document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light'}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

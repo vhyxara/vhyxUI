@@ -30,35 +30,42 @@ export function AgentLens(): React.ReactElement {
   const [paused, setPaused] = useState(false);
   const [name, setName] = useState('Atlas dashboard');
   const [isPublic, setPublic] = useState(true);
-  const [pos, setPos] = useState({ x: 0, y: 0, w: 0, h: 0, chipX: 0, chipY: 0 });
+  const [pos, setPos] = useState({ x: 0, y: 0, w: 0, h: 0 });
   const step = STEPS[index] ?? STEPS[0]!;
 
   const measure = useCallback((): void => {
     const root = box.current;
-    const el = targets.current[step.key];
+    const holder = targets.current[step.key];
+    // For the text field, ring the bordered input box rather than the label + field wrapper.
+    const el = step.key === 'name' ? (holder?.querySelector('input')?.parentElement ?? holder) : holder;
     if (!root || !el) return;
     const r = root.getBoundingClientRect();
     const t = el.getBoundingClientRect();
     const x = t.left - r.left - 6;
     const y = t.top - r.top - 6;
-    const chipBelow = t.top - r.top < 70;
-    setPos({
-      x,
-      y,
-      w: t.width + 12,
-      h: t.height + 12,
-      chipX: Math.max(8, Math.min(r.width - 260, x)),
-      chipY: chipBelow ? y + t.height + 20 : y - 44,
-    });
+    setPos({ x, y, w: t.width + 12, h: t.height + 12 });
   }, [step.key]);
 
   useIsoLayoutEffect(() => {
     measure();
   }, [measure]);
 
+  // Re-measure whenever layout can shift under the lens: resizes, web fonts arriving, the reveal animation
+  // finishing, and on the frame after each step change.
   useEffect(() => {
+    const root = box.current;
+    const raf = requestAnimationFrame(measure);
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => measure()) : null;
+    if (root && ro) ro.observe(root);
+    void document.fonts?.ready.then(() => measure());
+    const late = window.setTimeout(measure, 900);
     window.addEventListener('resize', measure);
-    return () => window.removeEventListener('resize', measure);
+    return () => {
+      cancelAnimationFrame(raf);
+      ro?.disconnect();
+      window.clearTimeout(late);
+      window.removeEventListener('resize', measure);
+    };
   }, [measure]);
 
   useEffect(() => {
@@ -115,7 +122,7 @@ export function AgentLens(): React.ReactElement {
             aria-hidden="true"
             style={{ transform: `translate(${pos.x}px, ${pos.y}px)`, width: pos.w, height: pos.h, '--lens-tone': step.tone } as React.CSSProperties}
           />
-          <span className="lens-chip" aria-hidden="true" style={{ transform: `translate(${pos.chipX}px, ${pos.chipY}px)`, '--lens-tone': step.tone } as React.CSSProperties}>
+          <span className="lens-chip" aria-hidden="true" style={{ left: 'auto', right: 20, top: 18, '--lens-tone': step.tone } as React.CSSProperties}>
             {step.contract} <b>{step.verdict}</b>
           </span>
         </div>

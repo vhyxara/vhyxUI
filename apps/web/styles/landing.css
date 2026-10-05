@@ -68,23 +68,23 @@ a { color: inherit; }
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%);
 }
-.lp-aurora { position: absolute; inset: -20% -10% auto; height: 760px; z-index: -1; pointer-events: none; filter: blur(70px); opacity: .7; }
+.lp-aurora { position: absolute; inset: -12% 0 auto; height: 700px; z-index: -1; pointer-events: none; filter: blur(90px); opacity: .42; overflow: hidden; }
 .lp-aurora span { position: absolute; border-radius: 50%; mix-blend-mode: screen; animation: lp-drift 18s var(--lp-ease) infinite alternate; }
-:root[data-theme='light'] .lp-aurora { opacity: .45; }
+:root[data-theme='light'] .lp-aurora { opacity: .3; }
 :root[data-theme='light'] .lp-aurora span { mix-blend-mode: multiply; }
-.lp-aurora span:nth-child(1) { width: 560px; height: 420px; left: 18%; top: 8%; background: var(--lp-brand); }
-.lp-aurora span:nth-child(2) { width: 420px; height: 340px; left: 52%; top: 0%; background: var(--fam-seal); opacity: .35; animation-duration: 22s; animation-delay: -6s; }
-.lp-aurora span:nth-child(3) { width: 380px; height: 320px; left: 38%; top: 30%; background: var(--fam-chart); opacity: .3; animation-duration: 26s; animation-delay: -12s; }
+.lp-aurora span:nth-child(1) { width: 520px; height: 380px; left: 8%; top: 12%; background: var(--lp-brand); }
+.lp-aurora span:nth-child(2) { width: 380px; height: 300px; left: 58%; top: 4%; background: var(--fam-seal); opacity: .28; animation-duration: 22s; animation-delay: -6s; }
+.lp-aurora span:nth-child(3) { width: 340px; height: 280px; left: 40%; top: 34%; background: var(--fam-chart); opacity: .24; animation-duration: 26s; animation-delay: -12s; }
 @keyframes lp-drift {
   0% { transform: translate3d(0, 0, 0) scale(1); }
   50% { transform: translate3d(60px, 30px, 0) scale(1.12); }
   100% { transform: translate3d(-50px, 50px, 0) scale(.95); }
 }
-.lp-hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.lp-hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 56px; align-items: center; }
 .lp-hero-copy { display: flex; flex-direction: column; gap: 24px; }
 .lp-pill { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px 5px 6px; border-radius: 999px; border: 1px solid var(--vhyx-color-border); background: color-mix(in srgb, var(--vhyx-color-surface) 80%, transparent); font-size: 13px; color: var(--vhyx-color-text-subtle); text-decoration: none; }
 .lp-pill b { padding: 2px 8px; border-radius: 999px; background: var(--lp-brand-soft); color: var(--lp-brand); font-weight: 600; font-size: 12px; }
-.lp-title { margin: 0; font-size: clamp(2.7rem, 1.3rem + 4.4vw, 4.6rem); line-height: 1.02; letter-spacing: -0.04em; font-weight: 700; }
+.lp-title { margin: 0; font-size: clamp(2.5rem, 1.4rem + 3vw, 3.9rem); line-height: 1.02; letter-spacing: -0.04em; font-weight: 700; }
 .lp-gradient-text { background: linear-gradient(100deg, var(--lp-brand), color-mix(in srgb, var(--lp-brand) 55%, #fff) 60%, var(--lp-brand)); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: lp-shine 6s linear infinite; }
 :root[data-theme='light'] .lp-gradient-text { background-image: linear-gradient(100deg, var(--lp-brand), color-mix(in srgb, var(--lp-brand) 60%, #000) 60%, var(--lp-brand)); }
 @keyframes lp-shine { to { background-position: -200% 0; } }
@@ -116,7 +116,7 @@ a { color: inherit; }
 .lens-chip {
   position: absolute; left: 0; top: 0; pointer-events: none; display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 9px; white-space: nowrap;
   background: #0b0e16; color: #e6e9f2; border: 1px solid #222a3b; font-family: var(--vhyx-font-mono); font-size: 12px; box-shadow: 0 10px 30px -10px rgb(0 0 0 / .5);
-  transition: transform .6s var(--lp-ease), opacity .3s var(--lp-ease);
+  transition: opacity .3s var(--lp-ease);
 }
 .lens-chip b { color: var(--lens-tone, var(--lp-brand)); font-weight: 500; }
 .lens-foot { display: flex; align-items: center; gap: 8px; padding: 10px 16px; border-top: 1px solid var(--vhyx-color-border); font-family: var(--vhyx-font-mono); font-size: 12px; color: var(--vhyx-color-text-muted); }
@@ -128,7 +128,7 @@ a { color: inherit; }
 .lp-stat { padding: 28px 24px; display: flex; flex-direction: column; gap: 4px; }
 .lp-stat + .lp-stat { border-left: 1px solid var(--vhyx-color-border); }
 .lp-stat strong { font-size: 40px; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
-.lp-stat span { font-size: 14px; color: var(--vhyx-color-text-muted); }
+.lp-stat > span { font-size: 14px; color: var(--vhyx-color-text-muted); }
 
 /* ── Sections ── */
 .lp-section { padding: 112px 0 0; }
@@ -226,8 +226,8 @@ a { color: inherit; }
 .lp-footer a:hover { color: var(--vhyx-color-text); }
 
 /* Scroll reveal */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--lp-ease), transform .8s var(--lp-ease); transition-delay: var(--reveal-delay, 0ms); }
-.reveal[data-visible='true'] { opacity: 1; transform: none; }
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--lp-ease), transform .8s var(--lp-ease); transition-delay: var(--reveal-delay, 0ms); }
+.js .reveal[data-visible='true'] { opacity: 1; transform: none; }
 
 /* Responsive */
 @media (max-width: 1080px) {
@@ -244,6 +244,7 @@ a { color: inherit; }
   .lp-stat:nth-child(n + 3) { border-top: 1px solid var(--vhyx-color-border); }
 }
 @media (max-width: 640px) {
+  .lens-chip { display: none; }
   .lp-inner { padding: 0 16px; }
   .lp-hero { padding: 56px 0 48px; }
   .lp-bento { grid-template-columns: minmax(0, 1fr); }
@@ -254,7 +255,7 @@ a { color: inherit; }
 }
 @media (prefers-reduced-motion: reduce) {
   .lp-aurora span, .lp-gradient-text, .kbd-row span, .json-lines span, .mini-dash .bars b, .lens-dot, .lp-cta::before { animation: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   .lens-ring, .lens-chip { transition: none; }
   html { scroll-behavior: auto; }
 }

@@ -225,7 +225,6 @@ function Showcase(): React.ReactElement {
 }
 
 function AgentSection(): React.ReactElement {
-  const [scenario, setScenario] = useState(1);
   return (
     <div className="lp-split">
       <Reveal>
@@ -241,32 +240,15 @@ function AgentSection(): React.ReactElement {
         </Stack>
       </Reveal>
       <Reveal delay={100}>
-        <Stack gap={3}>
-          <HStack gap={2} wrap role="tablist" aria-label="Who performs the action">
-            {['A person clicks', 'An agent tries the same action'].map((label, i) => (
-              <Button
-                key={label}
-                size="sm"
-                role="tab"
-                aria-selected={scenario === i}
-                variant={scenario === i ? 'primary' : 'ghost'}
-                onClick={() => setScenario(i)}
-                contract={{ id: 'agent-story', intent: 'apply-filter', description: 'Switch the diagram scenario' }}
-              >
-                {label}
-              </Button>
-            ))}
-          </HStack>
-          <VhyxChart
-            key={scenario}
-            source={AGENT_STORY}
-            scenario={scenario}
-            autoplay
-            loop
-            title="Delete a project"
-            aria-label="How a person and an AI agent reach the same confirmation dialog"
-          />
-        </Stack>
+        {/* The player's header tabs switch between the two scenarios (a person, an agent). */}
+        <VhyxChart
+          source={AGENT_STORY}
+          scenario={1}
+          autoplay
+          loop
+          title="Delete a project"
+          aria-label="How a person and an AI agent reach the same confirmation dialog"
+        />
       </Reveal>
     </div>
   );
