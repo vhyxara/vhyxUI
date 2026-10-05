@@ -158,7 +158,7 @@ body {
     padding-bottom: var(--vhyx-space-2);
     scrollbar-width: none;
     /* Fade the right edge so the row reads as scrollable */
-    mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(to right, #000 calc(100% - 56px), transparent);
   }
   .search-trigger { width: 36px; }
 }
