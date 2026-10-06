@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Providers } from './providers';
 import './globals.css';
+import '../styles/atmosphere.css';
 import '../styles/studio.css';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist' });
